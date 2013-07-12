@@ -1,9 +1,323 @@
 body{
-margin:0;
-background-color:#333333;
-color:#999;
-font-family:sans-serif;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+background-color:#555;
+}
+
+a{
+text-decoration:none; color:#FFF;
+}
+
+a:hover{
+color:#d7d7d7;
 }
 
 #wrapper{
+background-color:#FFF;
+margin-top:-10px;
+width:1100px;
+height:100%;
+margin-left: auto;
+margin-right: auto;
+box-shadow: 5px 5px 5px rgba(20,20,20, 0.5);
+border-radius:0 0 35px 35px ;
+border:5px solid #008b9d;
 }
+/*========================HEADER========================*/
+#header{
+position:relative;
+height:240px;
+background-image:url(images/head.jpg);
+background-position:center top;
+background-repeat:no-repeat;
+text-align: right;
+}
+
+#logohead{
+width:124px; 
+height:124px;
+position:absolute;
+box-shadow: 3px 3px 3px #000;
+border-radius: 15px;
+margin-top:45px;
+margin-left:23px;
+}
+
+
+/*========================MENU dans HEADER========================*/
+#menuhead{
+position:absolute;
+right:0;
+bottom:0;
+height:30px;
+width:400px;
+font-size:14px;
+color:#FFF;
+text-align:center;
+margin-bottom:-20px;
+
+}
+#menuhead_1{        
+height:20px;
+width:150px;
+float:left;
+border:solid 2px #FFF;
+background-color:#00728e;
+box-shadow: 3px 3px 3px #000;   
+}
+#menuhead_2{
+height:20px;
+width:130px;
+float:left;
+border:solid 2px #FFF;
+background-color:#b0a500;
+box-shadow: 3px 3px 3px #000;   
+}
+#menuhead_3{
+height:20px;
+width:100px;
+float:left;
+border:solid 2px #FFF;
+background-color:#9c1746;
+box-shadow: 3px 3px 3px #000;   
+}
+
+
+/*========================content========================*/
+#content{
+height:600px; 
+}
+
+/*========================MENU========================*/
+#left-column{
+position:relative; 
+float:left;
+width:250px;
+margin-top:-30px;
+}
+
+#accueil{
+background-color:#f0f4f4;
+height:550px;
+width:130px;
+border:3px solid #008b9d;
+margin-left:20px;
+border-radius: 20px;
+box-shadow: 5px 5px 5px #888;    
+}
+
+#titreaccueil{
+background-color:#9c1746;
+height:23px;
+width:100%;
+border-radius: 15px 15px 0 0;
+border-bottom:solid 2px #008b9d;
+text-align:center;
+color:#FFF;
+padding-top:3px;
+}
+
+#menunav{            
+display: block ;
+width:200px; 
+background: #b0a500 ;
+color: #008b9d ;
+line-height: 1em ;
+text-align: center ;
+padding-bottom:3px;
+text-decoration: none ;
+padding: 4px 0 ;
+margin-bottom:4px;
+border:solid 2px #9c1746;
+box-shadow: 4px 4px 4px #888;
+border-radius: 10px;
+margin-left:40px;
+margin-top:20px;
+}
+ul{margin-bottom:40px}
+#navigation{
+width:200px; 
+list-style-type : none;
+}
+
+#navigation li a {
+display: block ;
+background: #FFF ;
+color: #008b9d ;
+font-size:12px;
+line-height: 1em ;
+text-align: center ;
+padding-bottom:3px;
+text-decoration: none ;
+padding: 4px 0 ;
+margin-bottom:4px;
+border:solid 2px #008b9d;
+box-shadow: 2px 2px 2px #888;
+border-radius: 10px; 
+}
+#navigation li a:hover, #navigation li a:focus, #navigation li a:active {
+background: #FFF ;
+text-decoration: underline ;
+background: #008b9d ;
+color:#FFF;
+}
+#puzzle_puce{
+position:absolute;
+margin-left:-40px;
+margin-top:-5px;
+}
+
+/*======================== MAIN COLUMN ========================*/
+
+#main-column{ 
+position:relative; 
+float:right;
+width:750px;
+min-height:500px;
+margin-top:30px;
+margin-right:50px;
+border:3px solid #008b9d;
+border-radius: 20px;
+box-shadow: 5px 5px 5px #888;    
+} 
+
+#main-content{
+width:480px;
+}
+
+#blocrightcontent img{
+border-radius: 20px;
+padding:5px;
+margin-left:30px;
+margin-top:5px;
+border:2px solid #008b9d;    
+}
+
+
+#titrecontent{
+background-color:#a5a013;
+height:40px;
+width:100%;
+border-radius: 15px 15px 0 0;
+border-bottom:solid 2px #008b9d;
+
+}
+
+.titrecontent{
+padding:8px; 
+padding-left:30px;
+color:#008b9d;
+font-size:20px;  
+}
+
+#footercontent{
+position:absolute;
+bottom:0;
+width:430px;
+height:20px;
+z-index:1;
+margin-left:120px;
+}
+
+#fc1{   
+height:40px;
+background:#b0a500 url(images/projetpartage.png) center top no-repeat;
+width:130px;
+float:left;
+margin-right:10px;
+border-radius: 15px 15px;
+border:solid 2px #9b3541;
+box-shadow: 3px 3px 3px #888;    
+}
+#fc2{  
+height:40px;
+background:#b0a500 url(images/puzzle.png) center top no-repeat;
+width:130px;
+float:left;
+margin-right:10px;
+border-radius: 15px 15px;
+border:solid 2px #9b3541;
+box-shadow: 3px 3px 3px #888;    
+}
+#fc2 p{
+text-align:center;
+line-height: 1.0;
+color:#008b9d;
+margin-top:4px;  
+}
+#fc3{
+height:40px;
+background-color:#fff;
+width:130px;
+float:left;
+border-radius: 15px 15px;
+border:solid 2px #9b3541;
+box-shadow: 3px 3px 3px #888;    
+}
+#fc3 p{
+text-align:center;
+line-height: 1.0;
+color:#008b9d;
+margin-top:4px;
+}
+
+#logohead:hover, #fc1:hover, #fc2:hover, #fc3:hover{  
+box-shadow: 0px 0px 0px #888;    
+}
+
+/*========================AGENDA========================*/
+
+#agenda{
+position:absolute;
+right:0;
+top:0;
+margin-top:8px;
+margin-right:-40px;
+background-color:#fff;
+height:200px;
+width:150px;
+border-radius: 20px 20px;
+border:solid 2px #008b9d;
+box-shadow: 5px 5px 5px #888;    
+}
+
+#titreagenda{
+background-color:#9c1746;
+height:30px;
+width:100%;
+border-radius: 15px 15px 0 0;
+border-bottom:solid 2px #008b9d;
+}
+
+.titreagenda{
+padding-top:4px; 
+text-align:center;
+color:#FFF;
+font-size:14px;  
+}
+
+/*========================FOOTER========================*/
+#footer{
+background-color:#008b9d;
+height:120px;
+width:100%;
+padding-top:1px;
+border-radius:0 0 30px 30px ;
+}
+#newsletter{
+margin-left: auto;
+margin-right: auto;
+margin:0 auto;
+margin-top:24px;
+float:center;
+text-align:center;
+color:#FFF;
+border:2px solid #FFF;
+border-radius: 20px;
+width:200px;
+padding:20px;
+}
+
+.button {  font-size:10px;  color: #666; font-weight: bold; text-decoration: none; line-height: 40px; padding: 12px; margin: 0 5px 5px 0; text-shadow: 0 1px 0 #fff; border: solid 1px #dcdcdc; -webkit-border-radius: 3px; -moz-border-radius: 13px; -o-border-radius: 13px; -ms-border-radius: 13px; -khtml-border-radius: 13px; border-radius: 13px; -webkit-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.95) inset; -moz-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.95) inset; box-shadow: 0 1px 1px rgba(255, 255, 255, 0.95) inset; background: #F3F3F3; /* Old browsers */ }
+.button:hover { color: #7AC4D1;}
+
+

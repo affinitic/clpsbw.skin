@@ -3,11 +3,8 @@
     xmlns:cmf="http://namespaces.zope.org/cmf"
     i18n_domain="clpsbw.skin">
 
-   <cmf:registerDirectory
-        name="clpsbw_images"/>
-   <cmf:registerDirectory
-        name="clpsbw_templates"/>
-   <cmf:registerDirectory
-        name="clpsbw_styles"/>
+   <cmf:registerDirectory name="clpsbw_images"/>
+   <cmf:registerDirectory name="clpsbw_templates"/>
+   <cmf:registerDirectory name="clpsbw_styles"/>
 
 </configure>
