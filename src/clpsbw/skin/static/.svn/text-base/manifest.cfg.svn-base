@@ -1,0 +1,6 @@
+[theme]
+title = Affinitic skin
+description = Affinitic skin
+
+[theme:overrides]
+directory = overrides

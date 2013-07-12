@@ -1,0 +1,22 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="clpsbw.skin">
+
+
+<!-- nouzotre portal Zope 3 browser layer -->
+  <interface
+      interface=".interfaces.IClpsbwTheme"
+      type="zope.publisher.interfaces.browser.IBrowserSkinType"
+      name="Affinitic skin layer"
+      />
+
+
+
+  <browser:resource
+      file="js/clpsbw.js"
+      name="clpsbw.js"
+      />
+
+
+</configure>
