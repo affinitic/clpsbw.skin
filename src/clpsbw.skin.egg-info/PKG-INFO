@@ -3,9 +3,9 @@ Name: clpsbw.skin
 Version: 1.0
 Summary: skin for clps-bw
 Home-page: http://svn.plone.org/svn/collective/
-Author: UNKNOWN
-Author-email: UNKNOWN
-License: gpl
+Author: Affinitic sprl
+Author-email: alain.meurant@affinitic.be
+License: GPL
 Description: .. contents::
         
         Introduction

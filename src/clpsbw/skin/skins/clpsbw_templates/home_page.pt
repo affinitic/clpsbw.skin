@@ -1,0 +1,94 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+  <head>
+    <tal:comment replace="nothing">
+            Please note that this template will most likely be renamed to news_listing
+            in the future, so if you reference this template or its macros from
+            another template, make sure to change it when you upgrade.
+    </tal:comment>
+  </head>
+  <body>
+    <div metal:fill-slot="main" id="content-news">
+      <h1>Bienvenue sur le site du Centre local de promotion
+          de la sant&eacute; du Brabant wallon.</h1>
+      <table width="95%" align="center">
+          <tr>
+              <td valign="middle">
+                  <a href="http://www.clps-bw.be/sante-et-bien-etre-a-l-ecole/plate-forme-harcelement-a-lecole">
+                      <img src="clpsbw_logo_harcelement_a_l_ecole.png"
+                               border="0"
+                               tilte="CLPS-Bw :: Le harcèlement à l'école"
+                               alt="CLPS-Bw :: Le harcèlement à l'école" />
+                  </a>
+                  <!--
+                  <div id="texte-intro">
+                     <p>
+                        Vous trouverez des informations sur notre asbl, nos services
+                        et dans les pi&egrave;ces de puzzle,<br />
+                        des espaces plates-formes sur
+                        des sujets que nous travaillons actuellement.
+                       </p>
+                       <p>
+                        Nous vous invitons &agrave; prendre contact avec nous si vous avez des questions ou des demandes.
+                       </p>
+                  </div>
+                  -->
+              </td>
+              <td valign="middle">
+                   <a href="presentation-db">
+                      <img src="logo_projet_partages.png"
+                           border="0"
+                           width="342"
+                           height="169"
+                           tilte="CLPS-Bw : projets partagés"
+                           alt="logo_projet_partages.png" />
+                  </a>
+              </td>
+              <td valign="middle">
+              </td>
+          </tr>
+    </table>
+
+
+      <br />
+
+      <h1> Les derni&egrave;res infos du CLPS</h1>
+      <div tal:define="view nocall:context/@@homepageView;
+                       news view/getNews;
+                       convert nocall:context/@@plone/toLocalizedTime;
+                       getNewsIconURL nocall:view/getNewsIconURL;"
+           tal:condition="news">
+        <span tal:condition="news">
+          <span tal:repeat="item news">
+            <div class="clpsnews">
+               <div id="clpsnews-image"
+                    tal:define="imgURL python:getNewsIconURL(item);">
+                    <img src="" tal:attributes="src string: ${item/getURL}/${imgURL}" />
+               </div>
+
+               <div id="clpsnews-content">
+                 <a href=""
+                     tal:attributes="href item/getURL;
+                                     title item/Description">
+                     <span tal:content="item/pretty_title_or_id"
+                           class="clpsnews-title" />
+                 </a>
+                 <br />
+                 <span tal:content="item/Description"
+                       class="clpsnews-description" />
+                 <br />
+                 <span tal:content="python: convert(item.Date)"
+                        class="clpsnews-date" />
+               </div>
+            </div>
+            <div id="separationNews"></div>
+          </span>
+        </span>
+      </div>
+   </div>
+  </body>
+</html>
+

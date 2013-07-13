@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<object name="portal_skins"
-        allow_any="False"
+<object name="portal_skins" 
+        allow_any="False" 
         cookie_persistence="False"
         default_skin="clpsbw skin">
 
@@ -14,8 +14,8 @@
          meta_type="Filesystem Directory View"
          directory="clpsbw.skin:skins/clpsbw_styles"/>
 
- <skin-path name="clpsbw skin"
-            based-on="Sunburst Theme">
+ <skin-path name="clpsbw skin" 
+            based-on="Plone Default">
   <layer name="clpsbw_images"
          insert-after="custom"/>
   <layer name="clpsbw_templates"

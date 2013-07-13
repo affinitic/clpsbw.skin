@@ -43,8 +43,8 @@ setup(name='clpsbw.skin',
           'plone.app.theming',
           'plone.app.themingplugins',
           'plone.resource',
-          # -*- Extra requirements: -*-
-      ],
+          'lxml',
+          'reportlab',],
       extras_require={'test': ['plone.app.testing']},
       entry_points="""
       # -*- Entry points: -*-

@@ -1,4 +1,9 @@
 setuptools
+plone.app.theming
+plone.app.themingplugins
+plone.resource
+lxml
+reportlab
 
 [test]
 plone.app.testing

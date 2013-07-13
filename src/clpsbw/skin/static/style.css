@@ -15,7 +15,7 @@ color:#d7d7d7;
 background-color:#FFF;
 margin-top:-10px;
 width:1100px;
-height:100%;
+min-height:700px;
 margin-left: auto;
 margin-right: auto;
 box-shadow: 5px 5px 5px rgba(20,20,20, 0.5);
@@ -84,7 +84,7 @@ box-shadow: 3px 3px 3px #000;
 
 /*========================content========================*/
 #content{
-height:600px; 
+min-height:600px; 
 }
 
 /*========================MENU========================*/
@@ -133,13 +133,17 @@ border-radius: 10px;
 margin-left:40px;
 margin-top:20px;
 }
-ul{margin-bottom:40px}
-#navigation{
+
+ul{
+margin-bottom:40px
+}
+
+.portletNavigationTree{
 width:200px; 
 list-style-type : none;
 }
 
-#navigation li a {
+.portletNavigationTree .navTree li a {
 display: block ;
 background: #FFF ;
 color: #008b9d ;
@@ -154,12 +158,16 @@ border:solid 2px #008b9d;
 box-shadow: 2px 2px 2px #888;
 border-radius: 10px; 
 }
-#navigation li a:hover, #navigation li a:focus, #navigation li a:active {
+
+.portletNavigationTree .navTree li a:hover,
+.portletNavigationTree .navTree li a:focus,
+.portletNavigationTree .navTree li a:active {
 background: #FFF ;
 text-decoration: underline ;
 background: #008b9d ;
 color:#FFF;
 }
+
 #puzzle_puce{
 position:absolute;
 margin-left:-40px;

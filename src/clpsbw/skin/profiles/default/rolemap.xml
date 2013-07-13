@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<rolemap>
+   <roles>
+      <role name="RecitExperience" />
+      <role name="VisiteurDb" />
+      <role name="ConseilAdministration" />
+   </roles>
+   <permissions>
+   </permissions>
+</rolemap>
