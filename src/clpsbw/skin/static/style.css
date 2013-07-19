@@ -1,3 +1,14 @@
+/**
+CLPS-BW 2.0
+AOUT 2013
+
+Mauve #9a0546
+bleu-titre #00728a
+bleu-border #20a3af
+vert background #afa61d
+
+**/
+
 body{
 font-family:Verdana, Arial, Helvetica, sans-serif;
 background-color:#555;
@@ -33,7 +44,7 @@ text-align: right;
 }
 
 #logohead{
-width:124px; 
+width:124px;
 height:124px;
 position:absolute;
 box-shadow: 3px 3px 3px #000;
@@ -56,13 +67,13 @@ text-align:center;
 margin-bottom:-20px;
 
 }
-#menuhead_1{        
+#menuhead_1{
 height:20px;
 width:150px;
 float:left;
 border:solid 2px #FFF;
 background-color:#00728e;
-box-shadow: 3px 3px 3px #000;   
+box-shadow: 3px 3px 3px #000;
 }
 #menuhead_2{
 height:20px;
@@ -70,7 +81,7 @@ width:130px;
 float:left;
 border:solid 2px #FFF;
 background-color:#b0a500;
-box-shadow: 3px 3px 3px #000;   
+box-shadow: 3px 3px 3px #000;
 }
 #menuhead_3{
 height:20px;
@@ -78,22 +89,16 @@ width:100px;
 float:left;
 border:solid 2px #FFF;
 background-color:#9c1746;
-box-shadow: 3px 3px 3px #000;   
+box-shadow: 3px 3px 3px #000;
 }
 
 
 /*========================content========================*/
 #content{
-min-height:600px; 
+min-height:600px;
 }
 
 /*========================MENU========================*/
-#left-column{
-position:relative; 
-float:left;
-width:250px;
-margin-top:-30px;
-}
 
 #accueil{
 background-color:#f0f4f4;
@@ -102,7 +107,7 @@ width:130px;
 border:3px solid #008b9d;
 margin-left:20px;
 border-radius: 20px;
-box-shadow: 5px 5px 5px #888;    
+box-shadow: 5px 5px 5px #888;
 }
 
 #titreaccueil{
@@ -116,28 +121,26 @@ color:#FFF;
 padding-top:3px;
 }
 
-#menunav{            
-display: block ;
-width:200px; 
-background: #b0a500 ;
-color: #008b9d ;
-line-height: 1em ;
-text-align: center ;
-padding-bottom:3px;
-text-decoration: none ;
-padding: 4px 0 ;
-margin-bottom:4px;
-border:solid 2px #9c1746;
-box-shadow: 4px 4px 4px #888;
-border-radius: 10px;
-margin-left:40px;
-margin-top:20px;
+
+
+
+/*** COLONNE GAUCHE ***/
+#portal-column-one{
+border:1px solid #20a3af;
+border-radius:8px;
+width:100px;
 }
 
-ul{
-margin-bottom:40px
+#left-column{
+position:relative;
+float:left;
+width:250px;
+margin-top:-30px;
 }
 
+
+
+/*** PORLET NAVIGATION ***/
 .portletNavigationTree{
 width:200px; 
 list-style-type : none;
@@ -166,6 +169,40 @@ background: #FFF ;
 text-decoration: underline ;
 background: #008b9d ;
 color:#FFF;
+}
+
+
+/*** PORTLET COLONNE GAUCHE ***/
+
+div.portlet-left-column{
+position:relative;
+left:40px;
+width:200px;
+margin-bottom:15px;
+}
+
+div.portlet-left-column dt.portletHeaderDB{
+margin-bottom:8px;
+border:1px solid #9a0546;
+border-radius:4px;
+background-color:#afa61d;
+color:#00728a;
+font-size:1em;
+padding-left:10px;
+}
+
+div.portlet-left-column dt.portletPresentationDB{
+background-color:#fff;
+border:1px solid #00728a;
+border-radius:6px;
+padding-left:10px;
+margin:4px 0px;
+}
+
+div.portlet-left-column dt.portletPresentationDB a{
+font-weight:normal;
+font-size:0.8em;
+border-bottom:none !important;
 }
 
 #puzzle_puce{

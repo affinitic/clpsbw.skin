@@ -13,11 +13,6 @@
       <viewlet name="plone.personal_bar"/>
    </hidden>
    
-   <hidden manager="plone.belowcontentbody" skinname="GdwDocSkin">
-      <viewlet name="plone.abovecontenttitle.documentactions"/>
-   </hidden>
-
-
    <hidden manager="plone.portalfooter" skinname="clpsbw skin">
        <viewlet name="plone.footer"/>
        <viewlet name="plone.colophon"/>

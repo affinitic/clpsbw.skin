@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <metadata>
-  <description>clpsbw skin</description>
-  <version>0.1</version>
-  <dependencies>
-      <dependency>profile-plone.app.theming:default</dependency>
-  </dependencies>
+    <version>0.1</version>
+    <dependencies>
+        <dependency>profile-plone.app.theming:default</dependency>
+    </dependencies>
 </metadata>

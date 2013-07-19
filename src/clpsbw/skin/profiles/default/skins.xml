@@ -15,7 +15,7 @@
          directory="clpsbw.skin:skins/clpsbw_styles"/>
 
  <skin-path name="clpsbw skin" 
-            based-on="Plone Default">
+            based-on="Sunburst Theme">
   <layer name="clpsbw_images"
          insert-after="custom"/>
   <layer name="clpsbw_templates"

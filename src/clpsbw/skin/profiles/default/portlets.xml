@@ -4,7 +4,5 @@
     <portlet
        addview="clpsbw.agendaPlateForme"
        title="Agenda Plate-Forme"
-       description="Portlet qui permetd'afficher les events des Plate-Formes" />
-
-
+       description="Portlet qui permet d'afficher les events des Plate-Formes" />
 </portlets>
