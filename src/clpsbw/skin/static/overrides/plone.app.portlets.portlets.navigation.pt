@@ -1,6 +1,5 @@
 <tal:block i18n:domain="plone">
 <div class="portlet-left-column">
-    -----------------
 <dl class="portlet portletNavigationTree"
     tal:define="root view/navigation_root">
 
@@ -45,6 +44,7 @@
                 SUBTREE
             </li>
         </ul>
+        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
         <span class="portletBottomLeft"></span>
         <span class="portletBottomRight"></span>
     </dd>
