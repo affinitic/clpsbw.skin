@@ -18,26 +18,26 @@
                 Offre de service
             </dt>
             <dt class="portletPresentationDB">
-                <a href="" tal:attributes="href string:${context/portal_url}/">
+                <a href="" tal:attributes="href string:${context/portal_url}/que-proposons-nous/accompagnement-de-projet">
                     Accompagnement de projets
                 </a>
             </dt>
             <dt class="portletPresentationDB">
                 <a href="" 
-                   tal:attributes="href string:${context/portal_url}/">
+                   tal:attributes="href string:${context/portal_url}/que-proposons-nous/mise-en-reseau-espaces-d-echanges">
                    Mise en réseau
                 </a>
             </dt>
             <dt class="portletPresentationDB">
                 <a href="" 
-                   tal:attributes="href string:${context/portal_url}/">
+                   tal:attributes="href string:${context/portal_url}/que-proposons-nous/centre-de-documentation">
                    Centre de documentation
                 </a>
              </dt>
              <dt class="portletPresentationDB">
                 <a href="" 
-                   tal:attributes="href string:${context/portal_url}/">
-                   Fromation / Ateliers (?)
+                   tal:attributes="href string:${context/portal_url}/que-proposons-nous/formations-ateliers">
+                   Fromation / Ateliers
                 </a>
              </dt>
              <dt class="portletPresentationDB">

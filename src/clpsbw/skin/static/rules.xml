@@ -24,17 +24,21 @@
 
 
         <copy attributes="class id dir" content="/html/body" theme="/html/body" />
-        
+
+        <!-- Logo link -->
+        <copy attributes="href"
+              css:content="#portal-logo"
+              css:theme="#logo .logo-link" />
+
         <replace css:content="#portal-column-one"
                  css:theme="#left-column" />
-        
+
         <replace css:content=".portletNavigationTree"
                  css:theme="#navigation" />
-        
+
         <replace css:content="#portal-column-content"
                  css:theme="#main-column" />
-        
-        
+
     </rules>
 
 </rules>
