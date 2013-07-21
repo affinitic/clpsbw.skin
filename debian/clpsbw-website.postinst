@@ -1,0 +1,30 @@
+#!/bin/sh
+
+set -e
+
+PACKAGE="clpsbw-website"
+PACKAGE_HOME="/home/clps/$PACKAGE"
+
+export CLIENT_HOME="$PACKAGE_HOME/var/instance01"
+
+case "$1" in
+    configure)
+	# create var
+	/bin/chown -R clps.clps $PACKAGE_HOME
+	/usr/bin/find $PACKAGE_HOME -name '*.pyc' -delete
+	/usr/bin/find $PACKAGE_HOME -name '*.pyo' -delete
+	/usr/bin/find $PACKAGE_HOME -name '*.mo' -delete
+	/etc/init.d/clpsbw-instance01 restart
+    ;;
+
+    abort-remove|abort-upgrade|abort-deconfigure)
+        echo "abort"
+    ;;
+
+    *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac
+
+exit 0
