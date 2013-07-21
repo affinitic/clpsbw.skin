@@ -58,6 +58,8 @@ install-website:
 	sed -i s%${BUILDDIR}%${INSTALLDIR}%g ${BUILDDIR}/parts/instance/etc/zope.conf
 	cp -ap $(BUILDDIR)/bin $(DEBIANCORE)/${INSTALLDIR}
 	cp -ap $(BUILDDIR)/devel $(DEBIANCORE)/${INSTALLDIR}
+	cp -ap $(BUILDDIR)/develop-eggs $(DEBIANCORE)/${INSTALLDIR}
+	find ${BUILDDIR}/develop-eggs -type f -exec sed -i s%${BUILDDIR}%${INSTALLDIR}%g {} \;
 	cp -ap $(BUILDDIR)/eggs $(DEBIANCORE)/${INSTALLDIR}
 	cp -ap $(BUILDDIR)/parts/omelette $(DEBIANCORE)/${INSTALLDIR}/parts
 	cp -ap $(BUILDDIR)/parts/mailmansubform $(DEBIANCORE)/${INSTALLDIR}/parts
@@ -74,6 +76,7 @@ install-website:
 	mkdir -p $(DEBIANCORE)/${INSTALLDIR}/var/log
 	mkdir -p $(DEBIANCORE)/${INSTALLDIR}/var/filestorage
 	mkdir -p $(DEBIANCORE)/${INSTALLDIR}/var/blobstorage
+	mkdir -p $(DEBIANCORE)/${INSTALLDIR}/var/instance
 	cp -ap $(BUILDDIR)/bin/instance $(DEBIANCORE)/${INSTALLDIR}/bin
 	cp -ap $(BUILDDIR)/parts/instance $(DEBIANCORE)/${INSTALLDIR}/parts
 
