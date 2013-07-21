@@ -74,6 +74,8 @@ install-website:
 	mkdir -p $(DEBIANCORE)/${INSTALLDIR}/var/log
 	mkdir -p $(DEBIANCORE)/${INSTALLDIR}/var/filestorage
 	mkdir -p $(DEBIANCORE)/${INSTALLDIR}/var/blobstorage
+	cp -ap $(BUILDDIR)/bin/instance $(DEBIANCORE)/${INSTALLDIR}/bin
+	cp -ap $(BUILDDIR)/parts/instance $(DEBIANCORE)/${INSTALLDIR}/parts
 
 install: install-base install-website
 	#rm -rf $(BUILDDIR)/
