@@ -39,9 +39,6 @@ build:
 
 install-base:
 	rm -rf $(DEBIANCORE)
-	for i in `seq -w 01 0$(INSTANCECOUNT)` ; do \
-           rm -rf $(DEBIANCORE)$$i ; \
-	done
 	dh_testdir
 	dh_testroot
 	dh_clean -k -s
@@ -55,19 +52,18 @@ install-website:
 	mkdir -p $(DEBIANCORE)/home/clps/$(PACKAGE)
 	mkdir -p $(DEBIANCORE)/home/clps/$(PACKAGE)/parts
 	find ${BUILDDIR}/bin -executable -type f -exec sed -i s%${BUILDDIR}%${INSTALLDIR}%g {} \;
-	sed -i s%${BUILDDIR}%${INSTALLDIR}%g ${BUILDDIR}/bin/instance01
-	sed -i s%${BUILDDIR}%${INSTALLDIR}%g ${BUILDDIR}/parts/instance01/bin/interpreter
-	sed -i s%${BUILDDIR}%${INSTALLDIR}%g ${BUILDDIR}/parts/instance01/etc/zope.conf
+	sed -i s%${BUILDDIR}%${INSTALLDIR}%g ${BUILDDIR}/bin/instance
+	sed -i s%${BUILDDIR}%${INSTALLDIR}%g ${BUILDDIR}/parts/instance/bin/interpreter
+	sed -i s%${BUILDDIR}%${INSTALLDIR}%g ${BUILDDIR}/parts/instance/etc/zope.conf
 	cp -ap $(BUILDDIR)/bin $(DEBIANCORE)/${INSTALLDIR}
 	cp -ap $(BUILDDIR)/devel $(DEBIANCORE)/${INSTALLDIR}
 	cp -ap $(BUILDDIR)/eggs $(DEBIANCORE)/${INSTALLDIR}
 	cp -ap $(BUILDDIR)/parts/omelette $(DEBIANCORE)/${INSTALLDIR}/parts
-	cp -ap $(BUILDDIR)/parts/zpsycopg $(DEBIANCORE)/${INSTALLDIR}/parts
-	rm -r $(DEBIANCORE)/${INSTALLDIR}/bin/zeo
-	rm -r $(DEBIANCORE)/${INSTALLDIR}/bin/zeopack
-	rm -r $(DEBIANCORE)/${INSTALLDIR}/bin/repozo
-	rm $(DEBIANCORE)/${INSTALLDIR}/bin/instance01
-	rm $(DEBIANCORE)/${INSTALLDIR}/bin/instance02
+	cp -ap $(BUILDDIR)/parts/mailmansubform $(DEBIANCORE)/${INSTALLDIR}/parts
+	cp -ap $(BUILDDIR)/parts/lxml $(DEBIANCORE)/${INSTALLDIR}/parts
+	cp -ap $(BUILDDIR)/parts/mx-base $(DEBIANCORE)/${INSTALLDIR}/parts
+	cp -ap $(BUILDDIR)/parts/productdistros $(DEBIANCORE)/${INSTALLDIR}/parts
+	rm $(DEBIANCORE)/${INSTALLDIR}/bin/instance
 	for i in $(find $(DEBIANCORE)/${INSTALLDIR}/parts/omelette -type l); do old_link=$(readlink -m $i); new_link=$(echo $old_link | sed  s%${BUILDDIR}/${INSTALLDIR}/); rm $i; ln -f -s $new_link $i; done
 	find $(DEBIANCORE)/${INSTALLDIR} -name "*.pyc" -delete;
 	find $(DEBIANCORE)/${INSTALLDIR} -name "*.pyo" -delete;
@@ -77,19 +73,6 @@ install-website:
 	mkdir -p $(DEBIANCORE)/${INSTALLDIR}/var/log
 	mkdir -p $(DEBIANCORE)/${INSTALLDIR}/var/filestorage
 	mkdir -p $(DEBIANCORE)/${INSTALLDIR}/var/blobstorage
-	sed -i s%${BUILDDIR}%${INSTALLDIR}%g ${BUILDDIR}/bin/repozo
-	cp -ap $(BUILDDIR)/bin/repozo $(DEBIANCORE)/${INSTALLDIR}/bin
-	for i in `seq -w 01 0$(INSTANCECOUNT)` ; do \
-	    mkdir -p $(DEBIANCORE)$$i/${INSTALLDIR} ; \
-	    mkdir -p $(DEBIANCORE)$$i/${INSTALLDIR}/bin ; \
-	    mkdir -p $(DEBIANCORE)$$i/${INSTALLDIR}/parts ; \
-	    mkdir -p $(DEBIANCORE)$$i/${INSTALLDIR}/var/instance$$i ; \
-	    cp -ap $(BUILDDIR)/bin/instance01 $(DEBIANCORE)$$i/${INSTALLDIR}/bin/instance$$i ; \
-	    cp -ap $(BUILDDIR)/parts/instance01 $(DEBIANCORE)$$i/${INSTALLDIR}/parts/instance$$i ; \
-	    sed -i s/instance01/instance$$i/g $(DEBIANCORE)$$i/${INSTALLDIR}/bin/instance$$i ; \
-	    sed -i s/instance01/instance$$i/g $(DEBIANCORE)$$i/${INSTALLDIR}/parts/instance$$i/etc/zope.conf ; \
-            sed -i "s/address 5080/address $((5010 + 10#$$i))/" $(DEBIANCORE)$$i/${INSTALLDIR}/parts/instance$$i/etc/zope.conf ; \
-	done
 
 install: install-base install-website
 	#rm -rf $(BUILDDIR)/
