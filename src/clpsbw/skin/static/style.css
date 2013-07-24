@@ -37,23 +37,44 @@ border:5px solid #008b9d;
 #header{
 position:relative;
 height:240px;
-background-image:url(images/head.jpg);
+background-image:url(/plone/++theme++clpsbw.skin/images/head.jpg);
 background-position:center top;
 background-repeat:no-repeat;
 text-align: right;
 }
 
 #logo{
-position:absolute;
-display:block;
+position:relative;
+top:50px;
+left:30px;
 width:124px;
 height:124px;
-box-shadow: 3px 3px 3px #000;
-border-radius: 15px;
-margin-top:45px;
-margin-left:23px;
+box-shadow:3px 3px 3px #000;
+border-radius:15px;
 }
 
+#accueil-btn{
+position:relative;
+top:96px;
+left:57px;
+width:124px;
+height:18px;
+background-color:#9a0546;
+border-width:2px 2px 0px 2px;
+border-style:solid;
+border-color:#20a3af;
+
+border-radius: 15px 15px 0px 0px;
+text-align:center;
+}
+
+#accueil-btn a{
+display:block;
+width:124px;
+height:25px;
+color:#fff !important;
+font-size:0.8em;
+}
 
 /*========================MENU dans HEADER========================*/
 #menuhead{
@@ -127,9 +148,17 @@ padding-top:3px;
 
 /*** COLONNE GAUCHE ***/
 #portal-column-one{
-border:1px solid #20a3af;
-border-radius:8px;
-width:100px;
+border-width:0px 2px 2px 2px; 
+border-style:solid;
+border-color:#20a3af;
+border-radius:0px 0px 8px 8px;
+width:124px;
+padding-top:40px;
+}
+
+div.position-0 {
+margin-left:-1040px;
+margin-top:-13px;
 }
 
 #left-column{
@@ -177,7 +206,7 @@ color:#FFF;
 
 div.portlet-left-column{
 position:relative;
-left:40px;
+left:10px;
 width:200px;
 margin-bottom:15px;
 }
