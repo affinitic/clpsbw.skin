@@ -15,9 +15,7 @@
       method="post"
       enctype="multipart/form-data">
     <br />
-    <div metal:use-macro="here/document_actions/macros/document_actions">
-        Document actions (print, sendto etc)
-    </div>
+    
     <h1>:: Ressource ::</h1>
     Il s'agit de livre, cd-rom, dvd, dossier pédagogique, jeu, ....
 
