@@ -14,8 +14,7 @@
             Mes donn&eacute;es
         </dt>
         <div tal:condition="python: auteur.auteur_for_experience==True">
-        <dt id="Recits"
-            class="portletItemDB"><img src="puce_presentation_bd.png" /> experiences</dt>
+        <dt class="portletItemDB portletTitreDb"><img src="puce_presentation_bd.png" /> experiencesssssssssssss</dt>
             <dd class="portletItemDB">
                 <a href=""
                    tal:attributes="href string:${context/portal_url}/experience-creer">Cr&eacute;er</a>
@@ -31,8 +30,7 @@
         </div>
 
         <div tal:condition="python: auteur.auteur_for_institution==True">
-        <dt id="Recits"
-            class="portletItemDB"><img src="puce_presentation_bd.png" /> institutions</dt>
+        <dt class="portletItemDB portletTireDb"><img src="puce_presentation_bd.png" /> institutions</dt>
             <dd class="portletItemDB">
                 <a href=""
                    tal:attributes="href string:${context/portal_url}/instituion-creer">Cr&eacute;er</a>

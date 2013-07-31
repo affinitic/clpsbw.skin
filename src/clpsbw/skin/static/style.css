@@ -22,6 +22,11 @@ a:hover{
 color:#d7d7d7;
 }
 
+#content a:link, dl.portlet a:link {
+border-bottom: 0.1em solid #CCCCCC;
+color: #205C90;
+}
+
 #wrapper{
 background-color:#FFF;
 margin-top:-10px;
@@ -240,6 +245,133 @@ position:absolute;
 margin-left:-40px;
 margin-top:-5px;
 }
+
+
+#portlet-db,
+#portlet-db-auteur,
+#portlet-gestion-db{
+border-radius:10px 0px 0px 10px;
+width:200px;
+min-height:100px;
+margin:2em 10px;
+}
+
+/*** PORLET DB AUTEUR ***/
+#portlet-db-auteur .portletHeaderDB{
+background-color:#ff76f0;    
+}
+
+#portlet-db-auteur .portletItemDB{
+border-left:1px solid #ccc;
+border-right:1px solid #ccc;
+background-color:#ffe4f8;
+}
+
+#portlet-db-auteur .portletFooterDB {
+background-color:#dcbcd2;
+}
+
+#portlet-db-auteur .portletTitreDb{
+color:#8e0045;
+text-shadow:1px 1px 1px rgba(255,255,255, 0.5);
+}
+
+#portlet-db-auteur .portletItemDB{
+padding:2px 0px 0px 20px;
+}
+
+#portlet-db-auteur a:link, 
+#portlet-db-auteur dl.portlet a:link {
+border-bottom:none;
+color:#205C90;
+}
+
+#portlet-db-auteur a:hover, 
+#portlet-db-auteur dl.portlet a:hover {
+color:#aa0059 !important;
+}
+
+
+
+/*** PORTLET GESTION DB ***/
+.portletHeaderDB{
+border-radius:10px 0px 0px 0px;
+background-color:#faa448;
+line-height:30px;
+color:#fff;
+font-variant:small-caps;
+font-size:1.1em;
+font-weight:bold;
+padding-left:15px;
+border-bottom:1px solid #e9953a;
+}
+
+.portletItemDB,
+#portlet-db-auteur p{
+border-left:1px solid #ccc;
+border-right:1px solid #ccc;
+background-color:#ffefdd;
+}
+
+.portletPresentationDB ul{
+margin:0px;
+}
+
+.portletPresentationDB li{
+display:block;
+margin-left:20px;
+}
+
+.portletFooterDB{
+border-radius:0px 0px 0px 10px;
+border-left:1px solid #ccc;
+border-right:1px solid #ccc;
+border-bottom:1px solid #ccc;
+background-color:#f0e2cf;
+height:15px;
+}
+
+
+.separation{
+width:180px;
+margin-left:-13px;
+margin-top:5px;
+border-bottom:1px dotted #ccc;
+}
+
+.portletItemDB a{
+padding-left:20px;
+font-size:0.8em;
+}
+
+.portletItemDB a:hover{
+color:#41cff2;
+}
+
+.menu-titre{
+text-transform:capitalize;
+margin-top:10px;
+font-size:0.9em;
+}
+
+.small-comment{
+font-size:0.7em;
+color:#aaa;
+padding-left:2em;
+}
+
+.etatBase{
+margin-top:5px;
+font-size:0.8em;
+background-color:rgba(225, 210, 192, 0.5);
+width:160px;
+border-radius:12px;
+padding:5px;
+}
+
+
+
+
 
 /*======================== MAIN COLUMN ========================*/
 
