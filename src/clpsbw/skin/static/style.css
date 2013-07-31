@@ -291,10 +291,27 @@ color:#205C90;
 color:#aa0059 !important;
 }
 
+#portlet-db-auteur p{
+border-left:1px solid #ccc;
+border-right:1px solid #ccc;
+background-color:#ffefdd;
+}
+
 
 
 /*** PORTLET GESTION DB ***/
-.portletHeaderDB{
+#portlet-gestion-db a:link, 
+#portlet-gestion-db dl.portlet a:link {
+border-bottom:none;
+color:#205C90;
+}
+
+#portlet-gestion-db a:hover, 
+#portlet-gestion-db dl.portlet a:hover {
+color:#aa0059 !important;
+}
+
+#portlet-gestion-db .portletHeaderDB{
 border-radius:10px 0px 0px 0px;
 background-color:#faa448;
 line-height:30px;
@@ -306,12 +323,41 @@ padding-left:15px;
 border-bottom:1px solid #e9953a;
 }
 
-.portletItemDB,
-#portlet-db-auteur p{
+#portlet-gestion-db .portletItemDB{
 border-left:1px solid #ccc;
 border-right:1px solid #ccc;
 background-color:#ffefdd;
+padding:2px 0px 0px 0px;
 }
+
+#portlet-gestion-db .portletTitreDb{
+color:#903a00;
+text-shadow:1px 1px 1px rgba(255,255,255, 0.5);
+}
+
+#portlet-gestion-db .rubriqueDB{
+background-color:rgba(225, 210, 192, 0.5);
+width:90%;
+border:1px solid #000;
+border-radius:12px;
+padding:5px;
+margin:auto;
+}
+
+#portlet-gestion-db .totalDB{
+height:20px;
+background-image:url(images/puce_total.png);
+background-repeat:no-repeat;
+background-position:left 0px;
+padding-left:17px;
+margin-top:5px;
+margin-left:25px;
+}
+
+
+
+
+
 
 .portletPresentationDB ul{
 margin:0px;
@@ -360,14 +406,7 @@ color:#aaa;
 padding-left:2em;
 }
 
-.etatBase{
-margin-top:5px;
-font-size:0.8em;
-background-color:rgba(225, 210, 192, 0.5);
-width:160px;
-border-radius:12px;
-padding:5px;
-}
+
 
 
 
