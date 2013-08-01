@@ -16,13 +16,12 @@
     <br />
     
     <h1>:: Gestion des milieux de vie ::</h1>
-    <fieldset>
-        <legend class="legende">Modifier un milieu de vie</legend>
+    <div class="formulaire">
+        <h2 class="titre-formulaire">Modifier un milieu de vie</h2>
         <tal:boucle tal:repeat="milieudevie milieudevies">
             <form action="milieu-de-vie-inserer" method="post">
-                <div>
-                    <img src="list_flch_rouge.png" /> Milieu de vie
-                    <br />
+                <div class="formulaire-input">
+                    <label for="milieudevie_nom">Milieu de vie</label>
                     <input type="text"
                            name="milieudevie_nom"
                            value=""
@@ -30,9 +29,9 @@
                            class="grasorange"
                            tal:attributes="value milieudevie/milieudevie_nom" />
                 </div>
-                <div>
-                    <img src="list_flch_rouge.png" /> Etat
-                    <br />
+
+                <div class="formulaire-input">
+                    <label for="milieudevie_actif">Etat</label>
                     <select name="milieudevie_actif">
                         <option value="True"
                                 tal:attributes="selected python:milieudevie.milieudevie_actif and 'selected' or None;">Activer</option>
@@ -40,8 +39,8 @@
                                 tal:attributes="selected python:not milieudevie.milieudevie_actif and 'selected' or None;">Désactiver</option>
                     </select>
                 </div>
-                <hr />
-                <div class="div_form_input">
+
+                <div class="submit-form">
                     <input type="hidden"
                            name="operation"
                            value="update" />
@@ -54,8 +53,7 @@
                 </div>
             </form>
         </tal:boucle>
-    </fieldset>
-
+    </div>
 </form>
 </div><!-- div metal-->
 </body>

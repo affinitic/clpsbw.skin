@@ -15,18 +15,19 @@
     <br />
     
     <h1>:: Gestion des milieux de vie ::</h1>
-    <fieldset tal:define="milieudevies python: view.getAllMilieuDeVie()">
+    <div class="table-donne-db"
+         tal:define="milieudevies python: view.getAllMilieuDeVie()">
         <table width="50%"
-                   align="center"
-                   class="listing">
-                <thead>
+               align="center"
+               class="listing">
+            <thead>
                 <tr>
                     <th> Milieu de vie </th>
                     <th> Etat </th>
                     <th class="nosort"> Modifier </th>
                 </tr>
-                </thead>
-                <tbody>
+            </thead>
+            <tbody>
                 <tal:boucle tal:repeat="milieudevie milieudevies">
                     <span tal:define="odd repeat/milieudevie/odd">
                         <tr tal:attributes="class python:odd and 'odd' or 'even'">
@@ -50,38 +51,38 @@
                         </tr>
                     </span>
                 </tal:boucle>
-                </tbody>
+            </tbody>
         </table>
-    </fieldset>
-    <fieldset>
-        <ul class="formulaire">
-            <li>
-                <img src="list_flch_rouge.png" /> Milieu de vie
-                <br />
-                <input type="text"
-                       name="milieudevie_nom"
-                       value=""
-                       size="50" />
-            </li>
-            <li>
-                <img src="list_flch_rouge.png" /> Etat
-                <br />
-                <select name="milieudevie_actif"
-                        id="milieudevie_actif">
-                    <option value="True" selected="selected">Activer</option>
-                    <option value="False">Désactiver</option>
-                </select>
-            </li>
-            <hr />
-            <li>
-                <input type="hidden"
-                       name="operation"
-                       value="insert" />
-                <input type="submit"
-                       value="Enregister le milieu de vie" />
-            </li>
-        </ul>
-    </fieldset>
+    </div>
+    
+    <div class="formulaire">
+        <h2 class="titre-formulaire">Ajouter un milieu de vie</h2>
+        <div class="formulaire-input">
+            <label for="milieudevie_nom">Milieu de vie</label>
+            <input type="text"
+                   name="milieudevie_nom"
+                   id="milieudevie_nom"
+                   value=""
+                   size="80" />
+        </div>
+        
+        <div class="formulaire-input">
+            <label for="milieudevie_actif">Etat</label>
+            <select name="milieudevie_actif"
+                    id="milieudevie_actif">
+                <option value="True" selected="selected">Activer</option>
+                <option value="False">Désactiver</option>
+            </select>
+        </div>
+        
+        <div class="submit-form">
+            <input type="hidden"
+                   name="operation"
+                   value="insert" />
+            <input type="submit"
+                   value="Enregister le milieu de vie" />
+        </div>
+    </div>
 </form>
 </div><!-- div metal-->
 </body>

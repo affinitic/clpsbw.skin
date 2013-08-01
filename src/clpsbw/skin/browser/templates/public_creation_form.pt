@@ -15,7 +15,8 @@
     <br />
     
     <h1>Encoder un public</h1>
-    <fieldset tal:define="publics python: view.getAllPublic()">
+    <div class="table-donne-db"
+         tal:define="publics python: view.getAllPublic()">
         <table width="50%"
                align="center"
                class="listing">
@@ -52,37 +53,35 @@
                 </tal:boucle>
                 </tbody>
         </table>
-    </fieldset>
-    <fieldset>
-        <ul class="formulaire">
-            <li>
-                <img src="list_flch_rouge.png" /> Public
-                <br />
-                <input type="text"
-                       name="public_nom"
-                       value=""
-                       size="50" />
-            </li>
-            <img src="info.png" />Information (texte Céline)
-            <li>
-                <img src="list_flch_rouge.png" /> Etat
-                <br />
-                <select name="public_actif"
-                        id="public_actif">
-                    <option value="True" selected="selected">Activer</option>
-                    <option value="False">Désactiver</option>
-                </select>
-            </li>
-            <hr />
-            <li>
-                <input type="hidden"
-                       name="operation"
-                       value="insert" />
-                <input type="submit"
-                       value="Enregister le public" />
-            </li>
-        </ul>
-    </fieldset>
+    </div>
+
+    <div class="formulaire">
+        <h2 class="titre-formulaire">Ajouter un public</h2>
+        <div class="formulaire-input">
+            <label for="public_nom">Public</label>
+            <br />
+            <input type="text"
+                   name="public_nom"
+                   id="public_nom"
+                   value=""
+                   size="50" />
+        </div>
+        <div class="formulaire-input">
+            <label for="public_actif">Etat</label>
+            <select name="public_actif"
+                    id="public_actif">
+                <option value="True" selected="selected">Activer</option>
+                <option value="False">Désactiver</option>
+            </select>
+        </div>
+        <div class="submit-form">
+            <input type="hidden"
+                   name="operation"
+                   value="insert" />
+            <input type="submit"
+                   value="Enregister le public" />
+        </div>
+    </div>
 </form>
 </div><!-- div metal-->
 </body>

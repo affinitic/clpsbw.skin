@@ -256,9 +256,21 @@ min-height:100px;
 margin:2em 10px;
 }
 
+.portletHeaderDB{
+border-radius:10px 0px 0px 0px;
+line-height:30px;
+color:#fff;
+font-variant:small-caps;
+font-size:1.1em;
+font-weight:bold;
+padding-left:15px;
+border-bottom:1px solid #e9953a;
+}
+
 /*** PORLET DB AUTEUR ***/
 #portlet-db-auteur .portletHeaderDB{
-background-color:#ff76f0;    
+background-color:#ff76f0;
+border:1px solid #8e0045;   
 }
 
 #portlet-db-auteur .portletItemDB{
@@ -269,6 +281,11 @@ background-color:#ffe4f8;
 
 #portlet-db-auteur .portletFooterDB {
 background-color:#dcbcd2;
+border-radius:0px 0px 0px 10px;
+border-left:1px solid #ccc;
+border-right:1px solid #ccc;
+border-bottom:1px solid #ccc;
+height:15px;
 }
 
 #portlet-db-auteur .portletTitreDb{
@@ -312,15 +329,8 @@ color:#aa0059 !important;
 }
 
 #portlet-gestion-db .portletHeaderDB{
-border-radius:10px 0px 0px 0px;
 background-color:#faa448;
-line-height:30px;
-color:#fff;
-font-variant:small-caps;
-font-size:1.1em;
-font-weight:bold;
-padding-left:15px;
-border-bottom:1px solid #e9953a;
+border:1px solid #e9953a;
 }
 
 #portlet-gestion-db .portletItemDB{
@@ -332,16 +342,25 @@ padding:2px 0px 0px 0px;
 
 #portlet-gestion-db .portletTitreDb{
 color:#903a00;
+font-size:0.9em;
 text-shadow:1px 1px 1px rgba(255,255,255, 0.5);
 }
 
 #portlet-gestion-db .rubriqueDB{
-background-color:rgba(225, 210, 192, 0.5);
+background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(241,205,156,0.5) 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(241,205,156,0.5)));
+background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(241,205,156,0.5) 100%);
+background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(241,205,156,0.5) 100%);
+background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(241,205,156,0.5) 100%);
+background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(241,205,156,0.5) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#80f1cd9c',GradientType=0 );
 width:90%;
-border:1px solid #000;
+box-shadow: -1px -1px 1px rgba(139,29,0, 0.3),
+            1px 1px 1px rgba(255, 255, 255, 0.3);
 border-radius:12px;
 padding:5px;
 margin:auto;
+margin-top:8px;
 }
 
 #portlet-gestion-db .totalDB{
@@ -354,11 +373,16 @@ margin-top:5px;
 margin-left:25px;
 }
 
+#portlet-gestion-db .portletFooterDB{
+border-radius:0px 0px 0px 10px;
+border-left:1px solid #ccc;
+border-right:1px solid #ccc;
+border-bottom:1px solid #ccc;
+background-color:#f0e2cf;
+height:15px;
+}
 
-
-
-
-
+/*** PORTLET PRESENTATION DB ***/
 .portletPresentationDB ul{
 margin:0px;
 }
@@ -368,14 +392,6 @@ display:block;
 margin-left:20px;
 }
 
-.portletFooterDB{
-border-radius:0px 0px 0px 10px;
-border-left:1px solid #ccc;
-border-right:1px solid #ccc;
-border-bottom:1px solid #ccc;
-background-color:#f0e2cf;
-height:15px;
-}
 
 
 .separation{
@@ -412,8 +428,7 @@ padding-left:2em;
 
 
 
-/*======================== MAIN COLUMN ========================*/
-
+/*** MAIN COLUMN ***/
 #main-column{ 
 position:relative; 
 float:right;
@@ -437,7 +452,6 @@ margin-left:30px;
 margin-top:5px;
 border:2px solid #008b9d;    
 }
-
 
 #titrecontent{
 background-color:#a5a013;
@@ -510,8 +524,9 @@ margin-top:4px;
 box-shadow: 0px 0px 0px #888;    
 }
 
-/*========================AGENDA========================*/
 
+
+/*** AGENDA ***/
 #agenda{
 position:absolute;
 right:0;
@@ -541,7 +556,7 @@ color:#FFF;
 font-size:14px;  
 }
 
-/*========================FOOTER========================*/
+/*** FOOTER ***/
 #footer{
 background-color:#008b9d;
 height:120px;

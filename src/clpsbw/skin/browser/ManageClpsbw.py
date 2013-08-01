@@ -991,9 +991,9 @@ class ManageClpsbw(BrowserView):
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        PublicTable = wrapper.getMapper('public')
-        query = session.query(PublicTable)
-        query = query.order_by(PublicTable.public_nom)
+        #PublicTable = wrapper.getMapper('public')
+        query = session.query(Public)
+        query = query.order_by(Public.public_nom)
         allPublics = query.all()
         return allPublics
 
