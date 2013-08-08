@@ -37,7 +37,7 @@
              <dt class="portletPresentationDB">
                 <a href="" 
                    tal:attributes="href string:${context/portal_url}/que-proposons-nous/formations-ateliers">
-                   Fromation / Ateliers
+                   Formation / Ateliers
                 </a>
              </dt>
              <dt class="portletPresentationDB">
