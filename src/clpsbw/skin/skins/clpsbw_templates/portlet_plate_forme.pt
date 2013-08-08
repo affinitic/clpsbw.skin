@@ -18,22 +18,16 @@
                 Les plates-formes
             </dt>
             <dt class="portletPresentationDB">
-                <a href="" tal:attributes="href string:${context/portal_url}/sante-et-bien-etre-a-l-ecole">
-                    Santé à l'ecole
-                </a>
-            </dt>
-            <dt class="portletPresentationDB">
                 <a href="" 
                    tal:attributes="href string:${context/portal_url}/sante-et-bien-etre-des-familles">
                    Santé des familles
                 </a>
             </dt>
             <dt class="portletPresentationDB">
-                <a href="" 
-                   tal:attributes="href string:${context/portal_url}/sante-environnement">
-                   Santé - Environnement
+                <a href="" tal:attributes="href string:${context/portal_url}/sante-et-bien-etre-a-l-ecole">
+                    Santé à l'ecole
                 </a>
-             </dt>
+            </dt>
              <dt class="portletPresentationDB">
                 <a href="" 
                    tal:attributes="href string:${context/portal_url}/sante-des-communes">
@@ -42,15 +36,15 @@
              </dt>
              <dt class="portletPresentationDB">
                 <a href="" 
-                   tal:attributes="href string:${context/portal_url}/sante-environnement">
-                   Santé - Environnement
-                </a>
-             </dt>
-             <dt class="portletPresentationDB">
-                <a href="" 
                    tal:attributes="href
                    string:${context/portal_url}/point-d-appui-assuetudes">
                    Point d'appui assuetudes
+                </a>
+            </dt>
+            <dt class="portletPresentationDB">
+                <a href="" 
+                   tal:attributes="href string:${context/portal_url}/sante-environnement">
+                   Santé - Environnement
                 </a>
             </dt>
             <dt class="portletPresentationDB">
