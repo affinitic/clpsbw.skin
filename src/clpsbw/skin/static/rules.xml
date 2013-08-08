@@ -29,6 +29,18 @@
         <copy attributes="href"
               css:content="#portal-logo"
               css:theme="#logo .logo-link" />
+        
+        <replace css:content-children="#portal-siteactions"
+                 css:theme-children="#site-action" />
+
+        <replace css:content-children="#portal-searchbox"
+                 css:theme-children="#search-plone" />
+
+        <replace css:content-children="#user-name"
+                 css:theme-children="#username" />
+        
+        <replace css:content-children="#portal-personaltools-wrapper"
+                 css:theme-children="#personal-tools" />
 
         <replace css:content="#portal-column-one"
                  css:theme="#left-column" />
