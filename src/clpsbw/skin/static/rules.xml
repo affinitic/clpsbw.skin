@@ -45,11 +45,15 @@
         <replace css:content="#portal-column-one"
                  css:theme="#left-column" />
 
+        <replace css:content="#portal-column-content"
+                 css:theme="#main-column" />
+
+        <replace css:content="#portal-column-two"
+                 css:theme="#right-column" />
+        
         <replace css:content=".portletNavigationTree"
                  css:theme="#navigation" />
 
-        <replace css:content="#portal-column-content"
-                 css:theme="#main-column" />
 
     </rules>
 
