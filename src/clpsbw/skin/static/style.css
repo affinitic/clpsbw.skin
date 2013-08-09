@@ -356,43 +356,12 @@ margin-left:120px;
 
 /*** COLONNE DROITE ***/
 #portal-column-two{
-width:124px;
+width:50px;
 padding-top:40px;
-background-color:#eee;
-margin-left:-130px;
+margin-left:-50px;
 }
 
 
-
-/*** AGENDA ***/
-#agenda{
-position:absolute;
-right:0;
-top:0;
-margin-top:8px;
-margin-right:-40px;
-background-color:#fff;
-height:200px;
-width:150px;
-border-radius:20px 20px;
-border:solid 2px #008b9d;
-box-shadow:5px 5px 5px #888;    
-}
-
-#titreagenda{
-background-color:#9c1746;
-height:30px;
-width:100%;
-border-radius:15px 15px 0 0;
-border-bottom:solid 2px #008b9d;
-}
-
-.titreagenda{
-padding-top:4px; 
-text-align:center;
-color:#FFF;
-font-size:14px;  
-}
 
 /*** FOOTER ***/
 #footer{
