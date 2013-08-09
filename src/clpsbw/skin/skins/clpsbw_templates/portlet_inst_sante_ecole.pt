@@ -35,7 +35,7 @@
                        alt="listing des projets partag&eacute;s">
                         <img src="flch_verte.png" /></a>
                 </div>
-                <div class="clear"></div>
+                <div class="break-float"></div>
             </div>
             <span class="portletBottomLeft"></span>
             <span class="portletBottomRight"></span>

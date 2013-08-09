@@ -251,6 +251,21 @@ color:#aaa;
 padding-left:2em;
 }
 
+/**** PORTLET PALTEFORME ****/
+dl#portlet-experience-assuetude{
+font-size:0.8em;
+}
+
+dl#portlet-experience-assuetude #btn-projet-partage{
+float:left;
+width:40px;
+text-align:left;
+}
+
+dl#portlet-experience-assuetude #btn-flch-verte{
+float:right;
+width:60px;
+}
 
 
 
