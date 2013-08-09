@@ -1,0 +1,33 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="plone">
+
+<body>
+<div metal:define-macro="portlet">
+        <!--tal:condition="python:user.has_role(['Manager', 'VisiteurDb'], here)">-->
+    <dl id="portlet-agenda">
+        <dt class="portletHeaderDB">
+            <span class="portletTopLeft"></span>
+            <span class="portletTopRight"></span>
+            Agenda
+        </dt>
+        <dt class="portletPresentationDB">
+            Sprint Plone
+        </dt>
+        <dt class="portletPresentationDB">
+            Ouverture du nouveau site
+        </dt>
+        <dt class="portletPresentationDB">
+            Migration de Plone
+        </dt>
+        <dt class="portletPresentationDB">
+            Conférence Plone
+        </dt>
+        <dt class="portletFooterDB">
+            <span class="portletBottomLeft"></span>
+            <span class="portletBottomRight"></span>
+        </dt>
+     </dl>
+</div>
+</body>
+</html>
