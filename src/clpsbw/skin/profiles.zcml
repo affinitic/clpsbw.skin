@@ -10,14 +10,5 @@
       description='Extension profile for the "profiles.zcml skin" Plone theme.'
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
-<!--
-  <genericsetup:importStep
-      name="clpsbw.skin.various"
-      title="clpsbw: miscellaneous import steps"
-      description="Various import steps that are not handled by GS import/export handlers."
-      handler="clpsbw.skin.setuphandlers.setupClpsbw">
-    <depends name="skins"/>
-  </genericsetup:importStep>
--->
 
 </configure>
