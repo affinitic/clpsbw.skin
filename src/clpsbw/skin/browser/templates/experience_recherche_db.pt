@@ -27,11 +27,11 @@
 <div metal:fill-slot="main">
     <div>
          <div  id="logo-projet-paratge">
-             <img src="titre_logo_presentation_db.png"
-                  width="185"
-                  height="35"
+             <img src="projet_partage_logo_texte.png"
+                  width="216"
+                  height="36"
                   title="CLPS-Bw - Projets partagés"
-                  alt="titre_logo_presentation_db.png" />
+                  alt="projet_partage_logo_texte.png" />
          </div>
     </div>
     <div id="zone-titre-moteur-recherche">
