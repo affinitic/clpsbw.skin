@@ -29,13 +29,17 @@ from plone.memoize.instance import memoize
 # mettre ici toute les classe de initializer
 from clpsbw.db.pgsql.baseTypes import \
 Auteur, \
-Public, \
 Experience, \
-Ressource, \
 Institution, \
 InstitutionType, \
-Support, \
 MilieuDeVie, \
+MotCle, \
+Public, \
+Ressource, \
+Support, \
+Theme, \
+PlateForme, \
+SousPlateForme, \
 InstitutionAssuetudeIntervention, \
 InstitutionAssuetudeActiviteProposee, \
 InstitutionAssuetudeThematique, \
@@ -44,10 +48,13 @@ LinkExperienceTheme, \
 LinkExperienceRessource, \
 LinkExperienceCommune, \
 LinkExperienceMotCle, \
+LinkExperiencePublic, \
 LinkExperienceInstitutionPorteur, \
 LinkExperienceInstitutionPartenaire, \
 LinkExperienceInstitutionRessource, \
+LinkExperienceClpsProprio, \
 LinkRessourceTheme, \
+LinkRessourcePublic, \
 LinkRessourceClpsProprio, \
 LinkRessourceClpsDispo, \
 LinkRessourceSupport, \
@@ -854,9 +861,9 @@ class ManageClpsbw(BrowserView):
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        ThemeTable = wrapper.getMapper('theme')
-        query = session.query(ThemeTable)
-        query = query.order_by(ThemeTable.theme_nom)
+        #ThemeTable = wrapper.getMapper('theme')
+        query = session.query(Theme)
+        query = query.order_by(Theme.theme_nom)
         allThemes = query.all()
         return allThemes
 
@@ -867,10 +874,10 @@ class ManageClpsbw(BrowserView):
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        ThemeTable = wrapper.getMapper('theme')
-        query = session.query(ThemeTable)
-        query = query.filter(ThemeTable.theme_actif == True)
-        query = query.order_by(ThemeTable.theme_nom)
+        #ThemeTable = wrapper.getMapper('theme')
+        query = session.query(Theme)
+        query = query.filter(Theme.theme_actif == True)
+        query = query.order_by(Theme.theme_nom)
         allThemes = query.all()
         return allThemes
 
@@ -881,10 +888,10 @@ class ManageClpsbw(BrowserView):
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        ThemeTable = wrapper.getMapper('theme')
-        query = session.query(ThemeTable)
-        query = query.filter(ThemeTable.theme_pk.in_(theme_pk))
-        query = query.order_by(ThemeTable.theme_nom)
+        #ThemeTable = wrapper.getMapper('theme')
+        query = session.query(Theme)
+        query = query.filter(Theme.theme_pk.in_(theme_pk))
+        query = query.order_by(Theme.theme_nom)
         theme = query.all()
         return theme
 
@@ -895,11 +902,11 @@ class ManageClpsbw(BrowserView):
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        ThemeTable = wrapper.getMapper('theme')
-        query = session.query(ThemeTable)
-        query = query.filter(ThemeTable.theme_actif == True)
-        query = query.filter(ThemeTable.theme_ressource == True)
-        query = query.order_by(ThemeTable.theme_nom)
+        #ThemeTable = wrapper.getMapper('theme')
+        query = session.query(Theme)
+        query = query.filter(Theme.theme_actif == True)
+        query = query.filter(Theme.theme_ressource == True)
+        query = query.order_by(Theme.theme_nom)
         allThemes = query.all()
         return allThemes
 
@@ -910,9 +917,9 @@ class ManageClpsbw(BrowserView):
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        LinkRessourceThemeTable = wrapper.getMapper('link_ressource_theme')
-        query = session.query(LinkRessourceThemeTable)
-        query = query.filter(LinkRessourceThemeTable.ressource_fk == ressourcePk)
+        #LinkRessourceThemeTable = wrapper.getMapper('link_ressource_theme')
+        query = session.query(LinkRessourceTheme)
+        query = query.filter(LinkRessourceTheme.ressource_fk == ressourcePk)
         themePk = query.all()
 
         listeThemeForRessource = []
@@ -930,9 +937,9 @@ class ManageClpsbw(BrowserView):
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        LinkRessourceThemeTable = wrapper.getMapper('link_ressource_theme')
-        query = session.query(LinkRessourceThemeTable)
-        query = query.filter(LinkRessourceThemeTable.ressource_fk == ressourcePk)
+        #LinkRessourceThemeTable = wrapper.getMapper('link_ressource_theme')
+        query = session.query(LinkRessourceTheme)
+        query = query.filter(LinkRessourceTheme.ressource_fk == ressourcePk)
         themePk = query.all()
 
         listeThemeForRessource = []
@@ -970,9 +977,9 @@ class ManageClpsbw(BrowserView):
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        LinkExperienceThemeTable = wrapper.getMapper('link_experience_theme')
-        query = session.query(LinkExperienceThemeTable)
-        query = query.filter(LinkExperienceThemeTable.experience_fk.in_(experiencePk))
+        #LinkExperienceThemeTable = wrapper.getMapper('link_experience_theme')
+        query = session.query(LinkExperienceTheme)
+        query = query.filter(LinkExperienceTheme.experience_fk.in_(experiencePk))
         themePk = query.all()
 
         listeThemeForExperience = []
@@ -1004,10 +1011,10 @@ class ManageClpsbw(BrowserView):
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        PublicTable = wrapper.getMapper('public')
-        query = session.query(PublicTable)
-        query = query.filter(PublicTable.public_actif == True)
-        query = query.order_by(PublicTable.public_nom)
+        #PublicTable = wrapper.getMapper('public')
+        query = session.query(Public)
+        query = query.filter(Public.public_actif == True)
+        query = query.order_by(Public.public_nom)
         allPublics = query.all()
         return allPublics
 
@@ -1018,10 +1025,10 @@ class ManageClpsbw(BrowserView):
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        PublicTable = wrapper.getMapper('public')
-        query = session.query(PublicTable)
-        query = query.filter(PublicTable.public_pk.in_(public_pk))
-        query = query.order_by(PublicTable.public_nom)
+        #PublicTable = wrapper.getMapper('public')
+        query = session.query(Public)
+        query = query.filter(Public.public_pk.in_(public_pk))
+        query = query.order_by(Public.public_nom)
         public = query.all()
         return public
 
@@ -1032,9 +1039,9 @@ class ManageClpsbw(BrowserView):
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        LinkRessourcePublicTable = wrapper.getMapper('link_ressource_public')
-        query = session.query(LinkRessourcePublicTable)
-        query = query.filter(LinkRessourcePublicTable.ressource_fk == ressourcePk)
+        #LinkRessourcePublicTable = wrapper.getMapper('link_ressource_public')
+        query = session.query(LinkRessourcePublic)
+        query = query.filter(LinkRessourcePublic.ressource_fk == ressourcePk)
         publicPk = query.all()
         listePublicForRessource = []
         listeAllPublic = self.getAllPublic()
@@ -1054,9 +1061,9 @@ class ManageClpsbw(BrowserView):
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        LinkExperiencePublicTable = wrapper.getMapper('link_experience_public')
-        query = session.query(LinkExperiencePublicTable)
-        query = query.filter(LinkExperiencePublicTable.experience_fk.in_(experiencePk))
+        #LinkExperiencePublicTable = wrapper.getMapper('link_experience_public')
+        query = session.query(LinkExperiencePublic)
+        query = query.filter(LinkExperiencePublic.experience_fk.in_(experiencePk))
         publicPk = query.all()
 
         listePublicForExperience = []
@@ -1096,9 +1103,9 @@ class ManageClpsbw(BrowserView):
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        PlateFormeTable = wrapper.getMapper('plateforme')
-        query = session.query(PlateFormeTable)
-        query = query.order_by(PlateFormeTable.plateforme_nom)
+        #PlateFormeTable = wrapper.getMapper('plateforme')
+        query = session.query(PlateForme)
+        query = query.order_by(PlateForme.plateforme_nom)
         allPlateFormes = query.all()
         return allPlateFormes
 
@@ -1109,10 +1116,10 @@ class ManageClpsbw(BrowserView):
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        PlateFormeTable = wrapper.getMapper('plateforme')
-        query = session.query(PlateFormeTable)
-        query = query.filter(PlateFormeTable.plateforme_actif == True)
-        query = query.order_by(PlateFormeTable.plateforme_nom)
+        #PlateFormeTable = wrapper.getMapper('plateforme')
+        query = session.query(PlateForme)
+        query = query.filter(PlateForme.plateforme_actif == True)
+        query = query.order_by(PlateForme.plateforme_nom)
         allPlateForme = query.all()
         return allPlateForme
 
@@ -1123,32 +1130,12 @@ class ManageClpsbw(BrowserView):
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        PlateFormeTable = wrapper.getMapper('plateforme')
-        query = session.query(PlateFormeTable)
-        query = query.filter(PlateFormeTable.plateforme_pk == plateforme_pk)
-        query = query.order_by(PlateFormeTable.plateforme_nom)
+        #PlateFormeTable = wrapper.getMapper('plateforme')
+        query = session.query(PlateForme)
+        query = query.filter(PlateForme.plateforme_pk == plateforme_pk)
+        query = query.order_by(PlateForme.plateforme_nom)
         public = query.all()
         return public
-
-    def getPlateFormeByRessourcePk(self, ressourcePk):
-        """
-        table pg link_ressource_plateforme
-        recuperation des plateforme selon ressource_pk
-        """
-        wrapper = getSAWrapper('clpsbw')
-        session = wrapper.session
-        LinkRessourcePlateFormeTable = wrapper.getMapper('link_ressource_plateforme')
-        query = session.query(LinkRessourcePlateFormeTable)
-        query = query.filter(LinkRessourcePlateFormeTable.ressource_fk == ressourcePk)
-        PlateFormePk = query.all()
-
-        listePlateFormeForRessource = []
-        listeAllPlateForme = self.getAllPlateForme()
-        for i in PlateFormePk:
-            for j in listeAllPlateForme:
-                if i.plateforme_fk == j.plateforme_pk:
-                    listePlateFormeForRessource.append(j.plateforme_nom)
-        return listePlateFormeForRessource
 
 ### sous plate forme ###
     def getAllSousPlateForme(self):
@@ -1158,9 +1145,9 @@ class ManageClpsbw(BrowserView):
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        SousPlateFormeTable = wrapper.getMapper('sousplateforme')
-        query = session.query(SousPlateFormeTable)
-        query = query.order_by(SousPlateFormeTable.sousplateforme_nom)
+        #SousPlateFormeTable = wrapper.getMapper('sousplateforme')
+        query = session.query(SousPlateForme)
+        query = query.order_by(SousPlateForme.sousplateforme_nom)
         allSousPlateFormes = query.all()
         return allSousPlateFormes
 
@@ -1171,10 +1158,10 @@ class ManageClpsbw(BrowserView):
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        SousPlateFormeTable = wrapper.getMapper('sousplateforme')
-        query = session.query(SousPlateFormeTable)
-        query = query.filter(SousPlateFormeTable.sous_plateforme_actif == True)
-        query = query.order_by(SousPlateFormeTable.sousplateforme_nom)
+        #SousPlateFormeTable = wrapper.getMapper('sousplateforme')
+        query = session.query(SousPlateForme)
+        query = query.filter(SousPlateForme.sous_plateforme_actif == True)
+        query = query.order_by(SousPlateForme.sousplateforme_nom)
         allActiveSousPlateFormes = query.all()
         return allActiveSousPlateFormes
 
@@ -1185,10 +1172,10 @@ class ManageClpsbw(BrowserView):
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        SousPlateFormeTable = wrapper.getMapper('sousplateforme')
-        query = session.query(SousPlateFormeTable)
-        query = query.filter(SousPlateFormeTable.sousplateforme_pk == sousplateforme_pk)
-        query = query.order_by(SousPlateFormeTable.sousplateforme_nom)
+        #SousPlateFormeTable = wrapper.getMapper('sousplateforme')
+        query = session.query(SousPlateForme)
+        query = query.filter(SousPlateForme.sousplateforme_pk == sousplateforme_pk)
+        query = query.order_by(SousPlateForme.sousplateforme_nom)
         sousPlateForme = query.all()
         return sousPlateForme
 
@@ -1199,10 +1186,10 @@ class ManageClpsbw(BrowserView):
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        SousPlateFormeTable = wrapper.getMapper('sousplateforme')
-        query = session.query(SousPlateFormeTable)
-        query = query.filter(SousPlateFormeTable.sousplateforme_plateforme_fk == plateforme_pk)
-        query = query.order_by(SousPlateFormeTable.sousplateforme_nom)
+        #SousPlateFormeTable = wrapper.getMapper('sousplateforme')
+        query = session.query(SousPlateForme)
+        query = query.filter(SousPlateForme.sousplateforme_plateforme_fk == plateforme_pk)
+        query = query.order_by(SousPlateForme.sousplateforme_nom)
         sousPlateForme = query.all()
         return sousPlateForme
 
@@ -1214,9 +1201,9 @@ class ManageClpsbw(BrowserView):
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        MotCleTable = wrapper.getMapper('mot_cle')
-        query = session.query(MotCleTable)
-        query = query.order_by(MotCleTable.motcle_mot)
+        #MotCleTable = wrapper.getMapper('mot_cle')
+        query = session.query(MotCle)
+        query = query.order_by(MotCle.motcle_mot)
         allMotCles = query.all()
         return allMotCles
 
@@ -1227,10 +1214,10 @@ class ManageClpsbw(BrowserView):
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        MotCleTable = wrapper.getMapper('mot_cle')
-        query = session.query(MotCleTable)
-        query = query.filter(MotCleTable.motcle_actif == True)
-        query = query.order_by(MotCleTable.motcle_mot)
+        #MotCleTable = wrapper.getMapper('mot_cle')
+        query = session.query(MotCle)
+        query = query.filter(MotCle.motcle_actif == True)
+        query = query.order_by(MotCle.motcle_mot)
         allActiveMotCles = query.all()
         return allActiveMotCles
 
@@ -1241,10 +1228,10 @@ class ManageClpsbw(BrowserView):
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        MotCleTable = wrapper.getMapper('mot_cle')
-        query = session.query(MotCleTable)
-        query = query.filter(MotCleTable.motcle_pk == motcle_pk)
-        query = query.order_by(MotCleTable.motcle_mot)
+        #MotCleTable = wrapper.getMapper('mot_cle')
+        query = session.query(MotCle)
+        query = query.filter(MotCle.motcle_pk == motcle_pk)
+        query = query.order_by(MotCle.motcle_mot)
         motCle = query.all()
         return motCle
 
@@ -1256,9 +1243,9 @@ class ManageClpsbw(BrowserView):
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        ExperienceTable = wrapper.getMapper('experience')
-        query = session.query(ExperienceTable)
-        query = query.order_by(ExperienceTable.experience_titre)
+        #ExperienceTable = wrapper.getMapper('experience')
+        query = session.query(Experience)
+        query = query.order_by(Experience.experience_titre)
         allExperiences = query.all()
         return allExperiences
 
@@ -1277,12 +1264,12 @@ class ManageClpsbw(BrowserView):
 
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        ExperienceTable = wrapper.getMapper('experience')
-        query = session.query(ExperienceTable)
+        #ExperienceTable = wrapper.getMapper('experience')
+        query = session.query(Experience)
         if experienceTitre:
-            query = query.filter(ExperienceTable.experience_titre == experienceTitre)
+            query = query.filter(Experience.experience_titre == experienceTitre)
         if experiencePk:
-            query = query.filter(ExperienceTable.experience_pk == experiencePk)
+            query = query.filter(Experience.experience_pk == experiencePk)
         allExperiences = query.all()
         for experience in allExperiences:
             experiencePk = experience.experience_pk
@@ -1296,8 +1283,8 @@ class ManageClpsbw(BrowserView):
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        ExperienceTable = wrapper.getMapper('experience')
-        query = session.query(ExperienceTable)
+        #ExperienceTable = wrapper.getMapper('experience')
+        query = session.query(Experience)
         experience = query.all()
         listePk = []
         for i in experience:
@@ -1329,9 +1316,9 @@ class ManageClpsbw(BrowserView):
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        ExperienceTable = wrapper.getMapper('experience')
-        query = session.query(ExperienceTable)
-        query = query.filter(ExperienceTable.experience_pk == experiencePk)
+        #ExperienceTable = wrapper.getMapper('experience')
+        query = session.query(Experience)
+        query = query.filter(Experience.experience_pk == experiencePk)
         experience = query.one()
         experienceEtat = self.getTranslationExperienceEtat(experience.experience_etat)
         return experienceEtat
@@ -1343,9 +1330,9 @@ class ManageClpsbw(BrowserView):
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        ExperienceTable = wrapper.getMapper('experience')
-        query = session.query(ExperienceTable)
-        query = query.filter(ExperienceTable.experience_pk == experiencePk)
+        #ExperienceTable = wrapper.getMapper('experience')
+        query = session.query(Experience)
+        query = query.filter(Experience.experience_pk == experiencePk)
         experience = query.one()
         experienceEtatPublicationSiss = self.getTranslationExperienceEtat(experience.experience_etat)
         return experienceEtatPublicationSiss
@@ -1357,9 +1344,9 @@ class ManageClpsbw(BrowserView):
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        updateExperience = wrapper.getMapper('experience')
-        query = session.query(updateExperience)
-        query = query.filter(updateExperience.experience_pk == experiencePk)
+        #updateExperience = wrapper.getMapper('experience')
+        query = session.query(Experience)
+        query = query.filter(Experience.experience_pk == experiencePk)
         experience = query.one()
         experience.experience_publication_siss = True
         session.flush()
@@ -1400,14 +1387,13 @@ class ManageClpsbw(BrowserView):
         recuperation d'un recit selon experience_pk
         private pending publish
         """
-        #role = self.getRoleUserAuthenticated()
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
         #ExperienceTable = wrapper.getMapper('experience')
         query = session.query(Experience)
         query = query.filter(Experience.experience_etat == experienceEtat)
-        experience = query.all()
-        return experience
+        allExperience = query.all()
+        return allExperience
 
     def getExperienceByClpsByEtat(self, clpsPk, experienceEtat=None):
         """
@@ -1416,9 +1402,9 @@ class ManageClpsbw(BrowserView):
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        LinkExperienceClpsProprioTable = wrapper.getMapper('link_experience_clps_proprio')
-        query = session.query(LinkExperienceClpsProprioTable)
-        query = query.filter(LinkExperienceClpsProprioTable.clps_fk == clpsPk)
+        #LinkExperienceClpsProprioTable = wrapper.getMapper('link_experience_clps_proprio')
+        query = session.query(LinkExperienceClpsProprio)
+        query = query.filter(LinkExperienceClpsProprio.clps_fk == clpsPk)
         query = query.all()
         experiencePkByClps = []
         for pk in query:
