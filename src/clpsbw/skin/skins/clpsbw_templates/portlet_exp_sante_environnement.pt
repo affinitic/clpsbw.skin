@@ -35,7 +35,7 @@
                            tal:attributes="href string:${context/portal_url}/presentation-db"
                            title="Pr&eacute;sentation des projets partag&eacute;s"
                            alt="Présentation des projets partag">
-                            <img src="logo_projet_partage.png" /></a>
+                            <img src="projet_partage_logo_cercle.png" /></a>
                     </div>
                     <div id="btn-flch-verte">
                         <a href="experience-plate-forme-lister?plateForme=experience_plate_forme_sante_environnement"

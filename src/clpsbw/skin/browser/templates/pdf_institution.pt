@@ -35,7 +35,7 @@
                         <div id="main-clpsbw-header"></div>
                         <div id="main-experience">
                             <div id="logo-projet-partage">
-                                <img src="logo_projets_partages_pdf.png" />
+                                <img src="projet_partage_logo_texte.png" />
                             </div>
                             <h1 id="titre-principal">
                                 <span tal:content="institution/institution_nom" />

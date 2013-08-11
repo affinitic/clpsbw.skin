@@ -296,7 +296,7 @@
                 <div id="projet-partage-institution"
                      tal:define="experiences python:view.getExperienceFromInstitutionPorteur(institutionPk)">
                      <!--tal:condition="python: len(experiences)>0">-->
-                    <h3><img src="logo_projet_partage.png" /> Projets partagés</h3>
+                    <h3><img src="projet_partage_logo_cercle.png" /> Projets partagés</h3>
 
                     <tal:block tal:condition="python: len(experiences)>0">
                         <h4>Porteur</h4>

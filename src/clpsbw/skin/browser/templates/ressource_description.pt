@@ -179,7 +179,7 @@
                 <tal:block tal:define="experiences python:view.getExperienceByRessource(ressource.ressource_pk)">
                     <div tal:condition="python: len(experiences) > 0"
                          id="projet-partage-ressource">
-                        <h3><img src="logo_projet_partage.png" /> Projets partagés</h3>
+                        <h3><img src="projet_partage_logo_cercle.png" /> Projets partagés</h3>
                         <tal:boucle tal:repeat="experience experiences">
                             <p>
                             &#8226;
