@@ -20,7 +20,7 @@ background-position:left -21px;
 
 
 /*** FORMULAIRE ***/
-label{
+.formulaire label{
 display:block;
 width:230px;
 cursor:pointer;
@@ -35,12 +35,12 @@ background-repeat:no-repeat;
 background-position:left top;
 }
 
-input[type=checkbox] {
+.formulaire input[type=checkbox] {
 cursor:pointer;
 font-size:0.85em;
 }
 
-input:not([type=submit]) {
+.formulaire input:not([type=submit]) {
 border:1px solid #aaa;
 border-radius:3px;
 box-shadow:0 0 3px #aaa;
@@ -55,30 +55,30 @@ background: linear-gradient(to bottom,  rgba(238,238,238,1) 0%,rgba(255,255,255,
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
 }
 
-select,
-input[type=file]{
+.formulaire select,
+.formulaire input[type=file]{
 cursor:pointer;
 padding:3px;
 box-shadow:0 0 3px #aaa;
 }
 
-select:active,
-select:focus,
-input[type=file]:active,
-input[type=file]:focus{
+.formulaire select:active,
+.formulaire select:focus,
+.formulaire input[type=file]:active,
+.formulaire input[type=file]:focus{
 border:1px solid #093c75;
 box-shadow:0 0 3px #0459b7;
 outline:none;
 }
 
-input:not([type=submit]):focus:valid {
+.formulaire input:not([type=submit]):focus:valid {
 border-color:#093c75;
 box-shadow:0px 0px 3px #0459b7;
 outline:none;
 }
 
-input[type=submit],
-input[type=file]{
+.formulaire input[type=submit],
+.formulaire input[type=file]{
 background:#ddd;
 background:-moz-linear-gradient(90deg, #0459b7, #08adff); /* Firefox */
 background:-webkit-gradient(linear, left top, left bottom, from(#08adff), to(#0459b7)); /* Webkit */
@@ -92,7 +92,7 @@ text-shadow:0 1px 1px #333;
 text-transform:uppercase;
 }
 
-input[type=submit]:hover{
+.formulaire input[type=submit]:hover{
 background:#eee;
 background:-moz-linear-gradient(90deg, #067cd3, #0bcdff);
 background:-webkit-gradient(linear, left top, left bottom, from(#0bcdff), to(#067cd3));
@@ -100,8 +100,8 @@ border-color:#093c75;
 text-decoration:none;
 }
 
-input[type=submit]:active,
-input[type=submit]:focus{
+.formulaire input[type=submit]:active,
+.formulaire input[type=submit]:focus{
 background:#ccc;
 background:-moz-linear-gradient(90deg, #0bcdff, #067cd3);
 background:-webkit-gradient(linear, left top, left bottom, from(#067cd3), to(#0bcdff));
@@ -126,7 +126,7 @@ margin:15px auto;
 padding:20px;
 }
 
-.titre-formulaire{
+.formulaire-titre{
 border-bottom:1px solid #ccc;
 font-size:11px;
 font-weight:bold;
@@ -139,7 +139,7 @@ text-transform:uppercase;
 margin:10px 6px;
 }
 
-.submit-form{
+.formulaire-submit{
 margin-top:20px;
 padding-top:5px;
 border-top:1px solid #aaa;

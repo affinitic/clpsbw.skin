@@ -56,7 +56,7 @@
     </div>
 
     <div class="formulaire">
-        <h2 class="titre-formulaire">Ajouter un public</h2>
+        <h2 class="formulaire-titre">Ajouter un public</h2>
         <div class="formulaire-input">
             <label for="public_nom">Public</label>
             <br />
@@ -74,7 +74,7 @@
                 <option value="False">Désactiver</option>
             </select>
         </div>
-        <div class="submit-form">
+        <div class="formulaire-submit">
             <input type="hidden"
                    name="operation"
                    value="insert" />

@@ -13,7 +13,6 @@
 <div metal:fill-slot="main">
 <form action="theme-inserer" method="post">
     <br />
-    
     <h1>Encoder un theme</h1>
     <fieldset tal:define="themes python: view.getAllTheme()">
         <table width="80%"

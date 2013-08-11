@@ -14,7 +14,8 @@ STYLE TEMPLATE PLONE
 
 
 /*** PRESENTATION BASE DE DONNEE ***/
-#titre-presentation-db{
+#titre-presentation-db,
+#zone-titre-moteur-recherche{
 width:650px;
 height:80px;
 margin-top:15px;
@@ -23,11 +24,12 @@ border-radius:12px;
 background:#9a0546 url(puzzle_titre_db.png) no-repeat 54px 18px;
 }
 
-#titre-presentation-db h1{
+#titre-presentation-db h1,
+#zone-titre-moteur-recherche h1{
 width:450px;
 margin:10px auto 0px auto;
 color:#fff !important;
-font-size:3em;
+font-size:2.5em;
 border-bottom:1px solid #fff !important;
 color:#fff;
 text-align:center;

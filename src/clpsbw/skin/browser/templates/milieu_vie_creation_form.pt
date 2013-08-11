@@ -56,7 +56,7 @@
     </div>
     
     <div class="formulaire">
-        <h2 class="titre-formulaire">Ajouter un milieu de vie</h2>
+        <h2 class="formulaire-titre">Ajouter un milieu de vie</h2>
         <div class="formulaire-input">
             <label for="milieudevie_nom">Milieu de vie</label>
             <input type="text"
@@ -75,7 +75,7 @@
             </select>
         </div>
         
-        <div class="submit-form">
+        <div class="formulaire-submit">
             <input type="hidden"
                    name="operation"
                    value="insert" />
