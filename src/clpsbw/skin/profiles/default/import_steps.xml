@@ -2,7 +2,7 @@
 <import-steps>
   <import-step id="clpsbw.skin.setup"
                version="20080606-01"
-               handler="clpsbw.skin.setuphandlers.setupclpsbw"
+               handler="clpsbw.skin.setuphandlers.setupClpsbw"
                title="clpsbw skin: setup portal">
     <dependency step="skins" />
     Setup portal for CLPSBW skin.
