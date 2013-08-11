@@ -25,7 +25,8 @@ background:#9a0546 url(puzzle_titre_db.png) no-repeat 54px 18px;
 }
 
 #titre-presentation-db h1,
-#zone-titre-moteur-recherche h1{
+#zone-titre-moteur-recherche h1,
+.titre-top h1{
 width:450px;
 margin:10px auto 0px auto;
 color:#fff !important;

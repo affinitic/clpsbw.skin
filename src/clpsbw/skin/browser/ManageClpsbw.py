@@ -29,6 +29,8 @@ from plone.memoize.instance import memoize
 # mettre ici toute les classe de initializer
 from clpsbw.db.pgsql.baseTypes import \
 Auteur, \
+Commune, \
+Clps, \
 Experience, \
 Institution, \
 InstitutionType, \
@@ -63,7 +65,8 @@ LinkInstitutionCommuneCouverte, \
 LinkInstitutionAssuetudeIntervention, \
 LinkInstitutionAssuetudeThematique, \
 LinkInstitutionAssuetudeActiviteProposeePublic, \
-LinkInstitutionAssuetudeActiviteProposeePro
+LinkInstitutionAssuetudeActiviteProposeePro, \
+LinkInstitutionClpsProprio
 
 
 class ManageClpsbw(BrowserView):
@@ -575,9 +578,9 @@ class ManageClpsbw(BrowserView):
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        ClpsTable = wrapper.getMapper('clps')
-        query = session.query(ClpsTable)
-        query = query.order_by(ClpsTable.clps_nom)
+        #ClpsTable = wrapper.getMapper('clps')
+        query = session.query(Clps)
+        query = query.order_by(Clps.clps_nom)
         allClps = query.all()
         return allClps
 
@@ -588,9 +591,9 @@ class ManageClpsbw(BrowserView):
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        LinkRessourceClpsTable = wrapper.getMapper('link_ressource_clps_proprio')
-        query = session.query(LinkRessourceClpsTable)
-        query = query.filter(LinkRessourceClpsTable.ressource_fk == ressourcePk)
+        #LinkRessourceClpsTable = wrapper.getMapper('link_ressource_clps_proprio')
+        query = session.query(LinkRessourceClpsProprio)
+        query = query.filter(LinkRessourceClpsProprio.ressource_fk == ressourcePk)
         ressources = query.all()
 
         clpsProprioListe = []
@@ -611,9 +614,9 @@ class ManageClpsbw(BrowserView):
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        LinkInstitutionClpsProprioTable = wrapper.getMapper('link_institution_clps_proprio')
-        query = session.query(LinkInstitutionClpsProprioTable)
-        query = query.filter(LinkInstitutionClpsProprioTable.institution_fk == institutionPk)
+        #LinkInstitutionClpsProprioTable = wrapper.getMapper('link_institution_clps_proprio')
+        query = session.query(LinkInstitutionClpsProprio)
+        query = query.filter(LinkInstitutionClpsProprio.institution_fk == institutionPk)
         institutions = query.all()
 
         clpsProprioListe = []
@@ -634,9 +637,9 @@ class ManageClpsbw(BrowserView):
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        LinkExperienceClpsProprioTable = wrapper.getMapper('link_experience_clps_proprio')
-        query = session.query(LinkExperienceClpsProprioTable)
-        query = query.filter(LinkExperienceClpsProprioTable.experience_fk == experiencePk)
+        #LinkExperienceClpsProprioTable = wrapper.getMapper('link_experience_clps_proprio')
+        query = session.query(LinkExperienceClpsProprio)
+        query = query.filter(LinkExperienceClpsProprio.experience_fk == experiencePk)
         experiences = query.all()
 
         clpsProprioListe = []
@@ -660,11 +663,11 @@ class ManageClpsbw(BrowserView):
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        CommuneTable = wrapper.getMapper('commune')
-        query = session.query(CommuneTable)
+        #CommuneTable = wrapper.getMapper('commune')
+        query = session.query(Commune)
         if province:
-            query = query.filter(CommuneTable.com_province_fk.in_(province))
-        query = query.order_by(CommuneTable.com_localite_nom)
+            query = query.filter(Commune.com_province_fk.in_(province))
+        query = query.order_by(Commune.com_localite_nom)
         allCommunes = query.all()
         return allCommunes
 
@@ -2054,7 +2057,6 @@ class ManageClpsbw(BrowserView):
         query = session.query(LinkExperienceMilieuDeVie)
         query = query.filter(LinkExperienceMilieuDeVie.experience_fk.in_(experiencePk))
         milieuDeViePk = query.all()
-
         listeMilieuDeVieForExperience = []
         listeAllMilieuDeVie = self.getAllMilieuDeVie()
         for i in milieuDeViePk:
@@ -2322,7 +2324,7 @@ class ManageClpsbw(BrowserView):
         #role = self.getRoleUserAuthenticated()
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        Institution = wrapper.getMapper('institution')
+        #Institution = wrapper.getMapper('institution')
         query = session.query(Institution)
         institution = query.all()
         return institution
@@ -2752,7 +2754,7 @@ class ManageClpsbw(BrowserView):
 #        allActiveInstitutionType = query.all()
 #        return allActiveInstitutionType
 
-#    def getInstitutionTypeByPk(self, institutionTypePk):
+#    def getInstitutionTypeByPk(self, institutionTypePk)
 #        """
 #        table pg intitution_type
 #        recuperation d'un type d'institution selon sa pk
@@ -5032,7 +5034,7 @@ class ManageClpsbw(BrowserView):
 
             self.deleteLinkRessourceClpsDispo(ressourceFk)
             if ressourceClpsDispoFk:
-                self.addLinkRessourceClpsDispo(ressourceFk) 
+                self.addLinkRessourceClpsDispo(ressourceFk)
             return {'status': 1}
 
     def manageSupport(self):

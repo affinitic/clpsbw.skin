@@ -17,14 +17,11 @@
         <tal:block tal:define="experiencePk experience/experience_pk">
             <div>
                 <div  id="logo-projet-paratge">
-                    <img src="titre_logo_presentation_db.png"
-                         width="185"
-                         height="35"
+                    <img src="projet_partage_logo_texte.png"
+                         width="216"
+                         height="36"
                          title="CLPS-Bw - Projets partagés"
                          alt="titre_logo_presentation_db.png" />
-                </div>
-                <div metal:use-macro="here/document_actions/macros/document_actions">
-                    Document actions (print, sendto etc)
                 </div>
             </div>
 
@@ -36,7 +33,7 @@
                 <div id="title-experience">
                     <div id="title-experience-left"></div>
                     <div class="titre-top">
-                        <p><span tal:content="experience/experience_titre"></span></p>
+                        <h1><span tal:content="experience/experience_titre"></span></h1>
                     </div>
                     <div id="title-experience-right">
                         <div class="btn-modifier"
@@ -87,11 +84,13 @@
                         </div>
                         <div id="milieu-de-vie-experience">
                             <span class="left-rubrique-db">Milieu de vie </span>
+                            <!--
                             <ul tal:define="milieudevies python:view.getMilieuDeVieByExperiencePk(experiencePk, 'nom')">
                                 <span tal:repeat="milieudevie milieudevies">
                                     <li tal:content="milieudevie">milieu de vie</li>
                                 </span>
                             </ul>
+                            -->
                         </div>
                         <div id="demarche-experience"
                              tal:condition="python: experience.experience_demarche_actions!=''">

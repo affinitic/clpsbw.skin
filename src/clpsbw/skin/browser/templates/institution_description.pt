@@ -23,9 +23,6 @@
                               activitesProfessionnelles python:view.getAssuetudeActiviteProposeeProForInstituion(institutionPk, 'nom');
                               thematiques python:view.getAssuetudeThematiqueForInstituion(institutionPk, 'nom');
                               selectedClpsProprio python:view.getClpsProprioForInstitution(institutionPk, 'pk')">
-            <div metal:use-macro="here/document_actions/macros/document_actions">
-                Document actions (print, sendto etc)
-            </div>
             <div id="title-institution">
                 <div id="title-institution-left"></div>
                 <div class="titre-institution-top">
