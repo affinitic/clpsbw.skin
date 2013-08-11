@@ -32,7 +32,7 @@
             </div>
         </div>
         <div id="titre-presentation-db">
-            Présentation de la base de données
+            <h1>Présentation de la base de données</h1>
         </div>
         <div id="moteur-presentation-db">
             <a href="experience-recherche">Effectuer<br /> une recherche</a>
@@ -54,7 +54,7 @@
                <li>
                    Vous voulez, avant de monter votre projet, avoir une idée
                    de ce que d’autres acteurs, ailleurs ou tout près de chez
-                   vous, ont pu faire sur une même thématique ou avec un public
+                   vous,ont pu faire sur une même thématique ou avec un public
                    similaire, quels outils ils ont utilisé, à qui ils ont fait
                    appel...
                </li>

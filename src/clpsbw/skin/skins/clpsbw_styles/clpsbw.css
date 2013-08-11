@@ -1,7 +1,63 @@
+/**
+CLPS-BW 2.0
+AFFINITIC - AOUT 2013
+
+mauve #9a0546
+bleu-titre #00728a
+bleu-border #20a3af
+vert background #afa61d
+
+
+STYLE TEMPLATE PLONE
+
+**/
+
+
 /*** PRESENTATION BASE DE DONNEE ***/
 #titre-presentation-db{
-color:#fff;
-font-size:13pt;
-margin-top:35px;
-margin-left:100px;    
+width:650px;
+height:80px;
+margin-top:15px;
+border:2px solid #afa61d;
+border-radius:12px;
+background:#9a0546 url(puzzle_titre_db.png) no-repeat 54px 18px;
 }
+
+#titre-presentation-db h1{
+width:450px;
+margin:10px auto 0px auto;
+color:#fff !important;
+font-size:3em;
+border-bottom:1px solid #fff !important;
+color:#fff;
+text-align:center;
+}
+
+#moteur-presentation-db{
+position:absolute;
+top:148px;
+padding:55px 0px 0px 8px;
+font-size:1.6em;
+margin-top:2px;
+margin-left:550px;
+background-image:url(loupe_recherche_db.png);
+background-repeat:no-repeat;
+}
+
+#moteur-presentation-db a{
+color:#9a0546 !important;  
+text-decoration:none !important;
+border-bottom:none !important;
+}
+
+#moteur-presentation-db a:hover{
+color:#c64069 !important;
+}
+
+#intro-presentation-db{
+width:500px;
+border-right:1px solid #afa61d;
+padding:5px;
+margin-left:15px;
+}
+
