@@ -244,7 +244,7 @@
                     </div><!--content-->
                     <div id="right-experience-footer"></div>
                 </div><!--right-->
-                <div id="clearboth"></div>
+                <div class="break-float"></div>
             </div>
         </tal:block>
     </tal:boucle>

@@ -95,7 +95,6 @@ float:left;
 width:470px;
 padding:0px 5px;
 color:#51686d;
-border:1px solid #000;
 }
 
 #border-experience{
@@ -110,14 +109,109 @@ height:73px;
 width:650px;
 background-color:#008a9a;
 border-radius:18px;
+padding-top:10px;
 }
 
 #titre-experience h1{
+float:left;
 font-weight:bold;
-font-size:1.6em;
+font-size:1.8em;
 color:#fff !important;
 text-align:center;
+width:600px;
+margin:auto;
 }
+
+#resume-experience{
+border-bottom:1px solid #98ac69;
+background-image:url(puzzle_vert.png);
+background-repeat:no-repeat;
+background-position:left 18px;
+padding-left:50px;
+margin-top:-12px;
+padding-top:18px;
+}
+
+#contexte-experience{
+margin-top:15px;
+border-bottom:1px solid #98ac69;
+background-image:url(puzzle_jaune_2.png);
+background-repeat:no-repeat;
+background-position:left top;
+padding-left:50px;
+}
+
+#objectif-experience{
+margin-top:15px;
+border-bottom:1px solid #98ac69;
+background-image:url(puzzle_rouge.png);
+background-repeat:no-repeat;
+background-position:left top;
+padding-left:50px;
+}
+
+#public-experience{
+margin-top:15px;
+border-bottom:1px solid #98ac69;
+background-image:url(puzzle_gris_vert.png);
+background-repeat:no-repeat;
+background-position:left top;
+padding-left:50px;
+}
+
+#milieu-de-vie-experience{
+margin-top:15px;
+border-bottom:1px solid #98ac69;
+background-image:url(puzzle_vert.png);
+background-repeat:no-repeat;
+background-position:left top;
+padding-left:50px;
+}
+
+#demarche-experience{
+margin-top:15px;
+border-bottom:1px solid #98ac69;
+background-image:url(puzzle_jaune_2.png);
+background-repeat:no-repeat;
+padding-left:50px;
+}
+
+#moyen-experience{
+margin-top:15px;
+border-bottom:1px solid #98ac69;
+background-image:url(puzzle_rouge.png);
+background-repeat:no-repeat;
+background-position:left top;
+padding-left:50px;
+}
+
+#evaluation-experience{
+margin-top:10px;
+border-bottom:1px solid #98ac69;
+background-image:url(puzzle_vert.png);
+background-repeat:no-repeat;
+background-position:left top;
+padding-left:50px;
+}
+
+#pour-aller-loin-experience{
+margin-top:15px;
+/*border-bottom:1px solid #98ac69;*/
+background-image:url(puzzle_gris_vert.png);
+background-repeat:no-repeat;
+background-position:left top;
+padding-left:50px;
+}
+
+#perspective-envisagee{
+margin-top:15px;
+/*border-bottom:1px solid #98ac69;*/
+background-image:url(puzzle_rouge.png);
+background-repeat:no-repeat;
+background-position:left top;
+padding-left:50px;
+}
+
 
 .rouge-titre{
 color:#90113d;
@@ -134,13 +228,32 @@ font-size:1.1em;
 color:#51686d;
 }
 
+.btn-modifier{
+float:right;
+margin-right:6px;
+width:25px;
+height:25px;
+}
+
+.btn-modifier a {
+display:block;
+text-decoration:none;
+background-image:url(modifier_off.png);
+background-repeat:no-repeat;
+}
+
+.btn-modifier a:hover {
+background-image:url(modifier_on.png);
+}
+
+
 /** COLONNE DROITE DESCRIPTION EXPERIENCE **/
 #right-experience{
 float:right;
 width:200px;
 color:#111;
 font-size:0.8em;
-border:1px solid #000;
+margin-top:-38px;
 }
 
 #right-experience-header{
@@ -157,7 +270,7 @@ background-repeat:repeat-y;
 }
 
 #right-experience-content p{
-background-image:url(puce-carre-noir.png);
+background-image:url(puce_carre_noir.png);
 background-repeat:no-repeat;
 background-position:left 5px;
 text-indent: 6px;
@@ -231,10 +344,6 @@ text-align:center;
 display: block;
 padding-left: 36px;
 padding-top: 5px;}
-
-#clearboth{
-clear:both;
-}
 
 #experience-etat{
 background-color:#ffd6ff;
