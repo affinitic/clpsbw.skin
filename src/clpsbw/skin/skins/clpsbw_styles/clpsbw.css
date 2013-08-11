@@ -12,6 +12,18 @@ STYLE TEMPLATE PLONE
 
 **/
 
+#alerte{
+background-color:#fd7b00;
+width:90%;
+height:30px;
+line-height:30px;
+font-size:0.8em;
+font-weight:bold;
+color:#fff;
+margin:auto;
+margin-bottom:10px;
+padding-left:10px;
+}
 
 /*** PRESENTATION BASE DE DONNEE ***/
 #titre-presentation-db,
@@ -25,8 +37,7 @@ background:#9a0546 url(puzzle_titre_db.png) no-repeat 54px 18px;
 }
 
 #titre-presentation-db h1,
-#zone-titre-moteur-recherche h1,
-.titre-top h1{
+#zone-titre-moteur-recherche h1{
 width:450px;
 margin:10px auto 0px auto;
 color:#fff !important;
@@ -64,3 +75,204 @@ padding:5px;
 margin-left:15px;
 }
 
+
+
+/**** DESCRIPTION EXPERIENCE ****/
+#logo-projet-paratge{
+}
+
+#main-experience{
+/*border:1px solid #f00;*/
+background-image:url(bg_experience.png);
+background-repeat:no-repeat;
+background-position:right bottom;
+}
+
+
+/** colonne gauche **/
+#left-experience{
+float:left;
+width:470px;
+padding:0px 5px;
+color:#51686d;
+border:1px solid #000;
+}
+
+#border-experience{
+border-left:1px solid #eee;
+border-bottom:1px solid #eee;
+}
+
+#titre-experience{
+/*margin-top:45px;*/
+margin-bottom:20px;
+height:73px;
+width:650px;
+background-color:#008a9a;
+border-radius:18px;
+}
+
+#titre-experience h1{
+font-weight:bold;
+font-size:1.6em;
+color:#fff !important;
+text-align:center;
+}
+
+.rouge-titre{
+color:#90113d;
+}
+
+.orange-titre{
+background: #DDD url('../clpsbw_images/puzzle_vert_2.png') repeat/repeat-x/repeat-y/no-repeat scroll/fixed top/center/bottom/x-%/x-pos left/center/right/y-%/y-pos;
+color:#dd952b;
+}
+
+.left-rubrique-db{
+font-weight:bold;
+font-size:1.1em;
+color:#51686d;
+}
+
+/** COLONNE DROITE DESCRIPTION EXPERIENCE **/
+#right-experience{
+float:right;
+width:200px;
+color:#111;
+font-size:0.8em;
+border:1px solid #000;
+}
+
+#right-experience-header{
+width:216px;
+height:90px;
+background-image:url(des_exp_right_header.png);
+background-repeat:no-repeat;
+}
+
+#right-experience-content{
+width:216px;
+background-image:url(des_exp_right_bckgrnd.png);
+background-repeat:repeat-y;
+}
+
+#right-experience-content p{
+background-image:url(puce-carre-noir.png);
+background-repeat:no-repeat;
+background-position:left 5px;
+text-indent: 6px;
+}
+
+#right-experience-content a{
+text-decoration:none;
+color:#3c5057;
+}
+
+#right-experience-content a:hover{
+text-decoration:underline;
+color:#15292f;
+}
+
+
+#right-experience-footer{
+width:216px;
+height:39px;
+background-image:url(des_exp_right_footer.png);
+background-repeat:no-repeat;
+}
+
+.right-rubrique-db{
+background-image:url(flch_blanche.png);
+background-repeat:no-repeat;
+background-position:left center;
+color:#660033;
+padding-left:12px;
+font-weight:bold;
+}
+
+#institution-porteur-experience{
+padding:0px 15px 0px 15px;
+margin-bottom:8px;
+}
+
+#institution-partenaire-experience{
+padding:0px 15px 0px 15px;
+margin-bottom:8px;
+}
+
+#periode-deroulement-experience{
+padding:0px 15px 0px 15px;
+margin-bottom:8px;
+}
+
+#territoire-experience{
+padding:0px 15px 0px 15px;
+margin-bottom:8px;
+}
+
+#ressource-experience{
+padding:0px 15px 0px 15px;
+margin-bottom:8px;
+}
+
+#personne-contact-experience{
+padding:0px 15px 0px 15px;
+/*margin-bottom:8px;*/
+}
+
+#pdf-experience,
+#pdf-institution,
+#pdf-ressource{
+padding:0px;
+text-align:center;
+}
+
+.pdf-file{
+display: block;
+padding-left: 36px;
+padding-top: 5px;}
+
+#clearboth{
+clear:both;
+}
+
+#experience-etat{
+background-color:#ffd6ff;
+float: right;
+margin-top:-25px;
+width:170px;
+text-align:center;
+font-size:0.8em;
+color:#dc00be;
+}
+
+.description-texte{
+background-color:#efefef;
+border:1px solid #dedede;
+}
+
+.description-for-manager{
+border-top: 3px double #850864;
+border-bottom: 3px double #850864;
+border-left: 1px solid #850864;
+border-right: 1px solid #850864;
+background-color:#ffd6ff;
+padding:1em;
+}
+.description-for-manager fieldset{
+border: 1px solid #850864;
+}
+.description-for-manager legend{
+background-color:transparent;
+}
+
+
+.div_question{
+margin : 8px 0px;
+}
+
+.btn-links-table{
+float:right;
+margin-top:8px;
+margin-right:26px;
+}

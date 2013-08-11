@@ -30,24 +30,18 @@
                      tal:condition="python: experience.experience_etat=='pending_for_review'">
                     <img src="alerte.png" /> Cette expérience en en cours de validation
                 </div>
-                <div id="title-experience">
-                    <div id="title-experience-left"></div>
-                    <div class="titre-top">
-                        <h1><span tal:content="experience/experience_titre"></span></h1>
+                <div id="titre-experience">
+                    <h1><span tal:content="experience/experience_titre"></span></h1>
+                    <div class="btn-modifier"
+                         tal:condition="python:user.has_role(['Manager'], here)">
+                        <br />
+                        <a href=""
+                           tal:attributes="href string: admin-experience-modifier?experiencePk=${experiencePk}">&nbsp;</a>
                     </div>
-                    <div id="title-experience-right">
-                        <div class="btn-modifier"
-                             tal:condition="python:user.has_role(['Manager'], here)">
-                            <br />
-                            <a href=""
-                               tal:attributes="href string: admin-experience-modifier?experiencePk=${experiencePk}">&nbsp;</a>
-                        </div>
-                    </div>
+                    <div class="brak-float"></div>
                 </div>
 
                 <div id="left-experience">
-                    <div id="titre-experience">
-                    </div>
                     <div id="border-experience">
                         <div id="resume-experience"
                              tal:condition="python: experience.experience_resume!=''">
