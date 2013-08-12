@@ -78,13 +78,11 @@
                         </div>
                         <div id="milieu-de-vie-experience">
                             <span class="left-rubrique-db">Milieu de vie </span>
-                            <!--
                             <ul tal:define="milieudevies python:view.getMilieuDeVieByExperiencePk(experiencePk, 'nom')">
                                 <span tal:repeat="milieudevie milieudevies">
                                     <li tal:content="milieudevie">milieu de vie</li>
                                 </span>
                             </ul>
-                            -->
                         </div>
                         <div id="demarche-experience"
                              tal:condition="python: experience.experience_demarche_actions!=''">

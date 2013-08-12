@@ -97,11 +97,6 @@ padding:0px 5px;
 color:#51686d;
 }
 
-#border-experience{
-border-left:1px solid #eee;
-border-bottom:1px solid #eee;
-}
-
 #titre-experience{
 /*margin-top:45px;*/
 margin-bottom:20px;
@@ -123,7 +118,7 @@ margin:auto;
 }
 
 #resume-experience{
-border-bottom:1px solid #98ac69;
+border-bottom:1px dotted #ddd;
 background-image:url(puzzle_vert.png);
 background-repeat:no-repeat;
 background-position:left 18px;
@@ -134,7 +129,7 @@ padding-top:18px;
 
 #contexte-experience{
 margin-top:15px;
-border-bottom:1px solid #98ac69;
+border-bottom:1px dotted #ddd;
 background-image:url(puzzle_jaune_2.png);
 background-repeat:no-repeat;
 background-position:left top;
@@ -143,7 +138,7 @@ padding-left:50px;
 
 #objectif-experience{
 margin-top:15px;
-border-bottom:1px solid #98ac69;
+border-bottom:1px dotted #ddd;
 background-image:url(puzzle_rouge.png);
 background-repeat:no-repeat;
 background-position:left top;
@@ -152,7 +147,7 @@ padding-left:50px;
 
 #public-experience{
 margin-top:15px;
-border-bottom:1px solid #98ac69;
+border-bottom:1px dotted #ddd;
 background-image:url(puzzle_gris_vert.png);
 background-repeat:no-repeat;
 background-position:left top;
@@ -161,7 +156,7 @@ padding-left:50px;
 
 #milieu-de-vie-experience{
 margin-top:15px;
-border-bottom:1px solid #98ac69;
+border-bottom:1px dotted #ddd;
 background-image:url(puzzle_vert.png);
 background-repeat:no-repeat;
 background-position:left top;
@@ -170,7 +165,7 @@ padding-left:50px;
 
 #demarche-experience{
 margin-top:15px;
-border-bottom:1px solid #98ac69;
+border-bottom:1px dotted #ddd;
 background-image:url(puzzle_jaune_2.png);
 background-repeat:no-repeat;
 padding-left:50px;
@@ -178,7 +173,7 @@ padding-left:50px;
 
 #moyen-experience{
 margin-top:15px;
-border-bottom:1px solid #98ac69;
+border-bottom:1px dotted #ddd;
 background-image:url(puzzle_rouge.png);
 background-repeat:no-repeat;
 background-position:left top;
@@ -187,7 +182,7 @@ padding-left:50px;
 
 #evaluation-experience{
 margin-top:10px;
-border-bottom:1px solid #98ac69;
+border-bottom:1px dotted #ddd;
 background-image:url(puzzle_vert.png);
 background-repeat:no-repeat;
 background-position:left top;
@@ -196,7 +191,7 @@ padding-left:50px;
 
 #pour-aller-loin-experience{
 margin-top:15px;
-/*border-bottom:1px solid #98ac69;*/
+/*border-bottom:1px dotted #ddd;*/
 background-image:url(puzzle_gris_vert.png);
 background-repeat:no-repeat;
 background-position:left top;
@@ -205,7 +200,7 @@ padding-left:50px;
 
 #perspective-envisagee{
 margin-top:15px;
-/*border-bottom:1px solid #98ac69;*/
+/*border-bottom:1px dotted #ddd;*/
 background-image:url(puzzle_rouge.png);
 background-repeat:no-repeat;
 background-position:left top;
