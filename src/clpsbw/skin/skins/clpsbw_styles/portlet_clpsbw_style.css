@@ -1,36 +1,4 @@
 /*** PORLET NAVIGATION ***/
-.portletNavigationTree{
-width:200px; 
-list-style-type :none;
-}
-
-.portletNavigationTree .navTree li a{
-display:block ;
-background:#FFF ;
-color:#008b9d ;
-font-size:12px;
-line-height:1em ;
-text-align:center ;
-padding-bottom:3px;
-text-decoration:none ;
-padding:4px 0 ;
-margin-bottom:4px;
-border:solid 2px #008b9d;
-box-shadow:2px 2px 2px #888;
-border-radius:10px; 
-}
-
-.portletNavigationTree .navTree li a:hover,
-.portletNavigationTree .navTree li a:focus,
-.portletNavigationTree .navTree li a:active{
-background:#FFF ;
-text-decoration:underline ;
-background:#008b9d ;
-color:#FFF;
-}
-
-
-
 
 
 /****************************** PORTLET COLONNE GAUCHE **********************/
@@ -41,35 +9,43 @@ width:200px;
 margin-bottom:15px;
 }
 
-div.portlet-left-column dt.portletHeaderDB{
+
+/*** PORTLET NAV ***/
+div.portlet-left-column dt.portletHeaderNav{
 margin-bottom:8px;
 border:1px solid #9a0546;
 border-radius:4px;
-background-color:#afa61d;
-color:#00728a;
+background-color:#AFA61D;
+color:#00728A;
 font-size:1em;
+font-variant:small-caps;
 padding-left:10px;
+line-height:20px;
 }
 
-div.portlet-left-column dt.portletPresentationDB{
-background-color:#fff;
-border:1px solid #00728a;
-border-radius:6px;
-padding-left:10px;
-margin:4px 0px;
+div.portlet-left-column dt.portletHeaderNav a:link{
+border-bottom:none !important;
+}
+div.portlet-left-column dl.portlet dd.portletItemNav ul.navTree,
+div.portlet-left-column dl.portlet dd.portletItemNav ul.navTreeLevel0{
+margin-left:0px;
 }
 
-div.portlet-left-column dt.portletPresentationDB a{
-font-weight:normal;
-font-size:0.8em;
+div.portlet-left-column .portletItemNav li{
+background-color: #FFFFFF;
+border: 1px solid #00728A !important;
+border-radius: 6px 6px 6px 6px;
+margin: 8px 0;
+padding-left: 10px;
+}
+
+div.portlet-left-column .portletItemNav li a{
 border-bottom:none !important;
 }
 
-#puzzle_puce{
-position:absolute;
-margin-left:-40px;
-margin-top:-5px;
-}
+
+
+
 
 #portlet-db,
 #portlet-db-auteur,
@@ -90,8 +66,6 @@ font-weight:bold;
 padding-left:15px;
 border-bottom:1px solid #e9953a;
 }
-
-
 
 
 /*** PORLET DB AUTEUR ***/
@@ -214,42 +188,48 @@ height:15px;
 
 
 /*** PORTLET PRESENTATION DB ***/
-.portletPresentationDB ul{
+div.portlet-left-column dt.portletHeaderDB{
+margin-bottom:8px;
+border:1px solid #9a0546;
+border-radius:4px;
+background-color:#afa61d;
+color:#00728a;
+font-size:1em;
+padding-left:10px;
+}
+
+div.portlet-left-column dt.portletPresentationDB{
+background-color:#fff;
+border:1px solid #00728a;
+border-radius:6px;
+padding-left:10px;
+margin:4px 0px;
+}
+
+div.portlet-left-column dt.portletPresentationDB a{
+font-weight:normal;
+font-size:0.8em;
+border-bottom:none !important;
+}
+
+div.portlet-left-column .portletPresentationDB ul{
 margin:0px;
 }
 
-.portletPresentationDB li{
+div.portlet-left-column .portletPresentationDB li{
 display:block;
 margin-left:20px;
 }
 
-.separation{
-width:180px;
-margin-left:-13px;
-margin-top:5px;
-border-bottom:1px dotted #ccc;
-}
-
-.portletItemDB a{
+div.portlet-left-column .portletItemDB a{
 padding-left:20px;
 font-size:0.8em;
 }
 
-.portletItemDB a:hover{
+div.portlet-left-column .portletItemDB a:hover{
 color:#41cff2;
 }
 
-.menu-titre{
-text-transform:capitalize;
-margin-top:10px;
-font-size:0.9em;
-}
-
-.small-comment{
-font-size:0.7em;
-color:#aaa;
-padding-left:2em;
-}
 
 /**** PORTLET PALTEFORME ****/
 dl#portlet-experience-assuetude{

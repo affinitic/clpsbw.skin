@@ -38,7 +38,7 @@
                         <a href=""
                            tal:attributes="href string: admin-experience-modifier?experiencePk=${experiencePk}">&nbsp;</a>
                     </div>
-                    <div class="brak-float"></div>
+                    <div class="break-float"></div>
                 </div>
 
                 <div id="left-experience">

@@ -2,8 +2,8 @@
 <div class="portlet-left-column">
     <dl class="portlet portletNavigationTree"
         tal:define="root view/navigation_root">
-        <dt class="portletHeader"
-            tal:attributes="class python:view.hasName() and 'portletHeader' or 'portletHeader hiddenStructure'">
+        <dt class="portletHeaderNav"
+            tal:attributes="class python:view.hasName() and 'portletHeaderNav' or 'portletHeaderNav hiddenStructure'">
             <span class="portletTopLeft"></span>
             <a href="#"
                class="tile"
@@ -12,8 +12,8 @@
                i18n:translate="">Navigation</a>
             <span class="portletTopRight"></span>
         </dt>
-        <dd class="portletItem lastItem">
-            <ul class="navTree navTreeLevel0">
+        <dd class="portletItemNav lastItem">
+            <ul class="navTree navTreeLevel0" style="margin-left:0px">
                 <li tal:define="selectedClass view/root_item_class;
                                 li_class python:selectedClass and ' navTreeCurrentNode' or '';
                                 normalizeString nocall:context/plone_utils/normalizeString;
@@ -29,7 +29,6 @@
                        <a tal:attributes="href root/absolute_url;
                                           title root/Description;
                                           class python:' '.join([root_class, selectedClass]).strip();">
-                       <img tal:replace="structure root_icon/html_tag" tal:condition="not:rootIsPortal" />
                        <span tal:omit-tag=""
                              tal:condition="rootIsPortal"
                              i18n:translate="tabs_home">Home</span>
