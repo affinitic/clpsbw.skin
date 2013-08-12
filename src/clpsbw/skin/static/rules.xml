@@ -6,55 +6,47 @@
 
     <rules css:if-content="#visual-portal-wrapper">
         <theme href="index.html" />
-
-        <!-- Common Plone rules -->
-        <drop theme="/html/head/meta" />
-        <drop theme="/html/head/title" />
-        <drop theme="/html/head/base" />
-        <drop theme="/html/head/style" />
-        <drop theme="/html/head/script" />
-        <drop theme="/html/head/link" />
-        <drop theme="/html/head/comment()" />
-        <after content="/html/head/meta" theme-children="/html/head" />
-        <after content="/html/head/title" theme-children="/html/head" />
-        <after
-            content="/html/head/base | /html/head/style | /html/head/script | /html/head/link | /html/head/comment()"
-            theme-children="/html/head"
-            />
-
-
-        <copy attributes="class id dir" content="/html/body" theme="/html/body" />
-
-        <!-- Logo link -->
-        <copy attributes="href"
-              css:content="#portal-logo"
-              css:theme="#logo .logo-link" />
-        
-        <replace css:content-children="#portal-siteactions"
-                 css:theme-children="#site-action" />
-
-        <replace css:content-children="#portal-searchbox"
-                 css:theme-children="#search-plone" />
-
-        <replace css:content-children="#user-name"
-                 css:theme-children="#username" />
-        
-        <replace css:content-children="#portal-personaltools-wrapper"
-                 css:theme-children="#personal-tools" />
-
-        <replace css:content="#portal-column-one"
-                 css:theme="#left-column" />
-
-        <replace css:content="#portal-column-content"
-                 css:theme="#main-column" />
-
-        <replace css:content="#portal-column-two"
-                 css:theme="#right-column" />
-        
-        <replace css:content=".portletNavigationTree"
-                 css:theme="#navigation" />
-
-
     </rules>
 
+    <!-- Common Plone rules -->
+    <drop theme="/html/head/meta" />
+    <drop theme="/html/head/title" />
+    <drop theme="/html/head/base" />
+    <drop theme="/html/head/style" />
+    <drop theme="/html/head/script" />
+    <drop theme="/html/head/link" />
+    <drop theme="/html/head/comment()" />
+    <after content="/html/head/meta" theme-children="/html/head" />
+    <after content="/html/head/title" theme-children="/html/head" />
+    <after
+        content="/html/head/base | /html/head/style | /html/head/script | /html/head/link | /html/head/comment()"
+        theme-children="/html/head"
+        />
+
+
+    <copy attributes="class id dir" content="/html/body" theme="/html/body" />
+
+    <!-- Logo link -->
+    <copy attributes="href"
+          css:content="#portal-logo"
+          css:theme="#logo .logo-link" />
+    
+    <replace css:content-children="#portal-siteactions"
+             css:theme-children="#site-action" />
+
+    <replace css:content-children="#portal-searchbox"
+             css:theme-children="#search-plone" />
+
+    <replace css:content-children="#user-name"
+             css:theme-children="#username" />
+    
+    <replace css:content="#portal-column-one"
+             css:theme="#left-column" />
+
+    <replace css:content="#portal-column-content"
+             css:theme="#main-content" />
+
+    <replace css:content="#portal-column-two"
+             css:theme="#right-column" />
+    
 </rules>

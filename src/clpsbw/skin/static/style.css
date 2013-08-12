@@ -30,7 +30,7 @@ clear:both;
 }
 
 
-#content a:link, dl.portlet a:link{
+#main a:link, dl.portlet a:link{
 border-bottom:0.1em solid #CCCCCC;
 color:#205C90;
 }
@@ -278,7 +278,7 @@ padding-top:3px;
 
 
 /*** CONTENT ***/
-#content{
+#main{
 min-height:600px;
 clear: both;
 font-size: 80%;
@@ -335,13 +335,13 @@ width:715px;
 margin-left:-850px;
 }
 
-div#portal-column-content.cell div div#content{
+div#portal-column-content.cell div div#main{
 border:1px solid #008b9d;
 border-radius:20px;
 padding:1em;
 }
 
-div#portal-column-content.cell div div#content h1{
+div#portal-column-content.cell div div#main h1{
 color:#008b9d;
 border-bottom:1px solid rgba(0,139,157,0.3);
 }

@@ -63,8 +63,8 @@ div.pageBreak {
 
 /* Uncomment these to get link addresses inserted along with the link text
    when you print.
-#content a:link:after, 
-#content a:visited:after {
+#main a:link:after, 
+#main a:visited:after {
    content: " [" attr(href) "] ";
 }
 */
@@ -94,7 +94,7 @@ div.top,
 .skipnav,
 #kss-spinner,
 #review-history,
-#content-history,
+#main-history,
 .listingBar,
 .visualNoPrint,
 #logo-projet-paratge {
