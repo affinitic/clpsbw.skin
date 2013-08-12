@@ -692,10 +692,10 @@ class ManageClpsbw(BrowserView):
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        AuteurTable = wrapper.getMapper('auteur')
-        query = session.query(AuteurTable)
-        query = query.filter(AuteurTable.auteur_actif == True)
-        query = query.order_by(AuteurTable.auteur_nom)
+        #AuteurTable = wrapper.getMapper('auteur')
+        query = session.query(Auteur)
+        query = query.filter(Auteur.auteur_actif == True)
+        query = query.order_by(Auteur.auteur_nom)
         allAuteur = query.all()
         return allAuteur
 
@@ -1062,6 +1062,8 @@ class ManageClpsbw(BrowserView):
         table pg link_experience_public
         recuperation des publics selon experiencePk
         """
+        if not isinstance(experiencePk, list):
+            experiencePk = [experiencePk]
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
         #LinkExperiencePublicTable = wrapper.getMapper('link_experience_public')
@@ -2051,6 +2053,8 @@ class ManageClpsbw(BrowserView):
         table pg link_experience_milieudevie
         recuperation des milieudevies selon experiencePk
         """
+        if not isinstance(experiencePk, list):
+            experiencePk = [experiencePk]
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
         #LinkExperienceMilieuDeVieTable = wrapper.getMapper('link_experience_milieudevie')
