@@ -51,7 +51,7 @@
                            id="titre_experience"
                            name="titreExperience"
                            value=""
-                           size="50">
+                           size="100">
                 </div>
                 <div class="formulaire-submit">
                     <input type="submit"
