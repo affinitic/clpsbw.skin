@@ -336,8 +336,18 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feccb1', end
 
 
 /*** COLUMN CONTENT ***/
-#main-column{} 
 #main-content{}
+    
+#content {
+border:1px solid #00728A;
+border-radius:18px 18px 18px 18px;
+clear:both;
+font-size:80%;
+line-height:1.5em;
+margin:1em 0.25em 2em;
+padding:1em;
+}
+
 div#portal-column-content{
 width:715px;
 margin-left:-850px;
