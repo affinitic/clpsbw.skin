@@ -16,7 +16,11 @@
             <dt class="portletHeaderDB">
                 <span class="portletTopLeft"></span>
                 <span class="portletTopRight"></span>
-                Projets partagés
+                <a href=""
+                   tal:attributes="href string:${context/portal_url}/presentation-db"
+                   title="Pr&eacute;sentation des projets partag&eacute;s"
+                   alt="Présentation des projets partag&eacute;">
+                <img src="projetpartage.png" /></a>
             </dt>
             <tal:boucle tal:repeat="experience experiences">
                 <dt class="portletPresentationDB">
@@ -31,18 +35,11 @@
             </tal:boucle>
             <dt class="portletFooterDB portletPresentationDB">
                 <div id="portletFooterDB-Bouton">
-                    <div id="btn-projet-partage">
-                        <a href=""
-                           tal:attributes="href string:${context/portal_url}/presentation-db"
-                           title="Pr&eacute;sentation des projets partag&eacute;s"
-                           alt="Présentation des projets partag&eacute;">
-                            <img src="projet_partage_logo_cercle.png" /></a>
-                    </div>
                     <div id="btn-flch-verte">
                         <a href="experience-plate-forme-lister?plateForme=experience_plate_forme_assuetude"
                            title="listing des projets partag&eacute;s"
                            alt="listing des projets partag&eacute;s">
-                            <img src="flch_verte.png" /></a>
+                            <!--img src="flch_verte.png" /-->Autres ...</a>
                     </div>
                     <div class="break-float"></div>
                 </div>

@@ -37,6 +37,7 @@ width: 660px;
 }
 
 
+
 /*** LIEN GESTION DES PORTLETS ***/
 #portal-column-two div.managePortletsLink{
 display:none;
@@ -45,6 +46,12 @@ display:none;
 
 
 /*** PRESENTATION BASE DE DONNEE ***/
+#experience-template{
+background-image:url(bg_experience.png);
+background-repeat:no-repeat;
+background-position: center bottom;
+}
+
 #titre-presentation-db,
 #zone-titre-moteur-recherche{
 width:650px;
@@ -95,6 +102,47 @@ margin-left:15px;
 }
 
 
+.btn-modifier {
+float:right;
+margin-top:15px;
+margin-right:8px;
+width:30px;
+height:30px;
+border:1px solid #dedede;
+border-radius:8px;
+box-shadow:3px 3px 6px rgba(50,50,50,0.6);
+background: -moz-linear-gradient(top,  rgba(255,255,255,0.95) 0%, rgba(241,241,241,0.95) 50%, rgba(225,225,225,0.95) 51%, rgba(246,246,246,0.95) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.95)), color-stop(50%,rgba(241,241,241,0.95)), color-stop(51%,rgba(225,225,225,0.95)), color-stop(100%,rgba(246,246,246,0.95))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(255,255,255,0.95) 0%,rgba(241,241,241,0.95) 50%,rgba(225,225,225,0.95) 51%,rgba(246,246,246,0.95) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(255,255,255,0.95) 0%,rgba(241,241,241,0.95) 50%,rgba(225,225,225,0.95) 51%,rgba(246,246,246,0.95) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(255,255,255,0.95) 0%,rgba(241,241,241,0.95) 50%,rgba(225,225,225,0.95) 51%,rgba(246,246,246,0.95) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(255,255,255,0.95) 0%,rgba(241,241,241,0.95) 50%,rgba(225,225,225,0.95) 51%,rgba(246,246,246,0.95) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2ffffff', endColorstr='#f2f6f6f6',GradientType=0 ); /* IE6-9 */
+}
+
+.btn-modifier a {
+display:inline-block;
+width:30px;
+height:30px;
+text-decoration:none;
+background-image:url("btn_modifier.png");
+background-position:center 4px;
+background-repeat:no-repeat;
+border-bottom:none !important;
+}
+
+.btn-modifier:hover {
+box-shadow:1px 1px 1px rgba(50,50,50,0.6);
+}
+
+
+.btn-modifier a:hover {
+background-image:url("btn_modifier.png");
+background-position:center -34px;
+}
+
+
+
 
 /**** DESCRIPTION EXPERIENCE ****/
 #logo-projet-paratge{
@@ -107,15 +155,24 @@ background-repeat:no-repeat;
 background-position:right bottom;
 }
 
-
-/** colonne gauche **/
 #left-experience{
 float:left;
-width:470px;
+width:450px;
 padding:0px 5px;
 color:#51686d;
 }
 
+#right-experience{
+float:right;
+width:200px;
+color:#111;
+font-size:0.8em;
+margin-top:-38px;
+}
+
+
+
+/*** COLONNE GAUCHE DESCRIPTION EXPERIENCE ***/
 #titre-experience{
 /*margin-top:45px;*/
 margin-bottom:20px;
@@ -242,34 +299,8 @@ font-size:1.1em;
 color:#51686d;
 }
 
-.btn-modifier{
-float:right;
-margin-right:6px;
-width:25px;
-height:25px;
-}
 
-.btn-modifier a {
-display:block;
-text-decoration:none;
-background-image:url(modifier_off.png);
-background-repeat:no-repeat;
-}
-
-.btn-modifier a:hover {
-background-image:url(modifier_on.png);
-}
-
-
-/** COLONNE DROITE DESCRIPTION EXPERIENCE **/
-#right-experience{
-float:right;
-width:200px;
-color:#111;
-font-size:0.8em;
-margin-top:-38px;
-}
-
+/*** COLONNE DROITE DESCRIPTION EXPERIENCE ***/
 #right-experience-header{
 width:216px;
 height:90px;

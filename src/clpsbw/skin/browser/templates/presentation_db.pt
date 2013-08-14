@@ -21,7 +21,7 @@
 
 <body>
 <div metal:fill-slot="main">
-    <div id="zone-titre-presentation-db">
+    <div id="experience-template">
         <div>
             <div  id="logo-projet-paratge">
                 <img src="projet_partage_logo_texte.png"
@@ -145,7 +145,7 @@
             <a href="login_form">entrez vos login et mot de passe</a>.
             </p>
         </div>
-    </div><!--id moteur-recherche-->
+    </div><!--id experience-template-->
 </div><!-- div metal-->
 </body>
 </html>

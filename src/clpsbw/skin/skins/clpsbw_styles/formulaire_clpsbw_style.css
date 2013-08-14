@@ -1,46 +1,8 @@
-.btn-modifier {
-height:20px;
-width:20px;
-}
-.btn-modifier a {
-display:block;
-width:18px;
-height:20px;
-background-image:url("btn_modifier.png");
-background-position:left top;
-background-repeat:no-repeat;
-text-decoration:none;
-}
-.btn-modifier a:hover {
-background-image:url("btn_modifier.png");
-background-position:left -21px;
-}
-
-
-
 
 /*** FORMULAIRE ***/
 .formulaire{
 margin:auto;
-/* gris
-background: rgb(255,255,255);
-background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(204,204,204,1) 100%);
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(204,204,204,1)));
-background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(204,204,204,1) 100%);
-background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(204,204,204,1) 100%);
-background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(204,204,204,1) 100%);
-background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(204,204,204,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#cccccc',GradientType=0 );
-*/
-
-background: -moz-linear-gradient(top,  rgba(246,230,180,0.5) 0%, rgba(237,144,23,0.5) 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(246,230,180,0.5)), color-stop(100%,rgba(237,144,23,0.5))); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top,  rgba(246,230,180,0.5) 0%,rgba(237,144,23,0.5) 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top,  rgba(246,230,180,0.5) 0%,rgba(237,144,23,0.5) 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top,  rgba(246,230,180,0.5) 0%,rgba(237,144,23,0.5) 100%); /* IE10+ */
-background: linear-gradient(to bottom,  rgba(246,230,180,0.5) 0%,rgba(237,144,23,0.5) 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#80f6e6b4', endColorstr='#80ed9017',GradientType=0 ); /* IE6-9 */
-
+background:rgba(201, 143, 29, 0.7); /* jaune */
 border:1px solid #aaa;
 border-radius:10px;
 box-shadow:3px 3px 15px rgba(50, 50, 50, 0.5);

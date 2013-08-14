@@ -25,153 +25,154 @@
 
 <body>
 <div metal:fill-slot="main">
-    <div>
-         <div  id="logo-projet-paratge">
-             <img src="projet_partage_logo_texte.png"
-                  width="216"
-                  height="36"
-                  title="CLPS-Bw - Projets partagés"
-                  alt="projet_partage_logo_texte.png" />
-         </div>
-    </div>
-    <div id="zone-titre-moteur-recherche">
-        <h1>Effectuer une recherche</h1>
-    </div>
-    <br />
-    <h2><img src="label_flch_rouge.png" /> Plusieurs types de recherche sont possibles.</h2>
-
-    <div id="zone-moteur-recherche">
-
-        <div class="formulaire">
-            <h2 class="formulaire-titre"> A partir du titre d'une expérience </h2>
-            <form action="experience-decrire"
-                  method="post">
-                <div class="formulaire-input">
-                    <input type="text"
-                           id="titre_experience"
-                           name="titreExperience"
-                           value=""
-                           size="100">
-                </div>
-                <div class="formulaire-submit">
-                    <input type="submit"
-                           value="lancer la recherche"
-                           class="search-button" />
-                </div>
-            </form>
+    <div id="experience-template">
+        <div>
+             <div  id="logo-projet-paratge">
+                 <img src="projet_partage_logo_texte.png"
+                      width="216"
+                      height="36"
+                      title="CLPS-Bw - Projets partagés"
+                      alt="projet_partage_logo_texte.png" />
+             </div>
         </div>
+        <div id="zone-titre-moteur-recherche">
+            <h1>Effectuer une recherche</h1>
+        </div>
+        <br />
+        <h2><img src="label_flch_rouge.png" /> Plusieurs types de recherche sont possibles.</h2>
 
-        <div class="formulaire">
-            <h2 class="formulaire-titre">
-                A partie de la liste des titres des expériences encodées dans notre base.
-            </h2>
-            <form action="experience-decrire"
-                  method="post">
-                <div class="formulaire-input">
-                    <select name="experiencePk">
-                        <tal:block tal:define="experiences python:view.getExperienceByClpsByEtat(1,'publish')">
-                            <option></option>
-                            <optgroup label="CLPS-BW">
-                                <tal:boucle tal:repeat="experience experiences">
+        <div id="zone-moteur-recherche">
+            <div class="formulaire">
+                <h2 class="formulaire-titre"> A partir du titre d'une expérience </h2>
+                <form action="experience-decrire"
+                      method="post">
+                    <div class="formulaire-input">
+                        <input type="text"
+                               id="titre_experience"
+                               name="titreExperience"
+                               value=""
+                               size="100">
+                    </div>
+                    <div class="formulaire-submit">
+                        <input type="submit"
+                               value="lancer la recherche"
+                               class="search-button" />
+                    </div>
+                </form>
+            </div>
+
+            <div class="formulaire">
+                <h2 class="formulaire-titre">
+                    A partie de la liste des titres des expériences encodées dans notre base.
+                </h2>
+                <form action="experience-decrire"
+                      method="post">
+                    <div class="formulaire-input">
+                        <select name="experiencePk">
+                            <tal:block tal:define="experiences python:view.getExperienceByClpsByEtat(1,'publish')">
+                                <option></option>
+                                <optgroup label="CLPS-BW">
+                                    <tal:boucle tal:repeat="experience experiences">
+                                        <option value=""
+                                                tal:attributes="value experience/experience_pk">
+                                            <span tal:content="experience/experience_titre">titre experience</span>
+                                        </option>
+                                    </tal:boucle>
+                                </optgroup>
+                            </tal:block>
+                            <tal:block tal:define="experiences python:view.getExperienceByClpsByEtat(2,'publish')">
+                                <option></option>
+                                <optgroup label="CLPS-LUX">
+                                    <tal:boucle tal:repeat="experience experiences">
+                                        <option value=""
+                                                tal:attributes="value experience/experience_pk">
+                                            <span tal:content="experience/experience_titre">titre experience</span>
+                                        </option>
+                                    </tal:boucle>
+                                </optgroup>
+                            </tal:block>
+                        </select>
+                    </div>
+                    <div class="formulaire-submit">
+                        <input type="submit"
+                               value="lancer la recherche"
+                               class="search-button" />
+                    </div>
+                </form>
+            </div>
+
+            <div class="formulaire">
+                <h2 class="formulaire-titre"> A destination d'un milieu de vie </h2>
+                <form action="experience-resultat-recherche-milieu-vie" method="post">
+                    <div class="formulaire-input">
+                        <tal:block tal:define="milieuxDeViePk python:view.getMilieuDeVieForSearchEngine();
+                                               milieuxDeVie python:view.getMilieuDeVieByPk(milieuxDeViePk)">
+                            <select name="milieudeviePk:list">
+                                <tal:boucle tal:repeat="milieudevie milieuxDeVie">
                                     <option value=""
-                                            tal:attributes="value experience/experience_pk">
-                                        <span tal:content="experience/experience_titre">titre experience</span>
+                                            tal:attributes="value milieudevie/milieudevie_pk">
+                                        <span tal:content="milieudevie/milieudevie_nom">milieu de vie</span>
                                     </option>
                                 </tal:boucle>
-                            </optgroup>
+                            </select>
                         </tal:block>
-                        <tal:block tal:define="experiences python:view.getExperienceByClpsByEtat(2,'publish')">
-                            <option></option>
-                            <optgroup label="CLPS-LUX">
-                                <tal:boucle tal:repeat="experience experiences">
+                    </div>
+                    <div class="formulaire-submit">                
+                        <input type="submit"
+                               value="lancer la recherche"
+                               class="search-button" />
+                    </div>
+                </form>
+            </div>
+
+            <div class="formulaire">
+                <h2 class="formulaire-titre"> Recherche selon un thème </h2>
+                <form action="experience-resultat-recherche-theme" method="post">
+                    <div class="formulaire-input">
+                        <tal:block tal:define="themesPk python:view.getThemeForSearchEngine();
+                                               themes python:view.getThemeByPk(themesPk)">
+                            <select name="themePk:list">
+                                <tal:boucle tal:repeat="theme themes">
                                     <option value=""
-                                            tal:attributes="value experience/experience_pk">
-                                        <span tal:content="experience/experience_titre">titre experience</span>
+                                            tal:attributes="value theme/theme_pk">
+                                        <span tal:content="theme/theme_nom">theme</span>
                                     </option>
                                 </tal:boucle>
-                            </optgroup>
+                            </select>
                         </tal:block>
-                    </select>
-                </div>
-                <div class="formulaire-submit">
-                    <input type="submit"
-                           value="lancer la recherche"
-                           class="search-button" />
-                </div>
-            </form>
-        </div>
-
-        <div class="formulaire">
-            <h2 class="formulaire-titre"> A destination d'un milieu de vie </h2>
-            <form action="experience-resultat-recherche-milieu-vie" method="post">
-                <div class="formulaire-input">
-                    <tal:block tal:define="milieuxDeViePk python:view.getMilieuDeVieForSearchEngine();
-                                           milieuxDeVie python:view.getMilieuDeVieByPk(milieuxDeViePk)">
-                        <select name="milieudeviePk:list">
-                            <tal:boucle tal:repeat="milieudevie milieuxDeVie">
-                                <option value=""
-                                        tal:attributes="value milieudevie/milieudevie_pk">
-                                    <span tal:content="milieudevie/milieudevie_nom">milieu de vie</span>
-                                </option>
-                            </tal:boucle>
-                        </select>
-                    </tal:block>
-                </div>
-                <div class="formulaire-submit">                
-                    <input type="submit"
-                           value="lancer la recherche"
-                           class="search-button" />
-                </div>
-            </form>
-        </div>
-
-        <div class="formulaire">
-            <h2 class="formulaire-titre"> Recherche selon un thème </h2>
-            <form action="experience-resultat-recherche-theme" method="post">
-                <div class="formulaire-input">
-                    <tal:block tal:define="themesPk python:view.getThemeForSearchEngine();
-                                           themes python:view.getThemeByPk(themesPk)">
-                        <select name="themePk:list">
-                            <tal:boucle tal:repeat="theme themes">
-                                <option value=""
-                                        tal:attributes="value theme/theme_pk">
-                                    <span tal:content="theme/theme_nom">theme</span>
-                                </option>
-                            </tal:boucle>
-                        </select>
-                    </tal:block>
-                </div>
-                <div class="formulaire-submit">
-                    <input type="submit"
-                           value="lancer la recherche"
-                           class="search-button" />
-                </div>
-            </form>
-        </div>
-        <div class="formulaire">
-            <h2 class="formulaire-titre"> Recherche selon un public </h2>
-            <form action="experience-resultat-recherche-public" method="post">
-                <div class="formulaire-input">
-                    <tal:block tal:define="publicsPk python:view.getPublicForSearchEngine();
-                                           publics python:view.getPublicByPk(publicsPk)">
-                        <select name="publicPk:list">
-                            <tal:boucle tal:repeat="public publics">
-                                <option value=""
-                                        tal:attributes="value public/public_pk">
-                                    <span tal:content="public/public_nom">public</span>
-                                </option>
-                            </tal:boucle>
-                        </select>
-                    </tal:block>
-                </div>
-                <div class="formulaire-submit">
-                    <input type="submit"
-                           value="lancer la recherche"
-                           class="search-button" />
-                </div>
-            </form>
-        </div>
-    </div><!--id moteur-recherche-->
+                    </div>
+                    <div class="formulaire-submit">
+                        <input type="submit"
+                               value="lancer la recherche"
+                               class="search-button" />
+                    </div>
+                </form>
+            </div>
+            <div class="formulaire">
+                <h2 class="formulaire-titre"> Recherche selon un public </h2>
+                <form action="experience-resultat-recherche-public" method="post">
+                    <div class="formulaire-input">
+                        <tal:block tal:define="publicsPk python:view.getPublicForSearchEngine();
+                                               publics python:view.getPublicByPk(publicsPk)">
+                            <select name="publicPk:list">
+                                <tal:boucle tal:repeat="public publics">
+                                    <option value=""
+                                            tal:attributes="value public/public_pk">
+                                        <span tal:content="public/public_nom">public</span>
+                                    </option>
+                                </tal:boucle>
+                            </select>
+                        </tal:block>
+                    </div>
+                    <div class="formulaire-submit">
+                        <input type="submit"
+                               value="lancer la recherche"
+                               class="search-button" />
+                    </div>
+                </form>
+            </div>
+        </div><!--id moteur-recherche-->
+    </div><!-- exeperience-template-->
 </div><!-- div metal-->
 </body>
 </html>
