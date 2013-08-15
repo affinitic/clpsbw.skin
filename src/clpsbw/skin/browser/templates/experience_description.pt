@@ -16,16 +16,14 @@
     <div id="experience-template">
         <tal:boucle tal:repeat="experience experiences">
             <tal:block tal:define="experiencePk experience/experience_pk">
-                <div>
-                    <div  id="logo-projet-paratge">
-                        <img src="projet_partage_logo_texte.png"
-                             width="216"
-                             height="36"
-                             title="CLPS-Bw - Projets partagés"
-                             alt="titre_logo_presentation_db.png" />
-                    </div>
+                <div  id="logo-projet-paratge">
+                    <img src="projet_partage_logo_texte.png"
+                         width="216"
+                         height="36"
+                         title="CLPS-Bw - Projets partagés"
+                         alt="titre_logo_presentation_db.png" />
                 </div>
-
+                
                 <div id="main-experience">
                     <div id="alerte"
                          tal:condition="python: experience.experience_etat=='pending_for_review'">

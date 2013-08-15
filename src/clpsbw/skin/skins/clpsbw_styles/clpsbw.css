@@ -11,6 +11,49 @@ vert background #afa61d
 STYLE TEMPLATE PLONE
 
 **/
+.grasbrun{
+font-weight:bold;
+color:#b93f00;
+}
+
+.grasorange{
+font-weight:bold;
+color:#ff6f00;
+}
+
+.grasrouge{
+font-weight:bold;
+color:#ff0000;
+}
+
+.grasvert{
+font-weight:bold;
+color:#00aa00;
+}
+
+.gras{
+font-weight:bold;
+}
+
+.vert-actif{
+color:#00aa00;
+font-size:0.8em;
+}
+
+.rouge-non-actif{
+color:#ff0000;
+font-size:0.8em;
+}
+
+.merci-text{
+margin-top:2em;
+font-size : 2em;
+text-align:center;
+}
+
+
+
+
 
 #alerte{
 background-color:#fd7b00;
@@ -59,7 +102,7 @@ height:80px;
 margin-top:15px;
 border:2px solid #afa61d;
 border-radius:12px;
-background:#9a0546 url(puzzle_titre_db.png) no-repeat 54px 18px;
+background:#9a0546 url(puzzle_titre_db.png) no-repeat 35px 13px;
 }
 
 #titre-presentation-db h1,
@@ -67,10 +110,10 @@ background:#9a0546 url(puzzle_titre_db.png) no-repeat 54px 18px;
 width:450px;
 margin:10px auto 0px auto;
 color:#fff !important;
-font-size:2.5em;
-border-bottom:1px solid #fff !important;
+font-size:2em;
 color:#fff;
 text-align:center;
+letter-spacing:2px;
 }
 
 #moteur-presentation-db{
@@ -100,7 +143,6 @@ border-right:1px solid #afa61d;
 padding:5px;
 margin-left:15px;
 }
-
 
 .btn-modifier {
 float:right;
@@ -134,7 +176,6 @@ border-bottom:none !important;
 .btn-modifier:hover {
 box-shadow:1px 1px 1px rgba(50,50,50,0.6);
 }
-
 
 .btn-modifier a:hover {
 background-image:url("btn_modifier.png");
@@ -283,7 +324,6 @@ background-position:left top;
 padding-left:50px;
 }
 
-
 .rouge-titre{
 color:#90113d;
 }
@@ -420,7 +460,6 @@ border: 1px solid #850864;
 background-color:transparent;
 }
 
-
 .div_question{
 margin : 8px 0px;
 }
@@ -430,3 +469,106 @@ float:right;
 margin-top:8px;
 margin-right:26px;
 }
+
+
+
+
+
+/*** LISTING EXPERIENCE ***/ 
+
+#listing-experience-main{
+background-color:rgba(255,253,238,0.5);
+border:3px solid #9bab5f; 
+border-radius:18px;
+margin:auto;
+margin-top:1em;
+padding:1em;
+}
+
+#listing-titre{
+width:100%;
+height:90px;
+background-color:#9bab5f;
+background-image:url(bg_listing_titre.png);
+background-repeat:no-repeat;
+background-position:32px 37px;
+text-align:center;
+font-size:1.2em;
+padding-top:25px;
+}
+
+#listing-titre h1{
+color:#8d173e;
+border-bottom:none;
+}
+
+.listing-experience{
+margin:auto;
+margin-top:4em;
+border:2px solid #da9000;
+border-radius:18px;
+}
+
+#listing-nbre-experience{
+margin:0px;
+color:#bc7600;
+font-size:1.3em;
+font-weight:bold;
+text-align:center;
+}
+
+.listing-titre-experience{
+background-color:rgba(255,244,182,0.5);
+border-radius:18px 18px 0px 0px;
+padding-left:20px;
+}
+
+.listing-titre-experience a{
+display:inline-block;
+height:30px;
+width:500px;
+color:#b03a5f;
+font-variant:small-caps;
+font-size:1.2em;
+font-weight:bold;
+line-height:28px;
+padding:0px 1em 0px 2em;
+text-decoration:none;
+border-bottom:none !important;
+background-image:url(puzzle_jaune_18.png);
+background-repeat:no-repeat;
+background-position:left center;
+}
+
+.listing-texte-experience{
+padding:1em;
+}
+
+#footer-listing{
+height:46px;
+margin-top: 1.2em;
+}
+
+.listing-experience-etat{
+background-color:#ffd6ff;
+float: left;
+margin-top:15px;
+margin-left:10px;
+width:95px;
+text-align:center;
+font-size:0.8em;
+color:#dc00be;
+}
+
+.listing-experience-bouton{
+float:right;
+margin-top:10px;
+margin-right:10px;
+border-bottom:none !important;
+}
+
+.listing-experience-bouton a{
+border-bottom:none !important;
+}
+
+
