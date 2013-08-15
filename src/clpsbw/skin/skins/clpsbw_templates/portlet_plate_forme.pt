@@ -17,40 +17,38 @@
                 <span class="portletTopRight"></span>
                 Les plates-formes
             </dt>
-            <dt class="portletPresentationDB">
+            <dt class="portletItem">
                 <a href="" 
                    tal:attributes="href string:${context/portal_url}/sante-et-bien-etre-des-familles">
                    Santé des familles
                 </a>
             </dt>
-            <dt class="portletPresentationDB">
+            <dt class="portletItem">
                 <a href="" tal:attributes="href string:${context/portal_url}/sante-et-bien-etre-a-l-ecole">
                     Santé à l'ecole
                 </a>
             </dt>
-             <dt class="portletPresentationDB">
+            <dt class="portletItem">
                 <a href="" 
                    tal:attributes="href string:${context/portal_url}/sante-des-communes">
                    Santé des communes
                 </a>
-             </dt>
-             <dt class="portletPresentationDB">
+            </dt>
+            <dt class="portletItem">
                 <a href="" 
-                   tal:attributes="href
-                   string:${context/portal_url}/point-d-appui-assuetudes">
-                   Point d'appui assuetudes
+                   tal:attributes="href string:${context/portal_url}/point-d-appui-assuetudes">
+                   Assuétudes
                 </a>
             </dt>
-            <dt class="portletPresentationDB">
+            <dt class="portletItem">
                 <a href="" 
                    tal:attributes="href string:${context/portal_url}/sante-environnement">
                    Santé - Environnement
                 </a>
             </dt>
-            <dt class="portletPresentationDB">
+            <dt class="portletItem">
                 <a href="" 
-                   tal:attributes="href
-                   string:${context/portal_url}/vie-affective-et-sexuelle">
+                   tal:attributes="href string:${context/portal_url}/vie-affective-et-sexuelle">
                    Vie affective et sexuelle
                 </a>
             </dt>

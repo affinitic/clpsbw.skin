@@ -11,41 +11,35 @@
 
 <div metal:define-macro="portlet">
     <div class="portlet-left-column"> 
-        <dl id="portlet-plate-forme">
+        <dl id="portlet-offre-service">
             <dt class="portletHeaderDB">
                 <span class="portletTopLeft"></span>
                 <span class="portletTopRight"></span>
                 Offre de service
             </dt>
-            <dt class="portletPresentationDB">
+            <dt class="portletItem">
                 <a href="" tal:attributes="href string:${context/portal_url}/que-proposons-nous/accompagnement-de-projet">
                     Accompagnement de projets
                 </a>
             </dt>
-            <dt class="portletPresentationDB">
+            <dt class="portletItem">
                 <a href="" 
                    tal:attributes="href string:${context/portal_url}/que-proposons-nous/mise-en-reseau-espaces-d-echanges">
                    Mise en réseau
                 </a>
             </dt>
-            <dt class="portletPresentationDB">
+            <dt class="portletItem">
                 <a href="" 
                    tal:attributes="href string:${context/portal_url}/que-proposons-nous/centre-de-documentation">
                    Centre de documentation
                 </a>
-             </dt>
-             <dt class="portletPresentationDB">
+            </dt>
+            <dt class="portletItem">
                 <a href="" 
                    tal:attributes="href string:${context/portal_url}/que-proposons-nous/formations-ateliers">
                    Formation / Ateliers
                 </a>
-             </dt>
-             <dt class="portletPresentationDB">
-                <a href="" 
-                   tal:attributes="href string:${context/portal_url}/projets-partages">
-                   Projets partagés
-                </a>
-             </dt>
+            </dt>
         </dl>
     </div>
 </div>

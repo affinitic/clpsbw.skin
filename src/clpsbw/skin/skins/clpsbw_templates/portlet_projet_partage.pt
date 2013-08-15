@@ -6,25 +6,20 @@
 <div metal:define-macro="portlet">
     <div class="portlet-left-column"> 
         <!--tal:condition="python:user.has_role(['Manager', 'VisiteurDb'], here)">-->
-        <dl id="portlet-presentation-db">
+        <dl id="portlet-projet-partage">
             <dt class="portletHeaderDB">
                 <span class="portletTopLeft"></span>
                 <span class="portletTopRight"></span>
-                Projets partagés.
+                <img src="projet_partage_header_portlet.png"
+                     width="124"
+                     height="31"
+                     alt="CLPS-Bw : Projets partagés" />
             </dt>
-            <dt class="portletPresentationDB">
-                <a href="presentation-db">
-                    Présentation
-                </a>
+            <dt class="portletItem">
+                <a href="presentation-db">Présentation</a>
             </dt>
-            <dt class="portletPresentationDB">
-                <a href="experience-recherche">
-                    Effectuer une recherche
-                </a>
-            </dt>
-            <dt class="portletFooterDB">
-                <span class="portletBottomLeft"></span>
-                <span class="portletBottomRight"></span>
+            <dt class="portletItem">
+                <a href="experience-recherche">Effectuer une recherche</a>
             </dt>
          </dl>
      </div>

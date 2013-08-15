@@ -18,30 +18,30 @@
                 <span class="portletTopRight"></span>
                 <a href=""
                    tal:attributes="href string:${context/portal_url}/presentation-db"
-                   title="Pr&eacute;sentation des projets partag&eacute;s"
-                   alt="Présentation des projets partag&eacute;">
-                <img src="projetpartage.png" /></a>
+                   title="Présentation des projets partagés"
+                   alt="Présentation des projets partagés">
+                   <img src="projet_partage_header_portlet.png"
+                        width="124"
+                        height="31"
+                        alt="CLPS-Bw : Projets partagés" /></a>
             </dt>
             <tal:boucle tal:repeat="experience experiences">
-                <dt class="portletPresentationDB">
+                <dt class="portletItem">
                     <div class="portlet-experience-links">
-                        <span class="icone-experience"></span>
                         <a href=""
                            tal:attributes="href
                                            string:${context/portal_url}/experience-decrire?experiencePk=${experience/experience_pk}">
+                            <span class="icone-experience"></span>
                             <span tal:content="experience/experience_titre">titre</span></a>
                     </div>
                 </dt>
             </tal:boucle>
-            <dt class="portletFooterDB portletPresentationDB">
-                <div id="portletFooterDB-Bouton">
-                    <div id="btn-flch-verte">
-                        <a href="experience-plate-forme-lister?plateForme=experience_plate_forme_assuetude"
-                           title="listing des projets partag&eacute;s"
-                           alt="listing des projets partag&eacute;s">
-                            <!--img src="flch_verte.png" /-->Autres ...</a>
-                    </div>
-                    <div class="break-float"></div>
+            <dt class="portletFooterDB portletItem">
+                <div id="portletFooterDB-Liens">
+                    <a href="experience-plate-forme-lister?plateForme=experience_plate_forme_assuetude"
+                           title="listing des projets partagés"
+                           alt="listing des projets partagés">
+                           Autres...&nbsp;&nbsp;</a>
                 </div>
                 <span class="portletBottomLeft"></span>
                 <span class="portletBottomRight"></span>
@@ -51,5 +51,3 @@
 </div>
 </body>
 </html>
-
-
