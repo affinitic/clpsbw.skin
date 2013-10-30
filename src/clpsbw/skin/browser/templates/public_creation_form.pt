@@ -11,9 +11,6 @@
 
 <body>
 <div metal:fill-slot="main">
-<form action="public-inserer" method="post">
-    <br />
-    
     <h1>Encoder un public</h1>
     <div class="table-donne-db"
          tal:define="publics python: view.getAllPublic()">
@@ -57,32 +54,34 @@
 
     <div class="formulaire">
         <h2 class="formulaire-titre">Ajouter un public</h2>
-        <div class="formulaire-input">
-            <label for="public_nom">Public</label>
-            <br />
-            <input type="text"
-                   name="public_nom"
-                   id="public_nom"
-                   value=""
-                   size="50" />
-        </div>
-        <div class="formulaire-input">
-            <label for="public_actif">Etat</label>
-            <select name="public_actif"
-                    id="public_actif">
-                <option value="True" selected="selected">Activer</option>
-                <option value="False">Désactiver</option>
-            </select>
-        </div>
-        <div class="formulaire-submit">
-            <input type="hidden"
-                   name="operation"
-                   value="insert" />
-            <input type="submit"
-                   value="Enregister le public" />
-        </div>
+        <form action="public-inserer"
+              method="post">
+            <div class="formulaire-input">
+                <label for="public_nom">Public</label>
+                <br />
+                <input type="text"
+                       name="public_nom"
+                       id="public_nom"
+                       value=""
+                       size="50" />
+            </div>
+            <div class="formulaire-input">
+                <label for="public_actif">Etat</label>
+                <select name="public_actif"
+                        id="public_actif">
+                    <option value="True" selected="selected">Activer</option>
+                    <option value="False">Désactiver</option>
+                </select>
+            </div>
+            <div class="formulaire-submit">
+                <input type="hidden"
+                       name="operation"
+                       value="insert" />
+                <input type="submit"
+                       value="Enregister le public" />
+            </div>
+        </form>
     </div>
-</form>
 </div><!-- div metal-->
 </body>
 </html>

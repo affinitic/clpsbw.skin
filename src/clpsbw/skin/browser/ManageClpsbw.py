@@ -16,10 +16,10 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone import PloneMessageFactory as _
 
 #### Addremovewidget
-#### from Products.AddRemoveWidget.AddRemoveWidget import AddRemoveWidget
-#### from Products.Archetypes.atapi import LinesField
-#### from Products.Archetypes.Renderer import renderer
-#### from Products.Archetypes.atapi import BaseContent
+from Products.AddRemoveWidget.AddRemoveWidget import AddRemoveWidget
+from Products.Archetypes.atapi import LinesField
+from Products.Archetypes.Renderer import renderer
+from Products.Archetypes.atapi import BaseContent
 
 from interfaces import IManageClpsbw
 from collective.captcha.browser.captcha import Captcha
@@ -105,6 +105,8 @@ class ManageClpsbw(BrowserView):
             __name__ = name
             required = False
             default = value
+            title = "ta mere"
+            description = "la pute"
             missing_value = None
 
         request = self.request
@@ -112,44 +114,43 @@ class ManageClpsbw(BrowserView):
         field = WYSIWYGWidget(MyField(), request)
         return field()
 
-    #def getAddRemoveField(self, name, title, values, nameKey='name', \
-    #                      pkKey='pk', selectedPks=[], canAddValues=False):
-    #    """
-    #    generates an Add / Remove from list field with already selected pks
-    #    nameKey and pkKey are used for the display value and the record pk to
-    #    save
-    #    """
-    #
-    #    class MyContext(BaseContent):
-    #
-    #        def getSelectedValues(self):
-    #            return selectedPks
-    #    if not isinstance(nameKey, list):
-    #        nameKey = [nameKey]
-    #    items = []
-    #    for value in values:
-    #        if isinstance(value, dict):
-    #            display = ' '.join([value.get(n) for n in nameKey])
-    #            term = (value.get(pkKey), display)
-    #        else:
-    #            display = ' '.join([getattr(value, n) for n in nameKey])
-    #            term = (getattr(value, pkKey), display)
-    #        items.append(term)
-    #
-    #    field = LinesField(name,
-    #                       vocabulary=items,
-    #                       edit_accessor='getSelectedValues',
-    #                       enforceVocabulary=not canAddValues,
-    #                       write_permission='View',
-    #                       widget=AddRemoveWidget(size=10,
-    #                                              description='',
-    #                                              label=title))
-    #
-    #    wrappedContext = MyContext('dummycontext').__of__(self)
-    #    widget = field.widget
-    #    res = renderer.render(name, 'edit', widget, wrappedContext, field=field)
-    #    return res
+    def getAddRemoveField(self, name, title, values, nameKey='name', \
+                          pkKey='pk', selectedPks=[], canAddValues=False):
+        """
+        generates an Add / Remove from list field with already selected pks
+        nameKey and pkKey are used for the display value and the record pk to
+        save
+        """
 
+        class MyContext(BaseContent):
+
+            def getSelectedValues(self):
+                return selectedPks
+        if not isinstance(nameKey, list):
+            nameKey = [nameKey]
+        items = []
+        for value in values:
+            if isinstance(value, dict):
+                display = ' '.join([value.get(n) for n in nameKey])
+                term = (value.get(pkKey), display)
+            else:
+                display = ' '.join([getattr(value, n) for n in nameKey])
+                term = (getattr(value, pkKey), display)
+            items.append(term)
+
+        field = LinesField(name,
+                           vocabulary=items,
+                           edit_accessor='getSelectedValues',
+                           enforceVocabulary=not canAddValues,
+                           write_permission='View',
+                           widget=AddRemoveWidget(size=10,
+                                                  description='',
+                                                  label=title))
+
+        wrappedContext = MyContext('dummycontext').__of__(self)
+        widget = field.widget
+        res = renderer.render(name, 'edit', widget, wrappedContext, field=field)
+        return res
 
     def addPublicKeywordsIfNeededAndGetPks(self, publicPksOrValues):
         """
