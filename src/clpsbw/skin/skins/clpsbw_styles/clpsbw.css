@@ -11,6 +11,71 @@ vert background #afa61d
 STYLE TEMPLATE PLONE
 
 **/
+
+/*** CONTENT PLONE ***/
+
+#content{
+color:#555 !important;
+}
+
+#content h1,
+#content h2,
+#content h3 {
+margin-top: 0.5em;
+color:#00728a !important;
+}
+
+#content div.documentByLine {
+color: #666666;
+display: block;
+font-size: 85%;
+margin-bottom: 10px;
+}
+
+
+/*** EDIT BARRE ***/
+#edit-bar {
+border: 0px solid #75AD0A;
+font-size: 80%;
+margin-bottom: 1em;
+min-height: 2em;
+padding-top: 0.05em;
+width: 660px;
+height:30px;
+background: rgb(201,222,150); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(201,222,150,1) 0%, rgba(138,182,107,1) 44%, rgba(57,130,53,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(201,222,150,1)), color-stop(44%,rgba(138,182,107,1)), color-stop(100%,rgba(57,130,53,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(201,222,150,1) 0%,rgba(138,182,107,1) 44%,rgba(57,130,53,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(201,222,150,1) 0%,rgba(138,182,107,1) 44%,rgba(57,130,53,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(201,222,150,1) 0%,rgba(138,182,107,1) 44%,rgba(57,130,53,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(201,222,150,1) 0%,rgba(138,182,107,1) 44%,rgba(57,130,53,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c9de96', endColorstr='#398235',GradientType=0 ); /* IE6-9 */
+}
+/* fond des onglet edit-bar*/
+#content-views {
+background-color:transparent;
+float: left;
+}
+/* fond onglets second edit bar */
+#contentActionMenus {
+border-radius: 0 0.5em 0.5em 0.5em;
+float: right;
+margin: 0;
+padding: 0.1em 0.24em 0 0;
+position: relative;
+right:0px;
+top:0px;
+background:#8AB66B;
+height:25px;
+}
+
+#contentActionMenus dl.actionMenu a, #contentActionMenus dl.actionMenu.activated dd {
+background-color:transparent;
+color: #FFFFFF;
+z-index: 5;
+background:#8AB66B;
+}
+
 .grasbrun{
 font-weight:bold;
 color:#b93f00;
@@ -68,16 +133,6 @@ margin-bottom:10px;
 padding-left:10px;
 }
 
-/*** EDIT BARRE ***/
-#edit-bar {
-background-color: #75AD0A;
-border: 0.25em solid #75AD0A;
-font-size: 80%;
-margin-bottom: 1em;
-min-height: 2em;
-padding-top: 0.05em;
-width: 660px;
-}
 
 
 
@@ -276,6 +331,18 @@ background-position:left center;
 padding-left:58px;
 }
 
+#titre-experience h2{
+font-size:1.2em;
+letter-spacing:0.5em;
+text-align:center;
+}
+
+#titre-experience hr{
+background-color:#fff;
+border:0 none;
+height:1px;
+}    
+
 #resume-experience{
 border-bottom:1px solid #98ac69;
 background-image:url(puzzle_vert.png);
@@ -396,8 +463,11 @@ color:#51686d;
 float:right;
 width:200px;
 color:#111;
-font-size:0.8em;
-margin-top:-38px;
+font-size:0.9em;
+margin-top:-70px;
+border:1px solid #008B9D;
+border-radius:12px;
+padding:25px 0px 20px 0px;
 }
 
 
@@ -407,8 +477,8 @@ margin-top:-38px;
 /*margin-top:45px;*/
 margin-bottom:20px;
 height:73px;
-width:650px;
-background-color:#008a9a;
+width:580px;
+background-color:#da951f;
 border-radius:18px;
 padding-top:10px;
 }
@@ -535,12 +605,13 @@ width:216px;
 height:90px;
 background-image:url(des_exp_right_header.png);
 background-repeat:no-repeat;
+position:relative;
+left:500px;
+top:-50px;
 }
 
 #right-experience-content{
 width:216px;
-background-image:url(des_exp_right_bckgrnd.png);
-background-repeat:repeat-y;
 }
 
 #right-experience-content p{
@@ -551,21 +622,17 @@ text-indent: 6px;
 }
 
 #right-experience-content a{
-text-decoration:none;
+border-bottom:none !important;
 color:#3c5057;
 }
 
 #right-experience-content a:hover{
 text-decoration:underline;
-color:#15292f;
+color:#444 !important;
 }
 
 
 #right-experience-footer{
-width:216px;
-height:39px;
-background-image:url(des_exp_right_footer.png);
-background-repeat:no-repeat;
 }
 
 .right-rubrique-db{

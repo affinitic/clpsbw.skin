@@ -30,6 +30,8 @@
                         <img src="alerte.png" /> Cette expérience en en cours de validation
                     </div>
                     <div id="titre-experience">
+                        <h2>Expérience</h2>
+                        <hr />
                         <h1><span tal:content="experience/experience_titre"></span></h1>
                         <div class="btn-modifier"
                              tal:condition="python:user.has_role(['Manager'], here)">
@@ -111,9 +113,8 @@
                     </div><!--left-->
 
         <!-- =========================================================================================================================================== -->
-
+                    <div id="right-experience-header"></div>
                     <div id="right-experience">
-                        <div id="right-experience-header"></div>
                         <div id="right-experience-content">
                             <div id="institution-porteur-experience"
                                  tal:define="institutions python:view.getInstitutionPorteur(experiencePk)"

@@ -39,8 +39,7 @@
 
         <fieldset class="search-zone">
             <legend class="search-legend-titre"> A partir du titre d'une expérience </legend>
-            <div id="info-champs">
-            </div>
+            <div id="info-champs"></div>
             <br />
             <form action="experience-decrire" method="post">
                 <input type="text"
@@ -60,7 +59,6 @@
                 Ci-dessous, la liste des différents titres des expériences encodées dans notre base.
                 <select name="experiencePk" size="1">
                     <tal:block tal:define="experiences python:view.getExperienceByClpsByEtat(1)">
-                    
                             <option></option>
                             <optgroup label="CLPS-BW">
                                 <tal:boucle tal:repeat="experience experiences">
@@ -98,8 +96,7 @@
 
         <fieldset class="search-zone">
             <legend class="search-legend-titre"> A destination d'un milieu de vie </legend>
-            <div id="info-champs">
-            </div>
+            <div id="info-champs"></div>
             <br />
             <form action="experience-resultat-recherche-milieu-vie" method="post">
                 <tal:block tal:define="milieuxDeViePk python:view.getMilieuDeVieForSearchEngine();
@@ -124,8 +121,7 @@
 
         <fieldset class="search-zone">
             <legend class="search-legend-titre"> Recherche selon un thème </legend>
-            <div id="info-champs">
-            </div>
+            <div id="info-champs"></div>
             <br />
             <form action="experience-resultat-recherche-theme" method="post">
                 <tal:block tal:define="themesPk python:view.getThemeForSearchEngine();
@@ -150,8 +146,7 @@
 
         <fieldset class="search-zone">
             <legend class="search-legend-titre"> Recherche selon un public </legend>
-            <div id="info-champs">
-            </div>
+            <div id="info-champs"></div>
             <br />
             <form action="experience-resultat-recherche-public" method="post">
                 <tal:block tal:define="publicsPk python:view.getPublicForSearchEngine();

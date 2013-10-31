@@ -37,13 +37,14 @@
         </div>
         <div id="zone-titre-moteur-recherche">
             <h1>Effectuer une recherche</h1>
+            <div class="search-text-intro">Plusieurs types de recherche sont possibles.</div>
         </div>
-        <br />
-        <h2><img src="label_flch_rouge.png" /> Plusieurs types de recherche sont possibles.</h2>
 
         <div id="zone-moteur-recherche">
-            <div class="formulaire">
-                <h2 class="formulaire-titre"> A partir du titre d'une expérience </h2>
+            <fieldset class="search-zone">
+                <legend class="search-legend-titre"> A partir du titre d'une expérience </legend>
+                <div id="info-champs"></div>
+                <br />
                 <form action="experience-decrire"
                       method="post">
                     <div class="formulaire-input">
@@ -59,14 +60,12 @@
                                class="search-button" />
                     </div>
                 </form>
-            </div>
 
-            <div class="formulaire">
-                <h2 class="formulaire-titre">
-                    A partie de la liste des titres des expériences encodées dans notre base.
-                </h2>
+                <hr class="search-ligne-bleue"/>
+
                 <form action="experience-decrire"
                       method="post">
+                    Ci-dessous, la liste des différents titres des expériences encodées dans notre base.
                     <div class="formulaire-input">
                         <select name="experiencePk">
                             <tal:block tal:define="experiences python:view.getExperienceByClpsByEtat(1,'publish')">
@@ -99,10 +98,12 @@
                                class="search-button" />
                     </div>
                 </form>
-            </div>
+            </fieldset>
 
-            <div class="formulaire">
-                <h2 class="formulaire-titre"> A destination d'un milieu de vie </h2>
+            <div class="search-ou"><b>OU</b></div>
+
+            <fieldset class="search-zone">
+                <legend class="search-legend-titre"> A destination d'un milieu de vie </legend>
                 <form action="experience-resultat-recherche-milieu-vie" method="post">
                     <div class="formulaire-input">
                         <tal:block tal:define="milieuxDeViePk python:view.getMilieuDeVieForSearchEngine();
@@ -123,10 +124,12 @@
                                class="search-button" />
                     </div>
                 </form>
-            </div>
+            </fieldset>
 
-            <div class="formulaire">
-                <h2 class="formulaire-titre"> Recherche selon un thème </h2>
+            <div class="search-ou"><b>OU</b></div>
+
+            <fieldset class="search-zone">
+                <legend class="search-legend-titre"> Recherche selon un thème </legend>
                 <form action="experience-resultat-recherche-theme" method="post">
                     <div class="formulaire-input">
                         <tal:block tal:define="themesPk python:view.getThemeForSearchEngine();
@@ -147,9 +150,12 @@
                                class="search-button" />
                     </div>
                 </form>
-            </div>
-            <div class="formulaire">
-                <h2 class="formulaire-titre"> Recherche selon un public </h2>
+            </fieldset>
+
+            <div class="search-ou"><b>OU</b></div>
+
+            <fieldset class="search-zone">
+                <legend class="search-legend-titre"> Recherche selon un public </legend>
                 <form action="experience-resultat-recherche-public" method="post">
                     <div class="formulaire-input">
                         <tal:block tal:define="publicsPk python:view.getPublicForSearchEngine();
@@ -170,9 +176,9 @@
                                class="search-button" />
                     </div>
                 </form>
-            </div>
-        </div><!--id moteur-recherche-->
-    </div><!-- exeperience-template-->
+            </fieldset>
+        </div><!-- id moteur-recherche -->
+    </div><!-- id experience-template -->
 </div><!-- div metal-->
 </body>
 </html>
