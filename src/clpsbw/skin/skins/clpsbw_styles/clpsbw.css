@@ -2,7 +2,7 @@
 CLPS-BW 2.0
 AFFINITIC - AOUT 2013
 
-mauve #9a0546
+mauve #9a0546 
 bleu-titre #00728a
 bleu-border #20a3af
 vert background #afa61d
@@ -111,7 +111,6 @@ width:450px;
 margin:10px auto 0px auto;
 color:#fff !important;
 font-size:2em;
-color:#fff;
 text-align:center;
 letter-spacing:2px;
 }
@@ -181,6 +180,196 @@ box-shadow:1px 1px 1px rgba(50,50,50,0.6);
 background-image:url("btn_modifier.png");
 background-position:center -34px;
 }
+
+
+
+/*** MOTEUR RECHERCHE ***/
+.search-titre{
+font-size:2em;
+font-weight:bold;
+color:#8c103e;
+text-align:center;
+}
+
+.search-text-intro{
+text-align:center;
+font-size:1.2em;
+color:#fff;
+width:80%;
+margin:auto;
+padding-top:5px;
+}
+
+#zone-moteur-recherche{
+background-image:url(bg_experience.png);
+background-repeat:no-repeat;
+background-position:center bottom;
+padding-top:10px;
+text-align:center;
+margin:auto;
+}
+#moteur-recherche{
+width:713px;
+margin:auto;
+margin-top:60px;
+border:0px solid #eee;
+}
+
+#moteur-recherche td{
+text-align:center;
+}
+
+div#zone-moteur-recherche .search-legend-titre{
+background-color:transparent;
+background-image:url(puzzle_rouge_24.png);
+background-repeat:no-repeat;
+background-position:5px center;
+padding-left:35px !important;
+font-size:1.1em;
+font-weight:bold;
+font-variant:small-caps;
+color:#00728a;
+}
+
+div#zone-moteur-recherche .search-zone{
+background-color:rgba(240,240,240,0.3);
+border:2px solid #00728a;
+border-radius: 12px 12px 12px 12px;
+text-align:center;
+width:620px;
+margin:auto;
+margin-top:10px;
+padding-bottom:5px;
+box-shadow:3px 3px 8px rgba(50,50,50,0.5);
+}
+
+div#zone-moteur-recherche .search-ligne-bleue{
+background-color:#00728a;
+border:0 none;
+height:1px;
+margin:0.5em 0 1em;
+}
+
+div#zone-moteur-recherche .search-button{
+margin-top:12px;
+background-repeat:repeat-x;
+height:25px;
+color:#444;
+}
+
+div#zone-moteur-recherche .search-ou{
+margin-top:2em;
+font-size:2em;
+font-weight:bold;
+color:#555;
+}
+
+#titre-experience{
+font-variant:small-caps;
+font-size:1.3em;
+font-weight:bold;
+text-align:right;
+padding-right:18px;
+background-image:url(fnd_titre_experience.png);
+background-repeat:no-repeat;
+background-position:left center;
+padding-left:58px;
+}
+
+#resume-experience{
+border-bottom:1px solid #98ac69;
+background-image:url(puzzle_vert.png);
+background-repeat:no-repeat;
+background-position:left 18px;
+padding-left:50px;
+margin-top:-12px;
+padding-top:18px;
+}
+
+#contexte-experience{
+margin-top:15px;
+border-bottom:1px solid #98ac69;
+background-image:url(puzzle_jaune_2.png);
+background-repeat:no-repeat;
+background-position:left top;
+padding-left:50px;
+}
+
+#objectif-experience{
+margin-top:15px;
+border-bottom:1px solid #98ac69;
+background-image:url(puzzle_rouge.png);
+background-repeat:no-repeat;
+background-position:left top;
+padding-left:50px;
+}
+
+#public-experience{
+margin-top:15px;
+border-bottom:1px solid #98ac69;
+background-image:url(puzzle_gris_vert.png);
+background-repeat:no-repeat;
+background-position:left top;
+padding-left:50px;
+}
+
+#milieu-de-vie-experience{
+margin-top:15px;
+border-bottom:1px solid #98ac69;
+background-image:url(puzzle_vert.png);
+background-repeat:no-repeat;
+background-position:left top;
+padding-left:50px;
+}
+
+#demarche-experience{
+margin-top:15px;
+border-bottom:1px solid #98ac69;
+background-image:url(puzzle_jaune_2.png);
+background-repeat:no-repeat;
+padding-left:50px;
+}
+
+#moyen-experience{
+margin-top:15px;
+border-bottom:1px solid #98ac69;
+background-image:url(puzzle_rouge.png);
+background-repeat:no-repeat;
+background-position:left top;
+padding-left:50px;
+}
+
+#evaluation-experience{
+margin-top:10px;
+border-bottom:1px solid #98ac69;
+background-image:url(puzzle_vert.png);
+background-repeat:no-repeat;
+background-position:left top;
+padding-left:50px;
+}
+
+#pour-aller-loin-experience{
+margin-top:15px;
+/*border-bottom:1px solid #98ac69;*/
+background-image:url(puzzle_gris_vert.png);
+background-repeat:no-repeat;
+background-position:left top;
+padding-left:50px;
+}
+
+#perspective-envisagee{
+margin-top:15px;
+/*border-bottom:1px solid #98ac69;*/
+background-image:url(puzzle_rouge.png);
+background-repeat:no-repeat;
+background-position:left top;
+padding-left:50px;
+}
+
+
+
+
+
 
 
 
@@ -477,9 +666,6 @@ margin-right:26px;
 /*** LISTING EXPERIENCE ***/ 
 
 #listing-experience-main{
-background-color:rgba(255,253,238,0.5);
-border:3px solid #9bab5f; 
-border-radius:18px;
 margin:auto;
 margin-top:1em;
 padding:1em;
@@ -505,8 +691,10 @@ border-bottom:none;
 .listing-experience{
 margin:auto;
 margin-top:4em;
-border:2px solid #da9000;
+border:1px solid rgba(58, 142, 162, 1.0000);
 border-radius:18px;
+box-shadow:3px 3px 8px rgba(50,50,50,0.5);
+
 }
 
 #listing-nbre-experience{
@@ -518,7 +706,7 @@ text-align:center;
 }
 
 .listing-titre-experience{
-background-color:rgba(255,244,182,0.5);
+background-color:rgba(250,250,250,0.3);
 border-radius:18px 18px 0px 0px;
 padding-left:20px;
 }
@@ -527,7 +715,7 @@ padding-left:20px;
 display:inline-block;
 height:30px;
 width:500px;
-color:#b03a5f;
+color:#8b103e !important;
 font-variant:small-caps;
 font-size:1.2em;
 font-weight:bold;
@@ -535,7 +723,7 @@ line-height:28px;
 padding:0px 1em 0px 2em;
 text-decoration:none;
 border-bottom:none !important;
-background-image:url(puzzle_jaune_18.png);
+background-image:url(puzzle_rouge_24.png);
 background-repeat:no-repeat;
 background-position:left center;
 }
