@@ -40,6 +40,9 @@
     <replace css:content-children="#user-name"
              css:theme-children="#username" />
     
+    <replace css:content-children="#portal-personaltools-wrapper"
+             css:theme-children="#personal-tools" />
+
     <replace css:content="#portal-column-one"
              css:theme="#left-column" />
 

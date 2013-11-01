@@ -116,10 +116,6 @@ font-size : 2em;
 text-align:center;
 }
 
-
-
-
-
 #alerte{
 background-color:#fd7b00;
 width:90%;
@@ -254,6 +250,25 @@ width:80%;
 margin:auto;
 padding-top:5px;
 }
+
+.searchSection{
+display:none;
+}
+
+#LSResult{
+position:absolute;
+right:-1px;
+z-index:60;
+margin-top:5px;
+background-color:rgba(230,230,230,0.9);
+border:1px solid #555;
+border-radius:20px 0px 20px 20px;
+}
+
+#LSResult a:hover{
+color:#9a0546 !important;
+}
+
 
 #zone-moteur-recherche{
 background-image:url(bg_experience.png);
