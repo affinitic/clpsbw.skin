@@ -27,6 +27,7 @@
             <span tal:replace="obj/pretty_title_or_id">
              Title
             </span>
+            <br /><br /><br />
             <span class="portletItemDetails"
                   tal:condition="view/data/show_dates"
                   tal:content="python:toLocalizedTime(obj.start)">
@@ -38,17 +39,11 @@
 
     <dd class="portletFooter" tal:condition="view/data/show_more">
         <span class="portletBottomLeft"></span>
-
-        <table id="agenda-footer">
-            <tr>
-                <td align="right">
-                    <!-- a tal:attributes="href collection_url" -->
-                    <a href = "listing-news">
-                        Plus...
-                    </a>
-                </td>
-            </tr>
-        </table>
+            <!-- a tal:attributes="href collection_url" -->
+            <a href = ""
+               tal:attributes="href string:${context/portal_url}/listing-news">
+                Plus...
+            </a>
         <span class="portletBottomRight"></span>
     </dd>
 

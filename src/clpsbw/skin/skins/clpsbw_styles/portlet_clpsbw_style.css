@@ -400,10 +400,9 @@ height:15px;
 
 /****************************** PORTLET COLONNE DROITE ***********************/
 /*** AGENDA ***/
-dl#portlet-agenda,
 dl.portlet-collection-agenda,
 dl.portletCalendar{
-position:absolute;
+position:relative;
 right:20px;
 top:8px;
 min-height:200px;
@@ -414,7 +413,6 @@ border:solid 2px #008b9d;
 box-shadow:5px 5px 5px #888;    
 }
 
-dl#portlet-agenda .portletHeaderDB,
 dl.portlet-collection-agenda dt.portletHeader,
 dl.portletCalendar dt.portletHeader{
 background-color:#9a0546 !important;
@@ -440,5 +438,16 @@ padding:0px 3px 3px 3px;
 line-height:normal;
 font-weight:normal;
 border-bottom:1px dotted rgba(200,200,200,0.5);
+}
+
+dl.portlet-collection-agenda .portletItem a,
+dd.portletFooter a{
+color:#9a0546 !important;
+border-bottom:0px !important;
+}    
+
+dl.portlet-collection-agenda .portletItem a:hover,
+dd.portletFooter a:hover{
+color:#205C90 !important;
 }
 
