@@ -7,6 +7,7 @@ from plone.portlets.constants import CONTEXT_CATEGORY
 from plone.portlets.interfaces import IPortletManager, \
                                       IPortletAssignmentMapping, \
                                       ILocalPortletAssignmentManager
+from plone.app.portlets.portlets import classic
 from plone.app.portlets.portlets import navigation
 from Products.CMFCore.utils import getToolByName
 
@@ -18,6 +19,7 @@ def setupClpsbw(context):
     clearPortlets(portal)
     deleteFolder(portal, 'Members')
     setupNavigationPortlet(portal)
+    setupClassicPortlet(portal, 'portlet_projet_partage', 'left')
     updateSecurity(portal)
 
 
@@ -78,6 +80,15 @@ def clearColumnPortlets(folder, column):
     assignable = getMultiAdapter((folder, manager), ILocalPortletAssignmentManager)
     assignable.setBlacklistStatus(CONTEXT_CATEGORY, True)
 
+def setupClassicPortlet(folder, template, column):
+    #Add classic portlet (using template) to folder
+    manager = getManager(folder, column)
+    assignments = getMultiAdapter((folder, manager,), IPortletAssignmentMapping)
+
+    assignment = classic.Assignment(template=template, macro='portlet')
+    if assignments.has_key(template):
+        del assignments[template]
+    assignments[template] = assignment
 
 def setupNavigationPortlet(folder):
     manager = getManager(folder, 'left')
