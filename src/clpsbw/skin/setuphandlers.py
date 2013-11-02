@@ -20,6 +20,7 @@ def setupClpsbw(context):
     deleteFolder(portal, 'Members')
     setupNavigationPortlet(portal)
     setupClassicPortlet(portal, 'portlet_projet_partage', 'left')
+    setupClassicPortlet(portal, 'portlet_plate_forme', 'left')
     updateSecurity(portal)
 
 
