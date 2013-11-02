@@ -134,7 +134,7 @@ padding-left:10px;
 
 /*** LIEN GESTION DES PORTLETS ***/
 #portal-column-two div.managePortletsLink{
-display:none;
+margin-top:35px;
 }
 
 
