@@ -99,7 +99,7 @@ transition:background 0.5s;
 
 /*** PORTLET EN GENERAL ***/
 div.portlet-left-column dt.portletHeaderDB{
-margin-bottom:8px;
+margin-bottom:-1px;
 border:1px solid #9a0546;
 border-radius:4px;
 background: rgb(207,219,162); /* Old browsers */
@@ -172,8 +172,8 @@ div.portlet-left-column dl#portlet-experience-sante-famille,
 div.portlet-left-column dl#portlet-experience-vie-affective-sexuelle,
 div.portlet-left-column dl#portlet-experience-assuetude{
 background-color:#fff;
-border:1px solid #00728a;
-border-radius:6px;
+/*border:1px solid #00728a;
+border-radius:6px;*/
 margin:4px 0px;
 background: rgb(255,255,255); /* Old browsers */
 background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(243,243,243,1) 50%, rgba(237,237,237,1) 51%, rgba(255,255,255,1) 100%); /* FF3.6+ */
@@ -219,6 +219,8 @@ div.portlet-left-column dl#portlet-experience-vie-affective-sexuelle dt.portletI
 div.portlet-left-column dl#portlet-experience-assuetude dt.portletItemPP{
 padding:8px 3px 8px 20px;
 text-align:left;
+border-left:1px solid #00728a;
+border-right:1px solid #00728a;
 }
 
 div.portlet-left-column dl#portlet-experience-assuetude dt.portletItemPP a,
@@ -251,6 +253,10 @@ div.portlet-left-column dl#portlet-experience-vie-affective-sexuelle dt.portletF
 div.portlet-left-column dl#portlet-experience-assuetude dt.portletFooterDB{
 line-height:30px;
 text-align:right;
+border-left:1px solid #00728a;
+border-right:1px solid #00728a;
+border-bottom:1px solid #00728a;
+border-radius:0px 0px 8px 8px;
 }
 
 div.portlet-left-column dl#portlet-offre-service dt.portletItem,
