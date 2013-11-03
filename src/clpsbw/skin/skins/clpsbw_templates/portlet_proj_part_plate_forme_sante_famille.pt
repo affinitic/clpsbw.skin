@@ -12,7 +12,7 @@
      tal:condition="python:len(experiences) > 0">
 
      <div class="portlet-left-column">
-         <dl id="portlet-experience-sante-famille">        
+         <dl id="portlet-experience-sante-famille">
             <dt class="portletHeaderDB">
                 <span class="portletTopLeft"></span>
                 <span class="portletTopRight"></span>
@@ -30,7 +30,7 @@
                     <div class="portlet-experience-links">
                         <a href=""
                            tal:attributes="href
-                                           string:${context/portal_url}/experience-decrire?experiencePk=${experience/experience_pk}">
+                                           string:${context/portal_url}/sante-environnement/experience-decrire?experiencePk=${experience/experience_pk}">
                             <span class="icone-experience"></span>
                             <span tal:content="experience/experience_titre">titre</span></a>
                     </div>

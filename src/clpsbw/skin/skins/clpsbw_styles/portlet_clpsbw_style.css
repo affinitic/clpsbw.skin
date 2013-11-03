@@ -68,13 +68,14 @@ transition:background 0.5s;
 
 div.portlet-left-column dl.portletNavigationTree dd.portletItemNav li a{
 display:inline-block;
-width:168px;
+width:88%;
 color:#20a3af !important;
 font-weight:normal;
 font-size:1em;
 border-bottom:none !important;
 padding-left:20px;
 transition:color 0.3s;
+border-radius:5px;
 }
 
 div.portlet-left-column dl.portletNavigationTree dd.portletItemNav li:hover{
@@ -94,7 +95,13 @@ color:#00535e !important;
 transition:background 0.5s;
 }
 
-
+div.portlet-left-column dl.portlet ul.navTree .navTreeCurrentItem {
+background-color:transparent;
+border-left:0em solid #9A0546;
+margin-left:0;
+margin-right:0;
+color:#9A0546 !important;
+}
 
 
 /*** PORTLET EN GENERAL ***/

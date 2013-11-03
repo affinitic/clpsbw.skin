@@ -30,7 +30,7 @@
                     <div class="portlet-experience-links">
                         <a href=""
                            tal:attributes="href
-                                           string:${context/portal_url}/experience-decrire?experiencePk=${experience/experience_pk}">
+                                           string:${context/portal_url}/sante-et-bien-etre-a-l-ecole/experience-decrire?experiencePk=${experience/experience_pk}">
                         <span class="icone-experience"></span>
                         <span tal:content="experience/experience_titre">titre</span></a>
                     </div>
