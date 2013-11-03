@@ -25,7 +25,7 @@
                         alt="CLPS-Bw : Projets partagés" /></a>
             </dt>
             <tal:boucle tal:repeat="experience experiences">
-                <dt class="portletItem">
+                <dt class="portletItemPP">
                     <div class="portlet-experience-links">
                         <a href=""
                            tal:attributes="href
@@ -35,7 +35,7 @@
                     </div>
                 </dt>
             </tal:boucle>
-            <dt class="portletFooterDB portletItem">
+            <dt class="portletFooterDB">
                 <div id="portletFooterDB-Liens">
                     <a href="experience-plate-forme-lister?plateForme=experience_plate_forme_sante_environnement"
                        title="listing des projets partagés"

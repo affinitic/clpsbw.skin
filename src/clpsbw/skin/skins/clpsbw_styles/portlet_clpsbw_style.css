@@ -164,6 +164,28 @@ transition:color 0.3s;
 
 
 /*** PORTLET PROJETS PARTAGES DANS LES PLATES-FORMES ***/
+div.portlet-left-column dl#portlet-projet-partage,
+div.portlet-left-column dl#portlet-experience-sante-commune,
+div.portlet-left-column dl#portlet-experience-sante-ecole,
+div.portlet-left-column dl#portlet-experience-sante-environnement,
+div.portlet-left-column dl#portlet-experience-sante-famille,
+div.portlet-left-column dl#portlet-experience-vie-affective-sexuelle,
+div.portlet-left-column dl#portlet-experience-assuetude{
+background-color:#fff;
+border:1px solid #00728a;
+border-radius:6px;
+margin:4px 0px;
+background: rgb(255,255,255); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(243,243,243,1) 50%, rgba(237,237,237,1) 51%, rgba(255,255,255,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(50%,rgba(243,243,243,1)), color-stop(51%,rgba(237,237,237,1)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(243,243,243,1) 50%,rgba(237,237,237,1) 51%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(243,243,243,1) 50%,rgba(237,237,237,1) 51%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(243,243,243,1) 50%,rgba(237,237,237,1) 51%,rgba(255,255,255,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(243,243,243,1) 50%,rgba(237,237,237,1) 51%,rgba(255,255,255,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+transition:background 0.5s;
+}
+
 div.portlet-left-column dl#portlet-projet-partage dt.portletHeaderDB,
 div.portlet-left-column dl#portlet-experience-sante-commune dt.portletHeaderDB,
 div.portlet-left-column dl#portlet-experience-sante-ecole dt.portletHeaderDB,
@@ -188,14 +210,14 @@ background-position:center;
 */
 }
 
-div.portlet-left-column dl#portlet-experience-assuetude dt.portletItem,
-div.portlet-left-column dl#portlet-experience-sante-commune dt.portletItem, 
-div.portlet-left-column dl#portlet-experience-sante-ecole dt.portletItem,
-div.portlet-left-column dl#portlet-experience-sante-environnement dt.portletItem,
-div.portlet-left-column dl#portlet-experience-sante-famille dt.portletItem,
-div.portlet-left-column dl#portlet-experience-vie-affective-sexuelle dt.portletItem,
-div.portlet-left-column dl#portlet-experience-assuetude dt.portletItem{
-padding-left:20px;
+div.portlet-left-column dl#portlet-experience-assuetude dt.portletItemPP,
+div.portlet-left-column dl#portlet-experience-sante-commune dt.portletItemPP, 
+div.portlet-left-column dl#portlet-experience-sante-ecole dt.portletItemPP,
+div.portlet-left-column dl#portlet-experience-sante-environnement dt.portletItemPP,
+div.portlet-left-column dl#portlet-experience-sante-famille dt.portletItemPP,
+div.portlet-left-column dl#portlet-experience-vie-affective-sexuelle dt.portletItemPP,
+div.portlet-left-column dl#portlet-experience-assuetude dt.portletItemPP{
+padding:8px 3px 8px 20px;
 text-align:left;
 }
 

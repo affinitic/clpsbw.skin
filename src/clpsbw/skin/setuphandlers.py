@@ -16,7 +16,7 @@ def setupClpsbw(context):
     if context.readDataFile('clpsbw.skin_various.txt') is None:
         return
     portal = context.getSite()
-    clearPortlets(portal)
+    #clearPortlets(portal)
     deleteFolder(portal, 'Members')
     setupNavigationPortlet(portal)
     setupClassicPortlet(portal, 'portlet_projet_partage', 'left')
