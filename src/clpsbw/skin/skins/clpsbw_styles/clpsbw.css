@@ -116,6 +116,11 @@ font-size : 2em;
 text-align:center;
 }
 
+.discreet{
+font-size:0.6em;
+color:#555;
+}
+
 #alerte{
 background-color:#fd7b00;
 width:90%;

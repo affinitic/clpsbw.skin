@@ -14,51 +14,51 @@
             Gestion de la DB
         </dt>
 
-        <dt class="portletItemDB"></dt>
+        <dt class="bgPortlet"></dt>
         
-        <div class="portletItemDB">
+        <div class="bgPortlet">
             <div class="rubriqueDB">
                 <dt class="portletTitreDb">
                     <img src="puce_gestion_bd.png" />
                     Expériences
                 </dt>
-                <dd class="">
+                <dd class="portletItemDB">
                     <a href=""
                        tal:attributes="href string:${context/portal_url}/admin-experience-creer">Créer</a>
                 </dd>
-                <dd class="">
+                <dd class="portletItemDB">
                     <a href=""
                        tal:attributes="href string:${context/portal_url}/admin-experience-lister">Lister</a>
                 </dd>
-                <dd class="">
+                <dd class="portletItemDB">
                     <a href=""
                        tal:attributes="href string:${context/portal_url}/admin-experience-recherche">Modifier</a>
                 </dd>
-                <dd class="">
+                <dd class="portletItemDB">
                     <a href=""
                        tal:attributes="href string:${context/portal_url}/admin-experience-recherche">Rechercher</a>
                 </dd>
                 <dd tal:define="nbrExp python:experiences.getCountExperienceByEtat('private')"
-                    class="">
+                    class="portletItemDB">
                     <br />
                     <a href="admin-experience-lister-par-etat?etat=private">
                         Etat privé : <span tal:content="nbrExp">nbr</span>
                     </a>
                 </dd>
                 <dd tal:define="nbrExp python:experiences.getCountExperienceByEtat('pending')"
-                    class="">
+                    class="portletItemDB">
                     <a href="admin-experience-lister-par-etat?etat=pending">
                         Etat en attente : <span tal:content="nbrExp">nbr</span>
                     </a>
                 </dd>
                 <dd tal:define="nbrExp python:experiences.getCountExperienceByEtat('publish')"
-                    class="">
+                    class="portletItemDB">
                     <a href="admin-experience-lister-par-etat?etat=publish">
                         Etat publi&eacute; : <span tal:content="nbrExp">nbr</span>
                     </a>
                 </dd>
                 <dd tal:define="nbrExp python:experiences.getCountAllExperience()"
-                    class="">
+                    class="portletItemDB">
                     <div class="totalDB">
                         Total : <span tal:content="nbrExp">nbr</span>
                     </div>
@@ -70,17 +70,17 @@
                     <img src="puce_gestion_bd.png" />
                     Auteurs
                 </dt>
-                <dd class="">
+                <dd class="portletItemDB">
                     <a href="" tal:attributes="href string:${context/portal_url}/admin-auteur-creer">
                         Créer
                     </a>
                 </dd>
-                <dd class="">
+                <dd class="portletItemDB">
                     <a href="" tal:attributes="href string:${context/portal_url}/admin-auteur-creer">
                         Lister
                     </a>
                 </dd>
-                <dd class="">
+                <dd class="portletItemDB">
                     <a href="" tal:attributes="href string:${context/portal_url}/admin-auteur-chercher">
                         Rechercher
                     </a>
@@ -92,45 +92,45 @@
                     <img src="puce_gestion_bd.png" />
                     Institutions
                 </dt>
-                <dd class="">
+                <dd class="portletItemDB">
                     <a href="" tal:attributes="href string:${context/portal_url}/institution-creer">
                         Créer
                     </a>
                 </dd>
-                <dd class="">
+                <dd class="portletItemDB">
                     <a href="" tal:attributes="href string:${context/portal_url}/admin-institution-lister">
                         Lister
                     </a>
                 </dd>
-                <dd class="">
+                <dd class="portletItemDB">
                     <a href="" tal:attributes="href string:${context/portal_url}/institution-chercher">
                         Modifier
                     </a>
                 </dd>
-                <dd class="">
+                <dd class="portletItemDB">
                     <a href="" tal:attributes="href string:${context/portal_url}/institution-chercher">
                         Rechercher
                     </a>
                 </dd>
-                <dd class="">
+                <dd class="portletItemDB">
                     <br />
                     <a href="" tal:attributes="href string:admin-assuetude-organisme-ressource">
                         Organisme Assuetude
                     </a>
                 </dd>
                 <dd tal:define="nbrInst python:institutions.getCountInstitutionByEtat('private')"
-                     class="">
+                     class="portletItemDB">
                     <br />
                     <a href="admin-institution-lister-par-etat?etat=private">
                         Etat priv&eacute; : <span tal:content="nbrInst">nbr</span></a>
                 </dd>
                 <dd tal:define="nbrInst python:institutions.getCountExperienceByEtat('publish')"
-                     class="">
+                     class="portletItemDB">
                     <a href="admin-institution-lister-par-etat?etat=publish">
                         Etat publi&eacute; : <span tal:content="nbrInst">nbr</span></a>
                 </dd>
                 <dd tal:define="nbrInst python:institutions.getCountAllInstitution()"
-                     class="">
+                     class="portletItemDB">
                     <div class="totalDB">
                         Total : <span tal:content="nbrInst">nbr</span>
                     </div>
@@ -142,7 +142,7 @@
                     <img src="puce_gestion_bd.png" />
                     Type d'institution
                 </dt>
-                <dd class="">
+                <dd class="portletItemDB">
                     <a href="" tal:attributes="href string:${context/portal_url}/institution-type-creer">
                         Gestion
                     </a>
@@ -156,22 +156,22 @@
                     Ressources
                 </dt>
                 <dd class="discreet">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Livres - Outils - Dossiers)</dd>
-                <dd class="">
+                <dd class="portletItemDB">
                     <a href="" tal:attributes="href string:${context/portal_url}/ressource-creer">
                         Cr&eacute;er
                     </a>
                 </dd>
-                <dd class="">
+                <dd class="portletItemDB">
                     <a href="" tal:attributes="href string:${context/portal_url}/ressource-lister">
                         Lister
                     </a>
                 </dd>
-                <dd class="">
+                <dd class="portletItemDB">
                     <a href="" tal:attributes="href string:${context/portal_url}/ressource-chercher">
                         Modifier
                     </a>
                 </dd>
-                <dd class="">
+                <dd class="portletItemDB">
                     <a href="" tal:attributes="href string:${context/portal_url}/ressource-chercher">
                         Rechercher
                     </a>
@@ -183,7 +183,7 @@
                     <img src="puce_gestion_bd.png" />
                     Support
                 </dt>
-                <dd class="">
+                <dd class="portletItemDB">
                     <a href="" tal:attributes="href string:${context/portal_url}/support-creer">
                         Gestion
                     </a>
@@ -195,7 +195,7 @@
                     <img src="puce_gestion_bd.png" />
                     Mots-Clés
                 </dt>
-                <dd class="">
+                <dd class="portletItemDB">
                     <a href="" tal:attributes="href string:${context/portal_url}/mot-cle-creer">
                         Gestion
                     </a>
@@ -207,7 +207,7 @@
                     <img src="puce_gestion_bd.png" />
                     Thème
                 </dt>
-                <dd class="">
+                <dd class="portletItemDB">
                     <a href="" tal:attributes="href string:${context/portal_url}/theme-creer">
                         Gestion
                     </a>
@@ -219,7 +219,7 @@
                     <img src="puce_gestion_bd.png" />
                     Public
                 </dt>
-                <dd class="">
+                <dd class="portletItemDB">
                     <a href="" tal:attributes="href string:${context/portal_url}/public-creer">
                         Gestion
                     </a>
@@ -231,7 +231,7 @@
                     <img src="puce_gestion_bd.png" />
                     Milieu de vie
                 </dt>
-                <dd class="">
+                <dd class="portletItemDB">
                     <a href="" tal:attributes="href string:${context/portal_url}/milieu-de-vie-creer">
                         Gestion
                     </a>
@@ -243,12 +243,12 @@
                     <img src="puce_gestion_bd.png" />
                     Plateforme
                 </dt>
-                <dd class="">
+                <dd class="portletItemDB">
                     <a href="" tal:attributes="href string:${context/portal_url}/plateforme-creer">
                         Gestion des plates-formes
                     </a>
                 </dd>
-                <dd class="">
+                <dd class="portletItemDB">
                     <a href="" tal:attributes="href string:${context/portal_url}/sous-plateforme-creer">
                         Gestion des sous plates-formes
                     </a>
@@ -261,7 +261,7 @@
                     Assuétude
                 </dt>
                 <dd class="discreet">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(pour les institutions)</dd>
-                <dd class="">
+                <dd class="portletItemDB">
                     <a href="" tal:attributes="href string:${context/portal_url}/assuetude-for-institution-gerer">
                         Gestion des assuétudes pour institutions
                     </a>

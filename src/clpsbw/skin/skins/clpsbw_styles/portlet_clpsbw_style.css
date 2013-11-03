@@ -278,30 +278,6 @@ line-height:30px;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #portlet-db,
 #portlet-db-auteur,
 #portlet-gestion-db{
@@ -390,12 +366,18 @@ background-color:#faa448;
 border:1px solid #e9953a;
 }
 
-#portlet-gestion-db .portletItemDB{
+#portlet-gestion-db .bgPortlet{
 border-left:1px solid #ccc;
 border-right:1px solid #ccc;
 background-color:#ffefdd;
 padding:2px 0px 0px 0px;
 }
+
+#portlet-gestion-db .portletItemDB{
+padding-left:25px;
+font-size:10px;
+}
+
 
 #portlet-gestion-db .portletTitreDb{
 color:#903a00;
