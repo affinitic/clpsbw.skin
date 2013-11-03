@@ -221,6 +221,27 @@ padding:8px 3px 8px 20px;
 text-align:left;
 }
 
+div.portlet-left-column dl#portlet-experience-assuetude dt.portletItemPP a,
+div.portlet-left-column dl#portlet-experience-sante-commune dt.portletItemPP a, 
+div.portlet-left-column dl#portlet-experience-sante-ecole dt.portletItemPP a,
+div.portlet-left-column dl#portlet-experience-sante-environnement dt.portletItemPP a,
+div.portlet-left-column dl#portlet-experience-sante-famille dt.portletItemPP a,
+div.portlet-left-column dl#portlet-experience-vie-affective-sexuelle dt.portletItemPP a,
+div.portlet-left-column dl#portlet-experience-assuetude dt.portletItemPP a{
+color:#20a3af !important;
+}
+
+div.portlet-left-column dl#portlet-experience-assuetude dt.portletItemPP a:hover,
+div.portlet-left-column dl#portlet-experience-sante-commune dt.portletItemPP a:hover, 
+div.portlet-left-column dl#portlet-experience-sante-ecole dt.portletItemPP a:hover,
+div.portlet-left-column dl#portlet-experience-sante-environnement dt.portletItemPP a:hover,
+div.portlet-left-column dl#portlet-experience-sante-famille dt.portletItemPP a:hover,
+div.portlet-left-column dl#portlet-experience-vie-affective-sexuelle dt.portletItemPP a:hover,
+div.portlet-left-column dl#portlet-experience-assuetude dt.portletItemPP a:hover{
+color:#333 !important;
+}
+
+
 div.portlet-left-column dl#portlet-experience-assuetude dt.portletFooterDB,
 div.portlet-left-column dl#portlet-experience-sante-commune dt.portletFooterDB, 
 div.portlet-left-column dl#portlet-experience-sante-ecole dt.portletFooterDB,

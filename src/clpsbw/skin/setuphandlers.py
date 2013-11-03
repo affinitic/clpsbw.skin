@@ -18,9 +18,11 @@ def setupClpsbw(context):
     portal = context.getSite()
     #clearPortlets(portal)
     deleteFolder(portal, 'Members')
-    setupNavigationPortlet(portal)
+    #setupNavigationPortlet(portal)
     setupClassicPortlet(portal, 'portlet_projet_partage', 'left')
     setupClassicPortlet(portal, 'portlet_plate_forme', 'left')
+    setupClassicPortlet(portal, 'portlet_exp_auteur', 'left')
+    setupClassicPortlet(portal, 'portlet_gestion_db', 'left')
     updateSecurity(portal)
 
 
@@ -94,7 +96,6 @@ def setupClassicPortlet(folder, template, column):
 def setupNavigationPortlet(folder):
     manager = getManager(folder, 'left')
     assignments = getMultiAdapter((folder, manager, ), IPortletAssignmentMapping)
-
     assignment = navigation.Assignment(name=u"Navigation",
                                        root=None,
                                        currentFolderOnly=False,

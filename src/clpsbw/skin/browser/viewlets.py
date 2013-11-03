@@ -12,7 +12,7 @@ from plone.app.layout.viewlets.common import GlobalSectionsViewlet
 from zope.component import getMultiAdapter
 
 class ClpsbwSectionsViewlet(GlobalSectionsViewlet):
-    render = ViewPageTemplateFile('templates/headerClpsbw.pt')
+    render = ViewPageTemplateFile('templates/header_footer/headerClpsbw.pt')
 
     def logo_tag(self):
         portal_state = getMultiAdapter((self.context, self.request),
@@ -23,4 +23,4 @@ class ClpsbwSectionsViewlet(GlobalSectionsViewlet):
 
 
 class ClpsbwFooterViewlet(GlobalSectionsViewlet):
-    render = ViewPageTemplateFile('templates/footerClpsbw.pt')
+    render = ViewPageTemplateFile('templates/header_footer/footerClpsbw.pt')
