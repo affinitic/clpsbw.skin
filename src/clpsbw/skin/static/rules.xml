@@ -4,10 +4,8 @@
     xmlns:css="http://namespaces.plone.org/diazo/css"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-    <rules css:if-content="#visual-portal-wrapper">
-        <theme href="index.html" />
-    </rules>
-
+    <theme href="index.html" css:if-content="#visual-portal-wrapper" />
+    
     <!-- Common Plone rules -->
     <drop theme="/html/head/meta" />
     <drop theme="/html/head/title" />
@@ -51,5 +49,13 @@
 
     <replace css:content="#portal-column-two"
              css:theme="#right-column" />
+
+    <rules if-path="prefs_pfg_permits/">
+        <drop css:content="#portal-column-two" />
+    </rules>
+    
+    <rules if-path="@@personal-preferences/">
+        <drop css:content="#portal-column-two" />
+    </rules>
     
 </rules>
