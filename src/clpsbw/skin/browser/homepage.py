@@ -14,7 +14,7 @@ class HomePageNews(BrowserView):
         catalog = getToolByName(aq_inner(self.context), 'portal_catalog')
         return catalog(portal_type='News Item',
                        review_state=('external', 'internal'),
-                       path={'query': '/plone', 'depth': 1},
+                       isGlobal=1,
                        sort_on='Date',
                        sort_order='reverse',
                        sort_limit=LIMIT)[:LIMIT]
