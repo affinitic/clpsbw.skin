@@ -30,18 +30,30 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 box-shadow:3px 3px 9px rgba(80, 80, 80, 0.2);
 }
 
-div #clpsnews-image{
-float:left;
+div .newsClpsBw-image{
+z-index:10;
+position:relative;
+top:-82px;
+left:-10px;
+}
+
+div .news-image{
 width:60px;
 margin:0px 8px;
 }
 
-div #clpsnews-content{
-float:right;
-width:570px;
+div .clpsnews-icone{
+float:left;
+width:80px;
+margin-right:8px;
 }
 
-div #clpsnews-content p{
+div .clpsnews-content{
+float:left;
+width:520px;
+}
+
+div .clpsnews-content p{
 padding:3px 5px 0px 9px;
 }
 

@@ -28,4 +28,4 @@ class HomePageNews(BrowserView):
             return 'image_tile'
         else:
             # image par défaut
-            return 'news.gif'
+            return 'news.png'

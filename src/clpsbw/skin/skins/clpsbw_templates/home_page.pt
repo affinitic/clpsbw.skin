@@ -63,13 +63,21 @@
         <tal:if tal:condition="news">
             <tal:boucle tal:repeat="item news">
                 <div class="clpsnews">
-                    <div id="clpsnews-image"
-                        tal:define="imgURL python:getNewsIconURL(item);">
-                        <img src=""
-                             tal:attributes="src string: ${item/getURL}/${imgURL}" />
+                    <div class="clpsnews-icone">
+                        <tal:block tal:define="newsClpsBw python:item.getObject()">
+                            <div class="news-image"
+                                 tal:define="imgURL python:getNewsIconURL(item);">
+                                <img src=""
+                                     tal:attributes="src string: ${item/getURL}/${imgURL}" />
+                            </div>
+                            <div class="newsClpsBw-image"
+                                 tal:condition="exists: newsClpsBw/isClpsBwNews">
+                                <img src="news_clpsbw.png" />
+                            </div>
+                        </tal:block>
                     </div>
 
-                    <div id="clpsnews-content">
+                    <div class="clpsnews-content">
                         <a href=""
                            tal:attributes="href item/getURL;
                                            title item/Description">

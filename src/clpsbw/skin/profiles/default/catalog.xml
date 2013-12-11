@@ -3,4 +3,7 @@
     <index name="isGlobal" meta_type="FieldIndex">
         <indexed_attr value="isGlobal"/>
     </index>
+    <index name="isClpsBwNews" meta_type="FieldIndex">
+        <indexed_attr value="isClpsBwNews"/>
+    </index>
 </object>

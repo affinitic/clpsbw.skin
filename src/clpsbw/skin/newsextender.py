@@ -13,6 +13,11 @@ class GlobalField(ExtensionField, BooleanField):
     """
 
 
+class ClpsBwNewsField(ExtensionField, BooleanField):
+    """
+    """
+
+
 class NewsExtender(object):
     adapts(ATNewsItem)
     implements(ISchemaExtender)
@@ -26,6 +31,15 @@ class NewsExtender(object):
             widget=BooleanWidget(
                 description=u"Cochez cette case si l'actualite doit apparaitre parmi les actualites globales du site.",
                 label=u"Actualité globale")),
+
+        ClpsBwNewsField(
+            name='isClpsBwNews',
+            required=False,
+            languageIndependent=True,
+            default=False,
+            widget=BooleanWidget(
+                description=u"Cochez cette case s'il s'agit d'une actualite Clps-Bw.",
+                label=u"Actualite Clps-Bw")),
         ]
 
     def __init__(self, context):
