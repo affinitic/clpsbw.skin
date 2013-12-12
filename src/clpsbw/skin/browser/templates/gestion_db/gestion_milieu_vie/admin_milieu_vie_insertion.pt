@@ -11,10 +11,9 @@
     <div tal:define="result view/manageMilieuDeVie;
                      status result/status">
 
-        <fieldset tal:define="milieudevies python: view.getAllMilieuDeVie()">
-            <table width="50%"
-                   align="center"
-                   class="listing">
+        <div class="formulaire"
+             tal:define="milieudevies python: view.getAllMilieuDeVie()">
+            <table class="listing">
                 <thead>
                     <tr>
                         <th> milieu de vie </th>
@@ -48,7 +47,7 @@
                     </tal:boucle>
                 </tbody>
             </table>
-        </fieldset>
+        </div>
         <div tal:condition="python: status==1">
             Le milieu de vie a été correctement enregistré.
             <br />

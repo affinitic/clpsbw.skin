@@ -15,11 +15,10 @@
     <br />
     
     <h1>:: Gestion des milieux de vie ::</h1>
-    <div class="table-donne-db"
+    <div class="formulaire"
          tal:define="milieudevies python: view.getAllMilieuDeVie()">
-        <table width="50%"
-               align="center"
-               class="listing">
+        <h2>Liste des milieux de vie</h2>
+        <table class="listing">
             <thead>
                 <tr>
                     <th> Milieu de vie </th>
