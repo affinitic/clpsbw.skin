@@ -13,7 +13,7 @@
 <div metal:fill-slot="main"
      tal:define="auteur python:view.getAuteurByLogin()">
 
-<form action="experience-inserer"
+<form action="insertExperience"
       method="post">
     <br />
     

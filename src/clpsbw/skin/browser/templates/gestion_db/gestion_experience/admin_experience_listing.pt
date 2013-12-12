@@ -32,7 +32,7 @@
                                    tal:attributes="href string:experience-decrire?experiencePk=${experiencePk}"
                                    class="titre_formation">titre de l'expérience</a>
                         </legend>
-                        <div id="experience-etat"
+                        <div class="experience-etat"
                              tal:condition="python:user.has_role(['Manager'], here)">
                             <tal:alerte tal:condition="python: experience.experience_etat=='pending_for_review'">
                                 <img src="alerte.png" />

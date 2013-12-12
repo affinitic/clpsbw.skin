@@ -24,7 +24,7 @@
                  allClps python:view.getAllClps();
                  selectedClpsProprio python:view.getClpsProprioForExperience(experiencePk, 'pk')"
      tal:condition="python:user.has_role(['Manager'], here)">
-<form action="admin-experience-inserer"
+<form action="updateExperienceByClps"
       method="post">
     <tal:boucle tal:repeat="experience experiences">
         <h1>:: Modifier l'expérience <span tal:content="experience/experience_titre" class="rouge-titre" /> ::</h1>

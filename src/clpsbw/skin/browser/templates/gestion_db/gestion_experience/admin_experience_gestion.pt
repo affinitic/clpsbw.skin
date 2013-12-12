@@ -27,7 +27,7 @@
                                tal:attributes="href string:admin-experience-modifier?experiencePk=${experiencePk}"
                                class="titre_formation">titre de l'expérience</a>
                         </legend>
-                        <div id="experience-etat"
+                        <div class="experience-etat"
                              tal:define="experienceEtat python:view.getExperienceEtat(experiencePk)"
                              tal:condition="python:user.has_role(['Manager'], here)">
                              <span tal:content="experienceEtat" />

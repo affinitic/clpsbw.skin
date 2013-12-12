@@ -13,7 +13,7 @@
 <div metal:fill-slot="main"
      tal:define="experiences python:view.getExperienceByPk(experiencePk=request.experiencePk)"
      tal:condition="python:user.has_role(['RecitExperience'], here)">
-<form action="experience-inserer"
+<form action="updateExperienceByAuteur"
       method="post">
     <tal:boucle tal:repeat="experience experiences">
         <h1>:: Modifier l'expérience <span tal:content="experience/experience_titre" class="rouge-titre" /> ::</h1>
@@ -654,7 +654,7 @@
                    value="1" />
             <input type="hidden"
                    name="operation"
-                   value="update" />
+                   value="updateByAuteur" />
             <input type="hidden"
                    name="experience_etat"
                    value="pending" />
