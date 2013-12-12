@@ -13,59 +13,61 @@
 <div metal:fill-slot="main"
      tal:define="themePk request/themePk;
                  themes python:view.getThemeByPk(themePk)">
-    <br />
-    
     <h1>Gestion des thèmes</h1>
-    <fieldset>
-        <legend class="legende">Modifier un thème</legend>
+    <div class="formulaire">
+        <h2>Modifier un thème</h2>
         <tal:boucle tal:repeat="theme themes">
-            <form action="theme-inserer" method="post">
-                <div>
-                    <img src="label_flch_rouge.png" /> Thème
-                    <br />
+            <form action="theme-inserer"
+                  method="post">
+                <div class="formInput">
+                    <label for="theme_nom">Thème</label>
                     <input type="text"
                            name="theme_nom"
+                           id="theme_nom"
                            value=""
                            size="50"
                            class="grasorange"
                            tal:attributes="value theme/theme_nom" />
-                    <br /><br />
                 </div>
-                <div>
-                    <img src="label_flch_rouge.png" />
-                    <input type="checkbox"
-                           name="theme_experience"
-                           value="True"
-                           checked=""
-                           class="grasorange"
-                           tal:attributes="checked python:theme.theme_experience and 'selected' or None;" />
-                    Thème pour expérience
-                    <br /><br />
+                <div class="formInput">
+                    <label for="theme_experience">
+                        &nbsp;
+                        <input type="checkbox"
+                               name="theme_experience"
+                               id="theme_experience"
+                               value="True"
+                               checked=""
+                               class="grasorange"
+                               tal:attributes="checked python:theme.theme_experience and 'selected' or None;" />
+                        &nbsp;
+                        Thème pour expérience
+                    </label>
                 </div>
-                <div>
-                    <img src="label_flch_rouge.png" />
-                    <input type="checkbox"
-                           name="theme_ressource"
-                           value="True"
-                           checked=""
-                           class="grasorange"
-                           tal:attributes="checked python:theme.theme_ressource and 'selected' or None;" />
-                    Thème pour ressource
-                    <br /><br />
+                <div class="formInput">
+                    <label for="theme_ressource">
+                        &nbsp;
+                        <input type="checkbox"
+                               name="theme_ressource"
+                               id="theme_ressource"
+                               value="True"
+                               checked=""
+                               class="grasorange"
+                               tal:attributes="checked python:theme.theme_ressource and 'selected' or None;" />
+                        &nbsp;
+                        Thème pour ressource
+                    </label>
                 </div>
-                <div>
-                    <img src="label_flch_rouge.png" /> Etat
-                    <br />
-                    <select name="theme_actif">
+                <div class="formInput">
+                    <label for="theme_actif">Etat</label>
+                    <select name="theme_actif"
+                            id="theme_actif">
                         <option value="True"
                                 tal:attributes="selected python:theme.theme_actif and 'selected' or None;">Activer</option>
                         <option value="False"
                                 tal:attributes="selected python:not theme.theme_actif and 'selected' or None;">Désactiver</option>
                     </select>
-                    <br /><br />
                 </div>
-                <hr />
-                <div class="div_form_input">
+                <div class="formControls">
                     <input type="hidden"
                            name="operation"
                            value="update" />
@@ -78,7 +80,7 @@
                 </div>
             </form>
         </tal:boucle>
-    </fieldset>
+    </div>
 </div><!-- div metal-->
 </body>
 </html>
