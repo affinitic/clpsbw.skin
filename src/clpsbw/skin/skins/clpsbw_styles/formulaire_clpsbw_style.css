@@ -7,22 +7,33 @@ border-radius:10px;
 box-shadow:3px 3px 15px rgba(50, 50, 50, 0.5);
 margin:15px auto;
 padding:20px;
-background: rgb(235,253,255); /* Old browsers */
-background: -moz-linear-gradient(top,  rgba(235,253,255,1) 0%, rgba(217,230,229,1) 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(235,253,255,1)), color-stop(100%,rgba(217,230,229,1))); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top,  rgba(235,253,255,1) 0%,rgba(217,230,229,1) 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top,  rgba(235,253,255,1) 0%,rgba(217,230,229,1) 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top,  rgba(235,253,255,1) 0%,rgba(217,230,229,1) 100%); /* IE10+ */
-background: linear-gradient(to bottom,  rgba(235,253,255,1) 0%,rgba(217,230,229,1) 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebfdff', endColorstr='#d9e6e5',GradientType=0 ); /* IE6-9 */
+background: rgb(255,255,255); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(47%,rgba(246,246,246,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+}
+
+div.formulaire h2{
+border-bottom: 1px solid #20a3af;
+color:#00728a !important;
+font-size: 1.8em;
+font-weight: normal;
+letter-spacing: 1px;
+margin-bottom: 5px;
+text-align: right;
+text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
 }
 
 .formulaire label{
 display:block;
-width:230px;
+width:80%;
 cursor:pointer;
 margin-top:15px;
-font-size:14px;
+font-size:1.2em;
 color:#666;
 text-shadow:1px 1px 1px rgba(255,255,255, 1); 
 padding-left:15px;
@@ -30,6 +41,16 @@ margin-bottom:4px;
 background-image:url(label_flch_rouge.png);
 background-repeat:no-repeat;
 background-position:left top;
+}
+
+.formInput{
+margin:2em 0;
+}
+
+.formControls{
+border-top:1px solid #20a3af;
+padding-top:4px;
+text-align:center;
 }
 
 .formulaire input[type=checkbox] {
@@ -133,5 +154,9 @@ margin-top:10px;
 .table-donne-db table{
 margin:auto;
 box-shadow:3px 3px 15px rgba(50, 50, 50, 0.5);
+}
 
+div.formulaire table.listing{
+width:70%;
+margin:auto;
 }
