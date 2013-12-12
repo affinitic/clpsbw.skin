@@ -26,7 +26,6 @@ class IPdfGenerator(Interface):
         """
 
 
-
 class IHomePageNews(Interface):
     """
     Gestion des news sur la homepage
@@ -230,9 +229,19 @@ class IManageClpsbw(Interface):
         insert une nouvelle institution
         """
 
-    def addExperiene():
+    def insertExperience():
         """
         insert une nouvelle experience
+        """
+
+    def updateExperienceByClps():
+        """
+        update une experience
+        """
+
+    def updateExperienceByAuteur():
+        """
+        insert une experience-maj par auteur
         """
 
     def manageMotCle():

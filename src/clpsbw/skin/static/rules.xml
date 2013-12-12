@@ -58,4 +58,8 @@
         <drop css:content="#portal-column-two" />
     </rules>
     
+    <rules if-path="admin-experience-creer/">
+        <drop css:content="#portal-column-two" />
+    </rules>
+    
 </rules>

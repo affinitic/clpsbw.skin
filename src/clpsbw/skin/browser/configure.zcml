@@ -313,6 +313,7 @@
           class=".ManageClpsbw.ManageClpsbw"
           allowed_interface=".interfaces.IManageClpsbw"
           />
+    
     <browser:page
           name="experience-modifier"
           for="*"
@@ -322,29 +323,47 @@
           allowed_interface=".interfaces.IManageClpsbw"
           />                        
     <browser:page
-          name="experience-decrire"
-          for="*"
-          template="templates/experience/experience_description.pt"
-          permission="zope.Public"
-          class=".ManageClpsbw.ManageClpsbw"
-          allowed_interface=".interfaces.IManageClpsbw"
-          />
+        name="experience-decrire"
+        for="*"
+        template="templates/experience/experience_description.pt"
+        permission="zope.Public"
+        class=".ManageClpsbw.ManageClpsbw"
+        allowed_interface=".interfaces.IManageClpsbw"
+        />
     <browser:page
-          name="experience-demo"
-          for="*"
-          template="templates/experience/experience_description_for_newsletter.pt"
-          permission="zope.Public"
-          class=".ManageClpsbw.ManageClpsbw"
-          allowed_interface=".interfaces.IManageClpsbw"
-          />
+        name="admin-experience-decrire"
+        for="*"
+        template="templates/gestion_db/gestion_experience/admin_experience_description.pt"
+        permission="zope.Public"
+        class=".ManageClpsbw.ManageClpsbw"
+        allowed_interface=".interfaces.IManageClpsbw"
+        />
     <browser:page
-          name="experience-decrire-tableless"
-          for="*"
-          template="templates/experience/experience_description_tableless.pt"
-          permission="zope.Public"
-          class=".ManageClpsbw.ManageClpsbw"
-          allowed_interface=".interfaces.IManageClpsbw"
-          />
+        name="insertExperience"
+        for="*"
+        class=".ManageClpsbw.ManageClpsbw"
+        permission="zope.Public"
+        attribute="insertExperience"
+        allowed_interface=".interfaces.IManageClpsbw"
+        />
+    <browser:page
+        name="updateExperienceByClps"
+        for="*"
+        class=".ManageClpsbw.ManageClpsbw"
+        permission="zope.Public"
+        attribute="updateExperienceByClps"
+        allowed_interface=".interfaces.IManageClpsbw"
+        /> 
+    <browser:page
+        name="updateExperienceByAuteur"
+        for="*"
+        class=".ManageClpsbw.ManageClpsbw"
+        permission="zope.Public"
+        attribute="updateExperienceByClps"
+        allowed_interface=".interfaces.IManageClpsbw"
+        /> 
+        
+        
 
 <!-- moteur recherche -->
     <browser:page
@@ -574,7 +593,7 @@
     <browser:page
           name="institution-type-creer"
           for="*"
-          template="templates/institution/institution_type_creation_form.pt"
+          template="templates/gestion_db/gestion_type_institution/admin_institution_type_creation_form.pt"
           permission="zope.Public"
           class=".ManageClpsbw.ManageClpsbw"
           allowed_interface=".interfaces.IManageClpsbw"
@@ -582,7 +601,7 @@
     <browser:page
           name="institution-type-modifier"
           for="*"
-          template="templates/institution/institution_type_modification_form.pt"
+          template="templates/gestion_db/gestion_type_institution/admin_institution_type_modification_form.pt"
           permission="zope.Public"
           class=".ManageClpsbw.ManageClpsbw"
           allowed_interface=".interfaces.IManageClpsbw"
@@ -591,7 +610,7 @@
     <browser:page
           name="institution-type-inserer"
           for="*"
-          template="templates/institution/institution_type_insertion.pt"
+          template="templates/gestion_db/gestion_type_institution/admin_institution_type_insertion.pt"
           permission="zope.Public"
           class=".ManageClpsbw.ManageClpsbw"
           allowed_interface=".interfaces.IManageClpsbw"
