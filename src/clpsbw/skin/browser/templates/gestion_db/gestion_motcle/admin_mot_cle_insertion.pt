@@ -10,11 +10,9 @@
     <h1>:: Mots-clé ::</h1>
     <div tal:define="result view/manageMotCle;
                      status result/status">
-
-        <fieldset tal:define="motcles python: view.getAllMotCle()">
-            <table width="50%"
-                   align="center"
-                   class="listing">
+        <div class="formulaire"
+             tal:define="motcles python: view.getAllMotCle()">
+            <table class="listing">
                 <thead>
                 <tr>
                     <th> Mot </th>
@@ -48,7 +46,7 @@
                 </tal:boucle>
                 </tbody>
             </table>
-        </fieldset>
+        </div>
         <div tal:condition="python: status==1">
             Le mot clé a été correctement enregistré
             <br />
