@@ -17,50 +17,48 @@
     <h1>:: Gestion des sous plate-formes ::</h1>
     <fieldset tal:define="sousPlateFormes python: view.getAllSousPlateForme()">
         <legend class="legende">Liste des sous plate-formes</legend>
-            <table width="50%"
-                   class="listing"
-                   align="center">
+            <table class="listing">
                 <thead>
-                <tr>
-                    <th> Sous plate-forme </th>
-                    <th> Plate-forme </th>
-                    <th> Etat </th>
-                    <th class="nosort"> Modifier </th>
-                </tr>
+                    <tr>
+                        <th> Sous plate-forme </th>
+                        <th> Plate-forme </th>
+                        <th> Etat </th>
+                        <th class="nosort"> Modifier </th>
+                    </tr>
                 </thead>
                 <tbody>
-                <tal:boucle tal:repeat="sousPlateForme sousPlateFormes">
-                    <span tal:define="odd repeat/sousPlateForme/odd">
-                        <tr tal:attributes="class python:odd and 'odd' or 'even'">
-                            <td align="center">
-                                <span tal:content="sousPlateForme/sousplateforme_nom">sous plate-forme</span>
-                            </td>
-                            <td align="center">
-                                <span tal:define="allPlateFormes python: view.getAllActivePlateForme()">
-                                    <tal:boucle tal:repeat="plateforme allPlateFormes">
-                                        <tal:condizion tal:condition="python:plateforme.plateforme_pk == sousPlateForme.sousplateforme_plateforme_fk">
-                                            <span tal:content="plateforme/plateforme_nom" />
-                                        </tal:condizion>
-                                    </tal:boucle>
-                                </span>
-                            </td>
-                            <td align="center">
-                                <span tal:condition="python: sousPlateForme.sousplateforme_actif">
-                                    <span class="vert-actif">Actif</span>
-                                </span>
-                                <span tal:condition="python: sousPlateForme.sousplateforme_actif==False">
-                                    <span class="rouge-non-actif">Non-actif</span>
-                                </span>
-                            </td>
-                            <td align="center">
-                                <div class="btn-modifier">
-                                <a href=""
-                                   tal:attributes="href string: sous-plateforme-modifier?sousPlateFormePk=${sousPlateForme/sousplateforme_pk}">&nbsp;</a>
-                                </div>
-                            </td>
-                        </tr>
-                    </span>
-                </tal:boucle>
+                    <tal:boucle tal:repeat="sousPlateForme sousPlateFormes">
+                        <span tal:define="odd repeat/sousPlateForme/odd">
+                            <tr tal:attributes="class python:odd and 'odd' or 'even'">
+                                <td align="center">
+                                    <span tal:content="sousPlateForme/sousplateforme_nom">sous plate-forme</span>
+                                </td>
+                                <td align="center">
+                                    <span tal:define="allPlateFormes python: view.getAllActivePlateForme()">
+                                        <tal:boucle tal:repeat="plateforme allPlateFormes">
+                                            <tal:condizion tal:condition="python:plateforme.plateforme_pk == sousPlateForme.sousplateforme_plateforme_fk">
+                                                <span tal:content="plateforme/plateforme_nom" />
+                                            </tal:condizion>
+                                        </tal:boucle>
+                                    </span>
+                                </td>
+                                <td align="center">
+                                    <span tal:condition="python: sousPlateForme.sousplateforme_actif">
+                                        <span class="vert-actif">Actif</span>
+                                    </span>
+                                    <span tal:condition="python: sousPlateForme.sousplateforme_actif==False">
+                                        <span class="rouge-non-actif">Non-actif</span>
+                                    </span>
+                                </td>
+                                <td align="center">
+                                    <div class="btn-modifier">
+                                    <a href=""
+                                       tal:attributes="href string: sous-plateforme-modifier?sousPlateFormePk=${sousPlateForme/sousplateforme_pk}">&nbsp;</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </span>
+                    </tal:boucle>
                 </tbody>
             </table>
     </fieldset>
