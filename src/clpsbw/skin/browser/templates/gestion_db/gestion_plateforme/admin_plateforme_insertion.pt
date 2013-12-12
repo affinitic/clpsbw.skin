@@ -10,11 +10,9 @@
     <h1>:: Gestion des plate-formes ::</h1>
     <div tal:define="result view/managePlateForme;
                      status result/status">
-
-        <fieldset tal:define="plateformes python: view.getAllPlateForme()">
-            <table width="50%"
-                   align="center"
-                   class="listing">
+        <div class="formulaire"
+             tal:define="plateformes python: view.getAllPlateForme()">
+            <table class="listing">
                 <thead>
                     <tr>
                         <th> plate-forme </th>
@@ -48,7 +46,7 @@
                     </tal:boucle>
                 </tbody>
             </table>
-        </fieldset>
+        </div>
         <div tal:condition="python: status==1">
             La plate-forme a été correctement enregistrée.
             <br />

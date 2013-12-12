@@ -14,19 +14,19 @@
 <form action="plateforme-inserer" method="post">
     <br />
     
-    <h1>:: Gestion des plate-formes ::</h1>
-    <fieldset tal:define="plateformes python: view.getAllPlateForme()">
-        <table width="50%"
-                   align="center"
-                   class="listing">
-                <thead>
+    <h1>:: Gestion des plates-formes ::</h1>
+    <div class="formulaire"
+         tal:define="plateformes python: view.getAllPlateForme()">
+        <h2>Liste des plates-formes</h2>
+        <table class="listing">
+            <thead>
                 <tr>
                     <th> Plate-forme </th>
                     <th> Etat </th>
                     <th class="nosort"> Modifier </th>
                 </tr>
-                </thead>
-                <tbody>
+            </thead>
+            <tbody>
                 <tal:boucle tal:repeat="plateforme plateformes">
                     <span tal:define="odd repeat/plateforme/odd">
                         <tr tal:attributes="class python:odd and 'odd' or 'even'">
@@ -50,9 +50,9 @@
                         </tr>
                     </span>
                 </tal:boucle>
-                </tbody>
+            </tbody>
         </table>
-    </fieldset>
+    </div>
     <fieldset>
         <ul class="formulaire">
             <li>
