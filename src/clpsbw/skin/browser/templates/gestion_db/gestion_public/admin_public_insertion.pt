@@ -12,9 +12,7 @@
                      status result/status">
 
         <fieldset tal:define="publics python: view.getAllPublic()">
-            <table width="50%"
-                   align="center"
-                   class="listing">
+            <table class="listing">
                 <thead>
                     <tr>
                         <th> Th&egrave;me </th>

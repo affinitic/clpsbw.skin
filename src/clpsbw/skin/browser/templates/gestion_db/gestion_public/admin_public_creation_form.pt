@@ -11,12 +11,11 @@
 
 <body>
 <div metal:fill-slot="main">
-    <h1>Encoder un public</h1>
-    <div class="table-donne-db"
+    <h1>Gestion des publics</h1>
+    <div class="formulaire"
          tal:define="publics python: view.getAllPublic()">
-        <table width="50%"
-               align="center"
-               class="listing">
+        <h2>Liste des publics</h2> 
+        <table class="listing">
                 <thead>
                     <tr>
                         <th> Public </th>
