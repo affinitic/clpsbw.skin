@@ -26,7 +26,7 @@
                            tal:attributes="href string:institution-decrire?institutionPk=${institutionPk}"
                            class="titre_formation">nom de l'institution</a>
                    </legend>
-                   <div id="experience-etat"
+                   <div class="experience-etat"
                         tal:define="institutionEtat python:view.getInstitutionEtat(institutionPk)"
                         tal:condition="python:user.has_role(['Manager'], here)">
                         <span tal:content="institutionEtat" />
