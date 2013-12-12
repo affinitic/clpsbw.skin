@@ -15,33 +15,32 @@
 <form action="institution-type-inserer" method="post">
     <br />
     
-    <h1>:: Gestion des types d'institution ::</h1>
-    <fieldset>
-        <legend class="legende">Modifier un type d'institution</legend>
+    <h1>Gestion des types d'institution</h1>
+    <div class="formulaire">
+        <h2>Modifier un type d'institution</h2>
         <tal:boucle tal:repeat="institutionType institutionTypes">
             <form action="institution-type-inserer" method="post">
-                <div>
-                    <img src="label_flch_rouge.png" /> Type
-                    <br />
+                <div class="formInput">
+                    <label for="institution_type_nom">Type</label>
                     <input type="text"
                            name="institution_type_nom"
+                           id="institution_type_nom"
                            value=""
                            size="50"
                            class="grasorange"
                            tal:attributes="value institutionType/institution_type_nom" />
                 </div>
-                <div>
-                    <img src="label_flch_rouge.png" /> Etat
-                    <br />
-                    <select name="institution_type_actif">
+                <div class="formInput">
+                    <label for="institution_type_actif">Etat</label>
+                    <select name="institution_type_actif"
+                            id="institution_type_actif">
                         <option value="True"
                                 tal:attributes="selected python:institutionType.institution_type_actif and 'selected' or None;">Activer</option>
                         <option value="False"
                                 tal:attributes="selected python:not institutionType.institution_type_actif and 'selected' or None;">Désactiver</option>
                     </select>
                 </div>
-                <hr />
-                <div class="div_form_input">
+                <div class="formControls">
                     <input type="hidden"
                            name="operation"
                            value="update" />
@@ -54,8 +53,7 @@
                 </div>
             </form>
         </tal:boucle>
-    </fieldset>
-
+    </div>
 </form>
 </div><!-- div metal-->
 </body>
