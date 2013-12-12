@@ -12,44 +12,42 @@
                      status result/status">
 
         <fieldset tal:define="supports python: view.getAllSupport()">
-            <table width="50%"
-                   align="center"
-                   class="listing">
+            <table class="listing">
                 <thead>
-                <tr>
-                    <th> Support </th>
-                    <th> Description </th>
-                    <th> Etat </th>
-                    <th class="nosort"> Modifier </th>
-                </tr>
+                    <tr>
+                        <th> Support </th>
+                        <th> Description </th>
+                        <th> Etat </th>
+                        <th class="nosort"> Modifier </th>
+                    </tr>
                 </thead>
                 <tbody>
-                <tal:boucle tal:repeat="support supports">
-                    <span tal:define="odd repeat/support/odd">
-                        <tr tal:attributes="class python:odd and 'odd' or 'even'">
-                            <td>
-                                <span tal:content="support/support_titre">support titre</span>
-                            </td>
-                            <td>
-                                <span tal:content="support/support_description">support description</span>
-                            </td>
-                            <td align="center">
-                                <span tal:condition="python:support.support_actif">
-                                    <span class="vert-actif">Actif</span>
-                                </span>
-                                <span tal:condition="python:support.support_actif==False">
-                                    <span class="rouge-non-actif">Non-actif</span>
-                                </span>
-                            </td>
-                            <td align="center">
-                                <div class="btn-modifier">
-                                <a href=""
-                                   tal:attributes="href string:support-modifier?supportPk=${support/support_pk}">&nbsp;</a>
-                                </div>
-                            </td>
-                        </tr>
-                    </span>
-                </tal:boucle>
+                    <tal:boucle tal:repeat="support supports">
+                        <span tal:define="odd repeat/support/odd">
+                            <tr tal:attributes="class python:odd and 'odd' or 'even'">
+                                <td>
+                                    <span tal:content="support/support_titre">support titre</span>
+                                </td>
+                                <td>
+                                    <span tal:content="support/support_description">support description</span>
+                                </td>
+                                <td align="center">
+                                    <span tal:condition="python:support.support_actif">
+                                        <span class="vert-actif">Actif</span>
+                                    </span>
+                                    <span tal:condition="python:support.support_actif==False">
+                                        <span class="rouge-non-actif">Non-actif</span>
+                                    </span>
+                                </td>
+                                <td align="center">
+                                    <div class="btn-modifier">
+                                    <a href=""
+                                       tal:attributes="href string:support-modifier?supportPk=${support/support_pk}">&nbsp;</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </span>
+                    </tal:boucle>
                 </tbody>
             </table>
         </fieldset>
