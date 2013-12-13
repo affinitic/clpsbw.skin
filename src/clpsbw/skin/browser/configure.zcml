@@ -417,17 +417,18 @@
           />
 
 
-<!-- ressource -->
+<!--  RESOURCES - RESOURCES - RESOURCES - RESOURCES - RESOURCES  -->
+<!-- admin ressource -->
     <browser:page
-          name="ressource-creer"
+          name="admin-creer-une-ressource"
           for="*"
-          template="templates/gestion_db/gestion_ressource/admin_ressource_creation_form.pt"
+          template="templates/gestion_db/gestion_ressource/admin_creer_ressource.pt"
           permission="zope.Public"
           class=".ManageClpsbw.ManageClpsbw"
           allowed_interface=".interfaces.IManageClpsbw"
           />
     <browser:page
-          name="ressource-inserer"
+          name="admin-ressource-inserer"
           for="*"
           template="templates/gestion_db/gestion_ressource/admin_ressource_insertion.pt"
           permission="zope.Public"
@@ -435,33 +436,42 @@
           allowed_interface=".interfaces.IManageClpsbw"
           />
     <browser:page
-          name="ressource-modifier"
+          name="admin-modifier-une-ressource"
           for="*"
-          template="templates/gestion_db/gestion_ressource/admin_ressource_modification_form.pt"
+          template="templates/gestion_db/gestion_ressource/admin_modifier_ressource.pt"
           permission="zope.Public"
           class=".ManageClpsbw.ManageClpsbw"
           allowed_interface=".interfaces.IManageClpsbw"
           />
     <browser:page
-          name="ressource-lister"
+          name="admin-lister-les-ressources"
           for="*"
-          template="templates/gestion_db/gestion_ressource/admin_ressource_listing.pt"
+          template="templates/gestion_db/gestion_ressource/admin_lister_ressource.pt"
           permission="zope.Public"
           class=".ManageClpsbw.ManageClpsbw"
           allowed_interface=".interfaces.IManageClpsbw"
           />
     <browser:page
-          name="ressource-decrire"
+          name="admin-decrire-une-ressource"
           for="*"
-          template="templates/gestion_db/gestion_ressource/admin_ressource_description.pt"
+          template="templates/gestion_db/gestion_ressource/admin_decrire_ressource.pt"
           permission="zope.Public"
           class=".ManageClpsbw.ManageClpsbw"
           allowed_interface=".interfaces.IManageClpsbw"
           />
     <browser:page
-          name="ressource-chercher"
+          name="admin-chercher-une-ressource"
           for="*"
-          template="templates/gestion_db/gestion_ressource/admin_ressource_moteur_recherche_db.pt"
+          template="templates/gestion_db/gestion_ressource/admin_chercher_ressource.pt"
+          permission="zope.Public"
+          class=".ManageClpsbw.ManageClpsbw"
+          allowed_interface=".interfaces.IManageClpsbw"
+          />
+<!-- user ressource -->
+    <browser:page
+          name="decrire-une-ressource"
+          for="*"
+          template="templates/ressource/decrire_ressource.pt"
           permission="zope.Public"
           class=".ManageClpsbw.ManageClpsbw"
           allowed_interface=".interfaces.IManageClpsbw"
@@ -482,8 +492,12 @@
           class=".ManageClpsbw.ManageClpsbw"
           allowed_interface=".interfaces.IManageClpsbw"
           />
- 
-<!-- institution -->
+
+
+
+
+<!-- INSTITUTION - INSTITUTION - INSTITUTION - INSTITUTION - INSTITUTION - -->
+<!-- admin institution -->
     <browser:page
           name="institution-creer"
           for="*"
