@@ -33,7 +33,7 @@
                                     <article class="organisme-fiche">
                                         <div class="organisme-titre">
                                             <a href=""
-                                               tal:attributes="href string:${context/portal_url}/ressource-decrire?ressourcePk=${ressourcePk}"
+                                               tal:attributes="href string:${context/portal_url}/decrire-une-ressource?ressourcePk=${ressourcePk}"
                                                tal:content="ressource/ressource_titre"></a>
                                         </div>
                                         <dl>
