@@ -20,36 +20,28 @@
                     <h2>
                         <a href=""
                          tal:content="ressource/ressource_titre"
-                         tal:attributes="href string:ressource-decrire?ressourcePk=${ressourcePk}"
+                         tal:attributes="href string:decrire-une-ressource?ressourcePk=${ressourcePk}"
                          class="titre_formation">titre de la ressource</a>
                     </h2>
-                    <ul class="description">
-                        <li>
-                            <span class="brun"><img src="label_flch_rouge.png" /> Description :</span><br />
-                            <span tal:replace="structure ressource/ressource_description"
-                                   class="rubrique-db" />
-                        </li>
-                        <li>
-                            <span class="brun"><img src="label_flch_rouge.png" /> Auteur :</span><br />
-                            <span tal:content="ressource/ressource_auteur"
-                                   class="rubrique-db" />
-                        </li>
-                        <li>
-                            <span class="brun"><img src="label_flch_rouge.png" /> Année de parution :</span><br />
-                            <span tal:content="ressource/ressource_date_edition"
-                                   class="rubrique-db" />
-                        </li>
-                        <li>
-                            <span class="brun"><img src="label_flch_rouge.png" /> Public :</span><br />
+                    <div class="description-listing">
+                            <h3>Description</h3>
+                            <p><span tal:replace="structure ressource/ressource_description" /></p>
+                            
+                            <h3>Auteur</h3>
+                            <p><span tal:content="ressource/ressource_auteur" /></p>
+                            
+                            <h3>Année de parution</h3>
+                            <p><span tal:content="ressource/ressource_date_edition" /></p>
+                            
+                            <h3>Public</h3>
+                            <p>
                             <tal:boucle tal:repeat="public publics">
-                                <span tal:content="public"
-                                      class="rubrique-db" /><br />
+                                <span tal:content="public" /><br />
                             </tal:boucle>
-                        </li>
-
-                    </ul>
+                            </p>
+                    </div>
                     <hr class="ligne-top-menu-gestion-donnee" />
-                    <div class="menu-gestion">
+                    <div class="zone-menu-gestion">
                         <div class="experience-etat"
                              tal:define="ressourceEtat python:view.getRessourceEtat(ressourcePk)"
                              tal:condition="python:user.has_role(['Manager'], here)">
@@ -60,17 +52,17 @@
                         <ul id="menu-gestion-donnee">
                             <li>
                                 <a href=""
-                                   tal:attributes="href string:${context/portal_url}/gestion-de-la-base/">
+                                   tal:attributes="href string:${context/portal_url}/gestion-de-la-base/les-ressources/admin-chercher-une-ressource">
                                     Chercher</a>
                             </li>
                             <li>
                                 <a href=""
-                                   tal:attributes="href string:${context/portal_url}/gestion-de-la-base/">
+                                   tal:attributes="href string:${context/portal_url}/gestion-de-la-base/les-ressources/admin-modifier-une-ressource}">
                                     Modifier</a>
                             </li>
                             <li>
                                 <a href=""
-                                   tal:attributes="href string:ressource-decrire?ressourcePk=${ressourcePk}">
+                                   tal:attributes="href string:${context/portal_url}/gestion-de-la-base/les-ressources/admin-decrire-une-ressource?ressourcePk=${ressourcePk}">
                                    Détailler</a>
                             </li>
                         </ul>
