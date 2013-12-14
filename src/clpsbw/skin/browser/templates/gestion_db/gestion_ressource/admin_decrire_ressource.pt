@@ -21,18 +21,14 @@
     <tal:boucle tal:repeat="ressource ressources">
         <tal:block tal:define="ressourcePk ressource/ressource_pk">
             <div id="title-ressource">
-                <div id="title-ressource-left"></div>
                 <div class="titre-ressource-top">
                     <p><span tal:content="ressource/ressource_titre" /></p>
                 </div>
-                <div id="title-ressource-right"
-                      tal:define="ressourcePk ressource/ressource_pk">
-                    <div class="btn-modifier"
-                         tal:condition="python:user.has_role(['Manager'], here)">
-                        <br />
-                        <a href=""
-                           tal:attributes="href string: ressource-modifier?ressourcePk=${ressourcePk}">&nbsp;</a>
-                    </div>
+                <div class="btn-modifier"
+                     tal:condition="python:user.has_role(['Manager'], here)">
+                    <br />
+                    <a href=""
+                       tal:attributes="href string: ressource-modifier?ressourcePk=${ressourcePk}">&nbsp;</a>
                 </div>
             </div>
 

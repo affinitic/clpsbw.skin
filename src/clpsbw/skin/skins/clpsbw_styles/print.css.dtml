@@ -125,29 +125,11 @@ text-align:center;
 background-color:#003088;
 }
 
-#title-institution-left{
-float:left;
-background-image:url(titre_insitution_border_left.png);
-background-repeat:no-repeat;
-background-position:left top;
-width:28px;
-height:73px;
-}
-
 .titre-institution-top{ 
 float:left;
 color:#fff;
 width:90%;
 margin-top:10px;
-}
-
-#title-institution-right{
-float:right;
-background-image:url(titre_institution_border_right.png);
-background-repeat:no-repeat;
-background-position:right top;
-width:28px;
-height:73px;
 }
 
 .puzzle-gris{
@@ -238,9 +220,6 @@ color:#51686d;
 text-align:justify;
 }
 
-#border-experience{
-}
-
 #title-experience{
 margin-bottom:20px;
 font-weight:bold;
@@ -252,28 +231,10 @@ background-color:#8d153e;
 text-align:center;
 }
 
-#title-experience-left{
-float:left;
-background-image:url(titre_description_border_left.png);
-background-repeat:no-repeat;
-background-position:left top;
-width:28px;
-height:73px;
-}
-
 .titre-top{ 
 float:left;
 color:#fff;
 width:90%;
-}
-
-#title-experience-right{
-float:right;
-background-image:url(titre_description_border_right.png);
-background-repeat:no-repeat;
-background-position:right top;
-width:28px;
-height:73px;
 }
 
 .rouge-titre{
@@ -557,29 +518,11 @@ text-align:center;
 background-color:#003088;
 }
 
-#title-institution-left{
-float:left;
-background-image:url(titre_insitution_border_left.png);
-background-repeat:no-repeat;
-background-position:left top;
-width:28px;
-height:73px;
-}
-
 .titre-institution-top{ 
 float:left;
 color:#fff;
 width:90%;
 margin-top:10px;
-}
-
-#title-institution-right{
-float:right;
-background-image:url(titre_institution_border_right.png);
-background-repeat:no-repeat;
-background-position:right top;
-width:28px;
-height:73px;
 }
 
 .puzzle-gris{

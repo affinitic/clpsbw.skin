@@ -106,11 +106,6 @@ text-shadow:1px 1px 1px rgba(255,255,255,0.9);
 }
 
 
-
-
-
-
-
 .grasbrun{
 font-weight:bold;
 color:#b93f00;
@@ -180,7 +175,8 @@ margin-top:35px;
 
 
 /*** PRESENTATION BASE DE DONNEE ***/
-#experience-template{
+#experience-template,
+#ressource-template{
 background-image:url(bg_experience.png);
 background-repeat:no-repeat;
 background-position: center bottom;
@@ -233,45 +229,6 @@ border-right:1px solid #afa61d;
 padding:5px;
 margin-left:15px;
 }
-
-.btn-modifier {
-float:right;
-margin-top:15px;
-margin-right:8px;
-width:30px;
-height:30px;
-border:1px solid #dedede;
-border-radius:8px;
-box-shadow:3px 3px 6px rgba(50,50,50,0.6);
-background: -moz-linear-gradient(top,  rgba(255,255,255,0.95) 0%, rgba(241,241,241,0.95) 50%, rgba(225,225,225,0.95) 51%, rgba(246,246,246,0.95) 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.95)), color-stop(50%,rgba(241,241,241,0.95)), color-stop(51%,rgba(225,225,225,0.95)), color-stop(100%,rgba(246,246,246,0.95))); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top,  rgba(255,255,255,0.95) 0%,rgba(241,241,241,0.95) 50%,rgba(225,225,225,0.95) 51%,rgba(246,246,246,0.95) 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top,  rgba(255,255,255,0.95) 0%,rgba(241,241,241,0.95) 50%,rgba(225,225,225,0.95) 51%,rgba(246,246,246,0.95) 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top,  rgba(255,255,255,0.95) 0%,rgba(241,241,241,0.95) 50%,rgba(225,225,225,0.95) 51%,rgba(246,246,246,0.95) 100%); /* IE10+ */
-background: linear-gradient(to bottom,  rgba(255,255,255,0.95) 0%,rgba(241,241,241,0.95) 50%,rgba(225,225,225,0.95) 51%,rgba(246,246,246,0.95) 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2ffffff', endColorstr='#f2f6f6f6',GradientType=0 ); /* IE6-9 */
-}
-
-.btn-modifier a {
-display:inline-block;
-width:30px;
-height:30px;
-text-decoration:none;
-background-image:url("btn_modifier.png");
-background-position:center 4px;
-background-repeat:no-repeat;
-border-bottom:none !important;
-}
-
-.btn-modifier:hover {
-box-shadow:1px 1px 1px rgba(50,50,50,0.6);
-}
-
-.btn-modifier a:hover {
-background-image:url("btn_modifier.png");
-background-position:center -34px;
-}
-
 
 
 /*** MOTEUR RECHERCHE ***/
@@ -374,123 +331,6 @@ font-weight:bold;
 color:#555;
 }
 
-#titre-experience{
-font-variant:small-caps;
-font-size:1.3em;
-font-weight:bold;
-text-align:right;
-padding-right:18px;
-background-image:url(fnd_titre_experience.png);
-background-repeat:no-repeat;
-background-position:left center;
-padding-left:58px;
-}
-
-#titre-experience h2{
-font-size:1.2em;
-letter-spacing:0.5em;
-text-align:center;
-}
-
-#titre-experience hr{
-background-color:#fff;
-border:0 none;
-height:1px;
-}    
-
-#resume-experience{
-border-bottom:1px solid #98ac69;
-background-image:url(puzzle_vert.png);
-background-repeat:no-repeat;
-background-position:left 18px;
-padding-left:50px;
-margin-top:-12px;
-padding-top:18px;
-}
-
-#contexte-experience{
-margin-top:15px;
-border-bottom:1px solid #98ac69;
-background-image:url(puzzle_jaune_2.png);
-background-repeat:no-repeat;
-background-position:left top;
-padding-left:50px;
-}
-
-#objectif-experience{
-margin-top:15px;
-border-bottom:1px solid #98ac69;
-background-image:url(puzzle_rouge.png);
-background-repeat:no-repeat;
-background-position:left top;
-padding-left:50px;
-}
-
-#public-experience{
-margin-top:15px;
-border-bottom:1px solid #98ac69;
-background-image:url(puzzle_gris_vert.png);
-background-repeat:no-repeat;
-background-position:left top;
-padding-left:50px;
-}
-
-#milieu-de-vie-experience{
-margin-top:15px;
-border-bottom:1px solid #98ac69;
-background-image:url(puzzle_vert.png);
-background-repeat:no-repeat;
-background-position:left top;
-padding-left:50px;
-}
-
-#demarche-experience{
-margin-top:15px;
-border-bottom:1px solid #98ac69;
-background-image:url(puzzle_jaune_2.png);
-background-repeat:no-repeat;
-padding-left:50px;
-}
-
-#moyen-experience{
-margin-top:15px;
-border-bottom:1px solid #98ac69;
-background-image:url(puzzle_rouge.png);
-background-repeat:no-repeat;
-background-position:left top;
-padding-left:50px;
-}
-
-#evaluation-experience{
-margin-top:10px;
-border-bottom:1px solid #98ac69;
-background-image:url(puzzle_vert.png);
-background-repeat:no-repeat;
-background-position:left top;
-padding-left:50px;
-}
-
-#pour-aller-loin-experience{
-margin-top:15px;
-/*border-bottom:1px solid #98ac69;*/
-background-image:url(puzzle_gris_vert.png);
-background-repeat:no-repeat;
-background-position:left top;
-padding-left:50px;
-}
-
-#perspective-envisagee{
-margin-top:15px;
-/*border-bottom:1px solid #98ac69;*/
-background-image:url(puzzle_rouge.png);
-background-repeat:no-repeat;
-background-position:left top;
-padding-left:50px;
-}
-
-
-
-
 
 
 
@@ -500,21 +340,26 @@ padding-left:50px;
 #logo-projet-paratge{
 }
 
-#main-experience{
+#main-experience,
+#main-ressource{
 /*border:1px solid #f00;*/
 background-image:url(bg_experience.png);
 background-repeat:no-repeat;
 background-position:right bottom;
 }
 
-#left-experience{
+#left-experience,
+#left-ressource,
+#left-institution{
 float:left;
 width:560px;
 padding:0px 5px;
 color:#51686d;
 }
 
-#right-experience{
+#right-experience,
+#right-ressource,
+#right-institution{
 float:right;
 width:220px;
 color:#111;
@@ -525,21 +370,39 @@ border-radius:12px;
 padding:25px 0px 20px 0px;
 }
 
-
-
-/*** COLONNE GAUCHE DESCRIPTION EXPERIENCE ***/
-#titre-experience{
+/*** COLONNE GAUCHE DESCRIPTION EXPERIENCE RESSOURCE INSTITUTION***/
+#titre-experience,
+#titre-ressource,
+#titre-institution{
 /*margin-top:45px;*/
 margin-bottom:20px;
-height:73px;
+height:90px;
 width:88%;
-background-color:#da951f;
-border-radius:18px;
+font-variant:small-caps;
+font-size:1.3em;
+font-weight:bold;
+text-align:right;
 padding-top:10px;
+padding-right:10px;
+padding-left:58px;
+border-radius:18px;
 }
 
-#titre-experience h1{
-float:left;
+#titre-experience{
+background-color:#da951f;    
+}
+
+#titre-ressource{
+background-color:#69b96f;    
+}
+
+#titre-institution{
+background-color:#8cb1e2;
+}
+
+#titre-experience h1,
+#titre-ressource h1,
+#titre-institution h1{
 font-weight:bold;
 font-size:1.8em;
 color:#fff !important;
@@ -548,9 +411,34 @@ width:600px;
 margin:auto;
 }
 
-#resume-experience{
+#titre-experience h2,
+#titre-ressource h2,
+#titre-institution h2{
+font-size:1.2em;
+letter-spacing:0.5em;
+text-align:center;
+}
+
+#titre-experience hr,
+#titre-ressource hr,
+#titre-institution hr{
+margin:8px 0px 9px 0px;
+border: 0;
+height: 1px;
+background-image: -webkit-linear-gradient(left, rgba(240,240,240,0), rgba(240,240,240,0.75), rgba(240,240,240,0)); 
+background-image: -moz-linear-gradient(left, rgba(240,240,240,0), rgba(240,240,240,0.75), rgba(240,240,240,0)); 
+background-image: -ms-linear-gradient(left, rgba(240,240,240,0), rgba(240,240,240,0.75), rgba(240,240,240,0)); 
+background-image: -o-linear-gradient(left, rgba(240,240,240,0), rgba(240,240,240,0.75), rgba(240,240,240,0));
+}
+
+#left-experience h3{
+font-weight:bold;
+font-size:1.3em;
+color:#51686d;    
+}
+
+.left-section-description{
 border-bottom:1px dotted #ddd;
-background-image:url(puzzle_vert.png);
 background-repeat:no-repeat;
 background-position:left 18px;
 padding-left:50px;
@@ -558,85 +446,87 @@ margin-top:-12px;
 padding-top:18px;
 }
 
-#contexte-experience{
-margin-top:15px;
-border-bottom:1px dotted #ddd;
-background-image:url(puzzle_jaune_2.png);
-background-repeat:no-repeat;
-background-position:left top;
-padding-left:50px;
+.right-section-description{
+padding:0px 15px 0px 15px;
+margin-bottom:8px;
 }
 
-#objectif-experience{
-margin-top:15px;
-border-bottom:1px dotted #ddd;
-background-image:url(puzzle_rouge.png);
-background-repeat:no-repeat;
-background-position:left top;
-padding-left:50px;
+#right-header-logo-projet-partage{
+margin-bottom:8px;
+border:1px solid #9a0546;
+border-radius:4px;
+height:30px;
+background: rgb(255,188,53); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(255,188,53,1) 0%, rgba(223,155,0,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,188,53,1)), color-stop(100%,rgba(223,155,0,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(255,188,53,1) 0%,rgba(223,155,0,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(255,188,53,1) 0%,rgba(223,155,0,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(255,188,53,1) 0%,rgba(223,155,0,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(255,188,53,1) 0%,rgba(223,155,0,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffbc35', endColorstr='#df9b00',GradientType=0 ); /* IE6-9 */
+text-align:center;
 }
 
-#public-experience{
-margin-top:15px;
-border-bottom:1px dotted #ddd;
-background-image:url(puzzle_gris_vert.png);
-background-repeat:no-repeat;
-background-position:left top;
-padding-left:50px;
-}
-
-#milieu-de-vie-experience{
-margin-top:15px;
-border-bottom:1px dotted #ddd;
+.puzzle-vert{
 background-image:url(puzzle_vert.png);
-background-repeat:no-repeat;
-background-position:left top;
-padding-left:50px;
 }
 
-#demarche-experience{
-margin-top:15px;
-border-bottom:1px dotted #ddd;
+.puzzle-jaune{
 background-image:url(puzzle_jaune_2.png);
-background-repeat:no-repeat;
-padding-left:50px;
 }
 
-#moyen-experience{
-margin-top:15px;
-border-bottom:1px dotted #ddd;
+.puzzle-rouge{
 background-image:url(puzzle_rouge.png);
-background-repeat:no-repeat;
-background-position:left top;
-padding-left:50px;
 }
 
-#evaluation-experience{
-margin-top:10px;
-border-bottom:1px dotted #ddd;
-background-image:url(puzzle_vert.png);
-background-repeat:no-repeat;
-background-position:left top;
-padding-left:50px;
-}
-
-#pour-aller-loin-experience{
-margin-top:15px;
-/*border-bottom:1px dotted #ddd;*/
+.puzzle-gris{
 background-image:url(puzzle_gris_vert.png);
-background-repeat:no-repeat;
-background-position:left top;
-padding-left:50px;
 }
 
-#perspective-envisagee{
+#btn-modifier {
+position:absolute;
+top:36px;
+left:730px;
 margin-top:15px;
-/*border-bottom:1px dotted #ddd;*/
-background-image:url(puzzle_rouge.png);
-background-repeat:no-repeat;
-background-position:left top;
-padding-left:50px;
+margin-right:8px;
+width:30px;
+height:30px;
+border:1px solid #dedede;
+border-radius:8px;
+box-shadow:3px 3px 6px rgba(50,50,50,0.6);
+background: -moz-linear-gradient(top,  rgba(255,255,255,0.95) 0%, rgba(241,241,241,0.95) 50%, rgba(225,225,225,0.95) 51%, rgba(246,246,246,0.95) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.95)), color-stop(50%,rgba(241,241,241,0.95)), color-stop(51%,rgba(225,225,225,0.95)), color-stop(100%,rgba(246,246,246,0.95))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(255,255,255,0.95) 0%,rgba(241,241,241,0.95) 50%,rgba(225,225,225,0.95) 51%,rgba(246,246,246,0.95) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(255,255,255,0.95) 0%,rgba(241,241,241,0.95) 50%,rgba(225,225,225,0.95) 51%,rgba(246,246,246,0.95) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(255,255,255,0.95) 0%,rgba(241,241,241,0.95) 50%,rgba(225,225,225,0.95) 51%,rgba(246,246,246,0.95) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(255,255,255,0.95) 0%,rgba(241,241,241,0.95) 50%,rgba(225,225,225,0.95) 51%,rgba(246,246,246,0.95) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2ffffff', endColorstr='#f2f6f6f6',GradientType=0 ); /* IE6-9 */
 }
+
+#btn-modifier a {
+display:inline-block;
+width:30px;
+height:27px;
+margin-top:-11px;
+text-decoration:none;
+background-image:url("btn_modifier.png");
+background-position:center 0px;
+background-repeat:no-repeat;
+border-bottom:none !important;
+}
+
+#btn-modifier:hover {
+box-shadow:1px 1px 1px rgba(50,50,50,0.6);
+}
+
+#btn-modifier a:hover {
+background-position:center -38px;
+}
+
+
+
+
+
 
 .rouge-titre{
 color:#90113d;
@@ -654,8 +544,10 @@ color:#51686d;
 }
 
 
-/*** COLONNE DROITE DESCRIPTION EXPERIENCE ***/
-#right-experience-header{
+/*** COLONNE DROITE DESCRIPTION EXPERIENCE RESSOURCE INSTITUTION***/
+#right-experience-header,
+#right-ressource-header,
+#right-institution-header{
 width:216px;
 height:90px;
 background-image:url(des_exp_right_header.png);
@@ -665,29 +557,28 @@ left:645px;
 top:-50px;
 }
 
-#right-experience-content{
+#right-content{
 width:220px;
 }
 
-#right-experience-content p{
+#right-content p{
 background-image:url(puce_carre_noir.png);
 background-repeat:no-repeat;
 background-position:left 5px;
 text-indent: 6px;
 }
 
-#right-experience-content a{
+#right-content a{
 border-bottom:none !important;
 color:#3c5057;
 }
 
-#right-experience-content a:hover{
+#right-content a:hover{
 text-decoration:underline;
 color:#444 !important;
 }
 
-
-#right-experience-footer{
+#right-footer{
 }
 
 .right-rubrique-db{
@@ -699,41 +590,39 @@ padding-left:12px;
 font-weight:bold;
 }
 
-#institution-porteur-experience{
-padding:0px 15px 0px 15px;
-margin-bottom:8px;
+.hr-grise{
+margin:8px 0px 9px 0px;
+border: 0;
+height: 1px;
+background-image: -webkit-linear-gradient(left, rgba(140,140,140,0), rgba(140,140,140,0.75), rgba(140,140,140,0)); 
+background-image: -moz-linear-gradient(left, rgba(140,140,140,0), rgba(140,140,140,0.75), rgba(140,140,140,0)); 
+background-image: -ms-linear-gradient(left, rgba(140,140,140,0), rgba(140,140,140,0.75), rgba(140,140,140,0)); 
+background-image: -o-linear-gradient(left, rgba(140,140,140,0), rgba(140,140,140,0.75), rgba(140,140,140,0));
 }
 
-#institution-partenaire-experience{
-padding:0px 15px 0px 15px;
-margin-bottom:8px;
+
+#projet-partage-institution,
+#projet-partage-ressource{
+margin-top:20px;
 }
 
-#periode-deroulement-experience{
-padding:0px 15px 0px 15px;
-margin-bottom:8px;
+#projet-partage-institution a,
+#projet-partage-ressource a{
+color: #20A3AF !important;
 }
 
-#territoire-experience{
-padding:0px 15px 0px 15px;
-margin-bottom:8px;
+#projet-partage-institution a:hover,
+#projet-partage-ressource a:hover{
+color: #000 !important;
 }
 
-#ressource-experience{
-padding:0px 15px 0px 15px;
-margin-bottom:8px;
-}
-
-#personne-contact-experience{
-padding:0px 15px 0px 15px;
-/*margin-bottom:8px;*/
-}
 
 #pdf-experience,
 #pdf-institution,
 #pdf-ressource{
-padding:0px;
+padding-top:4px;
 text-align:center;
+border-top:1px dotted #ddd;
 }
 
 .pdf-file{
