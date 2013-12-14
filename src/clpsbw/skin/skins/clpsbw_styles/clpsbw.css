@@ -175,12 +175,6 @@ margin-top:35px;
 
 
 /*** PRESENTATION BASE DE DONNEE ***/
-#experience-template,
-#ressource-template{
-background-image:url(bg_experience.png);
-background-repeat:no-repeat;
-background-position: center bottom;
-}
 
 #titre-presentation-db,
 #zone-titre-moteur-recherche{
@@ -341,11 +335,19 @@ color:#555;
 }
 
 #main-experience,
-#main-ressource{
-/*border:1px solid #f00;*/
+#main-ressource,
+#main-institution{
 background-image:url(bg_experience.png);
 background-repeat:no-repeat;
 background-position:right bottom;
+}
+
+#experience-template,
+#ressource-template,
+#institution-template{
+background-image:url(bg_experience.png);
+background-repeat:no-repeat;
+background-position: center bottom;
 }
 
 #left-experience,
@@ -506,11 +508,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2ffffff', e
 #btn-modifier a {
 display:inline-block;
 width:30px;
-height:27px;
-margin-top:-11px;
+height:30px;
+margin-top:0px;
 text-decoration:none;
 background-image:url("btn_modifier.png");
-background-position:center 0px;
+background-position:center 3px;
 background-repeat:no-repeat;
 border-bottom:none !important;
 }
@@ -520,7 +522,7 @@ box-shadow:1px 1px 1px rgba(50,50,50,0.6);
 }
 
 #btn-modifier a:hover {
-background-position:center -38px;
+background-position:center -34px;
 }
 
 

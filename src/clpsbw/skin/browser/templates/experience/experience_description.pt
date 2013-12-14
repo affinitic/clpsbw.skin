@@ -23,22 +23,23 @@
                          title="CLPS-Bw - Projets partagés"
                          alt="titre_logo_presentation_db.png" />
                 </div>
-                
-                <div id="main-experience">
+
+                <div id="main-experience">                    
+                    <div id="btn-modifier"
+                         tal:condition="python:user.has_role(['Manager'], here)">
+                        <a href=""
+                           tal:attributes="href string: admin-experience-modifier?experiencePk=${experiencePk}">&nbsp;</a>
+                    </div>
+                    
                     <div id="alerte"
                          tal:condition="python: experience.experience_etat=='pending_for_review'">
                         <img src="alerte.png" /> Cette expérience en en cours de validation
                     </div>
+
                     <div id="titre-experience">
                         <h2>Expérience</h2>
                         <hr />
                         <h1><span tal:content="experience/experience_titre"></span></h1>
-                        <div class="btn-modifier"
-                             tal:condition="python:user.has_role(['Manager'], here)">
-                            <a href=""
-                               tal:attributes="href string: admin-experience-modifier?experiencePk=${experiencePk}">&nbsp;</a>
-                        </div>
-                        <div class="break-float"></div>
                     </div>
 
                     <div id="left-experience">
@@ -220,13 +221,17 @@
                                 <span class="right-rubrique-db">Formations</span>
                                 <span tal:replace="structure experience/experience_formation_suivie"></span>
                             </div>
-                            <div id="personne-contact-experience"
+                            <div class="right-section-description"
                                  tal:condition="python: experience.experience_personne_contact != ''">
                                 <span class="right-rubrique-db">Personne de contact</span>
                                 <br />
                                 &#8226; <span tal:content="experience/experience_personne_contact"></span><br />
-                                &#8226; <span tal:content="experience/experience_personne_contact_email"></span><br />
-                                &#8226; <span tal:content="experience/experience_personne_contact_telephone"></span><br />
+                                <span tal:condition= "python: len(experience.experience_personne_contact_email)>0">
+                                    &#8226; <span tal:content="experience/experience_personne_contact_email"></span><br />
+                                </span>
+                                <span tal:condition= "python: len(experience.experience_personne_contact_telephone)>0">
+                                    &#8226; <span tal:content="experience/experience_personne_contact_telephone"></span><br />
+                                </span>
                                 <br />
                             </div>
                             <!--<span tal:condition="python:user.has_role(['Manager'], here)">-->

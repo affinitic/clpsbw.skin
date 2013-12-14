@@ -30,22 +30,22 @@
                 </div>
                 
                 <div id="main-ressource">
+                    <div id="btn-modifier"
+                         tal:condition="python:user.has_role(['Manager'], here)">
+                        <a href=""
+                           tal:attributes="href string: ressource-modifier?ressourcePk=${ressourcePk}">&nbsp;</a>
+                    </div>
+
                     <div id="alerte"
                          tal:condition="python: ressource.ressource_etat=='pending_for_review'">
                         <img src="alerte.png" /> Cette ressource en en cours de validation
                     </div>
-                    
+
                     <div id="titre-ressource">
                         <h2>Ressource</h2>
                         <hr />
                         <h1><span tal:content="ressource/ressource_titre" /></h1>
-                        <div class="btn-modifier"
-                             tal:condition="python:user.has_role(['Manager'], here)">
-                            <a href=""
-                               tal:attributes="href string: ressource-modifier?ressourcePk=${ressourcePk}">&nbsp;</a>
-                        </div>
                     </div>
-
 
                     <div id="left-ressource">
                         <div class="left-section-description puzzle-rouge">
@@ -85,6 +85,7 @@
                             <h3>Avis du CLPS</h3>
                             <p><span tal:replace="structure ressource/ressource_avis_clps" /></p>
                         </div>
+
                         <div class="left-section-description puzzle-vert"
                              tal:condition="python: ressource.ressource_lien_pipsa!=''">
                             <h3>Lien pipsa</h3>

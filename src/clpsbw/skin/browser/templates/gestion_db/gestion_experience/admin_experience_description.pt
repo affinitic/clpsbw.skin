@@ -23,7 +23,7 @@
                          title="CLPS-Bw - Projets partagés"
                          alt="titre_logo_presentation_db.png" />
                 </div>
-                
+
                 <div id="main-experience">
                     <div id="alerte"
                          tal:condition="python: experience.experience_etat=='pending_for_review'">
@@ -74,7 +74,7 @@
                                         </tal:boucle>
                                         )
                                     </span>
-                                </p> 
+                                </p>
                             </div>
                             <div id="milieu-de-vie-experience">
                                 <span class="left-rubrique-db">Milieu de vie </span>
@@ -112,7 +112,7 @@
                         </div><!--border-experience-->
                     </div><!--left-->
 
-        <!-- =========================================================================================================================================== -->
+<!-- =========================================================================================================================================== -->
                     <div id="right-experience-header"></div>
                     <div id="right-experience">
                         <div id="right-experience-content">
@@ -125,7 +125,7 @@
                                     <span tal:condition="python: institution.institution_porteur.institution_etat == 'publish'">
                                         <a href=""
                                            tal:attributes="href string:institution-decrire?institutionPk=${institution/institution_porteur/institution_pk}">
-                                           &#8226; <span tal:content="institution/institution_porteur/institution_nom" /></a> 
+                                           &#8226; <span tal:content="institution/institution_porteur/institution_nom" /></a>
                                         <br />
                                     </span>
                                     <span tal:condition="python: institution.institution_porteur.institution_etat == 'private'">
