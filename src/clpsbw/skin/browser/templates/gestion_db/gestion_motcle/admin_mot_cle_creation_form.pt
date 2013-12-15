@@ -4,7 +4,7 @@
       i18n:domain="plone">
 
 <head>
-    <script src="validate_forms.js" type="text/javascript"></script>
+    <script src="++resource++validate_forms.js" type="text/javascript"></script>
     <metal:noborder fill-slot="top_slot"
                  tal:define="dummy python:request.set('disable_border',1)" />
 
@@ -12,7 +12,7 @@
         <script src="++resource++collective.javascript.jqueryui/js/jquery-1.4.2.min.js" type="text/javascript"></script>
         <script src="++resource++collective.javascript.jqueryui/js/jquery-ui.min.js" type="text/javascript"></script>
 
-        <script src="validate_forms.js" type="text/javascript"></script>
+        <script src="++resource++validate_forms.js" type="text/javascript"></script>
         <script src="++resource++clpsbw.js" type="text/javascript"></script>
     </metal:js>
     <metal:css fill-slot="style_slot">
