@@ -16,6 +16,11 @@
         name="clpsbw.js"
         file="js/clpsbw.js"
         />
+    <browser:resource
+        name="validate_forms.js"
+        file="js/validate_forms.js"
+        />
+
 
     <!-- Customize the navigation portlet -->
     <plone:portletRenderer
