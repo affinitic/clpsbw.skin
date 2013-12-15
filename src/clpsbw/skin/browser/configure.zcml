@@ -336,7 +336,7 @@
         allowed_interface=".interfaces.IManageClpsbw"
         />
     <browser:page
-        name="admin-experience-decrire"
+        name="admin-decrire-une-experience"
         for="*"
         template="templates/gestion_db/gestion_experience/admin_experience_description.pt"
         permission="zope.Public"
@@ -365,6 +365,15 @@
         class=".ManageClpsbw.ManageClpsbw"
         permission="zope.Public"
         attribute="updateExperienceByClps"
+        allowed_interface=".interfaces.IManageClpsbw"
+        /> 
+
+    <browser:page
+        name="manageExperience"
+        for="*"
+        class=".ManageClpsbw.ManageClpsbw"
+        permission="zope.Public"
+        attribute="manageExperience"
         allowed_interface=".interfaces.IManageClpsbw"
         /> 
         

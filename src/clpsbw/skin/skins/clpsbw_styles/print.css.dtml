@@ -241,13 +241,6 @@ width:90%;
 color:#90113d;
 }
 
-/*
-.orange-titre{
-background: #DDD url('../clpsbw_images/puzzle_vert_2.png') repeat/repeat-x/repeat-y/no-repeat scroll/fixed top/center/bottom/x-%/x-pos left/center/right/y-%/y-pos;
-color:#dd952b;
-} 
-*/
-
 .left-rubrique-db{
 font-weight:bold;
 font-size:1.1em;

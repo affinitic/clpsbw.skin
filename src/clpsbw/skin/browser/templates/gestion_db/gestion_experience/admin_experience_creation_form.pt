@@ -7,7 +7,7 @@
     <metal:js fill-slot="javascript_head_slot">
         <script src="++resource++collective.javascript.jqueryui/js/jquery-1.4.2.min.js" type="text/javascript"></script>
         <script src="++resource++collective.javascript.jqueryui/js/jquery-ui.min.js" type="text/javascript"></script>
-        <script src="validate_forms.js" type="text/javascript"></script>
+        <script src="++resource++validate_forms.js" type="text/javascript"></script>
         <script src="++resource++clpsbw.js" type="text/javascript"></script>
     </metal:js>
     <metal:css fill-slot="style_slot">
@@ -33,10 +33,10 @@
                    name="experience_titre"
                    id="experience_titre"
                    value=""
-                   size="50" />
+                   size="100" />
         </div>
         <div class="formInput">
-            <label for="experience_titre">Résumé</label>
+            <label for="experience_resume">Résumé</label>
             Pouvez-vous résumer le projet en quelques lignes ?
             <span tal:replace="structure python: view.getWysiwygField('experience_resume', '')" />
         </div>
@@ -50,22 +50,22 @@
             <input type="text"
                     name="experience_personne_contact"
                     value=""
-                    size="50" />
+                    size="100" />
             <label for="experience_titre">E-mail</label>
             <input type="text"
                     name="experience_personne_contact_email"
                     value=""
-                    size="50" />
+                    size="100" />
             <label for="experience_titre">Téléphone</label>
             <input type="text"
                     name="experience_personne_contact_telephone"
                     value=""
-                    size="50" />
+                    size="100" />
             <label for="experience_titre">Institution</label>
             <input type="text"
                     name="experience_personne_contact_institution"
                     value=""
-                    size="50" />
+                    size="100" />
         </div>
     </div>
 
@@ -75,11 +75,12 @@
         <label for="experience_titre">Contexte</label>
         <span tal:replace="structure python: view.getWysiwygField('experience_element_contexte', '')" />
     </div>
+
     <div class="formulaire">
         <h2> Objectifs</h2>
         Quels objectifs poursuivez vous en mettant ce projet
         en place ? Quel(s) changement(s) attendez-vous ?
-        <label for="experience_titre">Objectifs</label>
+        <label for="experience_objectif">Objectifs</label>
         <span tal:replace="structure python: view.getWysiwygField('experience_objectif', '')" />
     </div>
 
@@ -328,7 +329,7 @@
         <h2>Pour aller plus loin </h2>
         Si quelqu’un souhaitait mener le même type de projets,
         vous lui conseilleriez de contacter qui ? de commencer par où ?
-        <label for="experience_titre">Pour aller plus loin`</label>
+        <label for="experience_titre">Pour aller plus loin</label>
         <span tal:replace="structure python: view.getWysiwygField('experience_aller_plus_loin', '')" />
     </div>
 
@@ -458,7 +459,6 @@
                           &nbsp;&nbsp;
                           <span tal:content="clps/clps_sigle" />
                       </span>
-                      <br />
                       <span tal:condition="python: clps.clps_pk!=1">
                           <input type="checkbox"
                                  name="experience_clps_proprio_fk:list"
@@ -467,6 +467,7 @@
                           &nbsp;&nbsp;
                           <span tal:content="clps/clps_sigle" />
                       </span>
+                      <br />
                 </tal:block>
             </div>
         </div>

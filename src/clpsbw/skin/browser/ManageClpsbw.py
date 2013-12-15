@@ -965,7 +965,7 @@ class ManageClpsbw(BrowserView):
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
         query = session.query(LinkExperienceTheme)
-        query = query.filter(LinkExperienceTheme.experience_fk.in_(experiencePk))
+        query = query.filter(LinkExperienceTheme.experience_fk.in_([experiencePk]))
         themePk = query.all()
 
         listeThemeForExperience = []
@@ -1340,7 +1340,7 @@ class ManageClpsbw(BrowserView):
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
         query = session.query(Experience)
-        query = query.filter(Experience.experience_pk.in_(experiencePk))
+        query = query.filter(Experience.experience_pk.in_([experiencePk]))
         if experienceEtat:
             query = query.filter(Experience.experience_etat == experienceEtat)
         query = query.order_by(Experience.experience_titre)
@@ -1495,7 +1495,7 @@ class ManageClpsbw(BrowserView):
         session = wrapper.session
         query = session.query(LinkExperienceTheme)
         for pk in themePk:
-            query = query.filter(LinkExperienceTheme.theme_fk.in_(pk))
+            query = query.filter(LinkExperienceTheme.theme_fk.in_([pk]))
             self.addRechercheLog(themePk=pk)
         query = query.all()
 
@@ -4570,7 +4570,7 @@ class ManageClpsbw(BrowserView):
         ploneUtils = getToolByName(self.context, 'plone_utils')
         message = u"Les informations ont été modifiées !"
         ploneUtils.addPortalMessage(message, 'info')
-        url = "%s/decrire-experience?experiencePk=%s" % (portalUrl, experience_pk)
+        url = "%s/admin-decrire-une-experience?experiencePk=%s" % (portalUrl, experience_pk)
         self.request.response.redirect(url)
         return ''
 
@@ -5093,8 +5093,53 @@ class ManageClpsbw(BrowserView):
 
             self.sendMailForInsertExperience(experiencePk = experienceFk)
 
-            # #self.addLinkRessourceSupport()
-            return {'status': 1}
+
+        if operation == "updateByClps":
+            experienceFk = getattr(fields, 'experience_pk')
+            self.updateExperienceByClps()
+
+            self.deleteLinkExperienceCommune(experienceFk)
+            if experienceCommuneFk > 0:
+                self.addLinkExperienceCommune(experienceFk, experienceCommuneFk)
+
+            self.deleteLinkExperienceInstitutionPorteur(experienceFk)
+            if experienceInstitutionPorteurFk > 0:
+                self.addLinkExperienceInstitutionPorteur(experienceFk)
+
+            self.deleteLinkExperienceInstitutionPartenaire(experienceFk)
+            if experienceInstitutionPartenaireFk > 0:
+                self.addLinkExperienceInstitutionPartenaire(experienceFk)
+
+            self.deleteLinkExperienceInstitutionRessource(experienceFk)
+            if experienceInstitutionRessourceFk > 0:
+                self.addLinkExperienceInstitutionRessource(experienceFk)
+
+            self.deleteLinkExperienceRessource(experienceFk)
+            if experienceRessourceFk > 0:
+                self.addLinkExperienceRessource(experienceFk)
+
+            self.deleteLinkExperienceMilieuDeVie(experienceFk)
+            if experienceMilieuDeVieFk > 0:
+                self.addLinkExperienceMilieuDeVie(experienceFk, experienceMilieuDeVieFk)
+
+            self.deleteLinkExperienceMotCle(experienceFk)
+            if experienceMotCleFk > 0:
+                self.addLinkExperienceMotCle(experienceFk, experienceMotCleFk)
+
+            self.deleteLinkExperienceTheme(experienceFk)
+            if experienceThemeFk > 0:
+                self.addLinkExperienceTheme(experienceFk, experienceThemeFk)
+
+            self.deleteLinkExperiencePublic(experienceFk)
+            if experiencePublicFk > 0:
+                self.addLinkExperiencePublic(experienceFk, experiencePublicFk)
+
+            self.deleteLinkExperienceClpsProprio(experienceFk)
+            if experienceClpsProprioFk > 0:
+                self.addLinkExperienceClpsProprio(experienceFk)
+
+            self.sendMailForUpdateExperience()
+
 
         if operation == "updateByAuteur":
             experienceFk = getattr(fields, 'experience_pk')
@@ -5150,4 +5195,3 @@ class ManageClpsbw(BrowserView):
                     self.sendMailForSissWhenExperienceIsPublish(experienceFk, experienceInstitutionPorteurFk)
                     self.setExperienceStatutPublicationForSissToTrue(experienceFk)
 
-            return {'status': 1}
