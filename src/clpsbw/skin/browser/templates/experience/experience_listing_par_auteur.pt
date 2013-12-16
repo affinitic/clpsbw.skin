@@ -15,19 +15,17 @@
     <h1>Liste des experiences</h1>
 
     <div tal:define="experiences python:view.getExperienceByAuteurLogin();">
-        <fieldset>
-            <legend class="legende">Experience</legend>
-             <tal:boucle tal:repeat="experience experiences">
-                 <tal:block tal:define="experiencePk experience/experience_pk">
-                    <fieldset>
-                        <legend>
-                            <img src="carre_orange.gif"
-                                     widht="50%"/>
-                            <a href=""
-                                   tal:content="experience/experience_titre"
-                                   tal:attributes="href string:experience-decrire?experiencePk=${experiencePk}"
-                                   class="titre_formation">titre de l'expérience</a>
-                        </legend>
+        <tal:boucle tal:repeat="experience experiences">
+            <tal:block tal:define="experiencePk experience/experience_pk">
+                <article class="listing-experience">
+                    <header class="listing-titre-experience">
+                        <a href=""
+                               tal:content="experience/experience_titre"
+                               tal:attributes="href string:decrire-une-experience?experiencePk=${experiencePk}"
+                               class="titre_formation">titre de l'expérience</a>
+                    </header>
+                    <hr class="ligne-listing-experience" />
+                    <div class="listing-texte-experience">
                         <div class="experience-etat"
                              tal:define="experienceEtat python:view.getExperienceEtat(experiencePk)"
                              tal:condition="python:user.has_role(['Manager'], here)">
@@ -73,21 +71,23 @@
                                         <span tal:content="experience/experience_auteur_login" />
                                         <br />
                                         Dernière modification :
-                                        <span tal:content="experience/experience_modification_date" />
+                                        <span tal:content="python: experience.experience_modification_date.strftime('%d/%m/%Y %H:%M')" />
+                                        par
+                                        <span tal:content="experience/experience_modification_employe" />
                                     </td>
                                     <td colspan="2" align="right">
                                         <a href=""
                                            tal:attributes="href
-                                           string:experience-decrire?experiencePk=${experiencePk}">
+                                           string:decrire-une-experience?experiencePk=${experiencePk}">
                                            <img src="btn_suivant.png" /></a>
                                     </td>
                                 </tr>
                             </table>
                         <div>
-                    </fieldset>
-                </tal:block>
-            </tal:boucle>
-        </fieldset>
+                    </div>
+                </article>
+            </tal:block>
+        </tal:boucle>
     </div><!--define-->
 </div><!--metal-->
 </body>

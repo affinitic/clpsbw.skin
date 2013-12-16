@@ -49,9 +49,10 @@
                         <header class="listing-titre-experience">
                             <a href=""
                                tal:content="experience/experience_titre"
-                               tal:attributes="href string:experience-decrire?experiencePk=${experiencePk}">
+                               tal:attributes="href string:decrire-une-experience?experiencePk=${experiencePk}">
                                titre de l'expérience</a>
-                        </header><!--listing-titre-experience-->
+                        </header>
+                        <hr class="ligne-listing-experience" />
                         <div class="listing-texte-experience">
                             <span tal:replace="structure experience/experience_resume"
                                   class="rep-qest" />
@@ -80,7 +81,7 @@
                             <div class="listing-experience-bouton">
                                 <a href=""
                                    alt="Voir la fiche complète"
-                                   tal:attributes="href string:experience-decrire?experiencePk=${experiencePk}">
+                                   tal:attributes="href string:decrire-une-experience?experiencePk=${experiencePk}">
                                    <img src="btn_suivant.png"
                                         alt="Voir la fiche complète" /></a>
                             </div>

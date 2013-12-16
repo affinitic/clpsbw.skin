@@ -67,10 +67,10 @@ from clpsbw.db.pgsql.baseTypes import \
                         LinkInstitutionAssuetudeActiviteProposeePublic, \
                         LinkInstitutionAssuetudeActiviteProposeePro, \
                         LinkInstitutionClpsProprio, \
+                        ExperienceMaj, \
                         RechercheLog
                         #AssuetudeActiviteProposeeForInstitution, \
                         #AssuetudeThematiqueForInstitution, \
-                        #ExperienceMaj, \
                         #RechercheLog
 
 
@@ -872,15 +872,17 @@ class ManageClpsbw(BrowserView):
         allThemes = query.all()
         return allThemes
 
-    def getThemeByPk(self, theme_pk):
+    def getThemeByPk(self, themePk):
         """
         table pg theme
         recuperation d'un theme selon la pk
         """
+        if not isinstance(themePk, list):
+            themePk = [themePk]
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
         query = session.query(Theme)
-        query = query.filter(Theme.theme_pk.in_(theme_pk))
+        query = query.filter(Theme.theme_pk.in_(themePk))
         query = query.order_by(Theme.theme_nom)
         theme = query.all()
         return theme
@@ -962,10 +964,12 @@ class ManageClpsbw(BrowserView):
         table pg link_experience_theme
         recuperation des theme selon experience_pk
         """
+        if not isinstance(experiencePk, list):
+            experiencePk = [experiencePk]
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
         query = session.query(LinkExperienceTheme)
-        query = query.filter(LinkExperienceTheme.experience_fk.in_([experiencePk]))
+        query = query.filter(LinkExperienceTheme.experience_fk.in_(experiencePk))
         themePk = query.all()
 
         listeThemeForExperience = []
@@ -1002,15 +1006,17 @@ class ManageClpsbw(BrowserView):
         allPublics = query.all()
         return allPublics
 
-    def getPublicByPk(self, public_pk):
+    def getPublicByPk(self, publicPk):
         """
         table pg public
         recuperation d'un public selon la pk
         """
+        if not isinstance(publicPk, list):
+            publicPk = [publicPk]
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
         query = session.query(Public)
-        query = query.filter(Public.public_pk.in_(public_pk))
+        query = query.filter(Public.public_pk.in_(publicPk))
         query = query.order_by(Public.public_nom)
         public = query.all()
         return public
@@ -1221,7 +1227,7 @@ class ManageClpsbw(BrowserView):
         allExperiences = query.all()
         return allExperiences
 
-    def getActiveExperience(self, experiencePk=None):
+    def getActiveExperience(self, experiencePk=None, experienceMaj=None):
         """
         table pg recit
         recuperation de l'experience selon la pk
@@ -1236,15 +1242,21 @@ class ManageClpsbw(BrowserView):
 
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        query = session.query(Experience)
-        if experienceTitre:
-            query = query.filter(Experience.experience_titre == experienceTitre)
-        if experiencePk:
-            query = query.filter(Experience.experience_pk == experiencePk)
-        allExperiences = query.all()
-        for experience in allExperiences:
-            experiencePk = experience.experience_pk
-            self.addRechercheLog(experiencePk=experiencePk)
+        if experienceMaj:
+            #recup les info dans table experience_maj > update par auteur pour versionning
+            query = session.query(ExperienceMaj)
+            query = query.filter(ExperienceMaj.experience_maj_pk == experiencePk)
+            allExperiences = query.all()
+        else:
+            query = session.query(Experience)
+            if experienceTitre:
+                query = query.filter(Experience.experience_titre == experienceTitre)
+            if experiencePk:
+                query = query.filter(Experience.experience_pk == experiencePk)
+            allExperiences = query.all()
+            for experience in allExperiences:
+                experiencePk = experience.experience_pk
+                self.addRechercheLog(experiencePk=experiencePk)
         return allExperiences
 
     def getExperienceMaxPk(self):
@@ -1337,10 +1349,12 @@ class ManageClpsbw(BrowserView):
         table pg experience
         recuperation d'un recit selon experience_pk
         """
+        if not isinstance(experiencePk, list):
+            experiencePk = [experiencePk]
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
         query = session.query(Experience)
-        query = query.filter(Experience.experience_pk.in_([experiencePk]))
+        query = query.filter(Experience.experience_pk.in_(experiencePk))
         if experienceEtat:
             query = query.filter(Experience.experience_etat == experienceEtat)
         query = query.order_by(Experience.experience_titre)
@@ -1491,11 +1505,13 @@ class ManageClpsbw(BrowserView):
         table pg experience
         recuperation d'une experience selon un theme
         """
+        if not isinstance(themePk, list):
+            themePk = [themePk]
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
         query = session.query(LinkExperienceTheme)
         for pk in themePk:
-            query = query.filter(LinkExperienceTheme.theme_fk.in_([pk]))
+            query = query.filter(LinkExperienceTheme.theme_fk.in_(pk))
             self.addRechercheLog(themePk=pk)
         query = query.all()
 
@@ -1966,6 +1982,8 @@ class ManageClpsbw(BrowserView):
         table pg milieu de vie
         recuperation d'un vie milieu selon milieudevie_pk
         """
+        if not isinstance(milieuDeViePk, list):
+            milieuDeViePk = [milieuDeViePk]
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
         query = session.query(MilieuDeVie)
@@ -3468,7 +3486,6 @@ class ManageClpsbw(BrowserView):
         experience_institution_ressource_autre = getattr(fields, 'experience_institution_ressource_autre', None)
         experience_institution_outil_autre = getattr(fields, 'experience_institution_outil_autre', None)
         experience_formation_suivie = getattr(fields, 'field.experience_formation_suivie', None)
-        experience_autres_ressources = getattr(fields, 'experience_autres_ressources', None)
         experience_aller_plus_loin = getattr(fields, 'field.experience_aller_plus_loin', None)
         experience_plate_forme_sante_ecole = getattr(fields, 'experience_plate_forme_sante_ecole', 'False')
         experience_plate_forme_assuetude = getattr(fields, 'experience_plate_forme_assuetude', 'False')
@@ -3516,7 +3533,6 @@ class ManageClpsbw(BrowserView):
                                     experience_institution_ressource_autre = experience_institution_ressource_autre, \
                                     experience_institution_outil_autre = experience_institution_outil_autre, \
                                     experience_formation_suivie = experience_formation_suivie, \
-                                    experience_autres_ressources = experience_autres_ressources, \
                                     experience_aller_plus_loin = experience_aller_plus_loin, \
                                     experience_plate_forme_sante_ecole = experience_plate_forme_sante_ecole, \
                                     experience_plate_forme_assuetude = experience_plate_forme_assuetude, \
@@ -4612,19 +4628,22 @@ class ManageClpsbw(BrowserView):
         experience_mission_accompagnement_projet = getattr(fields, 'experience_mission_accompagnement_projet', False)
         experience_mission_reseau_echange = getattr(fields, 'experience_mission_reseau_echange', False)
         experience_mission_formation = getattr(fields, 'experience_mission_formation', False)
-        experience_etat = getattr(fields, 'experience_etat', None)
         experience_modification_date = self.getTimeStamp()
         experience_modification_employe = self.getUserAuthenticated()
         experience_auteur_fk = getattr(fields, 'experience_auteur_fk', None)
         experience_auteur_login = getattr(fields, 'experience_auteur_login', None)
+        experience_clps_proprio_fk = getattr(fields, 'experience_clps_proprio_fk', None)
 
 
         #cas de modification de l'auteur via ligth search
-        experience_auteur = getattr(fields, 'experienceAuteur', None)
-        if experience_auteur:
+        experience_auteur = getattr(fields, 'experience_auteur_fk', None)
+        if not experience_auteur:
             experience_auteur_fk = self.getAuteurPkByName(experience_auteur)
 
-        experience_modification_employe = self.getAuteurByLogin()
+        experience_modification_employe = self.getAuteurLogin(experience_auteur)
+        experience_etat = 'pending_for_review'
+        experienceMaj = True
+        
 
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
@@ -4649,7 +4668,6 @@ class ManageClpsbw(BrowserView):
                                     experience_maj_institution_ressource_autre = experience_institution_ressource_autre, \
                                     experience_maj_institution_outil_autre = experience_institution_outil_autre, \
                                     experience_maj_formation_suivie = experience_formation_suivie, \
-                                    experience_maj_autres_ressources = experience_autres_ressources, \
                                     experience_maj_aller_plus_loin = experience_aller_plus_loin, \
                                     experience_maj_plate_forme_sante_ecole = experience_plate_forme_sante_ecole, \
                                     experience_maj_plate_forme_assuetude = experience_plate_forme_assuetude, \
@@ -4666,11 +4684,17 @@ class ManageClpsbw(BrowserView):
                                     experience_maj_modification_date = experience_modification_date, \
                                     experience_maj_modification_employe = experience_modification_employe)
                                     
+        session.add(newEntry)
+        session.flush()
+        
+        session.refresh(newEntry)
+        experiencePk = newEntry.experience_maj_pk
+        
         portalUrl = getToolByName(self.context, 'portal_url')()
         ploneUtils = getToolByName(self.context, 'plone_utils')
         message = u"Les informations ont été modifiées !"
         ploneUtils.addPortalMessage(message, 'info')
-        url = "%s/decrire-experience?experiencePk=%s" % (portalUrl, experience_pk)
+        url = "%s/decrire-une-experience-maj?experiencePk=%s&experienceMaj=%s" % (portalUrl, experiencePk, experienceMaj)
         self.request.response.redirect(url)
         return ''
 
@@ -5143,7 +5167,7 @@ class ManageClpsbw(BrowserView):
 
         if operation == "updateByAuteur":
             experienceFk = getattr(fields, 'experience_pk')
-            self.updateExperienceMaj()
+            self.updateExperienceByAuteur()
 
             self.deleteLinkExperienceCommune(experienceFk)
             if experienceCommuneFk > 0:

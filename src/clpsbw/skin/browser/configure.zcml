@@ -311,26 +311,34 @@
 
 
     <browser:page
-          name="experience-gerer"
+          name="gerer-les-experiences"
           for="*"
-          template="templates/experience/experience_gestion.pt"
+          template="templates/experience/gerer_experience.pt"
           permission="zope.Public"
           class=".ManageClpsbw.ManageClpsbw"
           allowed_interface=".interfaces.IManageClpsbw"
           />
     
     <browser:page
-          name="experience-modifier"
+          name="modifier-une-experience"
           for="*"
-          template="templates/experience/experience_modification_form.pt"
+          template="templates/experience/modifier_experience.pt"
           permission="zope.Public"
           class=".ManageClpsbw.ManageClpsbw"
           allowed_interface=".interfaces.IManageClpsbw"
           />                        
     <browser:page
-        name="experience-decrire"
+        name="decrire-une-experience"
         for="*"
-        template="templates/experience/experience_description.pt"
+        template="templates/experience/decrire_experience.pt"
+        permission="zope.Public"
+        class=".ManageClpsbw.ManageClpsbw"
+        allowed_interface=".interfaces.IManageClpsbw"
+        />
+    <browser:page
+        name="decrire-une-experience-maj"
+        for="*"
+        template="templates/experience/decrire_experience_maj.pt"
         permission="zope.Public"
         class=".ManageClpsbw.ManageClpsbw"
         allowed_interface=".interfaces.IManageClpsbw"

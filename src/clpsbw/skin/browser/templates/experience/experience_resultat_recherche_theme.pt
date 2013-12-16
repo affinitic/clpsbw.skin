@@ -26,7 +26,6 @@
                 à votre recherche
             </h1>
         </div>
-        <div id="bg_listing_bord_sup"><img src="bg_listing_bord_sup.png"></div>
         <div  id="listing-experience-main">
             <div id="listing-nbre-experience">
                 <span tal:condition="python: len(experiences)==0">

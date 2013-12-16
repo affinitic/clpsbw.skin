@@ -178,7 +178,7 @@ margin-top:35px;
 
 #titre-presentation-db,
 #zone-titre-moteur-recherche{
-width:650px;
+width:100%;
 height:80px;
 margin-top:15px;
 border:2px solid #afa61d;
@@ -779,7 +779,24 @@ margin-top:4em;
 border:1px solid rgba(58, 142, 162, 1.0000);
 border-radius:18px;
 box-shadow:3px 3px 8px rgba(50,50,50,0.5);
+background: rgb(255,255,255); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(47%,rgba(246,246,246,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+}
 
+hr.ligne-listing-experience{
+margin:8px 0px 9px 0px;
+border: 0;
+height: 1px;
+background-image: -webkit-linear-gradient(left, rgba(58,142,162,0), rgba(58,142,162,0.75), rgba(58,142,162,0)); 
+background-image: -moz-linear-gradient(left, rgba(58,142,162,0), rgba(58,142,162,0.75), rgba(58,142,162,0)); 
+background-image: -ms-linear-gradient(left, rgba(58,142,162,0), rgba(58,142,162,0.75), rgba(58,142,162,0)); 
+background-image: -o-linear-gradient(left, rgba(58,142,162,0), rgba(58,142,162,0.75), rgba(58,142,162,0));
 }
 
 #listing-nbre-experience{
@@ -802,7 +819,7 @@ height:30px;
 width:500px;
 color:#8b103e !important;
 font-variant:small-caps;
-font-size:1.2em;
+font-size:1.4em;
 font-weight:bold;
 line-height:28px;
 padding:0px 1em 0px 2em;
@@ -818,8 +835,15 @@ padding:1em;
 }
 
 #footer-listing{
+width:700px;
 height:46px;
-margin-top: 1.2em;
+margin:1.2em auto;
+padding:8px 2em;
+border-top:1px dotted #999;
+}
+
+#footer-listing a{
+border-bottom:none !important;
 }
 
 .listing-experience-etat{
