@@ -37,7 +37,7 @@
 
                 <div id="main-experience">                    
                     <div id="alerte"
-                         tal:condition="python: experience.experience_etat=='pending_for_review'">
+                         tal:condition="python: experience.experience_etat=='pending'">
                         <img src="alerte.png" /> Cette expérience en en cours de validation
                     </div>
 
@@ -449,9 +449,9 @@
                             <option value="pending"
                                     selected=""
                                     tal:attributes="selected python:experience.experience_etat=='pending' and 'selected' or None;">Attente</option>
-                            <option value="pending_for_review"
+                            <option value="pending"
                                     selected=""
-                                    tal:attributes="selected python:experience.experience_etat=='pending_for_review' and 'selected' or None;">En cours de validation</option>
+                                    tal:attributes="selected python:experience.experience_etat=='pending' and 'selected' or None;">En cours de validation</option>
                             <option value="publish"
                                     selected=""
                                     tal:attributes="selected python:experience.experience_etat=='publish' and 'selected' or None;">Publié</option>

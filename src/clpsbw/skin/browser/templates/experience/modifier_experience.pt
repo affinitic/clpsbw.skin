@@ -475,7 +475,7 @@
                        value="updateByAuteur" />
                 <input type="hidden"
                        name="experience_etat"
-                       value="pending_for_review" />
+                       value="pending" />
                 <input type="hidden"
                        name="experience_pk"
                        value=""

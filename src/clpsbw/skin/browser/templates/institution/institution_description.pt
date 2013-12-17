@@ -42,7 +42,7 @@
 
                 <div id="main-institution">
                     <div id="alerte"
-                         tal:condition="python: institution.institution_etat=='pending_for_review'">
+                         tal:condition="python: institution.institution_etat=='pending'">
                         <img src="alerte.png" /> Cette institution en en cours de validation
                     </div>
 

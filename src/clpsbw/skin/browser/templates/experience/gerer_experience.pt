@@ -67,14 +67,23 @@
                                 <tr>
                                     <td align="left" class="discreet" valign="bottom">
                                         par 
-                                        <span tal:content="experience/auteurFromExperience/auteur_prenom | nothing" />
-                                        <span tal:content="experience/auteurFromExperience/auteur_nom | nothing" /> -
-                                        <span tal:content="experience/experience_auteur_login" />
+                                        <span tal:content="experience/auteurFromExperience/auteur_prenom | nothing"
+                                              class="gras" />
+                                        <span tal:content="experience/auteurFromExperience/auteur_nom | nothing"
+                                              class="gras" /> -
+                                        <span tal:content="experience/experience_auteur_login"
+                                              class="gras" />
                                         <br />
                                         Dernière modification :
-                                        <span tal:content="python: experience.experience_modification_date.strftime('%d/%m/%Y %H:%M')" />
+                                        <span tal:content="python: experience.experience_modification_date.strftime('%d-%m-%Y %H:%M')"
+                                              class="gras" />
                                         par
-                                        <span tal:content="experience/experience_modification_employe" />
+                                        <span tal:content="experience/experience_modification_employe"
+                                              class="gras" />
+                                        <div class="experience-etat"
+                                             tal:define="experienceEtat python:view.getExperienceEtat(experiencePk)">
+                                             <span tal:content="experienceEtat" />
+                                        </div>
                                     </td>
                                     <td align="right">
                                         <div class="btn-modifier">

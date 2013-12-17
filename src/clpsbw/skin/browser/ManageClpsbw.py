@@ -1285,7 +1285,7 @@ class ManageClpsbw(BrowserView):
             experienceEtat = 'Privé'
         if etat == 'pending':
             experienceEtat = 'En attente'
-        if etat == 'pending_for_review':
+        if etat == 'pending':
             experienceEtat = 'En cours de validation'
         if etat == 'publish':
             experienceEtat = 'Publié'
@@ -1687,6 +1687,26 @@ class ManageClpsbw(BrowserView):
                 if i.motcle_fk == j.motcle_pk:
                     listeMotCleForExperience.append(j.motcle_pk)
         return listeMotCleForExperience
+
+### experience maj verionning ###
+    def getExperienceMajByPk(self, experiencePk, experienceEtat=None):
+        """
+        table pg experience_maj
+        recuperation d'un recit selon experience_pk
+        qui est dans experience_maj_expfk
+        """
+        if not isinstance(experiencePk, list):
+            experiencePk = [experiencePk]
+        wrapper = getSAWrapper('clpsbw')
+        session = wrapper.session
+        query = session.query(ExperienceMaj)
+        query = query.filter(ExperienceMaj.experience_maj_expfk.in_(experiencePk))
+        if experienceEtat:
+            query = query.filter(ExperienceMaj.experience_maj_etat == experienceEtat)
+        query = query.order_by(ExperienceMaj.experience_maj_titre)
+        experienceMaj = query.one()
+        return experienceMaj
+
 
 ### ressources ###
     def getAllRessource(self, ressourcePk=None):
@@ -3459,7 +3479,7 @@ class ManageClpsbw(BrowserView):
     def insertExperience(self):
         """
         table pg  experience
-        ajout d'une experience par Auteur > experience_etat == pending
+        ajout d'une experience par Auteur > experience_etat == pendinging
         ou
         ajout d'une experience par equipse Clps > experience_etat == au choix de l'equipe
         """
@@ -3983,6 +4003,20 @@ class ManageClpsbw(BrowserView):
         for experienceFk in query.all():
             session.delete(experienceFk)
         session.flush()
+
+    def deleteExperienceMaj(self, experienceFk):
+        """
+        table pg experience_maj
+        suppression de l'experience mise a jour > versionning
+        """
+        wrapper = getSAWrapper('clpsbw')
+        session = wrapper.session
+        query = session.query(ExperienceMaj)
+        query = query.filter(ExperienceMaj.experience_maj_expfk == experienceFk)
+        for experienceFk in query.all():
+            session.delete(experienceFk)
+        session.flush()
+
 
 #### UPDATE ####
 
@@ -4590,6 +4624,22 @@ class ManageClpsbw(BrowserView):
         self.request.response.redirect(url)
         return ''
 
+    def updateEtatExperience(self, experiencePk):
+        """
+        table pg experience
+        mise à jour de l'état d'une experience suite à la mise à jour par l'auteur dans experience_maj
+        """
+        experienceEtat = 'pending'
+
+        wrapper = getSAWrapper('clpsbw')
+        session = wrapper.session
+        query = session.query(Experience)
+        query = query.filter(Experience.experience_pk == experiencePk)
+        experience = query.one()
+        experience.experience_etat = experienceEtat
+        session.flush()
+    
+
     def updateExperienceByAuteur(self):
         """
         table pg experience_maj
@@ -4597,7 +4647,7 @@ class ManageClpsbw(BrowserView):
         dans table experience_maj pour versionning
         """
         fields = self.context.REQUEST
-        experience_pk = getattr(fields, 'experience_pk')
+        experiencePk = getattr(fields, 'experience_pk')
         experience_titre = getattr(fields, 'experience_titre', None)
         experience_resume = getattr(fields, 'field.experience_resume', None)
         experience_personne_contact = getattr(fields, 'experience_personne_contact', None)
@@ -4641,60 +4691,63 @@ class ManageClpsbw(BrowserView):
             experience_auteur_fk = self.getAuteurPkByName(experience_auteur)
 
         experience_modification_employe = self.getAuteurLogin(experience_auteur)
-        experience_etat = 'pending_for_review'
+        experience_etat = 'pending'
         experienceMaj = True
         
 
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        newEntry = ExperienceMaj(experience_maj_titre = experience_titre, \
-                                    experience_maj_resume = experience_resume, \
-                                    experience_maj_personne_contact = experience_personne_contact, \
-                                    experience_maj_personne_contact_email = experience_personne_contact_email, \
-                                    experience_maj_personne_contact_telephone = experience_personne_contact_telephone, \
-                                    experience_maj_personne_contact_institution = experience_personne_contact_institution, \
-                                    experience_maj_element_contexte = experience_element_contexte, \
-                                    experience_maj_objectif = experience_objectif, \
-                                    experience_maj_public_vise = experience_public_vise, \
-                                    experience_maj_demarche_actions = experience_demarche_actions, \
-                                    experience_maj_commune_international = experience_commune_international, \
-                                    experience_maj_territoire_tout_brabant_wallon = experience_territoire_tout_brabant_wallon, \
-                                    experience_maj_periode_deroulement = experience_periode_deroulement, \
-                                    experience_maj_moyens = experience_moyens, \
-                                    experience_maj_evaluation_enseignement = experience_evaluation_enseignement, \
-                                    experience_maj_perspective_envisagee = experience_perspective_envisagee, \
-                                    experience_maj_institution_porteur_autre = experience_institution_porteur_autre, \
-                                    experience_maj_institution_partenaire_autre = experience_institution_partenaire_autre, \
-                                    experience_maj_institution_ressource_autre = experience_institution_ressource_autre, \
-                                    experience_maj_institution_outil_autre = experience_institution_outil_autre, \
-                                    experience_maj_formation_suivie = experience_formation_suivie, \
-                                    experience_maj_aller_plus_loin = experience_aller_plus_loin, \
-                                    experience_maj_plate_forme_sante_ecole = experience_plate_forme_sante_ecole, \
-                                    experience_maj_plate_forme_assuetude = experience_plate_forme_assuetude, \
-                                    experience_maj_plate_forme_sante_famille = experience_plate_forme_sante_famille, \
-                                    experience_maj_plate_forme_sante_environnement = experience_plate_forme_sante_environnement, \
-                                    experience_maj_mission_centre_documentation = experience_mission_centre_documentation, \
-                                    experience_maj_mission_accompagnement_projet = experience_mission_accompagnement_projet, \
-                                    experience_maj_mission_reseau_echange = experience_mission_reseau_echange, \
-                                    experience_maj_mission_formation = experience_mission_formation, \
-                                    experience_maj_auteur_login = experience_auteur_login, \
-                                    experience_maj_clps_proprio_fk = experience_clps_proprio_fk, \
-                                    experience_maj_auteur_fk = experience_auteur_fk, \
-                                    experience_maj_etat = experience_etat, \
-                                    experience_maj_modification_date = experience_modification_date, \
-                                    experience_maj_modification_employe = experience_modification_employe)
+        newEntry = ExperienceMaj(experience_maj_expfk = experiencePk, \
+                                 experience_maj_titre = experience_titre, \
+                                 experience_maj_resume = experience_resume, \
+                                 experience_maj_personne_contact = experience_personne_contact, \
+                                 experience_maj_personne_contact_email = experience_personne_contact_email, \
+                                 experience_maj_personne_contact_telephone = experience_personne_contact_telephone, \
+                                 experience_maj_personne_contact_institution = experience_personne_contact_institution, \
+                                 experience_maj_element_contexte = experience_element_contexte, \
+                                 experience_maj_objectif = experience_objectif, \
+                                 experience_maj_public_vise = experience_public_vise, \
+                                 experience_maj_demarche_actions = experience_demarche_actions, \
+                                 experience_maj_commune_international = experience_commune_international, \
+                                 experience_maj_territoire_tout_brabant_wallon = experience_territoire_tout_brabant_wallon, \
+                                 experience_maj_periode_deroulement = experience_periode_deroulement, \
+                                 experience_maj_moyens = experience_moyens, \
+                                 experience_maj_evaluation_enseignement = experience_evaluation_enseignement, \
+                                 experience_maj_perspective_envisagee = experience_perspective_envisagee, \
+                                 experience_maj_institution_porteur_autre = experience_institution_porteur_autre, \
+                                 experience_maj_institution_partenaire_autre = experience_institution_partenaire_autre, \
+                                 experience_maj_institution_ressource_autre = experience_institution_ressource_autre, \
+                                 experience_maj_institution_outil_autre = experience_institution_outil_autre, \
+                                 experience_maj_formation_suivie = experience_formation_suivie, \
+                                 experience_maj_aller_plus_loin = experience_aller_plus_loin, \
+                                 experience_maj_plate_forme_sante_ecole = experience_plate_forme_sante_ecole, \
+                                 experience_maj_plate_forme_assuetude = experience_plate_forme_assuetude, \
+                                 experience_maj_plate_forme_sante_famille = experience_plate_forme_sante_famille, \
+                                 experience_maj_plate_forme_sante_environnement = experience_plate_forme_sante_environnement, \
+                                 experience_maj_mission_centre_documentation = experience_mission_centre_documentation, \
+                                 experience_maj_mission_accompagnement_projet = experience_mission_accompagnement_projet, \
+                                 experience_maj_mission_reseau_echange = experience_mission_reseau_echange, \
+                                 experience_maj_mission_formation = experience_mission_formation, \
+                                 experience_maj_auteur_login = experience_auteur_login, \
+                                 experience_maj_clps_proprio_fk = experience_clps_proprio_fk, \
+                                 experience_maj_auteur_fk = experience_auteur_fk, \
+                                 experience_maj_etat = experience_etat, \
+                                 experience_maj_modification_date = experience_modification_date, \
+                                 experience_maj_modification_employe = experience_modification_employe)
                                     
         session.add(newEntry)
         session.flush()
         
         session.refresh(newEntry)
-        experiencePk = newEntry.experience_maj_pk
+        experienceMajPk = newEntry.experience_maj_pk
+
+        self.updateEtatExperience(experiencePk)
         
         portalUrl = getToolByName(self.context, 'portal_url')()
         ploneUtils = getToolByName(self.context, 'plone_utils')
         message = u"Les informations ont été modifiées !"
         ploneUtils.addPortalMessage(message, 'info')
-        url = "%s/decrire-une-experience-maj?experiencePk=%s&experienceMaj=%s" % (portalUrl, experiencePk, experienceMaj)
+        url = "%s/decrire-une-experience-maj?experiencePk=%s&experienceMaj=%s" % (portalUrl, experienceMajPk, experienceMaj)
         self.request.response.redirect(url)
         return ''
 
@@ -5208,6 +5261,11 @@ class ManageClpsbw(BrowserView):
             self.deleteLinkExperienceClpsProprio(experienceFk)
             if experienceClpsProprioFk > 0:
                 self.addLinkExperienceClpsProprio(experienceFk)
+
+            #suppresion dans la table experience_maj (versionning)
+            if experience_etat == "publish":
+                import pdb;pdb.set_trace()
+                self.deleteExperienceMaj(experienceFk)
 
             self.sendMailForUpdateExperience()
 

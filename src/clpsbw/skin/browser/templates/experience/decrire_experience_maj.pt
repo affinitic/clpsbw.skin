@@ -35,7 +35,7 @@
                 
                 <div id="main-experience">                    
                     <div id="alerte"
-                         tal:condition="python: experience.experience_maj_etat=='pending_for_review'">
+                         tal:condition="python: experience.experience_maj_etat=='pending'">
                         <img src="alerte.png" /> Cette expérience en en cours de validation
                     </div>
 

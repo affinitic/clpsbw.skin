@@ -26,13 +26,6 @@
                     </header>
                     <hr class="ligne-listing-experience" />
                     <div class="listing-texte-experience">
-                        <div class="experience-etat"
-                             tal:define="experienceEtat python:view.getExperienceEtat(experiencePk)"
-                             tal:condition="python:user.has_role(['Manager'], here)">
-                            <span tal:content="experienceEtat" />
-                            &Xi;
-                            <span tal:content="experience/experience_pk" />
-                        </div>
                         <span tal:replace="structure experience/experience_resume"
                               class="rep-qest" />
                         <ul>
@@ -66,16 +59,27 @@
                                 <tr>
                                     <td align="left" class="discreet" valign="bottom">
                                         par 
-                                        <span tal:content="experience/auteurFromExperience/auteur_prenom | nothing" />
-                                        <span tal:content="experience/auteurFromExperience/auteur_nom | nothing" />
+                                        <span tal:content="experience/auteurFromExperience/auteur_prenom | nothing"
+                                              class="gras" />
+                                        <span tal:content="experience/auteurFromExperience/auteur_nom | nothing"
+                                              class="gras" />
                                         <span tal:content="experience/experience_auteur_login" />
                                         <br />
                                         Dernière modification :
-                                        <span tal:content="python: experience.experience_modification_date.strftime('%d/%m/%Y %H:%M')" />
+                                        <span tal:content="python: experience.experience_modification_date.strftime('%d/%m/%Y %H:%M')"
+                                              class="gras" />
                                         par
-                                        <span tal:content="experience/experience_modification_employe" />
+                                        <span tal:content="experience/experience_modification_employe"
+                                              class="gras" />
+                                        <div class="experience-etat"
+                                             tal:define="experienceEtat python:view.getExperienceEtat(experiencePk)"
+                                             tal:condition="python:user.has_role(['Manager'], here)">
+                                            <span tal:content="experienceEtat" />
+                                            &Xi;
+                                            <span tal:content="experience/experience_pk" />
+                                        </div>
                                     </td>
-                                    <td colspan="2" align="right">
+                                    <td align="right">
                                         <a href=""
                                            tal:attributes="href
                                            string:decrire-une-experience?experiencePk=${experiencePk}">

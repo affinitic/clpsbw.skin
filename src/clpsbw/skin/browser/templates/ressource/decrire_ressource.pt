@@ -39,7 +39,7 @@
                 
                 <div id="main-ressource">
                     <div id="alerte"
-                         tal:condition="python: ressource.ressource_etat=='pending_for_review'">
+                         tal:condition="python: ressource.ressource_etat=='pending'">
                         <img src="alerte.png" /> Cette ressource en en cours de validation
                     </div>
 

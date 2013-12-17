@@ -34,7 +34,7 @@
                         </legend>
                         <div class="experience-etat"
                              tal:condition="python:user.has_role(['Manager'], here)">
-                            <tal:alerte tal:condition="python: experience.experience_etat=='pending_for_review'">
+                            <tal:alerte tal:condition="python: experience.experience_etat=='pending'">
                                 <img src="alerte.png" />
                             </tal:alerte>
                             <span tal:content="experienceEtat" />

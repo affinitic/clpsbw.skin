@@ -38,23 +38,26 @@
                     <a href=""
                        tal:attributes="href string:${context/portal_url}/admin-experience-recherche">Rechercher</a>
                 </dd>
+                <dd class="portletItemDB">
+                    <br />
+                    Etat :
+                </dd>
                 <dd tal:define="nbrExp python:experiences.getCountExperienceByEtat('private')"
                     class="portletItemDB">
-                    <br />
                     <a href="admin-experience-lister-par-etat?etat=private">
-                        Etat privé : <span tal:content="nbrExp">nbr</span>
+                        privé : <span tal:content="nbrExp">nbr</span>
                     </a>
                 </dd>
                 <dd tal:define="nbrExp python:experiences.getCountExperienceByEtat('pending')"
                     class="portletItemDB">
                     <a href="admin-experience-lister-par-etat?etat=pending">
-                        Etat en attente : <span tal:content="nbrExp">nbr</span>
+                        en attente : <span tal:content="nbrExp">nbr</span>
                     </a>
                 </dd>
                 <dd tal:define="nbrExp python:experiences.getCountExperienceByEtat('publish')"
                     class="portletItemDB">
                     <a href="admin-experience-lister-par-etat?etat=publish">
-                        Etat publi&eacute; : <span tal:content="nbrExp">nbr</span>
+                        publi&eacute; : <span tal:content="nbrExp">nbr</span>
                     </a>
                 </dd>
                 <dd tal:define="nbrExp python:experiences.getCountAllExperience()"

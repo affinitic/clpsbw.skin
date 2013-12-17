@@ -105,6 +105,13 @@ color:rgba(0,80,0,1);
 text-shadow:1px 1px 1px rgba(255,255,255,0.9);
 }
 
+.italic{
+font-style:italic;
+}
+
+.gras{
+font-weight:bold;
+}
 
 .grasbrun{
 font-weight:bold;
@@ -124,10 +131,6 @@ color:#ff0000;
 .grasvert{
 font-weight:bold;
 color:#00aa00;
-}
-
-.gras{
-font-weight:bold;
 }
 
 .vert-actif{
@@ -545,7 +548,24 @@ background-image:url(puzzle_gris_vert.png);
 
 
 
+.info-actuelle{
+border:1px solid #ddd;
+border-radius:5px;
+padding:1em;
+margin:4px 0px;
+/*font-weight:bold;*/
+font-size:1.2em;
+color:#C6680F;  /*#ff6f00;*/
+background-color:rgba(255,245,234,0.5);
+}
 
+.info-aide-maj{
+position:relative;
+left:300px;
+border:1px dotted #20a3af;
+border-radius:3px;
+width:300px;
+}
 
 
 
@@ -715,14 +735,21 @@ padding:4px 0px;
 }
 
 div.experience-etat{
-float:right;
-background-color:#ffd6ff;
+margin-top:6px;
 width:170px;
 text-align:center;
 font-size:0.8em;
-color:#dc00be;
-border:1px solid #dc00be;
+color:#92007b;
+border:1px solid #ccc;
 border-radius:5px;
+/*background-color:#ffd6ff;*/
+background: -moz-linear-gradient(top,  rgba(252,236,252,0.7) 0%, rgba(251,166,225,0.7) 50%, rgba(253,137,215,0.7) 51%, rgba(255,124,216,0.7) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,236,252,0.7)), color-stop(50%,rgba(251,166,225,0.7)), color-stop(51%,rgba(253,137,215,0.7)), color-stop(100%,rgba(255,124,216,0.7))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(252,236,252,0.7) 0%,rgba(251,166,225,0.7) 50%,rgba(253,137,215,0.7) 51%,rgba(255,124,216,0.7) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(252,236,252,0.7) 0%,rgba(251,166,225,0.7) 50%,rgba(253,137,215,0.7) 51%,rgba(255,124,216,0.7) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(252,236,252,0.7) 0%,rgba(251,166,225,0.7) 50%,rgba(253,137,215,0.7) 51%,rgba(255,124,216,0.7) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(252,236,252,0.7) 0%,rgba(251,166,225,0.7) 50%,rgba(253,137,215,0.7) 51%,rgba(255,124,216,0.7) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3fcecfc', endColorstr='#b3ff7cd8',GradientType=0 ); /* IE6-9 */
 }
 
 ul#menu-gestion-donnee{
