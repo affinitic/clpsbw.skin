@@ -20,6 +20,7 @@
                  title="CLPS-Bw - Projets partagés"
                  alt="titre_logo_presentation_db.png" />
         </div>
+        <div class="break-float"></div>
         <div id="titre-presentation-db">
             <h1>
                 Liste des experiences pour cette plate-forme
@@ -66,21 +67,39 @@
                         </div>
 
                         <footer id="footer-listing">
-                                <div class="listing-experience-etat"
-                                     tal:define="experienceEtat python:view.getExperienceEtat(experiencePk)"
-                                     tal:condition="python:user.has_role(['Manager'], here)">
-                                    <span tal:content="experienceEtat" />
-                                    &Xi;
-                                    <span tal:content="experience/experience_pk" />
-                                </div>
-                                <div class="listing-experience-bouton">
-                                    <a href=""
-                                       alt="Voir la fiche complète"
-                                       tal:attributes="href string:decrire-une-experience?experiencePk=${experiencePk}">
-                                       <img src="btn_suivant.png"
-                                            alt="Voir la fiche complète" /></a>
-                                </div>
-                            </footer><!--footer listing-->
+                            <table width="100%">
+                                <tr>
+                                    <td align="left" class="discreet" valign="bottom">
+                                        par 
+                                        <span tal:content="experience/auteurFromExperience/auteur_prenom | nothing"
+                                              class="gras" />
+                                        <span tal:content="experience/auteurFromExperience/auteur_nom | nothing"
+                                              class="gras" />
+                                        <span tal:content="experience/experience_auteur_login" />
+                                        <br />
+                                        Dernière modification :
+                                        <span tal:content="python: experience.experience_modification_date.strftime('%d/%m/%Y %H:%M')"
+                                              class="gras" />
+                                        par
+                                        <span tal:content="experience/experience_modification_employe"
+                                              class="gras" />
+                                        <div class="experience-etat"
+                                             tal:define="experienceEtat python:view.getExperienceEtat(experiencePk)"
+                                             tal:condition="python:user.has_role(['Manager'], here)">
+                                            <span tal:content="experienceEtat" />
+                                            &Xi;
+                                            <span tal:content="experience/experience_pk" />
+                                        </div>
+                                    </td>
+                                    <td align="right">
+                                        <a href=""
+                                           tal:attributes="href
+                                           string:decrire-une-experience?experiencePk=${experiencePk}">
+                                           <img src="btn_suivant.png" /></a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </footer><!--footer listing-->
                     </article>
                 </tal:block>
             </tal:boucle>

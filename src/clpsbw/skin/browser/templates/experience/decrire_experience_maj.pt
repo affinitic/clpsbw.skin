@@ -18,7 +18,7 @@
         <tal:boucle tal:repeat="experience experiences">
             <tal:block tal:define="experiencePk experience/experience_maj_pk">
                 <div id="header-description">
-                    <div  id="logo-projet-paratge">
+                    <div id="logo-projet-paratge">
                         <img src="projet_partage_logo_texte.png"
                              width="216"
                              height="36"
