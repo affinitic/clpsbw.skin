@@ -11,48 +11,31 @@
 <body>
 <div metal:fill-slot="main"
      tal:condition="python:user.has_role(['Manager'], here)">
-   <h1>:: Liste des institutions du Brabant wallon ::</h1>
+   <h1>Gestion des institutions</h1>
 
    <div tal:define="institutions python:view.getAllInstitutionByClpsProprio(1);">
        <tal:boucle tal:repeat="institution institutions">
            <tal:block tal:define="institutionPk institution/institution_pk"
                       tal:condition="python: institutionPk > 0">
-               <fieldset>
-                   <legend>
-                        <img src="carre_orange.gif"
-                             widht="50%"/>
+               <div class="formulaire">
+                   <h2>
                         <a href=""
                            tal:content="institution/institution_nom"
                            tal:attributes="href string:institution-decrire?institutionPk=${institutionPk}"
                            class="titre_formation">nom de l'institution</a>
-                   </legend>
-                   <div class="experience-etat"
-                        tal:define="institutionEtat python:view.getInstitutionEtat(institutionPk)"
-                        tal:condition="python:user.has_role(['Manager'], here)">
-                        <span tal:content="institutionEtat" />
-                        &Xi;
-                        PK : <span tal:content="institutionPk" />
-                   </div>
-                   <ul>
-                        <li>
-                           <span class="brun">Adresse :</span><br />
-                           <span tal:content="institution/institution_adresse"
-                                 class="rubrique-db" />
-                        </li>
-                        <li>
-                           <span class="brun">Localité :</span><br />
-                           <span class="rubrique-db">
+                   </h2>
+                   <div class="description-listing">
+                        <h3>Adresse :</h3>
+                            <p><span tal:content="institution/institution_adresse" /></p>
+                        <h3>Localité :</h3>
+                            <p>
                                <span tal:content="institution/commune/com_localite_cp" />
                                <span tal:content="institution/commune/com_localite_nom" />
-                           </span>
-                        </li>
-                        <li>
-                           <span class="brun">Contact :</span><br />
-                           <span tal:content="institution/institution_nom_contact"
-                                 class="rubrique-db" />
-                        </li>
-                   </ul>
-
+                            </p>
+                        <h3>Contact :</h3>
+                            <p><span tal:content="institution/institution_nom_contact" /></p>
+                   </div>
+                   <hr class="ligne-top-menu-gestion-donnee" /> 
                    <div id="footer-listing">
                       <table width="100%">
                           <tr>
@@ -64,15 +47,14 @@
                                   <br />
                                   Dernière modification :
                                   <span tal:content="python: institution.institution_modification_date.strftime('%d-%m-%Y %H:%M')" />
-                              </td>
-                              <td align="right">
-                                  <div class="btn-modifier"
+                                  <div class="experience-etat"
+                                       tal:define="institutionEtat python:view.getInstitutionEtat(institutionPk)"
                                        tal:condition="python:user.has_role(['Manager'], here)">
-                                       <a href=""
-                                          tal:attributes="href string: admin-institution-modifier?institutionPk=${institutionPk}"
-                                          title="Modifier institution"
-                                          alt="Modifier institution">&nbsp;</a>
-                                  </div>
+                                      <span tal:content="institutionEtat" />
+                                      &Xi;
+                                      PK : <span tal:content="institutionPk" />
+                                   </div>
+                   
                               </td>
                               <td align="right">
                                   <a href=""
@@ -83,8 +65,25 @@
                               </td>
                           </tr>
                       </table>
+                      <ul id="menu-gestion-donnee">
+                            <li>
+                                <a href=""
+                                   tal:attributes="href string:${context/portal_url}/admin-chercher-une-institution">
+                                    Chercher</a>
+                            </li>
+                            <li>
+                                <a href=""
+                                   tal:attributes="href string:${context/portal_url}/admin-modifier-une-institution}">
+                                    Modifier</a>
+                            </li>
+                            <li>
+                                <a href=""
+                                   tal:attributes="href string:admin-decrire-une-institution?institutionPk=${institutionPk}">
+                                   Détailler</a>
+                            </li>
+                      </ul>
                    <div>
-               </fieldset>
+               </div>
            </tal:block>
        </tal:boucle>
    </div><!--define-->
