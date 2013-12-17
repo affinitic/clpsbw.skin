@@ -23,13 +23,14 @@
 <div metal:fill-slot="main">
     <div id="experience-template">
         <div>
-            <div  id="logo-projet-paratge">
+            <div id="logo-projet-paratge">
                 <img src="projet_partage_logo_texte.png"
                      width="216"
                      height="36"
                      title="CLPS-Bw - Projets partagés"
                      alt="projet_partage_logo_texte.png" />
             </div>
+            <div class="break-float"></div>
         </div>
         <div id="titre-presentation-db">
             <h1>Présentation de la base de données</h1>
