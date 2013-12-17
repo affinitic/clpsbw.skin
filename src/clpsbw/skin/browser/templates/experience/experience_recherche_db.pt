@@ -45,7 +45,7 @@
                 <legend class="search-legend-titre"> A partir du titre d'une expérience </legend>
                 <div id="info-champs"></div>
                 <br />
-                <form action="experience-decrire"
+                <form action="decrire-une-experience"
                       method="post">
                     <div class="formulaire-input">
                         <input type="text"
@@ -63,7 +63,7 @@
 
                 <hr class="search-ligne-bleue"/>
 
-                <form action="experience-decrire"
+                <form action="decrire-une-experience"
                       method="post">
                     Ci-dessous, la liste des différents titres des expériences encodées dans notre base.
                     <div class="formulaire-input">

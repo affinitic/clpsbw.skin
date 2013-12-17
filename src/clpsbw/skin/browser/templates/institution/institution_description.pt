@@ -24,23 +24,23 @@
                                   activitesProfessionnelles python:view.getAssuetudeActiviteProposeeProForInstituion(institutionPk, 'nom');
                                   thematiques python:view.getAssuetudeThematiqueForInstituion(institutionPk, 'nom');
                                   selectedClpsProprio python:view.getClpsProprioForInstitution(institutionPk, 'pk')">
-                <div  id="logo-projet-paratge">
-                    <img src="projet_partage_logo_texte.png"
-                         width="216"
-                         height="36"
-                         title="CLPS-Bw - Projets partagés"
-                         alt="titre_logo_presentation_db.png" />
+                <div id="header-description">
+                    <div  id="logo-projet-paratge">
+                        <img src="projet_partage_logo_texte.png"
+                             width="216"
+                             height="36"
+                             title="CLPS-Bw - Projets partagés"
+                             alt="titre_logo_presentation_db.png" />
+                    </div>
+                    <div class="btn-modifier-description"
+                             tal:condition="python:user.has_role(['Manager'], here)">
+                            <a href=""
+                               tal:attributes="href string: admin-experience-modifier?experiencePk=${experiencePk}">&nbsp;</a>
+                    </div>
+                    <div class="break-float"></div>
                 </div>
 
                 <div id="main-institution">
-                    <div id="btn-modifier"
-                         tal:condition="python:user.has_role(['Manager'], here)">
-                        <a href=""
-                           tal:attributes="href string: admin-institution-modifier?institutionPk=${institutionPk}"
-                           alt="Modifier"
-                           title="Modifier">&nbsp;</a>
-                    </div>
-
                     <div id="alerte"
                          tal:condition="python: institution.institution_etat=='pending_for_review'">
                         <img src="alerte.png" /> Cette institution en en cours de validation
@@ -328,7 +328,7 @@
                                     <span tal:define="experiencePk python: experience[0]">
                                         <span class="icone-experience"></span>
                                         <a href=""
-                                           tal:attributes="href string: experience-decrire?experiencePk=${experiencePk}">
+                                           tal:attributes="href string: decrire-une-experience?experiencePk=${experiencePk}">
                                           <span tal:content="python: experience[1]" /></a>
                                     </span>
                                 </div>
@@ -345,7 +345,7 @@
                                     <span tal:define="experiencePk python: experience[0]">
                                         <span class="icone-experience"></span>
                                         <a href=""
-                                           tal:attributes="href string: experience-decrire?experiencePk=${experiencePk}">
+                                           tal:attributes="href string: decrire-une-experience?experiencePk=${experiencePk}">
                                           <span tal:content="python: experience[1]" /></a>
                                     </span>
                                 </div>
@@ -362,7 +362,7 @@
                                     <span tal:define="experiencePk python: experience[0]">
                                         <span class="icone-experience"></span>
                                         <a href=""
-                                           tal:attributes="href string: experience-decrire?experiencePk=${experiencePk}">
+                                           tal:attributes="href string: decrire-une-experience?experiencePk=${experiencePk}">
                                           <span tal:content="python: experience[1]" /></a>
                                     </span>
                                 </div>

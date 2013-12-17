@@ -16,20 +16,23 @@
     <div id="experience-template">
         <tal:boucle tal:repeat="experience experiences">
             <tal:block tal:define="experiencePk experience/experience_pk">
-                <div  id="logo-projet-paratge">
-                    <img src="projet_partage_logo_texte.png"
-                         width="216"
-                         height="36"
-                         title="CLPS-Bw - Projets partagés"
-                         alt="titre_logo_presentation_db.png" />
+                <div id="header-description">
+                    <div  id="logo-projet-paratge">
+                        <img src="projet_partage_logo_texte.png"
+                             width="216"
+                             height="36"
+                             title="CLPS-Bw - Projets partagés"
+                             alt="titre_logo_presentation_db.png" />
+                    </div>
+                    <div class="btn-modifier-description"
+                             tal:condition="python:user.has_role(['Manager'], here)">
+                            <a href=""
+                               tal:attributes="href string: admin-experience-modifier?experiencePk=${experiencePk}">&nbsp;</a>
+                    </div>
+                    <div class="break-float"></div>
                 </div>
 
                 <div id="main-experience">                    
-                    <div id="btn-modifier"
-                         tal:condition="python:user.has_role(['Manager'], here)">
-                        <a href=""
-                           tal:attributes="href string: admin-experience-modifier?experiencePk=${experiencePk}">&nbsp;</a>
-                    </div>
                     
                     <div id="alerte"
                          tal:condition="python: experience.experience_etat=='pending_for_review'">

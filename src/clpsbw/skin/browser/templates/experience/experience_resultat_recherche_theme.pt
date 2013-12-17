@@ -49,7 +49,7 @@
                             <div class="listing-zone-titre">
                                 <a href=""
                                    tal:content="experience/experience_titre"
-                                   tal:attributes="href string:experience-decrire?experiencePk=${experiencePk}"
+                                   tal:attributes="href string:decrire-une-experience?experiencePk=${experiencePk}"
                                    class="listing-titre-experience">titre de l'expérience</a>
                             </div><!--listing-titre-experience-->
                         </div><!--listing-experience-bord-sup-->
@@ -79,7 +79,7 @@
                             </div>
                             <div class="listing-experience-bouton">
                                 <a href=""
-                                   tal:attributes="href string:experience-decrire?experiencePk=${experiencePk}">
+                                   tal:attributes="href string:decrire-une-experience?experiencePk=${experiencePk}">
                                    <img src="btn_suivant.png" /></a>
                             </div>
                         </div><!--footer listing-->

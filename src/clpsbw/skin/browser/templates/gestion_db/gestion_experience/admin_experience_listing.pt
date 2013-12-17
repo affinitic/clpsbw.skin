@@ -29,7 +29,7 @@
                                      widht="50%"/>
                             <a href=""
                                    tal:content="experience/experience_titre"
-                                   tal:attributes="href string:experience-decrire?experiencePk=${experiencePk}"
+                                   tal:attributes="href string:decrire-une-experience?experiencePk=${experiencePk}"
                                    class="titre_formation">titre de l'expérience</a>
                         </legend>
                         <div class="experience-etat"
@@ -89,7 +89,7 @@
                                     </td>
                                     <td colspan="2" align="right">
                                         <a href=""
-                                           tal:attributes="href string:experience-decrire?experiencePk=${experiencePk}">
+                                           tal:attributes="href string:decrire-une-experience?experiencePk=${experiencePk}">
                                            <img src="btn_suivant.png" /></a>
                                     </td>
                                 </tr>

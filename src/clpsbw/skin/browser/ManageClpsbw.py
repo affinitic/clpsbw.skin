@@ -412,7 +412,7 @@ class ManageClpsbw(BrowserView):
                   </ul>
                   <hr />
                   Voir la description de l'expérience en cliquant sur ce
-                  <a href="http://www.clpsbw.be/experience-decrire?experiencePk=%s">lien</a>.
+                  <a href="http://www.clpsbw.be/decrire-une-experience?experiencePk=%s">lien</a>.
                   <hr />
                   """ \
                   % (experienceTitre, \
@@ -3558,7 +3558,7 @@ class ManageClpsbw(BrowserView):
         ploneUtils = getToolByName(self.context, 'plone_utils')
         message = u"Vos informations ont été enregistrées !"
         ploneUtils.addPortalMessage(message, 'info')
-        url = "%s/experience-decrire?experiencePk=%s" % (portalUrl, experiencePk)
+        url = "%s/decrire-une-experience?experiencePk=%s" % (portalUrl, experiencePk)
         self.request.response.redirect(url)
         return ''
 

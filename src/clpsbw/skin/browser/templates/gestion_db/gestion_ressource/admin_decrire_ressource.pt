@@ -176,7 +176,7 @@
                             <p>
                             &#8226;
                             <a href=""
-                               tal:attributes="href string:${context/portal_url}/experience-decrire?experiencePk=${experience/experience_pk}">
+                               tal:attributes="href string:${context/portal_url}/decrire-une-experience?experiencePk=${experience/experience_pk}">
                                 <span tal:content="experience/experience_titre"></span></a>
                             </p>
                         </tal:boucle>
