@@ -449,6 +449,7 @@ padding-top:10px;
 padding-right:10px;
 padding-left:58px;
 border-radius:18px;
+border: 1px solid #9A0546;
 }
 
 #titre-experience{
@@ -456,11 +457,11 @@ background-color:#da951f;
 }
 
 #titre-ressource{
-background-color:#69b96f;    
+background-color:#aca733;    
 }
 
 #titre-institution{
-background-color:#8cb1e2;
+background-color:#00728a;
 }
 
 #titre-experience h1,
@@ -480,6 +481,7 @@ margin:auto;
 font-size:1.2em;
 letter-spacing:0.5em;
 text-align:center;
+color:#003544 !important;
 }
 
 #titre-experience hr,
