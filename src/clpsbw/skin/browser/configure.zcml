@@ -261,6 +261,22 @@
           allowed_interface=".interfaces.IManageClpsbw"
           />
     <browser:page
+          name="admin-modifier-une-experience"
+          for="*"
+          template="templates/gestion_db/gestion_experience/admin_modifier_experience.pt"
+          permission="zope.Public"
+          class=".ManageClpsbw.ManageClpsbw"
+          allowed_interface=".interfaces.IManageClpsbw"
+          />
+    <browser:page
+          name="admin-modifier-une-experience-maj"
+          for="*"
+          template="templates/gestion_db/gestion_experience/admin_modifier_experience_maj.pt"
+          permission="zope.Public"
+          class=".ManageClpsbw.ManageClpsbw"
+          allowed_interface=".interfaces.IManageClpsbw"
+          />
+    <browser:page
           name="admin-experience-inserer"
           for="*"
           template="templates/gestion_db/gestion_experience/admin_experience_insertion.pt"
