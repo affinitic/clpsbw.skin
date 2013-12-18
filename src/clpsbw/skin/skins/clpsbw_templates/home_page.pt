@@ -71,7 +71,7 @@
                                      tal:attributes="src string: ${item/getURL}/${imgURL}" />
                             </div>
                             <div class="newsClpsBw-image"
-                                 tal:condition="exists: newsClpsBw/isClpsBwNews">
+                                 tal:condition="newsClpsBw/isClpsBwNews | nothing">
                                 <img src="news_clpsbw.png" />
                             </div>
                         </tal:block>
