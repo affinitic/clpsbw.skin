@@ -1,0 +1,55 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+<head>
+    <metal:noborder fill-slot="top_slot"
+                    tal:define="dummy python:request.set('disable_border',1)" />
+</head>
+
+<body>
+<div metal:fill-slot="main">
+    
+    <h1>Cadastre des institutions</h1>
+
+    <div tal:define="institutionTypes python:view.getAllInstitutionType();">
+        <p>
+            Dans le cadre de ses missions le "Point d'appui" réalise un
+            inventaire « en ligne » des organismes pouvant intervenir
+            dans la prévention des assuétudes en Brabant wallon. 
+        </p>
+        <p>
+            Ces structures sont spécialisées dans la prévention ou la prise
+            en charge des assuétudes ou sont des généralistes qui par leurs
+            missions interviennent sur cette thématique. 
+        </p>
+        <p>
+            Cet inventaire dynamique mis à disposition sur la Plate-Forme
+            Point d’appui Assuétudes a pour objectif de permettre aux
+            utilisateurs de découvrir les structures spécialisées ou
+            généralistes qui peuvent aborder les assuétudes avec les
+            écoles du Brabant wallon. 
+        </p>
+        <p>
+            Votre institution n’est pas encore reprise et vous souhaitez
+            l’ajouter ? N’hésitez pas à nous contacter : lizin@clps-bw.be.
+        </p>
+        <div id="cadatsre-institution">
+            <tal:boucle tal:repeat="type institutionTypes">
+                <div tal:define="institutionTypePk type/institution_type_pk"
+                     class="icone_ressource">
+                    <a href=""
+                       tal:attributes="href string:${context/portal_url}/point-d-appui-assuetudes/ressources/admin-assuetude-organisme-ressource?institutionTypePk=${institutionTypePk}">
+                       <img src="icone_ressource_tux.png">
+                       <br />
+                       <span tal:content="type/institution_type_nom">type institution</span></a>
+                </div>
+            </tal:boucle>
+            <div class="break-float"></div>
+        </div>
+    </div><!--define-->
+</div><!--metal-->
+</body>
+</html>
+

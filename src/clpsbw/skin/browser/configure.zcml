@@ -702,9 +702,17 @@
           allowed_interface=".interfaces.IManageClpsbw"
           />
     <browser:page
-          name="assuetude-organisme-ressource"
+          name="assuetude-ressource-type-institution"
           for="*"
-          template="templates/assuetude/assuetude_organisme_ressource.pt"
+          template="templates/assuetude/assuetude_ressource_listing_by_type.pt"
+          permission="zope.Public"
+          class=".ManageClpsbw.ManageClpsbw"
+          allowed_interface=".interfaces.IManageClpsbw"
+          />
+    <browser:page
+          name="assuetude-ressource-liste-des-types-institutions"
+          for="*"
+          template="templates/assuetude/assuetude_ressource_listing_institution.pt"
           permission="zope.Public"
           class=".ManageClpsbw.ManageClpsbw"
           allowed_interface=".interfaces.IManageClpsbw"
