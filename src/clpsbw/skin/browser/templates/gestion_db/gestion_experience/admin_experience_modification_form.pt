@@ -23,7 +23,8 @@
                  experiences python:view.getExperienceByPk(experiencePk);
                  experienceMaj python:view.getExperienceMajByPk(experiencePk);
                  allClps python:view.getAllClps();
-                 selectedClpsProprio python:view.getClpsProprioForExperience(experiencePk, 'pk')"
+                 selectedClpsProprio python:view.getClpsProprioForExperience(experiencePk, 'pk');
+                 showDiff nocall: context/@@showDiff"
      tal:condition="python:user.has_role(['Manager'], here)">
 <form action="manageExperience"
       method="post">
@@ -47,6 +48,11 @@
                 <label for="experience_titre">Nom de l'activité ou du projet</label>
                 Quel nom avez-vous donné au projet ?
                 <br />
+                <div class="diff"
+                     tal:define="diff python: showDiff(experience.experience_titre, experienceMaj.experience_maj_titre)"
+                     tal:condition="diff">
+                    <span tal:content="structure diff" />
+                </div>
                 <div class="info-actuelle">
                     <span tal:content="experience/experience_titre" />
                 </div>
@@ -62,6 +68,11 @@
                 <label for="experience_resume">Résumé</label>
                 Pouvez-vous résumer le projet en quelques lignes ?
                 <br />
+                <div class="diff"
+                     tal:define="diff python: showDiff(experience.experience_resume, experienceMaj.experience_maj_resume)"
+                     tal:condition="diff">
+                    <span tal:content="structure diff" />
+                </div>
                 <div class="info-actuelle">
                     <span tal:replace="structure experience/experience_resume" />
                 </div>

@@ -194,6 +194,15 @@
 
 
 <!-- GESTION DB -->
+<!-- versioning -->
+    <browser:page
+          name="showDiff"
+          for="*"
+          permission="zope.Public"
+          class=".versioning.Versioning"
+          attribute="getDiff"
+          />
+
 <!-- experience -->
     <browser:page
           name="experience-inscription-auteur"
