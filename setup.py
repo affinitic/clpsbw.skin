@@ -1,5 +1,4 @@
 from setuptools import setup, find_packages
-import os
 
 version = '1.0'
 
@@ -46,7 +45,9 @@ setup(name='clpsbw.skin',
           'simplejson',
           'plone.resource',
           'lxml',
-          'reportlab',],
+          'reportlab',
+          'BeautifulSoup',
+          'ghdiff'],
       extras_require={'test': ['plone.app.testing']},
       entry_points="""
       # -*- Entry points: -*-
