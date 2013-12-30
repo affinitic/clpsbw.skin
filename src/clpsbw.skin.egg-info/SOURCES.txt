@@ -11,6 +11,7 @@ src/clpsbw.skin.egg-info/requires.txt
 src/clpsbw.skin.egg-info/top_level.txt
 src/clpsbw/skin/__init__.py
 src/clpsbw/skin/interfaces.py
+src/clpsbw/skin/newsextender.py
 src/clpsbw/skin/setuphandlers.py
 src/clpsbw/skin/testing.py
 src/clpsbw/skin/browser/BannerView.py
