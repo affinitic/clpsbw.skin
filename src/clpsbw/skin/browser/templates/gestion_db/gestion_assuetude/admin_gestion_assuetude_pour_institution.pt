@@ -12,9 +12,12 @@
 <body>
 <div metal:fill-slot="main">
 <fieldset>
-<form action="assuetude-for-institution-gerer/manageAssuetudeInterventionForInstitution" method="post">
-    <h1>Encoder une intervention </h1>
-    <fieldset tal:define="interventions python: view.getAllInstitutionAssuetudeIntervention()">
+<form action="insertAssuetudeInterventionForInstitution"
+      method="post">
+    <h1>Gestion des interventions</h1>
+    <div class="formulaire"
+          tal:define="interventions python: view.getAllInstitutionAssuetudeIntervention()">
+        <h2>Liste des interventions</h2>
         <table width="85%"
                    align="center"
                    class="listing">
@@ -55,44 +58,40 @@
                 </tal:boucle>
                 </tbody>
         </table>
-    </fieldset>
-    <fieldset>
-        <ul class="formulaire">
-            <li>
-                <img src="label_flch_rouge.png" /> Intervention
-                <br />
-                <input type="text"
-                       name="assuetude_intervention_nom"
-                       value=""
-                       size="50" />
-            </li>
-            <li>
-                <img src="label_flch_rouge.png" /> Etat
-                <br />
-                <select name="assuetude_intervention_actif"
-                        id="assuetude_intervention_actif">
-                    <option value="True" selected="selected">Activer</option>
-                    <option value="False">Désactiver</option>
-                </select>
-            </li>
-            <li>
-                <img src="label_flch_rouge.png" /> Numéro d'ordre
-                <br />
-                <input type="text"
-                       name="assuetude_intervention_num_ordre"
-                       value=""
-                       size="5" />
-            </li>
-            <hr />
-            <li>
-                <input type="hidden"
-                       name="operation"
-                       value="insert" />
-                <input type="submit"
-                       value="Enregister l'intervention" />
-            </li>
-        </ul>
-    </fieldset>
+    </div>
+    <div class="formulaire">
+        <div class="formulaire-input">
+            <label for="assuetude_intervention_nom">Intervention</label>
+            <input type="text"
+                   name="assuetude_intervention_nom"
+                   id="assuetude_intervention_nom"
+                   value=""
+                   size="50" />
+        </div>
+        <div class="formulaire-input">
+            <label for="assuetude_intervention_actif">Etat</label>
+            <select name="assuetude_intervention_actif"
+                    id="assuetude_intervention_actif">
+                <option value="True" selected="selected">Activer</option>
+                <option value="False">Désactiver</option>
+            </select>
+        </div>
+        <div class="formulaire-input">
+            <label for="assuetude_intervention_num_ordre">Numéro d'ordre</label>
+            <input type="text"
+                   name="assuetude_intervention_num_ordre"
+                   id="assuetude_intervention_num_ordre"
+                   value=""
+                   size="5" />
+        </div>
+        <div class="formulaire-submit">
+            <input type="hidden"
+                   name="operation"
+                   value="insert" />
+            <input type="submit"
+                   value="Enregister l'intervention" />
+        </div>
+    </div>
 </form>
 </fieldset>
 
@@ -101,11 +100,13 @@
 <fieldset>
 <form action="assuetude-for-institution-gerer/manageAssuetudeActiviteProposeeForInstitution"
       method="post">
-    <h1>Encoder une activité proposée </h1>
-    <fieldset tal:define="activites python: view.getAllInstitutionAssuetudeActiviteProposee()">
+    <h1>Gestin des activités proposées</h1>
+    <div class="formulaire"
+          tal:define="activites python: view.getAllInstitutionAssuetudeActiviteProposee()">
+        <h2>Liste des activités proposées</h2>
         <table width="85%"
-                   align="center"
-                   class="listing">
+               align="center"
+               class="listing">
                 <thead>
                     <tr>
                         <th> Activité proposée </th>
@@ -161,66 +162,64 @@
                 </tal:boucle>
                 </tbody>
         </table>
-    </fieldset>
-    <fieldset>
-        <ul class="formulaire">
-            <li>
-                <img src="label_flch_rouge.png" /> Activité proposée
-                <br />
-                <input type="text"
-                       name="assuetude_activite_proposee_nom"
-                       value=""
-                       size="50" />
-            </li>
-            <li>
-                <img src="label_flch_rouge.png" /> Etat
-                <br />
-                <select name="assuetude_activite_proposee_actif">
-                    <option value="True" selected="selected">Activer</option>
-                    <option value="False">Désactiver</option>
-                </select>
-            </li>
-            <li>
-                <img src="label_flch_rouge.png" /> Cible
-                <br />
-                <input type="checkbox"
-                       name="assuetude_activite_proposee_public"
-                       value="True" />
-                &nbsp;&nbsp;
-                Public
-                <br />
-                <input type="checkbox"
-                       name="assuetude_activite_proposee_pro"
-                       value="True" />
-                &nbsp;&nbsp;
-                Professionnel
-            </li>
-            <li>
-                <img src="label_flch_rouge.png" /> Numéro d'ordre
-                <br />
-                <input type="text"
-                       name="assuetude_activite_proposee_num_ordre"
-                       value="0"
-                       size="5" />
-            </li>
-            <hr />
-            <li>
-                <input type="hidden"
-                       name="operation"
-                       value="insert" />
-                <input type="submit"
-                       value="Enregister l'activité" />
-            </li>
-        </ul>
-    </fieldset>
+    </div>
+    <div class="formulaire">
+        <div class="formulaire-input">
+            <label for="assuetude_intervention_num_ordre">Activité proposée</label>
+            <input type="text"
+                   name="assuetude_activite_proposee_nom"
+                   value=""
+                   size="50" />
+        </div>
+        <div class="formulaire-input">
+            <label for="assuetude_intervention_num_ordre">Etat</label>
+            <select name="assuetude_activite_proposee_actif">
+                <option value="True" selected="selected">Activer</option>
+                <option value="False">Désactiver</option>
+            </select>
+        </div>
+        <div class="formulaire-input">
+            <label for="">Cible</label>
+            <input type="checkbox"
+                   name="assuetude_activite_proposee_public"
+                   id="assuetude_activite_proposee_public"
+                   value="True" />
+            &nbsp;&nbsp;
+            Public
+            <input type="checkbox"
+                   name="assuetude_activite_proposee_pro"
+                   id="assuetude_activite_proposee_pro"
+                   value="True" />
+            &nbsp;&nbsp;
+            Professionnel
+        </div>
+        <div class="formulaire-input">
+            <label for="assuetude_activite_proposee_num_ordre">Numéro d'ordre</label>
+            <input type="text"
+                   name="assuetude_activite_proposee_num_ordre"
+                   id="assuetude_activite_proposee_num_ordre"
+                   value="0"
+                   size="5" />
+        </div>
+        <div class="formulaire-submit">
+            <input type="hidden"
+                   name="operation"
+                   value="insert" />
+            <input type="submit"
+                   value="Enregister l'activité" />
+        </div>
+    </div>
 </form>
 </fieldset>
 
 
 <fieldset>
-<form action="assuetude-for-institution-gerer/manageAssuetudeThematiqueForInstitution" method="post">
-    <h1>Encoder une thématique </h1>
-    <fieldset tal:define="thematiques python: view.getAllInstitutionAssuetudeThematique()">
+<form action="assuetude-for-institution-gerer/manageAssuetudeThematiqueForInstitution"
+      method="post">
+    <h1>Gestion des thématiques </h1>
+    <div class="formulaire"
+         tal:define="thematiques python: view.getAllInstitutionAssuetudeThematique()">
+        <h2>Liste des thématiques</h2>
         <table width="85%"
                    align="center"
                    class="listing">
@@ -261,44 +260,40 @@
                 </tal:boucle>
                 </tbody>
         </table>
-    </fieldset>
-    <fieldset>
-        <ul class="formulaire">
-            <li>
-                <img src="label_flch_rouge.png" /> Thématique
-                <br />
-                <input type="text"
-                       name="assuetude_thematique_nom"
-                       value=""
-                       size="50" />
-            </li>
-            <li>
-                <img src="label_flch_rouge.png" /> Etat
-                <br />
-                <select name="assuetude_thematique_actif"
-                        id="assuetude_thematique_actif">
-                    <option value="True" selected="selected">Activer</option>
-                    <option value="False">Désactiver</option>
-                </select>
-            </li>
-            <li>
-                <img src="label_flch_rouge.png" /> Numéro d'ordre
-                <br />
-                <input type="text"
-                       name="assuetude_thematique_num_ordre"
-                       value=""
-                       size="5" />
-            </li>
-            <hr />
-            <li>
-                <input type="hidden"
-                       name="operation"
-                       value="insert" />
-                <input type="submit"
-                       value="Enregister la thématique" />
-            </li>
-        </ul>
-    </fieldset>
+    </div>
+    <div class="formulaire">
+        <div class="formulaire-input">
+            <label for="assuetude_thematique_nom">Thématique</label>
+            <input type="text"
+                   name="assuetude_thematique_nom"
+                   id="assuetude_thematique_nom"
+                   value=""
+                   size="50" />
+        </div>
+        <div class="formulaire-input">
+            <label for="assuetude_thematique_actif">Etat</label>
+            <select name="assuetude_thematique_actif"
+                    id="assuetude_thematique_actif">
+                <option value="True" selected="selected">Activer</option>
+                <option value="False">Désactiver</option>
+            </select>
+        </div>
+        <div class="formulaire-input">
+            <label for="assuetude_thematique_num_ordre">Numéro d'ordre</label>
+            <input type="text"
+                   name="assuetude_thematique_num_ordre"
+                   id="assuetude_thematique_num_ordre"
+                   value=""
+                   size="5" />
+        </div>
+        <div class="formulaire-submit">
+            <input type="hidden"
+                   name="operation"
+                   value="insert" />
+            <input type="submit"
+                   value="Enregister la thématique" />
+        </div>
+    </div>
 </form>
 </fieldset>
 </div><!-- div metal-->
