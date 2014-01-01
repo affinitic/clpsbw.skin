@@ -265,7 +265,7 @@
                 </dt>
                 <dd class="discreet">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(pour les institutions)</dd>
                 <dd class="portletItemDB">
-                    <a href="" tal:attributes="href string:${context/portal_url}/assuetude-for-institution-gerer">
+                    <a href="" tal:attributes="href string:${context/portal_url}/gestion-des-assuetudes-pour-institution">
                         Gestion des assuétudes pour institutions
                     </a>
                 </dd>

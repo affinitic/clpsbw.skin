@@ -677,31 +677,41 @@
           allowed_interface=".interfaces.IManageClpsbw"
           />
 
-<!-- assuetude for institution-->
+<!-- assuetude pour institution-->
     <browser:page
-          name="assuetude-for-institution-gerer"
+          name="gestion-des-assuetudes-pour-institution"
           for="*"
-          template="templates/assuetude/assuetude_for_institution_gestion.pt"
+          template="templates/gestion_db/gestion_assuetude/admin_gestion_assuetude_pour_institution.pt"
           permission="zope.Public"
           class=".ManageClpsbw.ManageClpsbw"
           allowed_interface=".interfaces.IManageClpsbw"
           />
     <browser:page
-          name="assuetude-intervention-modifier"
+          name="modifier-assuetude-intervention-pour-institution"
           for="*"
-          template="templates/assuetude/assuetude_intervention_for_institution_modification_form.pt"
+          template="templates/gestion_db/gestion_assuetude/admin_modifier_assuetude_intervention_pour_institution.pt"
           permission="zope.Public"
           class=".ManageClpsbw.ManageClpsbw"
           allowed_interface=".interfaces.IManageClpsbw"
           />
     <browser:page
-          name="assuetude-activite-proposee-modifier"
+          name="modifier-assuetude-activite-proposee-pour-institution"
           for="*"
-          template="templates/assuetude/assuetude_activite_proposee_for_institution_modification_form.pt"
+          template="templates/gestion_db/gestion_assuetude/admin_modifier_assuetude_activite_proposee_pour_institution.pt"
           permission="zope.Public"
           class=".ManageClpsbw.ManageClpsbw"
           allowed_interface=".interfaces.IManageClpsbw"
           />
+    <browser:page
+        name="insertAssuetudeInterventionForInstitution"
+        for="*"
+        class=".ManageClpsbw.ManageClpsbw"
+        permission="zope.Public"
+        attribute="insertAssuetudeInterventionForInstitution"
+        allowed_interface=".interfaces.IManageClpsbw"
+        />
+          
+<!-- assuetude pour thematique -->
     <browser:page
           name="assuetude-thematique-modifier"
           for="*"
@@ -710,6 +720,8 @@
           class=".ManageClpsbw.ManageClpsbw"
           allowed_interface=".interfaces.IManageClpsbw"
           />
+
+<!-- assuetude pour ressource -->
     <browser:page
           name="assuetude-ressource-type-institution"
           for="*"

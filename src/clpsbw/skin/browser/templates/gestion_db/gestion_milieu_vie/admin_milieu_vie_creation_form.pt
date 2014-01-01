@@ -11,10 +11,11 @@
 
 <body>
 <div metal:fill-slot="main">
-<form action="milieu-de-vie-inserer" method="post">
+<form action="milieu-de-vie-inserer"
+      method="post">
     <br />
     
-    <h1>:: Gestion des milieux de vie ::</h1>
+    <h1>Gestion des milieux de vie</h1>
     <div class="formulaire"
          tal:define="milieudevies python: view.getAllMilieuDeVie()">
         <h2>Liste des milieux de vie</h2>
@@ -55,7 +56,7 @@
     </div>
     
     <div class="formulaire">
-        <h2 class="formulaire-titre">Ajouter un milieu de vie</h2>
+        <h2>Ajouter un milieu de vie</h2>
         <div class="formulaire-input">
             <label for="milieudevie_nom">Milieu de vie</label>
             <input type="text"

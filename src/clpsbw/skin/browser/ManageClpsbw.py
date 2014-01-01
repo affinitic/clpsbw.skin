@@ -69,6 +69,7 @@ from clpsbw.db.pgsql.baseTypes import \
                         LinkInstitutionClpsProprio, \
                         ExperienceMaj, \
                         RechercheLog
+                        #AssuetudeInterventionForInstitution
                         #AssuetudeActiviteProposeeForInstitution, \
                         #AssuetudeThematiqueForInstitution, \
                         #RechercheLog
@@ -3296,7 +3297,7 @@ class ManageClpsbw(BrowserView):
         session.flush()
         return {'status': 1}
 
-    def addAssuetudeInterventionForInstitution(self):
+    def insertAssuetudeInterventionForInstitution(self):
         """
         table pg assuetude_intervention_for_institution
         ajout d'un item assuetude de type intervention pour une institution
@@ -3311,18 +3312,24 @@ class ManageClpsbw(BrowserView):
 
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        newEntry = AssuetudeIntervention(assuetude_intervention_nom = assuetude_intervention_nom, \
-                                               assuetude_intervention_actif = assuetude_intervention_actif, \
-                                               assuetude_intervention_num_ordre = assuetude_intervention_num_ordre, \
-                                               assuetude_intervention_creation_date = assuetude_intervention_creation_date, \
-                                               assuetude_intervention_modification_date = assuetude_intervention_modification_date, \
-                                               assuetude_intervention_modification_employe = assuetude_intervention_modification_employe)
+        newEntry = InstitutionAssuetudeIntervention(assuetude_intervention_nom = assuetude_intervention_nom, \
+                                                    assuetude_intervention_actif = assuetude_intervention_actif, \
+                                                    assuetude_intervention_num_ordre = assuetude_intervention_num_ordre, \
+                                                    assuetude_intervention_creation_date = assuetude_intervention_creation_date, \
+                                                    assuetude_intervention_modification_date = assuetude_intervention_modification_date, \
+                                                    assuetude_intervention_modification_employe = assuetude_intervention_modification_employe)
         session.add(newEntry)
         session.flush()
-        cible = "%s/assuetude-for-institution-gerer" % (self.context.portal_url(), )
-        self.context.REQUEST.RESPONSE.redirect(cible)
-
-    def addAssuetudeActiviteProposeeForInstitution(self):
+        
+        portalUrl = getToolByName(self.context, 'portal_url')()
+        ploneUtils = getToolByName(self.context, 'plone_utils')
+        message = u"Vos informations ont été enregistrées !"
+        ploneUtils.addPortalMessage(message, 'info')
+        url = "%s/gestion-des-assuetudes-pour-institution" % (portalUrl)
+        self.request.response.redirect(url)
+        return ''
+        
+    def insertAssuetudeActiviteProposeeForInstitution(self):
         """
         table pg assuetude_activite_proposee_for_institution
         ajout d'un item assuetude de type activite proposee pour une institution
@@ -3352,7 +3359,7 @@ class ManageClpsbw(BrowserView):
         cible = "%s/assuetude-for-institution-gerer" % (self.context.portal_url(), )
         self.context.REQUEST.RESPONSE.redirect(cible)
 
-    def addAssuetudeThematiqueForInstitution(self):
+    def insertAssuetudeThematiqueForInstitution(self):
         """
         table pg public.assuetude_thematique_for_institution
         ajout d'un item assuetude de type thematique pour une institution
@@ -4762,7 +4769,7 @@ class ManageClpsbw(BrowserView):
         operation = getattr(fields, 'operation')
 
         if operation == "insert":
-            self.addAssuetudeInterventionForInstitution()
+            self.insertAssuetudeInterventionForInstitution()
             return {'status': 1}
 
         if operation == "update":
