@@ -28,6 +28,7 @@ src/clpsbw/skin/browser/searchexperience.py
 src/clpsbw/skin/browser/searchinstitution.py
 src/clpsbw/skin/browser/searchressource.py
 src/clpsbw/skin/browser/searchthesaurus.py
+src/clpsbw/skin/browser/versioning.py
 src/clpsbw/skin/browser/viewlets.py
 src/clpsbw/skin/portlets/__init__.py
 src/clpsbw/skin/portlets/agendaPlateForme.py
