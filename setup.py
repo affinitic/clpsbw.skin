@@ -47,7 +47,8 @@ setup(name='clpsbw.skin',
           'lxml',
           'reportlab',
           'BeautifulSoup',
-          'ghdiff'],
+          'ghdiff',
+          'affinitic.imageuploader'],
       extras_require={'test': ['plone.app.testing']},
       entry_points="""
       # -*- Entry points: -*-
