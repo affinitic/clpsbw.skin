@@ -66,9 +66,9 @@ from clpsbw.db.pgsql.baseTypes import \
                         LinkAssuetudeInterventionForInstitution, \
                         AssuetudeActiviteProposeeForInstitution, \
                         LinkAssuetudeActiviteProposeeForInstitutionPublic, \
+                        LinkAssuetudeActiviteProposeeForInstitutionPro, \
                         AssuetudeThemeForInstitution, \
                         LinkAssuetudeThemeForInstitution, \
-                        LinkAssuetudeActiviteProposeeForInstitutionPro, \
                         RechercheLog
                         #InstitutionAssuetudeIntervention, \
                         #InstitutionAssuetudeActiviteProposee, \
@@ -2505,34 +2505,34 @@ class ManageClpsbw(BrowserView):
 
 ### assuetude for institution ###
 
-    def getAllInstitutionAssuetudeIntervention(self):
+    def getAllAssuetudeInterventionForInstitution(self):
         """
         table pg assuetude_intervention_for_institution
         recuperation de toutes les assuetudes intervention
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        query = session.query(InstitutionAssuetudeIntervention)
-        query = query.order_by(InstitutionAssuetudeIntervention.assuetude_intervention_num_ordre)
-        allInstitutionAssuetudeIntervention = query.all()
-        return allInstitutionAssuetudeIntervention
+        query = session.query(AssuetudeInterventionForInstitution)
+        query = query.order_by(AssuetudeInterventionForInstitution.assuetude_intervention_num_ordre)
+        allAssuetudeInterventionForInstitution = query.all()
+        return allAssuetudeInterventionForInstitution
 
-    def getAllInstitutionAssuetudeActiviteProposee(self, cible=None):
+    def getAllAssuetudeActiviteProposeeForInstitution(self, cible=None):
         """
         table pg assuetude_activite_proposee_for_institution
         recuperation de toutes les assuetudes activite proposee
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        query = session.query(InstitutionAssuetudeActiviteProposee)
+        query = session.query(AssuetudeActiviteProposeeForInstitution)
         if cible:
             if cible == 'public':
-                query = query.filter(InstitutionAssuetudeActiviteProposee.assuetude_activite_proposee_public == True)
+                query = query.filter(AssuetudeActiviteProposeeForInstitution.assuetude_activite_proposee_public == True)
             if cible == 'pro':
-                query = query.filter(InstitutionAssuetudeActiviteProposee.assuetude_activite_proposee_pro == True)
-        query = query.order_by(InstitutionAssuetudeActiviteProposee.assuetude_activite_proposee_num_ordre)
-        allInstitutionAssuetudeActiviteProposee = query.all()
-        return allInstitutionAssuetudeActiviteProposee
+                query = query.filter(AssuetudeActiviteProposeeForInstitution.assuetude_activite_proposee_pro == True)
+        query = query.order_by(AssuetudeActiviteProposeeForInstitution.assuetude_activite_proposee_num_ordre)
+        allAssuetudeActiviteProposeeForInstitution = query.all()
+        return allAssuetudeActiviteProposeeForInstitution
 
     def getAllAssuetudeThemeForInstitution(self):
         """
@@ -2546,7 +2546,7 @@ class ManageClpsbw(BrowserView):
         allAssuetudeThemeForInstitution = query.all()
         return allAssuetudeThemeForInstitution
 
-    def getInstitutionAssuetudeInterventionByPk(self, assuetudePk):
+    def getAssuetudeInterventionForInstitutionByPk(self, assuetudePk):
         """
         table pg assuetude_intervention_for_institution
         recuperation d'une assuetudes intervention selon sa pk
@@ -2555,20 +2555,20 @@ class ManageClpsbw(BrowserView):
         session = wrapper.session
         query = session.query(AssuetudeThemeForInstitution)
         query = query.filter(AssuetudeThemeForInstitution.assuetude_intervention_pk == assuetudePk)
-        institutionAssuetudeIntervention = query.one()
-        return institutionAssuetudeIntervention
+        AssuetudeInterventionForInstitution = query.one()
+        return AssuetudeInterventionForInstitution
 
-    def getInstitutionAssuetudeActiviteProposeeByPk(self, assuetudePk):
+    def getAssuetudeActiviteProposeeForInstitutionByPk(self, assuetudePk):
         """
         table pg assuetude_activite_proposee_for_institution
         recuperation d'une assuetude activite proposee selon sa pk
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        query = session.query(InstitutionAssuetudeActiviteProposee)
-        query = query.filter(InstitutionAssuetudeActiviteProposee.assuetude_activite_proposee_pk == assuetudePk)
-        institutionAssuetudeActiviteProposee = query.one()
-        return institutionAssuetudeActiviteProposee
+        query = session.query(AssuetudeActiviteProposeeForInstitution)
+        query = query.filter(AssuetudeActiviteProposeeForInstitution.assuetude_activite_proposee_pk == assuetudePk)
+        AssuetudeActiviteProposeeForInstitution = query.one()
+        return AssuetudeActiviteProposeeForInstitution
 
     def getAssuetudeThemeForInstitutionByPk(self, assuetudePk):
         """
@@ -2594,7 +2594,7 @@ class ManageClpsbw(BrowserView):
         interventions = query.all()
 
         interventionListe = []
-        assuetudeInterventions = self.getAllInstitutionAssuetudeIntervention()
+        assuetudeInterventions = self.getAllAssuetudeInterventionForInstitution()
         for ass in assuetudeInterventions:
             for inte in interventions:
                 if inte.assuetude_intervention_fk == ass.assuetude_intervention_pk:
@@ -2616,7 +2616,7 @@ class ManageClpsbw(BrowserView):
         activites = query.all()
 
         activitePublicListe = []
-        assuetudeActivitesProposees = self.getAllInstitutionAssuetudeActiviteProposee()
+        assuetudeActivitesProposees = self.getAllAssuetudeActiviteProposeeForInstitution()
         for ass in assuetudeActivitesProposees:
             for act in activites:
                 if act.assuetude_activite_proposee_public_fk == ass.assuetude_activite_proposee_pk:
@@ -2638,7 +2638,7 @@ class ManageClpsbw(BrowserView):
         activites = query.all()
 
         activiteProListe = []
-        assuetudeActivitesProposees = self.getAllInstitutionAssuetudeActiviteProposee()
+        assuetudeActivitesProposees = self.getAllAssuetudeActiviteProposeeForInstitution()
         for ass in assuetudeActivitesProposees:
             for act in activites:
                 if act.assuetude_activite_proposee_pro_fk == ass.assuetude_activite_proposee_pk:
@@ -3383,17 +3383,24 @@ class ManageClpsbw(BrowserView):
 
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        newEntry = AssuetudeIntervention(assuetude_thematique_nom = assuetude_thematique_nom, \
-                                               assuetude_thematique_actif = assuetude_thematique_actif, \
-                                               assuetude_thematique_num_ordre = assuetude_thematique_num_ordre,\
-                                               assuetude_thematique_creation_date = assuetude_thematique_creation_date, \
-                                               assuetude_thematique_modification_date = assuetude_thematique_modification_date, \
-                                               assuetude_thematique_modification_employe = assuetude_thematique_modification_employe)
+        newEntry = AssuetudeThemeForInstitution(assuetude_thematique_nom = assuetude_thematique_nom, \
+                                                assuetude_thematique_actif = assuetude_thematique_actif, \
+                                                assuetude_thematique_num_ordre = assuetude_thematique_num_ordre,\
+                                                assuetude_thematique_creation_date = assuetude_thematique_creation_date, \
+                                                assuetude_thematique_modification_date = assuetude_thematique_modification_date, \
+                                                assuetude_thematique_modification_employe = assuetude_thematique_modification_employe)
         session.add(newEntry)
         session.flush()
-        cible = "%s/assuetude-for-institution-gerer" % (self.context.portal_url(), )
-        self.context.REQUEST.RESPONSE.redirect(cible)
-
+        
+        portalUrl = getToolByName(self.context, 'portal_url')()
+        ploneUtils = getToolByName(self.context, 'plone_utils')
+        message = u"Vos informations ont été enregistrées !"
+        ploneUtils.addPortalMessage(message, 'info')
+        url = "%s/gestion-des-assuetudes-pour-institution" % (portalUrl)
+        self.request.response.redirect(url)
+        return ''
+        
+        
     def addLinkAssuetudeInterventionForInstitution(self, institutionFk):
         """
         table pg link_institution_assuetude_intervention
@@ -5023,7 +5030,6 @@ class ManageClpsbw(BrowserView):
 
         if operation == "insert":
             ressourceFk = self.insertRessource()
-            #ressourceFk = self.getRessourceMaxPk()
             if ressourcePublicFk > 0:
                 self.addLinkRessourcePublic(ressourceFk)
             if ressourceSupportFk > 0:

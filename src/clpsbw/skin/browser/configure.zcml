@@ -726,6 +726,14 @@
         attribute="insertAssuetudeActiviteProposeeForInstitution"
         allowed_interface=".interfaces.IManageClpsbw"
         />
+    <browser:page
+        name="insertAssuetudeThemeForInstitution"
+        for="*"
+        class=".ManageClpsbw.ManageClpsbw"
+        permission="zope.Public"
+        attribute="insertAssuetudeThemeForInstitution"
+        allowed_interface=".interfaces.IManageClpsbw"
+        />
           
 <!-- assuetude pour thematique -->
     <browser:page

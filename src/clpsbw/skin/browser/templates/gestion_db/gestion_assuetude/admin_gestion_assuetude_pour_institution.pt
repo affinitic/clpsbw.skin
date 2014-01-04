@@ -16,7 +16,7 @@
       method="post">
     <h1>Gestion des interventions</h1>
     <div class="formulaire"
-          tal:define="interventions python: view.getAllInstitutionAssuetudeIntervention()">
+          tal:define="interventions python: view.getAllAssuetudeInterventionForInstitution()">
         <h2>Liste des interventions</h2>
         <table width="85%"
                    align="center"
@@ -102,7 +102,7 @@
       method="post">
     <h1>Gestin des activités proposées</h1>
     <div class="formulaire"
-          tal:define="activites python: view.getAllInstitutionAssuetudeActiviteProposee()">
+          tal:define="activites python: view.getAllAssuetudeActiviteProposeeForInstitution()">
         <h2>Liste des activités proposées</h2>
         <table width="85%"
                align="center"
@@ -213,7 +213,7 @@
 
 
 <fieldset>
-<form action="assuetude-for-institution-gerer/manageAssuetudeThemeForInstitution"
+<form action="insertAssuetudeThemeForInstitution"
       method="post">
     <h1>Gestion des thématiques </h1>
     <div class="formulaire"
