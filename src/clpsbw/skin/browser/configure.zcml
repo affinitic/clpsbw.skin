@@ -514,6 +514,14 @@
           class=".ManageClpsbw.ManageClpsbw"
           allowed_interface=".interfaces.IManageClpsbw"
           />
+    <browser:page
+        name="manageRessource"
+        for="*"
+        class=".ManageClpsbw.ManageClpsbw"
+        permission="zope.Public"
+        attribute="manageRessource"
+        allowed_interface=".interfaces.IManageClpsbw"
+        />
 <!-- user ressource -->
     <browser:page
           name="decrire-une-ressource"
@@ -708,6 +716,14 @@
         class=".ManageClpsbw.ManageClpsbw"
         permission="zope.Public"
         attribute="insertAssuetudeInterventionForInstitution"
+        allowed_interface=".interfaces.IManageClpsbw"
+        />
+    <browser:page
+        name="insertAssuetudeActiviteProposeeForInstitution"
+        for="*"
+        class=".ManageClpsbw.ManageClpsbw"
+        permission="zope.Public"
+        attribute="insertAssuetudeActiviteProposeeForInstitution"
         allowed_interface=".interfaces.IManageClpsbw"
         />
           

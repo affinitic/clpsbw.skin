@@ -20,7 +20,7 @@
                  allActivitesPro python:view.getAllInstitutionAssuetudeActiviteProposee('pro');
                  selectedActivitesProposeesPub python:view.getAssuetudeActiviteProposeePublicForInstituion(institutionPk, 'pk');
                  selectedActivitesProposeesPro python:view.getAssuetudeActiviteProposeeProForInstituion(institutionPk, 'pk');
-                 allThematiques view/getAllInstitutionAssuetudeThematique;
+                 allThematiques view/getAllAssuetudeThemeForInstitution;
                  selectedThematiques python:view.getAssuetudeThematiqueForInstituion(institutionPk, 'pk');
                  auteurs python:view.getAllActiveAuteur();
                  typeInstitutions python:view.getAllActiveInstitutionType();

@@ -36,7 +36,7 @@
             <div id="info-champs">
             </div>
             <br />
-            <form action="decrire-une-ressource"
+            <form action="admin-decrire-une-ressource"
                   method="post">
                 <input type="text"
                        id="ressource_titre"
@@ -52,7 +52,7 @@
 
         <fieldset  class="search-zone-nom">
             <legend class="search-legend-titre"> A partir de la PK de la ressouce </legend>
-            <form action="decrire-une-ressource"
+            <form action="admin-decrire-une-ressource"
                   method="post">
                 Pk de la ressource<br />
                 <input type="text"
@@ -70,7 +70,7 @@
 
         <fieldset  class="search-zone-nom">
             <legend class="search-legend-titre"> Toutes les ressources de la DB </legend>
-            <form action="decrire-une-ressource"
+            <form action="admin-decrire-une-ressource"
                   method="post">
                 Ci-dessous, la liste des différentes institution encodées dans la base.
                 <select name="ressourcePk">

@@ -279,7 +279,7 @@ class IManageClpsbw(Interface):
         gestion des assuetude activite proposee pour institution
         """
 
-    def manageAssuetudeThematiqueForInstitution():
+    def manageAssuetudeThemeForInstitution():
         """
         gestion des assuetude thematique pour institution
         """

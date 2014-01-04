@@ -39,7 +39,7 @@
                 <div id="main-ressource">
                     <div id="alerte"
                          tal:condition="python: ressource.ressource_etat=='pending'">
-                        <img src="alerte.png" /> Cette ressource en en cours de validation
+                        <img src="alerte.png" /> Cette ressource est en cours de validation
                     </div>
 
                     <div id="titre-ressource">
@@ -61,6 +61,10 @@
                                 <span tal:content="ressource/ressource_autre_info"
                                       class="rubrique-db" />
                             </p>
+                        </div>
+                        <div>
+                            <img src=""
+                                tal:attributes="src string:${context/@@plone_portal_state/portal_url}/local_fs_ressource/${ressourcePk}.png" />
                         </div>
 
                         <div class="left-section-description puzzle-jaune"
@@ -231,111 +235,99 @@
                     <span tal:content="ressource/ressource_pk" />
                 </div>
 
-                <fieldset>
-                    <legend class="legende"> Lien pour la newsletter</legend>
+                <div class="formulaire">
+                    <h2> Lien pour la newsletter</h2>
+                    <img src="label_flch_rouge.png" />
                     <span tal:content="string:${context/portal_url}/decrire-une-ressource?ressourcePk=${ressource/ressource_pk}" />
-                </fieldset>
+                </div>
 
-                <fieldset>
-                    <legend class="legende"> Etat </legend>
+                <div class="formulaire">
+                    <h2> Etat </h2>
+                    <img src="label_flch_rouge.png" />
                     <span tal:condition="python:ressource.ressource_etat=='private'">
                         <span class="grasrouge">Privé</span>
                     </span>
                     <span tal:condition="python:ressource.ressource_etat=='publish'">
                         <span class="grasvert">Publié</span>
                     </span>
-                </fieldset>
+                </div>
 
-                <fieldset>
-                    <legend>Thème</legend>
+                <div class="formulaire">
+                    <h2>Thème</h2>
                     <tal:block tal:define="themes python:view.getThemeNomByRessourcePk(ressource.ressource_pk)">
                         <tal:boucle tal:repeat="theme themes">
+                            <img src="label_flch_rouge.png" />
                             <span tal:content="theme"
                                   class="rubrique-db">theme</span><br />
                         </tal:boucle>
                     </tal:block>
-                </fieldset>
-                <fieldset>
-                    <legend>Plate-forme</legend>
-                    <ul class="formulaire">
-                        <li>
-                            <img src="label_flch_rouge.png" />
-                            <input type="checkbox"
-                                   name="ressource_plate_forme_sante_ecole"
-                                   value="True"
-                                   tal:attributes="checked python:ressource.ressource_plate_forme_sante_ecole and 'checked' or None;" />
-                            &nbsp;&nbsp;Santé à l'école
-                        </li>
-                        <li>
-                            <img src="label_flch_rouge.png" />
-                            <input type="checkbox"
-                                   name="ressource_plate_forme_assuetude"
-                                   value="True"
-                                   tal:attributes="checked python:ressource.ressource_plate_forme_assuetude and 'checked' or None;" />
-                            &nbsp;&nbsp;Point d'appui assuétudes
-                        </li>
-                        <li>
-                            <img src="label_flch_rouge.png" />
-                            <input type="checkbox"
-                                   name="ressource_plate_forme_sante_famille"
-                                   value="True"
-                                   tal:attributes="checked python:ressource.ressource_plate_forme_sante_famille and 'checked' or None;" />
-                            &nbsp;&nbsp;Santé des familles
-                        </li>
-                        <li>
-                            <img src="label_flch_rouge.png" />
-                            <input type="checkbox"
-                                   name="ressource_plate_forme_sante_environnement"
-                                   value="True"
-                                   tal:attributes="checked python:ressource.ressource_plate_forme_sante_environnement and 'checked' or None;" />
-                            &nbsp;&nbsp;Santé - environnement
-                        </li>
-                    </ul>
-                </fieldset>
-
-                <fieldset>
-                    <legend>Mission</legend>
-                    <ul class="formulaire">
-                        <li>
-                            <img src="label_flch_rouge.png" />
-                            <input type="checkbox"
-                                   name="ressource_mission_centre_documentation"
-                                   value="True"
-                                   tal:attributes="checked python:ressource.ressource_mission_centre_documentation and 'checked' or None;" />
-                            &nbsp;&nbsp;Centre documentation
-                        </li>
-                        <li>
-                            <img src="label_flch_rouge.png" />
-                            <input type="checkbox"
-                                   name="ressource_mission_accompagnement_projet"
-                                   value="True"
-                                   tal:attributes="checked python:ressource.ressource_mission_accompagnement_projet and 'checked' or None;" />
-                            &nbsp;&nbsp;Accompagnement de projet
-                        </li>
-                        <li>
-                            <img src="label_flch_rouge.png" />
-                            <input type="checkbox"
-                                   name="ressource_mission_reseau_echange"
-                                   value="True"
-                                   tal:attributes="checked python:ressource.ressource_mission_reseau_echange and 'checked' or None;" />
-                            &nbsp;&nbsp;Mise en réseau, échanges
-                        </li>
-                        <li>
-                            <img src="label_flch_rouge.png" />
-                            <input type="checkbox"
-                                   name="ressource_mission_formation"
-                                   value="True"
-                                   tal:attributes="checked python:ressource.ressource_mission_formation and 'checked' or None;" />
-                             &nbsp;&nbsp;Formation
-                        </li>
-                    </ul>
-                </fieldset>
-                <fieldset>
-                    <legend>Propriétaire</legend>
-                    <ul class="formulaire">
-                        <tal:boucle tal:repeat="clps allClps">
-                            <li>
-                              <img src="label_flch_rouge.png" />
+                </div>
+                <div class="formulaire">
+                    <h2>Plate-forme</h2>
+                    <div class="formulaire-input">
+                        <input type="checkbox"
+                               name="ressource_plate_forme_sante_ecole"
+                               value="True"
+                               tal:attributes="checked python:ressource.ressource_plate_forme_sante_ecole and 'checked' or None;" />
+                        &nbsp;&nbsp;Santé à l'école
+                    </div>
+                    <div class="formulaire-input">
+                        <input type="checkbox"
+                               name="ressource_plate_forme_assuetude"
+                               value="True"
+                               tal:attributes="checked python:ressource.ressource_plate_forme_assuetude and 'checked' or None;" />
+                        &nbsp;&nbsp;Point d'appui assuétudes
+                    </div>
+                    <div class="formulaire-input">
+                        <input type="checkbox"
+                               name="ressource_plate_forme_sante_famille"
+                               value="True"
+                               tal:attributes="checked python:ressource.ressource_plate_forme_sante_famille and 'checked' or None;" />
+                        &nbsp;&nbsp;Santé des familles
+                    </div>
+                    <div class="formulaire-input">
+                        <input type="checkbox"
+                               name="ressource_plate_forme_sante_environnement"
+                               value="True"
+                               tal:attributes="checked python:ressource.ressource_plate_forme_sante_environnement and 'checked' or None;" />
+                        &nbsp;&nbsp;Santé - environnement
+                    </div>
+                </div>
+                <div class="formulaire">
+                    <h2>Mission</h2>
+                    <div class="formulaire-input">
+                        <input type="checkbox"
+                               name="ressource_mission_centre_documentation"
+                               value="True"
+                               tal:attributes="checked python:ressource.ressource_mission_centre_documentation and 'checked' or None;" />
+                        &nbsp;&nbsp;Centre documentation
+                    </div>
+                    <div class="formulaire-input">
+                        <input type="checkbox"
+                               name="ressource_mission_accompagnement_projet"
+                               value="True"
+                               tal:attributes="checked python:ressource.ressource_mission_accompagnement_projet and 'checked' or None;" />
+                        &nbsp;&nbsp;Accompagnement de projet
+                    </div>
+                    <div class="formulaire-input">
+                        <input type="checkbox"
+                               name="ressource_mission_reseau_echange"
+                               value="True"
+                               tal:attributes="checked python:ressource.ressource_mission_reseau_echange and 'checked' or None;" />
+                        &nbsp;&nbsp;Mise en réseau, échanges
+                    </div>
+                    <div class="formulaire-input">
+                        <input type="checkbox"
+                               name="ressource_mission_formation"
+                               value="True"
+                               tal:attributes="checked python:ressource.ressource_mission_formation and 'checked' or None;" />
+                         &nbsp;&nbsp;Formation
+                    </div>
+                </div>
+                <div class="formulaire">
+                    <h2>Propriétaire</h2>
+                    <tal:boucle tal:repeat="clps allClps">
+                        <div class="formulaire-input">
                               <input type="checkbox"
                                  name="ressource_clps_fk:list"
                                  checked=""
@@ -344,11 +336,10 @@
                                                  checked python:clps.clps_pk in selectedClpsProprio and 'selected' or None;" />
                               &nbsp;&nbsp;
                               <span tal:content="clps/clps_nom" />
-                            </li>
-                        </tal:boucle>
-                    </ul>
-                </fieldset>
-
+                        </div>
+                    </tal:boucle>
+                </div>
+                
             </div>
             <hr />
         </tal:block>

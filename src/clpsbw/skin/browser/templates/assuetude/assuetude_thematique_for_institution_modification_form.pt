@@ -12,13 +12,13 @@
 <body>
 <div metal:fill-slot="main"
      tal:define="assuetudePk request/assuetudePk;
-                 assuetudeThematique python:view.getInstitutionAssuetudeThematiqueByPk(assuetudePk)">
+                 assuetudeThematique python:view.getAssuetudeThemeForInstitutionByPk(assuetudePk)">
     <br />
     
     <h1>Gestion des assuétudes</h1>
     <fieldset>
         <legend class="legende">Modifier une assuétude de type thématique</legend>
-        <form action="assuetude-thematique-modifier/manageAssuetudeThematiqueForInstitution" method="post">
+        <form action="assuetude-thematique-modifier/manageAssuetudeThemeForInstitution" method="post">
             <div class="input-fields">
                 <img src="label_flch_rouge.png" /> Intervention
                 <br />

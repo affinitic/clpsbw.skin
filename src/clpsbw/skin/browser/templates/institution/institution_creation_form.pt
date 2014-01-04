@@ -377,7 +377,7 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;
                         Y a-t-il une thématique que vous aborder plus particulièrement ?
                         <br />
-                        <tal:block tal:define="thematiques view/getAllInstitutionAssuetudeThematique">
+                        <tal:block tal:define="thematiques view/getAllAssuetudeThemeForInstitution">
                             <tal:boucle tal:repeat="thematique thematiques">
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <input type="checkbox"

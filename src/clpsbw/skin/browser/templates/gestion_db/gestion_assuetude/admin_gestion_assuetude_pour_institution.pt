@@ -98,7 +98,7 @@
 
 
 <fieldset>
-<form action="assuetude-for-institution-gerer/manageAssuetudeActiviteProposeeForInstitution"
+<form action="insertAssuetudeActiviteProposeeForInstitution"
       method="post">
     <h1>Gestin des activités proposées</h1>
     <div class="formulaire"
@@ -184,13 +184,12 @@
                    name="assuetude_activite_proposee_public"
                    id="assuetude_activite_proposee_public"
                    value="True" />
-            &nbsp;&nbsp;
             Public
+            <br />
             <input type="checkbox"
                    name="assuetude_activite_proposee_pro"
                    id="assuetude_activite_proposee_pro"
                    value="True" />
-            &nbsp;&nbsp;
             Professionnel
         </div>
         <div class="formulaire-input">
@@ -214,11 +213,11 @@
 
 
 <fieldset>
-<form action="assuetude-for-institution-gerer/manageAssuetudeThematiqueForInstitution"
+<form action="assuetude-for-institution-gerer/manageAssuetudeThemeForInstitution"
       method="post">
     <h1>Gestion des thématiques </h1>
     <div class="formulaire"
-         tal:define="thematiques python: view.getAllInstitutionAssuetudeThematique()">
+         tal:define="thematiques python: view.getAllAssuetudeThemeForInstitution()">
         <h2>Liste des thématiques</h2>
         <table width="85%"
                    align="center"

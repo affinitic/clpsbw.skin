@@ -394,7 +394,7 @@
                                 &nbsp;&nbsp;&nbsp;&nbsp;
                                 Y a-t-il une thématique que vous aborder plus particulièrement ?
                                 <br />
-                                <tal:block tal:define="allThematiques view/getAllInstitutionAssuetudeThematique;
+                                <tal:block tal:define="allThematiques view/getAllAssuetudeThemeForInstitution;
                                                        selectedThematiques python:view.getAssuetudeThematiqueForInstituion(institutionPk, 'pk')">
                                     <tal:boucle tal:repeat="thematique allThematiques">
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

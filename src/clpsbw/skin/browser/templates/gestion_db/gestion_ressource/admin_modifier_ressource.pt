@@ -20,273 +20,281 @@
                  selectedClpsProprio python:view.getClpsProprioForRessource(ressourcePk, 'pk');
                  plateformes python:view.getAllActivePlateForme()"
      tal:condition="python:user.has_role(['Manager'], here)">
-<form action="ressource-inserer" method="post">
-    <tal:boucle tal:repeat="ressource ressources">
-        <h1>:: Modifier la ressource : <span tal:content="ressource/ressource_titre" class="rouge-titre" /> ::</h1>
-        Il s'agit de livre, cd-rom, dvd, dossier pédagogique, jeu, ....
-        <fieldset>
-            <ul class="formulaire">
-                <li>
-                    <img src="label_flch_rouge.png" /> Titre
-                    <br />
-                    <input type="text"
-                            name="ressource_titre"
-                            value=""
-                            size="50"
-                            tal:attributes="value ressource/ressource_titre"
-                            class="grasorange" />
-                </li>
-                <li>
-                    <img src="label_flch_rouge.png" /> Description
-                    <br />
-                    <span tal:replace="structure python: view.getWysiwygField('ressource_description', ressource.ressource_description)" />
-                </li>
-                <li>
-                    <img src="label_flch_rouge.png" /> Auteur(s)
-                    <br />
-                    <input type="text"
-                            name="ressource_auteur"
-                            value=""
-                            size="50"
-                            tal:attributes="value ressource/ressource_auteur"
-                            class="grasorange" />
-                </li>
-                <li>
-                    <img src="label_flch_rouge.png" /> Collection
-                    <br />
-                    <input type="text"
-                            name="ressource_collection"
-                            value=""
-                            size="50"
-                            tal:attributes="value ressource/ressource_collection"
-                            class="grasorange" />
-                </li>
-                <li>
-                    <img src="label_flch_rouge.png" /> Edition
-                    <br />
-                    <input type="text"
-                           name="ressource_edition"
+
+<h1> Gestion des ressources </h1>
+<div class="formulaire">
+    <h2> Charger une photo pour la ressource </h2>
+    <tal:macro tal:define="filename ressourcePk;
+                           dest_localfs string:local_fs_ressource;
+                           width string:500;
+                           height string:450;
+                           layoutmaxwidth string:800;
+                           redirect string:${context/@@plone_portal_state/portal_url}/admin-modifier-une-ressource?ressourcePk=${ressourcePk}">
+        <div metal:use-macro="context/@@affinitic.imageuploader.macros/affinitic-image-uploader" />
+    </tal:macro>
+</div>
+
+<div class="formulaire">
+    <h2>Modifier la ressource</h2>
+    <form action="manageRessource"
+          method="post">
+        <tal:boucle tal:repeat="ressource ressources">
+            Il s'agit de livre, cd-rom, dvd, dossier pédagogique, jeu, ....
+            <div class="formulaire-input">
+                <label for="ressource_titre">Titre</label>
+                <input type="text"
+                        name="ressource_titre"
+                        id="ressource_titre"
+                        value=""
+                        size="50"
+                        tal:attributes="value ressource/ressource_titre"
+                        class="grasorange" />
+            </div>
+            <div class="formulaire-input">
+                <label for="ressource_description">Description</label>
+                <span tal:replace="structure python: view.getWysiwygField('ressource_description', ressource.ressource_description)" />
+            </div>
+            <div class="formulaire-input">
+                <label for="ressource_auteur">Auteur(s)</label>
+                <input type="text"
+                        name="ressource_auteur"
+                        id="ressource_auteur"
+                        value=""
+                        size="50"
+                        tal:attributes="value ressource/ressource_auteur"
+                        class="grasorange" />
+            </div>
+            <div class="formulaire-input">
+                <label for="ressource_collection">Collection</label>
+                <input type="text"
+                        name="ressource_collection"
+                        id="ressource_collection"
+                        value=""
+                        size="50"
+                        tal:attributes="value ressource/ressource_collection"
+                        class="grasorange" />
+            </div>
+            <div class="formulaire-input">
+                <label for="ressource_edition">Edition</label>
+                <input type="text"
+                       name="ressource_edition"
+                       id="ressource_edition"
+                       value=""
+                       size="50"
+                       tal:attributes="value ressource/ressource_edition"
+                       class="grasorange"/>
+            </div>
+            <div class="formulaire-input">
+                <label for="ressource_lieu_edition">Lieu d'édition</label>
+                <input type="text"
+                       name="ressource_lieu_edition"
+                       id="ressource_lieu_edition"
+                       value=""
+                       size="50"
+                       tal:attributes="value ressource/ressource_lieu_edition"
+                       class="grasorange"/>
+            </div>
+            <div class="formulaire-input">
+                <label for="ressource_date_edition">Année d'édition</label>
+                <input type="text"
+                       name="ressource_date_edition"
+                       id="ressource_date_edition"
+                       value=""
+                       size="50"
+                       tal:attributes="value ressource/ressource_date_edition"
+                       class="grasorange"/>
+            </div>
+            <div class="formulaire-input">
+                <label for="public_nom">Public</label>
+                <tal:addremove define="errors python:{};">
+                    <span metal:use-macro="python: view.getAddRemoveField('ressource_public_fk', ' ',
+                                           view.getAllActivePublic(),
+                                           nameKey='public_nom',
+                                           pkKey='public_pk',
+                                           selectedPks=view.getPublicByRessourcePk(ressourcePk, 'cle'))" />
+                </tal:addremove>
+            </div>
+            <div class="formulaire-input">
+                <label for="ressource_autre_info">Autres info</label>
+                <textarea name="ressource_autre_info"
+                          id="ressource_autre_info"
+                          rows="5"
+                          cols="50"
+                          tal:content="ressource/ressource_autre_info"
+                          class="grasorange"></textarea>
+            </div>
+            <div class="formulaire-input">
+                <label for="ressource_lien_pipsa">Lien pipsa</label>
+                <input type="text"
+                       name="ressource_lien_pipsa"
+                       id="ressource_lien_pipsa"
+                       value=""
+                       size="50"
+                       tal:attributes="value ressource/ressource_lien_pipsa"
+                       class="grasorange" />
+            </div>
+            <div class="formulaire-input">
+                <label for="ressource_autre_lien">Autre lien</label>
+                <input type="text"
+                       name="ressource_autre_lien"
+                       id="ressource_autre_lien"
+                       value=""
+                       size="50"
+                       tal:attributes="value ressource/ressource_autre_lien"
+                       class="grasorange" />
+            </div>
+            <div class="formulaire-input">
+                <label for="ressource_objectif">Objectif(s)</label>
+                <span tal:replace="structure python: view.getWysiwygField('ressource_objectif', ressource.ressource_objectif)" />
+            </div>
+            <div class="formulaire-input">
+                <label for="ressource_clps_dispo_fk">Disponible au CLPS</label>
+                <tal:boucle tal:repeat="clps allClps">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="checkbox"
+                           name="ressource_clps_dispo_fk:list"
+                           id="ressource_clps_dispo_fk"
                            value=""
-                           size="50"
-                           tal:attributes="value ressource/ressource_edition"
-                           class="grasorange"/>
-                </li>
-                <li>
-                    <img src="label_flch_rouge.png" /> Lieu d'édition
-                    <br />
-                    <input type="text"
-                           name="ressource_lieu_edition"
-                           value=""
-                           size="50"
-                           tal:attributes="value ressource/ressource_lieu_edition"
-                           class="grasorange"/>
-                </li>
-                <li>
-                    <img src="label_flch_rouge.png" /> Année d'édition
-                    <br />
-                    <input type="text"
-                           name="ressource_date_edition"
-                           value=""
-                           size="50"
-                           tal:attributes="value ressource/ressource_date_edition"
-                           class="grasorange"/>
-                </li>
-                <li>
-                    <img src="label_flch_rouge.png" /> Public
-                    <br />
-                    <tal:addremove define="errors python:{};">
-                        <span metal:use-macro="python: view.getAddRemoveField('ressource_public_fk', ' ',
-                                               view.getAllActivePublic(),
-                                               nameKey='public_nom',
-                                               pkKey='public_pk',
-                                               selectedPks=view.getPublicByRessourcePk(ressourcePk, 'cle'))" />
-                    </tal:addremove>
-                </li>
-                <li>
-                    <img src="label_flch_rouge.png" /> Autres info
-                    <br />
-                    <textarea name="ressource_autre_info"
-                              rows="5"
-                              cols="50"
-                              tal:content="ressource/ressource_autre_info"
-                              class="grasorange"></textarea>
-                </li>
-                <li>
-                    <img src="label_flch_rouge.png" /> Lien pipsa
-                    <br />
-                    <input type="text"
-                           name="ressource_lien_pipsa"
-                           value=""
-                           size="50"
-                           tal:attributes="value ressource/ressource_lien_pipsa"
-                           class="grasorange" />
-                </li>
-                <li>
-                    <img src="label_flch_rouge.png" /> Autre lien
-                    <br />
-                    <input type="text"
-                           name="ressource_autre_lien"
-                           value=""
-                           size="50"
-                           tal:attributes="value ressource/ressource_autre_lien"
-                           class="grasorange" />
-                </li>
-                <li>
-                    <img src="label_flch_rouge.png" /> Objectif(s)
-                    <br />
-                    <span tal:replace="structure python: view.getWysiwygField('ressource_objectif', ressource.ressource_objectif)" />
-                </li>
-                <li>
-                    <img src="label_flch_rouge.png" /> Disponible au CLPS<br />
-                    <tal:boucle tal:repeat="clps allClps">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox"
-                               name="ressource_clps_dispo_fk:list"
-                               value=""
-                               checked=""
-                               tal:attributes="value clps/clps_pk;
-                                               checked python:clps.clps_pk in clpsDispo and 'selected' or None" />
-                            <span tal:content="clps/clps_nom"></span>
-                            <br />
-                    </tal:boucle>
-                </li>
-                <li>
-                    <img src="label_flch_rouge.png" /> Autre disponibilité
-                    <br />
-                    <textarea name="ressource_disponible_autre"
-                              rows="5"
-                              cols="50"
-                              tal:content="ressource/ressource_disponible_autre"
-                              class="grasorange"></textarea>
-                </li>
-                <li>
-                    <img src="label_flch_rouge.png" /> Support
-                    <br />
-                    <tal:addremove define="errors python:{};">
-                        <span metal:use-macro="python: view.getAddRemoveField('ressource_support_fk', ' ',
-                                                       view.getAllActiveSupport(),
-                                                       nameKey='support_titre',
-                                                       pkKey='support_pk',
-                                                       selectedPks=view.getSupportByRessourcePk(ressourcePk, 'cle'))" />
-                    </tal:addremove>
-                </li>
-                <li>
-                    <img src="label_flch_rouge.png" /> Utilisation
-                    <br />
-                    <span tal:replace="structure python: view.getWysiwygField('ressource_utilisation', ressource.ressource_utilisation)" />
-                    </li>
-                <li>
-                    <img src="label_flch_rouge.png" /> L'avis du CLPS
-                    <br />
-                    <span tal:replace="structure python: view.getWysiwygField('ressource_avis_clps', ressource.ressource_avis_clps)" />
-                    </li>
-            </ul>
-        </fieldset>
-        <div tal:condition="python:user.has_role(['Manager'], here)"
-             class="description-for-manager">
-            <div class="titre-for-manage">
-                &Xi; Administration &Xi;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span tal:content="ressourcePk" />
+                           checked=""
+                           tal:attributes="value clps/clps_pk;
+                                           checked python:clps.clps_pk in clpsDispo and 'selected' or None" />
+                        <span tal:content="clps/clps_nom"></span>
+                        <br />
+                </tal:boucle>
+            </div>
+            <div class="formulaire-input">
+                <label for="ressource_disponible_autre">Autre disponibilité</label>
+                <textarea name="ressource_disponible_autre"
+                          id="ressource_disponible_autre"
+                          rows="5"
+                          cols="50"
+                          tal:content="ressource/ressource_disponible_autre"
+                          class="grasorange"></textarea>
+            </div>
+            <div class="formulaire-input">
+                <label for="support_pk">Support</label>
+                <tal:addremove define="errors python:{};">
+                    <span metal:use-macro="python: view.getAddRemoveField('ressource_support_fk', ' ',
+                                                   view.getAllActiveSupport(),
+                                                   nameKey='support_titre',
+                                                   pkKey='support_pk',
+                                                   selectedPks=view.getSupportByRessourcePk(ressourcePk, 'cle'))" />
+                </tal:addremove>
+            </div>
+            <div class="formulaire-input">
+                <label for="ressource_utilisation">Utilisation</label>
+                <span tal:replace="structure python: view.getWysiwygField('ressource_utilisation', ressource.ressource_utilisation)" />
+            </div>
+            <div class="formulaire-input">
+                <label for="ressource_avis_clps">L'avis du CLPS</label>
+                <span tal:replace="structure python: view.getWysiwygField('ressource_avis_clps', ressource.ressource_avis_clps)" />
             </div>
 
-            <fieldset>
-                <legend class="legende"> Lien pour la newsletter</legend>
-                <span tal:content="string:${context/portal_url}/decrire-une-ressource?ressourcePk=${ressource/ressource_pk}" />
-            </fieldset>
-
-            <fieldset>
-                <legend class="legende"> Etat </legend>
-                <select name="ressource_etat">
-                    <option value="private"
-                            tal:attributes="selected python:ressource.ressource_etat=='private' and 'selected' or None;"> Privé </option>
-                    <option value="publish"
-                            tal:attributes="selected python:ressource.ressource_etat=='publish' and 'selected' or None;"> Publié </option>
-                </select>
-            </fieldset>
-
-            <fieldset>
-                <legend class="legende">Thème</legend>
-                <tal:addremove define="errors python:{};">
-                    <span metal:use-macro="python: view.getAddRemoveField('ressource_theme_fk', ' ',
-                                                   view.getAllActiveThemeForRessource(),
-                                                   nameKey='theme_nom',
-                                                   pkKey='theme_pk',
-                                                   selectedPks=view.getThemePkByRessourcePk(ressourcePk))" />
-                </tal:addremove>
-            </fieldset>
 
 
-            <fieldset>
-                <legend class="legende">Plate-formes et sous plate-formes concernées</legend>
-                <tal:boucle tal:repeat="plateforme plateformes">
+            <div tal:condition="python:user.has_role(['Manager'], here)"
+                 class="description-for-manager">
+                <div class="titre-for-manage">
+                    &Xi; Administration &Xi;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span tal:content="ressourcePk" />
+                </div>
+
+                <div class="formulaire">
+                    <h2> Lien pour la newsletter</h2>
                     <img src="label_flch_rouge.png" />
-                    <input type="checkbox"
-                           name="plateformeFk"
-                           value=""
-                           tal:attributes="value plateforme/plateforme_pk" />
-                    &nbsp;&nbsp;<span tal:content="plateforme/plateforme_nom"></span>
+                    <span tal:content="string:${context/portal_url}/decrire-une-ressource?ressourcePk=${ressource/ressource_pk}" />
+                </div>
 
-                    <!-- sous-plate-forme xxxx attendre avis stef
-                    <span tal:define="sousplateformes python:view.getSousPlateFormeByPlateFormePk(plateforme.plateforme_pk)">
-                        <span tal:repeat="sousplateforme sousplateformes">
-                            <br />
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <input type="checkbox"
-                                   name="institution_sousplateforme_fk:list"
-                                   value=""
-                                   tal:attributes="value sousplateforme/sousplateforme_pk" />
-                            &nbsp;&nbsp;<span tal:content="sousplateforme/sousplateforme_nom"></span>
+                <div class="formulaire">
+                    <h2> Etat </h2>
+                    <img src="label_flch_rouge.png" />
+                    <select name="ressource_etat">
+                        <option value="private"
+                                tal:attributes="selected python:ressource.ressource_etat=='private' and 'selected' or None;"> Privé </option>
+                        <option value="publish"
+                                tal:attributes="selected python:ressource.ressource_etat=='publish' and 'selected' or None;"> Publié </option>
+                    </select>
+                </div>
+
+                <div class="formulaire">
+                    <h2>Thème</h2>
+                    <tal:addremove define="errors python:{};">
+                        <span metal:use-macro="python: view.getAddRemoveField('ressource_theme_fk', ' ',
+                                                       view.getAllActiveThemeForRessource(),
+                                                       nameKey='theme_nom',
+                                                       pkKey='theme_pk',
+                                                       selectedPks=view.getThemePkByRessourcePk(ressourcePk))" />
+                    </tal:addremove>
+                </div>
+
+
+                <div class="formulaire">
+                    <h2>Plate-formes et sous plate-formes concernées</h2>
+                    <tal:boucle tal:repeat="plateforme plateformes">
+                        <img src="label_flch_rouge.png" />
+                        <input type="checkbox"
+                               name="plateformeFk"
+                               value=""
+                               tal:attributes="value plateforme/plateforme_pk" />
+                        &nbsp;&nbsp;<span tal:content="plateforme/plateforme_nom"></span>
+
+                        <!-- sous-plate-forme xxxx attendre avis stef
+                        <span tal:define="sousplateformes python:view.getSousPlateFormeByPlateFormePk(plateforme.plateforme_pk)">
+                            <span tal:repeat="sousplateforme sousplateformes">
+                                <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="checkbox"
+                                       name="institution_sousplateforme_fk:list"
+                                       value=""
+                                       tal:attributes="value sousplateforme/sousplateforme_pk" />
+                                &nbsp;&nbsp;<span tal:content="sousplateforme/sousplateforme_nom"></span>
+                            </span>
                         </span>
-                    </span>
-                    -->
-                    <br /><br />
-                </tal:boucle>
-                <br />
-            </fieldset>
+                        -->
+                        <br /><br />
+                    </tal:boucle>
+                </div>
 
-            <fieldset>
-                <legend>Mission</legend>
-                <ul class="formulaire">
-                    <li>
+                <div class="formulaire">
+                    <h2>Mission</h2>                    
+                    <div class="formulaire-input">
                         <img src="label_flch_rouge.png" />
                         <input type="checkbox"
                                name="ressource_mission_centre_documentation"
                                value="True"
                                tal:attributes="checked python:ressource.ressource_mission_centre_documentation and 'checked' or None;" />
                         &nbsp;&nbsp;Centre documentation
-                    </li>
-                    <li>
+                    </div>
+                    <div class="formulaire-input">
                         <img src="label_flch_rouge.png" />
                         <input type="checkbox"
                                name="ressource_mission_accompagnement_projet"
                                value="True"
                                tal:attributes="checked python:ressource.ressource_mission_accompagnement_projet and 'checked' or None;" />
                         &nbsp;&nbsp;Accompagnement de projet
-                    </li>
-                    <li>
+                    </div>
+                    <div class="formulaire-input">
                         <img src="label_flch_rouge.png" />
                         <input type="checkbox"
                                name="ressource_mission_reseau_echange"
                                value="True"
                                tal:attributes="checked python:ressource.ressource_mission_reseau_echange and 'checked' or None;" />
                         &nbsp;&nbsp;Mise en réseau, échanges
-                    </li>
-                    <li>
+                    </div>
+                    <div class="formulaire-input">
                         <img src="label_flch_rouge.png" />
                         <input type="checkbox"
                                name="ressource_mission_formation"
                                value="True"
                                tal:attributes="checked python:ressource.ressource_mission_formation and 'checked' or None;" />
                          &nbsp;&nbsp;Formation
-                    </li>
-                </ul>
-            </fieldset>
-            <fieldset>
-                <legend>Propriétaire</legend>
-                <ul class="formulaire">
+                    </div>
+                </div>
+                <div class="formulaire">
+                    <h2>Propriétaire</h2>
                     <tal:boucle tal:repeat="clps allClps">
-                        <li>
+                        <div class="formulaire-input">
                             <img src="label_flch_rouge.png" />
                             <input type="checkbox"
                                    name="ressource_clps_proprio_fk:list"
@@ -296,15 +304,11 @@
                                                    checked python:clps.clps_pk in selectedClpsProprio and 'selected' or None;" />
                             &nbsp;&nbsp;
                             <span tal:content="clps/clps_nom" />
-                        </li>
-                    </tal:boucle>
-                </ul>
-            </fieldset>
-        </div>
+                      </tal:boucle>
+                </div>
+            </div>
 
-        <hr />
-        <ul class="formulaire">
-            <li>
+            <div class="formulaire-submit">
                 <input type="hidden"
                        name="operation"
                        value="update" />
@@ -314,10 +318,10 @@
                        tal:attributes="value ressourcePk" />
                 <input type="submit"
                        value="Modifier la ressource" />
-            </li>
-        </ul>
-    </tal:boucle>
-</form>
+            </div>
+        </tal:boucle>
+    </form>
+</div><!--ormulaire-->
 </div><!-- div metal-->
 </body>
 </html>
