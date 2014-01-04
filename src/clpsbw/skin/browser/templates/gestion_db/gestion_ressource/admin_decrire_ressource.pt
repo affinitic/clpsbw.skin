@@ -49,6 +49,12 @@
                     </div>
 
                     <div id="left-ressource">
+                        <div class="left-section-description" >
+                            <img src=""
+                                tal:attributes="src string:${context/@@plone_portal_state/portal_url}/local_fs_ressource/${ressourcePk}.png" />
+                            <br /><br />
+                        </div>
+
                         <div class="left-section-description puzzle-rouge">
                             <h3>Public</h3>
                             <p>
@@ -62,11 +68,7 @@
                                       class="rubrique-db" />
                             </p>
                         </div>
-                        <div>
-                            <img src=""
-                                tal:attributes="src string:${context/@@plone_portal_state/portal_url}/local_fs_ressource/${ressourcePk}.png" />
-                        </div>
-
+                        
                         <div class="left-section-description puzzle-jaune"
                              tal:condition="python: ressource.ressource_objectif!=''">
                             <h3>Objectif(s)</h3>
