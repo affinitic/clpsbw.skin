@@ -3010,7 +3010,7 @@ class ManageClpsbw(BrowserView):
         session.add(newEntry)
         session.flush()
         session.refresh(newEntry)
-        ressourcePk = newEntry.affiche_pk
+        ressourcePk = newEntry.ressource_pk
         return ressourcePk
 
     def addLinkRessourceSupport(self, ressourceFk):
@@ -5047,7 +5047,7 @@ class ManageClpsbw(BrowserView):
             ploneUtils = getToolByName(self.context, 'plone_utils')
             message = u"La ressource a été ajoutée !"
             ploneUtils.addPortalMessage(message, 'info')
-            url = "%s/admin-decrire-une-ressource?ressourcePk=%s" % (portalUrl, ressource_pk)
+            url = "%s/admin-decrire-une-ressource?ressourcePk=%s" % (portalUrl, ressourceFk)
             self.request.response.redirect(url)
 
         
