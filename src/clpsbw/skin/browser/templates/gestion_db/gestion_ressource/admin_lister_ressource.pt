@@ -63,28 +63,23 @@
                                             <span tal:content="ressourcePk" />
                                         </div>
                                     </td>
-                                    <td align="right">
-                                        <a href=""
-                                           tal:attributes="href
-                                           string:admin-decrire-une-ressource?ressourcePk=${ressourcePk}">
-                                           <img src="btn_suivant.png" /></a>
-                                    </td>
+                                    <td align="right"></td>
                                 </tr>
                             </table>
                             <ul id="menu-gestion-donnee">
                                 <li>
                                     <a href=""
-                                       tal:attributes="href string:${context/portal_url}/gestion-de-la-base/les-ressources/admin-chercher-une-ressource">
+                                       tal:attributes="href string:${context/portal_url}/admin-chercher-une-ressource">
                                         Chercher</a>
                                 </li>
                                 <li>
                                     <a href=""
-                                       tal:attributes="href string:${context/portal_url}/gestion-de-la-base/les-ressources/admin-modifier-une-ressource}">
+                                       tal:attributes="href string:${context/portal_url}/admin-modifier-une-ressource?ressourcePk=${ressourcePk}">
                                         Modifier</a>
                                 </li>
                                 <li>
                                     <a href=""
-                                       tal:attributes="href string:admin-decrire-une-ressource?ressourcePk=${ressourcePk}">
+                                       tal:attributes="href string:${context/portal_url}/admin-decrire-une-ressource?ressourcePk=${ressourcePk}">
                                        Détailler</a>
                                 </li>
                             </ul>

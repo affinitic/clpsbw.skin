@@ -407,9 +407,9 @@ margin-top:8px;
 
 #portlet-gestion-db .totalDB{
 height:20px;
-background-image:url(images/puce_total.png);
+/*background-image:url(images/puce_total.png);
 background-repeat:no-repeat;
-background-position:left 0px;
+background-position:left 0px;*/
 padding-left:17px;
 margin-top:5px;
 margin-left:25px;

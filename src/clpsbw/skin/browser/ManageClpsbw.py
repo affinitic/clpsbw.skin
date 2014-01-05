@@ -1745,15 +1745,20 @@ class ManageClpsbw(BrowserView):
         allActiveRessources = query.all()
         return allActiveRessources
 
-    def getRessourceByPk(self, ressourcePk):
+    def getRessourceByPk(self, ressourcePk=None):
         """
         table pg ressource
         recuperation d'un ressource selon ressource_pk
         """
+        fields = self.request.form
+        ressourceTitre = fields.get('ressourceTitre')
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
         query = session.query(Ressource)
-        query = query.filter(Ressource.ressource_pk == ressourcePk)
+        if ressourceTitre:
+            query = query.filter(Ressource.ressource_titre == ressourceTitre)
+        if ressourcePk:
+            query = query.filter(Ressource.ressource_pk == ressourcePk)
         ressource = query.all()
         return ressource
 
