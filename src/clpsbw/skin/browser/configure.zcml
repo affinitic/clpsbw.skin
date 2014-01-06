@@ -580,7 +580,7 @@
     <browser:page
           name="admin-institution-lister"
           for="*"
-          template="templates/gestion_db/gestion_institution/admin_institution_listing.pt"
+          template="templates/gestion_db/gestion_institution/admin_lister_institution.pt"
           permission="zope.Public"
           class=".ManageClpsbw.ManageClpsbw"
           allowed_interface=".interfaces.IManageClpsbw"
@@ -602,29 +602,48 @@
           allowed_interface=".interfaces.IManageClpsbw"
           />
     <browser:page
-          name="admin-institution-lister-par-etat"
+          name="admin-lister-institution-par-etat"
           for="*"
-          template="templates/gestion_db/gestion_institution/admin_institution_listing_par_etat.pt"
+          template="templates/gestion_db/gestion_institution/admin_lister_institution_par_etat.pt"
           permission="zope.Public"
           class=".ManageClpsbw.ManageClpsbw"
           allowed_interface=".interfaces.IManageClpsbw"
           />
     <browser:page
-          name="admin-institution-gerer"
+          name="admin-modifier-une-institution"
           for="*"
-          template="templates/gestion_db/gestion_institution/admin_institution_gestion.pt"
+          template="templates/gestion_db/gestion_institution/admin_modifier_institution.pt"
           permission="zope.Public"
           class=".ManageClpsbw.ManageClpsbw"
           allowed_interface=".interfaces.IManageClpsbw"
           />
     <browser:page
-          name="admin-institution-modifier"
+          name="admin-lister-les-institutions"
           for="*"
-          template="templates/gestion_db/gestion_institution/admin_institution_modification_form.pt"
+          template="templates/gestion_db/gestion_institution/admin_lister_institution.pt"
           permission="zope.Public"
           class=".ManageClpsbw.ManageClpsbw"
           allowed_interface=".interfaces.IManageClpsbw"
           />
+    <browser:page
+          name="admin-decrire-une-institution"
+          for="*"
+          template="templates/gestion_db/gestion_institution/admin_decrire_institution.pt"
+          permission="zope.Public"
+          class=".ManageClpsbw.ManageClpsbw"
+          allowed_interface=".interfaces.IManageClpsbw"
+          />
+    <browser:page
+          name="admin-chercher-une-institution"
+          for="*"
+          template="templates/gestion_db/gestion_institution/admin_chercher_institution.pt"
+          permission="zope.Public"
+          class=".ManageClpsbw.ManageClpsbw"
+          allowed_interface=".interfaces.IManageClpsbw"
+          />
+
+
+
     <browser:page
           name="institution-plate-forme-lister"
           for="*"
