@@ -12,14 +12,12 @@
 <div metal:fill-slot="main"
      tal:define="institutionTypePk request/institutionTypePk;
                  institutionTypes python:view.getInstitutionTypeByPk(institutionTypePk)">
-<form action="institution-type-inserer" method="post">
-    <br />
-    
     <h1>Gestion des types d'institution</h1>
     <div class="formulaire">
         <h2>Modifier un type d'institution</h2>
         <tal:boucle tal:repeat="institutionType institutionTypes">
-            <form action="institution-type-inserer" method="post">
+            <form action="updateInstitutionType"
+                  method="post">
                 <div class="formInput">
                     <label for="institution_type_nom">Type</label>
                     <input type="text"
@@ -54,7 +52,6 @@
             </form>
         </tal:boucle>
     </div>
-</form>
 </div><!-- div metal-->
 </body>
 </html>

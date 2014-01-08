@@ -146,7 +146,7 @@
                     Type d'institution
                 </dt>
                 <dd class="portletItemDB">
-                    <a href="" tal:attributes="href string:${context/portal_url}/institution-type-creer">
+                    <a href="" tal:attributes="href string:${context/portal_url}/admin-creer-un-type-institution">
                         Gestion
                     </a>
                 <span class="portlet-gestion-db-separation"></span>

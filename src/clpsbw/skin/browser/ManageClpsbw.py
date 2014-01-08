@@ -3173,7 +3173,7 @@ class ManageClpsbw(BrowserView):
             session.add(newEntry)
         session.flush()
 
-    def addInstitutionType(self):
+    def insertInstitutionType(self):
         """
         table pg institution_type
         ajout d'un type d'institution
@@ -3194,6 +3194,13 @@ class ManageClpsbw(BrowserView):
                                    institution_typecreation_employe = institution_type_creation_employe)
         session.add(newEntry)
         session.flush()
+        
+        portalUrl = getToolByName(self.context, 'portal_url')()
+        ploneUtils = getToolByName(self.context, 'plone_utils')
+        message = u"Le type d'institution a été ajouté !"
+        ploneUtils.addPortalMessage(message, 'info')
+        url = "%s/admin-creer-un-type-institution" % (portalUrl)
+        self.request.response.redirect(url)
 
     def addInstitution(self):
         """
@@ -4282,6 +4289,13 @@ class ManageClpsbw(BrowserView):
             institutionType.institution_type_modification_employe = institution_type_modification_employe
 
         session.flush()
+        
+        portalUrl = getToolByName(self.context, 'portal_url')()
+        ploneUtils = getToolByName(self.context, 'plone_utils')
+        message = u"Le type d'institution a été modifié !"
+        ploneUtils.addPortalMessage(message, 'info')
+        url = "%s/admin-creer-un-type-institution" % (portalUrl)
+        self.request.response.redirect(url)
 
     def updateAssuetudeInterventionForInstitution(self):
         """
@@ -4916,21 +4930,6 @@ class ManageClpsbw(BrowserView):
 
         if operation == "update":
             self.updateMilieuDeVie()
-            return {'status': 1}
-
-    def manageInstitutionType(self):
-        """
-        insertion ou update d'un type d'institution
-        """
-        fields = self.context.REQUEST
-        operation = getattr(fields, 'operation')
-
-        if operation == "insert":
-            self.addInstitutionType()
-            return {'status': 1}
-
-        if operation == "update":
-            self.updateInstitutionType()
             return {'status': 1}
 
     def manageInstitution(self):
