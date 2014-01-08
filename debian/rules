@@ -62,7 +62,6 @@ install-website:
 	find ${BUILDDIR}/develop-eggs -type f -exec sed -i s%${BUILDDIR}%${INSTALLDIR}%g {} \;
 	cp -ap $(BUILDDIR)/eggs $(DEBIANCORE)/${INSTALLDIR}
 	cp -ap $(BUILDDIR)/parts/omelette $(DEBIANCORE)/${INSTALLDIR}/parts
-	cp -ap $(BUILDDIR)/parts/mailmansubform $(DEBIANCORE)/${INSTALLDIR}/parts
 	cp -ap $(BUILDDIR)/parts/lxml $(DEBIANCORE)/${INSTALLDIR}/parts
 	cp -ap $(BUILDDIR)/parts/mx-base $(DEBIANCORE)/${INSTALLDIR}/parts
 	cp -ap $(BUILDDIR)/parts/productdistros $(DEBIANCORE)/${INSTALLDIR}/parts
