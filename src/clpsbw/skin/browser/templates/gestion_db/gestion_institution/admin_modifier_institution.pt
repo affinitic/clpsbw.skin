@@ -28,7 +28,9 @@
                  selectedClpsProprio python:view.getClpsProprioForInstitution(institutionPk, 'pk');
                  utranslate nocall:here/utranslate;"
      tal:condition="python:user.has_role(['Manager'], here)">
-<form action="institution-inserer" method="post">
+
+<form action="manageInstitution"
+      method="post">
     <tal:boucle tal:repeat="institution institutions">
         <tal:block tal:define="institutionPk institution/institution_pk">
             <h1>Modifier une institution</h1>
@@ -465,7 +467,6 @@
                 <div class="formulaire">
                     <h2>Listing des ressources dans les plate-formes</h2>
                     <p>Permet d'afficher une institution dans la liste des organismes des ressources d'une plate-forme</p>
-                    <br />
                     <input type="checkbox"
                            name="institution_listing_ressource_plate_forme_assuetude"
                            value="True"

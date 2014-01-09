@@ -21,7 +21,7 @@
 <div metal:fill-slot="main"
      tal:define="auteur python:view.getAuteurByLogin()">
 
-<form action="institution-inserer"
+<form action="manageInstitution"
       method="post">
     <h1>Encoder une institution</h1>
     <div class="formulaire">
@@ -294,7 +294,7 @@
                    value="True"
                    name="institution_assuet_activite_entourage"
                    id="institution_assuet_activite_entourage" />
-                   &nbsp;&nbsp;Pour son entourage
+            &nbsp;&nbsp;Pour son entourage
             <br /><br />
             
             <label fro="assuetude_intervention_fk">Pour des professionnels</label>
