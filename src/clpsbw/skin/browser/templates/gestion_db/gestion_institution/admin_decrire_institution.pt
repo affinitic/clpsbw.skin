@@ -383,8 +383,7 @@
 
 
 
-<!-- =========================================================================================================================================== -->
-        <!-- ZONE GESTION ADMIN -->
+<!-- === ZONE ADMIN ======================================================================= -->
                 <div tal:condition="python:user.has_role(['Manager'], here)"
                      class="description-for-manager">
 
@@ -394,58 +393,42 @@
                         PK : <span tal:content="institution/institution_pk" />
                     </div>
 
-                    <fieldset>
-                        <legend class="legende"> Lien pour la newsletter</legend>
+                    <div class="formulaire">
+                        <h2>Lien pour la newsletter</h2>
                         <span tal:content="string:${context/portal_url}/institution-decrire?institutionPk=${institution/institution_pk}" />
-                    </fieldset>
+                    </div>
 
-                    <fieldset>
-                        <legend class="legende"> Etat</legend>
-                        <select name="institution_etat">
-                                <option value="private"
-                                        tal:attributes="selected python:institution.institution_etat=='private' and 'selected' or None;"> Privé </option>
-                                <option value="publish"
-                                        tal:attributes="selected python:institution.institution_etat=='publish' and 'selected' or None;"> Publié </option>
-                        </select>
-                    </fieldset>
+                    <div class="formulaire">
+                        <h2> Etat</h2>
+                        <span tal:condition="python:institution.institution_etat=='private'"> Privé </span>
+                        <span tal:condition="python:institution.institution_etat=='publish'"> Publié </span>
+                    </div>
 
-                    <fieldset>
-                        <legend class="legende">Auteur - Editeur</legend>
+                    <div class="formulaire">
+                        <h2>Auteur - Editeur</h2>
                         Nom, prénom et identifiant de la personne qui pourra modifier le contenu de cette expérience<br />
-                        <select name="institution_auteur_fk">
-                            <option>...</option>
                             <tal:boucle tal:repeat="auteur auteurs">
-                                <option value=""
-                                        selected=""
-                                        tal:attributes="value auteur/auteur_pk;
-                                                        selected python:institution.institution_auteur_fk==auteur.auteur_pk and 'selected' or None;">
+                                <tal:if tal:condition="python:institution.institution_auteur_fk==auteur.auteur_pk">
                                     <span tal:content="auteur/auteur_nom" />
                                     <span tal:content="auteur/auteur_prenom" />
                                     &nbsp;
                                     (<span tal:content="auteur/auteur_login" />)
-                                </option>
+                                </tal:if>
                             </tal:boucle>
-                        </select>
-                    </fieldset>
+                    </div>
 
-                    <fieldset>
-                        <legend class="legende">Type d'institution</legend>
+                    <div class="formulaire">
+                        <h2>Type d'institution</h2>
                         Permet de classer les instituions afin de les afficher correctement dans la zone ressources d'une plate-forme<br />
-                        <select name="institution_institution_type_pk">
-                            <option>...</option>
                             <tal:boucle tal:repeat="typeInstitution typeInstitutions">
-                                <option value=""
-                                        selected=""
-                                        tal:attributes="value typeInstitution/institution_type_pk;
-                                                        selected python:institution.institution_institution_type_fk==typeInstitution.institution_type_pk and 'selected' or None;">
+                                <tal:if tal:condition="python:institution.institution_institution_type_fk==typeInstitution.institution_type_pk">
                                     <span tal:content="typeInstitution/institution_type_nom" />
-                                </option>
+                                </tal:if>
                             </tal:boucle>
-                        </select>
-                    </fieldset>
+                    </div>
 
-                    <fieldset>
-                        <legend class="legende">Plate-formes concernées</legend>
+                    <div class="formulaire">
+                        <h2>Plate-formes concernées</h2>
                         <input type="checkbox"
                                name="institution_plate_forme_sante_ecole"
                                value="True"
@@ -503,10 +486,10 @@
                         recuperer la plateforme_nom
                         -->
                         <br />
-                    </fieldset>
+                    </div>
 
-                    <fieldset>
-                        <legend class="legende">Listing des ressources dans les plate-formes</legend>
+                    <div class="formulaire">
+                        <h2>Listing des ressources dans les plate-formes</h2>
                         Permet d'afficher une institution dans la liste des organismes des ressources d'une plate-forme
                         <br />
                         <input type="checkbox"
@@ -541,26 +524,22 @@
                                                checked python:institution.institution_listing_ressource_plate_forme_sante_environnement and 'checked' or None" />
                         &nbsp;&nbsp;Santé et environnement
                         <br />
-                    </fieldset>
+                    </div>
 
-                    <fieldset>
-                        <legend>Propriétaire</legend>
-                        <ul class="formulaire">
-                            <tal:boucle tal:repeat="clps allClps">
-                                <li>
-                                    <img src="label_flch_rouge.png" />
-                                    <input type="checkbox"
-                                           name="institution_clps_proprio_fk:list"
-                                           checked=""
-                                           value=""
-                                           tal:attributes="value clps/clps_pk;
-                                                           checked python:clps.clps_pk in selectedClpsProprio and 'selected' or None;" />
-                                    &nbsp;&nbsp;
-                                    <span tal:content="clps/clps_sigle" />
-                                </li>
-                            </tal:boucle>
-                        </ul>
-                    </fieldset>
+                    <div class="formulaire">
+                        <h2>Propriétaire</h2>
+                        <tal:boucle tal:repeat="clps allClps">
+                            <input type="checkbox"
+                                   name="institution_clps_proprio_fk:list"
+                                   checked=""
+                                   value=""
+                                   tal:attributes="value clps/clps_pk;
+                                                   checked python:clps.clps_pk in selectedClpsProprio and 'selected' or None;" />
+                            &nbsp;&nbsp;
+                            <span tal:content="clps/clps_sigle" />
+                            <br />
+                        </tal:boucle>
+                    </div>
                 </div>
             </tal:block>
         </tal:boucle>

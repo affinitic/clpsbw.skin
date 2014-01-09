@@ -71,88 +71,88 @@
     </div>
     <div class="formulaire">
         <h2>Contact</h2>
-            <div class="formInput">
-                <p>Attention pas du projet mais personne de contact</p>
-                <label for="institution_nom_contact">Nom, Prénom de la personne de contact</label>
-                <input type="text"
-                       name="institution_nom_contact"
-                       id="institution_nom_contact"
-                       value=""
-                       size="50" />
-            </div>
-            <div class="formInput">
-                <label for="institution_fonction_contact">Fonction de la personne de contact</label>
-                <input type="text"
-                       name="institution_fonction_contact"
-                       id="institution_fonction_contact"
-                       value=""
-                       size="50" />
-            </div>
-            <div class="formInput">
-                <label for="institution_email_contact">E-mail de la personne de contact</label>
-                <input type="text"
-                       name="institution_email_contact"
-                       id="institution_email_contact"
-                       value=""
-                       size="50" />
-            </div>
-            <div class="formInput">
-                <label for="institution_tel_contact">Tél de la personne de contact</label>
-                <input type="text"
-                       name="institution_tel_contact"
-                       id="institution_tel_contact"
-                       value=""
-                       size="50" />
-            </div>
-            <div class="formInput">
-                <label for="institution_url_site">Site web</label>
-                http://<input type="text"
-                              name="institution_url_site"
-                              id="institution_url_site"
-                              value=""
-                              size="50" />
-            </div>
-            <div class="formInput">
-                <label for="institution_lien_siss">Lien SISS</label>
-                http://<input type="text"
-                              name="institution_lien_siss"
-                              id="institution_lien_siss"
-                              value=""
-                              size="50" />
-            </div>
-            <div class="formInput">
-                <label for="institution_lien_autre">Autre Lien</label>
-                <input type="text"
-                       name="institution_lien_autre"
-                       id="institution_lien_autre"
-                       value=""
-                       size="50" />
-            </div>
-            <div class="formInput">
-                <label for="institution_autre_info">Autres informations</label>
-                <span tal:replace="structure python: view.getWysiwygField('institution_autre_info', '')" /> 
-            </div>
+        <div class="formInput">
+            <p>Attention pas du projet mais personne de contact</p>
+            <label for="institution_nom_contact">Nom, Prénom de la personne de contact</label>
+            <input type="text"
+                   name="institution_nom_contact"
+                   id="institution_nom_contact"
+                   value=""
+                   size="50" />
+        </div>
+        <div class="formInput">
+            <label for="institution_fonction_contact">Fonction de la personne de contact</label>
+            <input type="text"
+                   name="institution_fonction_contact"
+                   id="institution_fonction_contact"
+                   value=""
+                   size="50" />
+        </div>
+        <div class="formInput">
+            <label for="institution_email_contact">E-mail de la personne de contact</label>
+            <input type="text"
+                   name="institution_email_contact"
+                   id="institution_email_contact"
+                   value=""
+                   size="50" />
+        </div>
+        <div class="formInput">
+            <label for="institution_tel_contact">Tél de la personne de contact</label>
+            <input type="text"
+                   name="institution_tel_contact"
+                   id="institution_tel_contact"
+                   value=""
+                   size="50" />
+        </div>
+        <div class="formInput">
+            <label for="institution_url_site">Site web</label>
+            http://<input type="text"
+                          name="institution_url_site"
+                          id="institution_url_site"
+                          value=""
+                          size="50" />
+        </div>
+        <div class="formInput">
+            <label for="institution_lien_siss">Lien SISS</label>
+            http://<input type="text"
+                          name="institution_lien_siss"
+                          id="institution_lien_siss"
+                          value=""
+                          size="50" />
+        </div>
+        <div class="formInput">
+            <label for="institution_lien_autre">Autre Lien</label>
+            <input type="text"
+                   name="institution_lien_autre"
+                   id="institution_lien_autre"
+                   value=""
+                   size="50" />
+        </div>
+        <div class="formInput">
+            <label for="institution_autre_info">Autres informations</label>
+            <span tal:replace="structure python: view.getWysiwygField('institution_autre_info', '')" /> 
+        </div>
     </div>
     <div class="formulaire">
         <h2>Mission</h2>
-            <div class="formInput">
-                <label for="institution_mission">Missions</label>
-                <span tal:replace="structure python: view.getWysiwygField('institution_mission', '')" /> 
-            </div>
+        <div class="formInput">
+            <label for="institution_mission">Missions</label>
+            <span tal:replace="structure python: view.getWysiwygField('institution_mission', '')" /> 
+        </div>
     </div>
     <div class="formulaire">
         <h2>Activités</h2>
-            <div class="formInput">
-                <label for="institution_activite">Activités</label>
-                <span tal:replace="structure python: view.getWysiwygField('institution_activite', '')" /> 
-            </div>
+        <div class="formInput">
+            <label for="institution_activite">Activités</label>
+            <span tal:replace="structure python: view.getWysiwygField('institution_activite', '')" /> 
+        </div>
     </div>
     <div class="formulaire">
         <h2>Public</h2>
-            <div class="formInput">
-                <label for="institution_public">Public</label>
-                <span tal:replace="structure python: view.getWysiwygField('institution_public', '')" /> 
-            </div>
+        <div class="formInput">
+            <label for="institution_public">Public</label>
+            <span tal:replace="structure python: view.getWysiwygField('institution_public', '')" /> 
+        </div>
     </div>
     <div class="formulaire">
         <h2>Territoire couvert par cette institution.</h2>

@@ -159,7 +159,7 @@ Il s'agit de livre, cd-rom, dvd, dossier pédagogique, jeu, ....
         -->
 
 
-<!-- ZONE ADMIN-->
+<!-- === ZONE ADMIN ======================================================================= -->
     <div tal:condition="python:user.has_role(['Manager'], here)"
          class="description-for-manager">
         <div class="titre-for-manage">
