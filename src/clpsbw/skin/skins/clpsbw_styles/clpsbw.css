@@ -934,6 +934,14 @@ border-bottom:none !important;
 border-bottom:none !important;
 }
 
+#info-institution-assuetude{
+background-color:#edfdf1;
+border:1px solid #c1e6c9;
+border-radius:18px;
+margin:2em 0;
+padding:1em;
+}
+
 
 /*** CADASTRE DES RESSOURCES ***/
 #cadatsre-institution{

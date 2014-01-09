@@ -334,7 +334,7 @@
     </div>
 
 
-
+<!-- === ZONE ADMIN ======================================================================= -->
     <div tal:condition="python:user.has_role(['Manager'], here)"
          class="description-for-manager">
         <div class="titre-for-manage">&Xi; Administration &Xi;</div>
@@ -446,8 +446,8 @@
 
         <div class="formulaire">
             <h2>Propriétaire</h2>
-            Sélectionner le CLPS qui a encodé le récit.
-            Important pour les recherches et les classements.
+            <p>Sélectionner le CLPS qui a encodé le récit.
+            Important pour les recherches et les classements.</p>
             <div tal:define="allClps python: view.getAllClps()">
                 <tal:block tal:repeat="clps allClps">
                       <span tal:condition="python: clps.clps_pk==1">
