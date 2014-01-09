@@ -264,7 +264,7 @@
                                 <img src="label_flch_rouge.png" /> <span class="gras">Intervention</span>
                                 <br />
                                 <tal:block tal:define="allInterventions view/getAllInstitutionAssuetudeIntervention;
-                                                       selectedInterventions python:view.getAssuetudeInterventionForInstituion(institutionPk, 'pk')">
+                                                       selectedInterventions python:view.getAssuetudeInterventionForInstitution(institutionPk, 'pk')">
                                     <tal:boucle tal:repeat="intervention allInterventions">
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         <input type="checkbox"
@@ -322,7 +322,7 @@
                                 <span class="gras">Pour le public final :</span>
                                 <br />
                                 <tal:block tal:define="allActivites python:view.getAllInstitutionAssuetudeActiviteProposee('public');
-                                                       selectedActivitesProposees python:view.getAssuetudeActiviteProposeePublicForInstituion(institutionPk, 'pk')">
+                                                       selectedActivitesProposees python:view.getAssuetudeActiviteProposeePublicForInstitution(institutionPk, 'pk')">
                                     <tal:boucle tal:repeat="activite allActivites">
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         <input type="checkbox"
@@ -339,7 +339,7 @@
                                 <span class="gras">Pour des professionnels :</span>
                                 <br />
                                 <tal:block tal:define="allActivites python:view.getAllInstitutionAssuetudeActiviteProposee('pro');
-                                                   selectedActivitesProposees python:view.getAssuetudeActiviteProposeeProForInstituion(institutionPk, 'pk')">
+                                                   selectedActivitesProposees python:view.getAssuetudeActiviteProposeeProForInstitution(institutionPk, 'pk')">
                                     <tal:boucle tal:repeat="activite allActivites">
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         <input type="checkbox"
@@ -395,7 +395,7 @@
                                 Y a-t-il une thématique que vous aborder plus particulièrement ?
                                 <br />
                                 <tal:block tal:define="allThematiques view/getAllAssuetudeThemeForInstitution;
-                                                       selectedThematiques python:view.getAssuetudeThematiqueForInstituion(institutionPk, 'pk')">
+                                                       selectedThematiques python:view.getAssuetudeThematiqueForInstitution(institutionPk, 'pk')">
                                     <tal:boucle tal:repeat="thematique allThematiques">
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         <input type="checkbox"

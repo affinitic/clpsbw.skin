@@ -30,7 +30,7 @@
                                    tal:content="institution/institution_nom" />
                             </h2>
                             <dl>
-                                <tal:block tal:define="selectedInterventions python:view.getAssuetudeInterventionForInstituion(institutionPk, 'nom')"
+                                <tal:block tal:define="selectedInterventions python:view.getAssuetudeInterventionForInstitution(institutionPk, 'nom')"
                                            tal:condition="python: len(selectedInterventions) > 0">
                                     <dt>Intervention</dt>
                                     <dd>
@@ -41,7 +41,7 @@
                                     </dd>
                                 </tal:block>
                             
-                                <tal:block tal:define="selectedActivitesProposees python:view.getAssuetudeActiviteProposeePublicForInstituion(institutionPk, 'nom')"
+                                <tal:block tal:define="selectedActivitesProposees python:view.getAssuetudeActiviteProposeePublicForInstitution(institutionPk, 'nom')"
                                            tal:condition="python: len(selectedActivitesProposees) > 0">
                                     <dt>Activités proposées pour le public</dt>
                                     <dd>
@@ -52,7 +52,7 @@
                                     </dd>
                                 </tal:block>
                             
-                                <tal:block tal:define="selectedActivitesProposees python:view.getAssuetudeActiviteProposeeProForInstituion(institutionPk, 'nom')"
+                                <tal:block tal:define="selectedActivitesProposees python:view.getAssuetudeActiviteProposeeProForInstitution(institutionPk, 'nom')"
                                             tal:condition="python: len(selectedActivitesProposees) > 0">
                                     <dt>Activités proposées pour les professionnel</dt>
                                     <dd>
@@ -63,7 +63,7 @@
                                     </dd>  
                                 </tal:block>
                             
-                                <tal:block tal:define="selectedThematiques python: view.getAssuetudeThematiqueForInstituion(institutionPk, 'nom')"
+                                <tal:block tal:define="selectedThematiques python: view.getAssuetudeThematiqueForInstitution(institutionPk, 'nom')"
                                            tal:condition="python: len(selectedThematiques) > 0">
                                     <dt>Thématiques</dt>
                                     <dd>

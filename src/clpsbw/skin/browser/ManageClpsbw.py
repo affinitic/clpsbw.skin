@@ -2587,7 +2587,7 @@ class ManageClpsbw(BrowserView):
         institutionAssuetudeThematique = query.one()
         return institutionAssuetudeThematique
 
-    def getAssuetudeInterventionForInstituion(self, institutionPk, retour):
+    def getAssuetudeInterventionForInstitution(self, institutionPk, retour):
         """
         table pg intitution et link_institution_assuetude_intervention
         recuperation d'un type d'institution selon sa pk
@@ -2609,15 +2609,15 @@ class ManageClpsbw(BrowserView):
                         interventionListe.append(ass.assuetude_intervention_pk)
         return interventionListe
 
-    def getAssuetudeActiviteProposeePublicForInstituion(self, institutionPk, retour):
+    def getAssuetudeActiviteProposeePublicForInstitution(self, institutionPk, retour):
         """
         table pg intitution et link_institution_assuetude_activite_proposee_public
         recuperation d'un type d'institution selon sa pk
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        query = session.query(LinkAssuetudeActiviteProposeeForInstitution)
-        query = query.filter(LinkAssuetudeActiviteProposeeForInstitution.institution_fk == institutionPk)
+        query = session.query(LinkAssuetudeActiviteProposeeForInstitutionPublic)
+        query = query.filter(LinkAssuetudeActiviteProposeeForInstitutionPublic.institution_fk == institutionPk)
         activites = query.all()
 
         activitePublicListe = []
@@ -2631,15 +2631,15 @@ class ManageClpsbw(BrowserView):
                         activitePublicListe.append(ass.assuetude_activite_proposee_pk)
         return activitePublicListe
 
-    def getAssuetudeActiviteProposeeProForInstituion(self, institutionPk, retour):
+    def getAssuetudeActiviteProposeeProForInstitution(self, institutionPk, retour):
         """
         table pg intitution et link_institution_assuetude_activite_proposee_pro
         recuperation d'un type d'institution selon sa pk
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        query = session.query(linkAssuetudeActiviteProposeeForInstitutionPro)
-        query = query.filter(linkAssuetudeActiviteProposeeForInstitutionPro.institution_fk == institutionPk)
+        query = session.query(LinkAssuetudeActiviteProposeeForInstitutionPro)
+        query = query.filter(LinkAssuetudeActiviteProposeeForInstitutionPro.institution_fk == institutionPk)
         activites = query.all()
 
         activiteProListe = []
@@ -2653,7 +2653,7 @@ class ManageClpsbw(BrowserView):
                         activiteProListe.append(ass.assuetude_activite_proposee_pk)
         return activiteProListe
 
-    def getAssuetudeThematiqueForInstituion(self, institutionPk, retour):
+    def getAssuetudeThematiqueForInstitution(self, institutionPk, retour):
         """
         table pg intitution et public.link_institution_assuetude_thematique
         recuperation d'un type d'institution selon sa pk
@@ -3424,7 +3424,7 @@ class ManageClpsbw(BrowserView):
         assuetudeInterventionFk = getattr(fields, 'assuetude_intervention_fk', None)
         for interventionFk in assuetudeInterventionFk:
             newEntry = LinkAssuetudeInterventionForInstitution(institution_fk = institutionFk,
-                                                                  assuetude_intervention_fk = interventionFk)
+                                                               assuetude_intervention_fk = interventionFk)
             session.add(newEntry)
         session.flush()
 
@@ -3437,11 +3437,11 @@ class ManageClpsbw(BrowserView):
         session = wrapper.session
         for activiteFk in assuetudeActiviteProposeePublicFk:
             newEntry = LinkAssuetudeActiviteProposeeForInstitution(institution_fk = institutionFk,
-                                                                            assuetude_activite_proposee_public_fk = activiteFk)
+                                                                   assuetude_activite_proposee_public_fk = activiteFk)
             session.add(newEntry)
         session.flush()
 
-    def addlinkAssuetudeActiviteProposeeForInstitutionPro(self, institutionFk, assuetudeActiviteProposeeProFk):
+    def addLinkAssuetudeActiviteProposeeForInstitutionPro(self, institutionFk, assuetudeActiviteProposeeProFk):
         """
         table pg link_institution_assuetude_activite_proposee_pro
         ajout des activites proposees assuetude liees a une institution
@@ -3449,8 +3449,8 @@ class ManageClpsbw(BrowserView):
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
         for activiteFk in assuetudeActiviteProposeeProFk:
-            newEntry = linkAssuetudeActiviteProposeeForInstitutionPro(institution_fk = institutionFk,
-                                                                         assuetude_activite_proposee_pro_fk = activiteFk)
+            newEntry = LinkAssuetudeActiviteProposeeForInstitutionPro(institution_fk = institutionFk,
+                                                                      assuetude_activite_proposee_pro_fk = activiteFk)
             session.add(newEntry)
         session.flush()
 
@@ -3465,7 +3465,7 @@ class ManageClpsbw(BrowserView):
         institutionSousPlateFormeFk = getattr(fields, 'institution_sousplateforme_fk', None)
         for sousPlateFormeFk in institutionSousPlateFormeFk:
             newEntry = LinkInstitutionSousPlateForme(institution_fk = institutionFk,
-                                                           sousplateforme_fk = sousPlateFormeFk)
+                                                     sousplateforme_fk = sousPlateFormeFk)
             session.add(newEntry)
         session.flush()
 
@@ -3841,15 +3841,15 @@ class ManageClpsbw(BrowserView):
             session.delete(institutionFk)
         session.flush()
 
-    def deletelinkAssuetudeActiviteProposeeForInstitutionPro(self, institutionFk):
+    def deleteLinkAssuetudeActiviteProposeeForInstitutionPro(self, institutionFk):
         """
         table pg link_institution_assuetude_activite_proposee_pro
         suppression des asuetudes activite proposee liées à une institution
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        query = session.query(linkAssuetudeActiviteProposeeForInstitutionPro)
-        query = query.filter(linkAssuetudeActiviteProposeeForInstitutionPro.institution_fk == institutionFk)
+        query = session.query(LinkAssuetudeActiviteProposeeForInstitutionPro)
+        query = query.filter(LinkAssuetudeActiviteProposeeForInstitutionPro.institution_fk == institutionFk)
         allInstitutions = query.all()
 
         for institutionFk in allInstitutions:
@@ -4968,7 +4968,7 @@ class ManageClpsbw(BrowserView):
                 self.addLinkAssuetudeActiviteProposeeForInstitution(institutionFk, assuetudeActiviteProposeePublicFk)
 
             if assuetudeActiviteProposeeProFk > 0:
-                self.addlinkAssuetudeActiviteProposeeForInstitutionPro(institutionFk, assuetudeActiviteProposeeProFk)
+                self.addLinkAssuetudeActiviteProposeeForInstitutionPro(institutionFk, assuetudeActiviteProposeeProFk)
 
             if assuetudeThematiqueFk > 0:
                 self.addLinkAssuetudeThemeForInstitution(institutionFk)
@@ -4996,9 +4996,9 @@ class ManageClpsbw(BrowserView):
             if assuetudeActiviteProposeePublicFk > 0:
                 self.addLinkAssuetudeActiviteProposeeForInstitution(institutionFk, assuetudeActiviteProposeePublicFk)
 
-            self.deletelinkAssuetudeActiviteProposeeForInstitutionPro(institutionFk)
+            self.deleteLinkAssuetudeActiviteProposeeForInstitutionPro(institutionFk)
             if assuetudeActiviteProposeeProFk > 0:
-                self.addlinkAssuetudeActiviteProposeeForInstitutionPro(institutionFk, assuetudeActiviteProposeeProFk)
+                self.addLinkAssuetudeActiviteProposeeForInstitutionPro(institutionFk, assuetudeActiviteProposeeProFk)
 
             self.deleteLinkAssuetudeThemeForInstitution(institutionFk)
             if assuetudeThematiqueFk > 0:

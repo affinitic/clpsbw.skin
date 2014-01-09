@@ -358,18 +358,18 @@ class PdfGenerator(BrowserView):
 
             #cadre assuetude
             intervention =""
-            interventions = clpsView.getAssuetudeInterventionForInstituion(institutionPk, 'nom')
+            interventions = clpsView.getAssuetudeInterventionForInstitution(institutionPk, 'nom')
             for elem in interventions:
                 intervention = (intervention + "&bull; %s <br />")%(elem,)
 
             activiteProposee = ""
-            activiteProposees = clpsView.getAssuetudeActiviteProposeePublicForInstituion(institutionPk, 'nom')
+            activiteProposees = clpsView.getAssuetudeActiviteProposeePublicForInstitution(institutionPk, 'nom')
             for elem in activiteProposees:
                 activiteProposee = (activiteProposee + "&bull; %s <br />")%(elem,)
             precisionActiviteProposee = institution.institution_assuet_activite_proposee_precision
 
             thematique = ""
-            thematiques = clpsView.getAssuetudeThematiqueForInstituion(institutionPk, 'nom')
+            thematiques = clpsView.getAssuetudeThematiqueForInstitution(institutionPk, 'nom')
             for elem in thematiques:
                 thematique = (thematique + "&bull; %s <br />")%(elem,)
             precisionThematique = institution.institution_assuet_thematique_precision

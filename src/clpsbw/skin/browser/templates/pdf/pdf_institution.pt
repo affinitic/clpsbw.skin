@@ -25,9 +25,9 @@
     <tal:boucle tal:repeat="institution institutions">
         <tal:block tal:define="institutionPk institution/institution_pk;
                               territoire python:view.isInstitutionTerritoireCouvert(institutionPk);
-                              interventions python:view.getAssuetudeInterventionForInstituion(institutionPk, 'nom');
-                              activitesProfessionnelles python:view.getAssuetudeActiviteProposeeProForInstituion(institutionPk, 'nom');
-                              thematiques python:view.getAssuetudeThematiqueForInstituion(institutionPk, 'nom');
+                              interventions python:view.getAssuetudeInterventionForInstitution(institutionPk, 'nom');
+                              activitesProfessionnelles python:view.getAssuetudeActiviteProposeeProForInstitution(institutionPk, 'nom');
+                              thematiques python:view.getAssuetudeThematiqueForInstitution(institutionPk, 'nom');
                               selectedClpsProprio python:view.getClpsProprioForInstitution(institutionPk, 'pk')">
             <table>
                 <tr>

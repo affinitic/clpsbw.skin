@@ -46,9 +46,9 @@
                         <tal:boucle tal:repeat="institution institutions">
                             <article class="organisme-fiche"
                                      tal:define="institutionPk institution/institution_pk;
-                                                 selectedInterventions python:view.getAssuetudeInterventionForInstituion(institutionPk, 'nom');
-                                                 selectedActivitesProposees python:view.getAssuetudeActiviteProposeeProForInstituion(institutionPk, 'nom');
-                                                 selectedThematiques python: view.getAssuetudeThematiqueForInstituion(institutionPk, 'nom');
+                                                 selectedInterventions python:view.getAssuetudeInterventionForInstitution(institutionPk, 'nom');
+                                                 selectedActivitesProposees python:view.getAssuetudeActiviteProposeeProForInstitution(institutionPk, 'nom');
+                                                 selectedThematiques python: view.getAssuetudeThematiqueForInstitution(institutionPk, 'nom');
                                                  ">
                                 <div class="organisme-titre">
                                     <a href=""

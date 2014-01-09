@@ -22,37 +22,35 @@
 <body>
 <div metal:fill-slot="main">
     <div id="zone-titre-moteur-recherche">
-        <div class="search-titre">
-            Rechercher une institution
-        </div>
-        <br />
+        <h1>Effectuer une recherche</h1>
         <div class="search-text-intro">Plusieurs types de recherche sont possibles.</div>
     </div>
 
     <div id="zone-moteur-recherche">
 
-        <fieldset class="search-zone-nom">
+        <fieldset class="search-zone">
             <legend class="search-legend-titre"> A partir du titre d'une institution </legend>
             <div id="info-champs">
             </div>
             <br />
-            <form action="institution-decrire"
+            <form action="admin-decrire-une-institution"
                   method="post">
                 <input type="text"
                        id="nom_institution"
-                       name="nomInstitution"
+                       name="institutionNom"
                        value=""
-                       size="50">
+                       size="100">
                 <br />
                 <input type="submit"
                        value="lancer la recherche"
                        class="search-button" />
             </form>
         </fieldset>
-
-        <fieldset class="search-zone-nom">
+        <p><br /></p>
+        <fieldset class="search-zone">
             <legend class="search-legend-titre"> A partir de la PK d'une institution </legend>
-            <form action="institution-decrire" method="post">
+            <form action="admin-decrire-une-institution"
+                  method="post">
                 Pk de l'institution<br />
                 <input type="text"
                        id="institutionPk"
@@ -65,10 +63,11 @@
                        class="search-button" />
             </form>
         </fieldset>
-
-        <fieldset class="search-zone-nom">
+        <p><br /></p>
+        <fieldset class="search-zone">
             <legend class="search-legend-titre"> Toutes les institutions de la DB </legend>
-            <form action="institution-decrire" method="post">
+            <form action="admin-decrire-une-institution"
+                  method="post">
                 Ci-dessous, la liste des différentes institution encodées dans la base.
                 <div class="div_question">
                     <select name="institutionPk">
@@ -102,11 +101,12 @@
                        class="search-button" />
             </form>
         </fieldset><!--search-zone-nom-->
-
+        <p><br /></p>
         <fieldset tal:condition="python:user.has_role(['Manager'], here)"
-                  class="search-zone-nom">
+                  class="search-zone">
             <legend class="search-legend-titre"> Recherche par auteur </legend>
-            <form action="institution-lister-auteur-pk" method="post">
+            <form action="institution-lister-auteur-pk"
+                  method="post">
                 Ci-dessous, la liste des différents auteurs d'institution encodées dans la base.
                 <br />
                 <tal:block tal:define="auteurs python:view.getAllAuteurFromInstitution()">

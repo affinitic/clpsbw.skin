@@ -36,7 +36,7 @@
                 </dd>
                 <dd class="portletItemDB">
                     <a href=""
-                       tal:attributes="href string:${context/portal_url}/admin-experience-recherche">Rechercher</a>
+                       tal:attributes="href string:${context/portal_url}/admin-experience-recherche">Chercher</a>
                 </dd>
                 <dd class="portletItemDB">
                     <br />
@@ -85,7 +85,7 @@
                 </dd>
                 <dd class="portletItemDB">
                     <a href="" tal:attributes="href string:${context/portal_url}/admin-auteur-chercher">
-                        Rechercher
+                        Chercher
                     </a>
                 </dd>
             </div>
@@ -96,23 +96,23 @@
                     Institutions
                 </dt>
                 <dd class="portletItemDB">
-                    <a href="" tal:attributes="href string:${context/portal_url}/institution-creer">
+                    <a href="" tal:attributes="href string:${context/portal_url}/admin-creer-une-institution">
                         Créer
                     </a>
                 </dd>
                 <dd class="portletItemDB">
-                    <a href="" tal:attributes="href string:${context/portal_url}/admin-institution-lister">
+                    <a href="" tal:attributes="href string:${context/portal_url}/admin-lister-les-institutions">
                         Lister
                     </a>
                 </dd>
                 <dd class="portletItemDB">
-                    <a href="" tal:attributes="href string:${context/portal_url}/institution-chercher">
+                    <a href="" tal:attributes="href string:${context/portal_url}/admin-chercher-une-institution">
                         Modifier
                     </a>
                 </dd>
                 <dd class="portletItemDB">
-                    <a href="" tal:attributes="href string:${context/portal_url}/institution-chercher">
-                        Rechercher
+                    <a href="" tal:attributes="href string:${context/portal_url}/admin-chercher-une-institution">
+                        Chercher
                     </a>
                 </dd>
                 <dd class="portletItemDB">
@@ -124,12 +124,12 @@
                 <dd tal:define="nbrInst python:institutions.getCountInstitutionByEtat('private')"
                      class="portletItemDB">
                     <br />
-                    <a href="admin-institution-lister-par-etat?etat=private">
+                    <a href="admin-lister-institution-par-etat?etat=private">
                         Etat priv&eacute; : <span tal:content="nbrInst">nbr</span></a>
                 </dd>
                 <dd tal:define="nbrInst python:institutions.getCountExperienceByEtat('publish')"
                      class="portletItemDB">
-                    <a href="admin-institution-lister-par-etat?etat=publish">
+                    <a href="admin-lister-institution-par-etat?etat=publish">
                         Etat publi&eacute; : <span tal:content="nbrInst">nbr</span></a>
                 </dd>
                 <dd tal:define="nbrInst python:institutions.getCountAllInstitution()"

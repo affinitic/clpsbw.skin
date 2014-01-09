@@ -67,7 +67,7 @@
                             </li>
                             <li>
                                 <a href=""
-                                   tal:attributes="href string:${context/portal_url}/admin-modifier-une-institution}">
+                                   tal:attributes="href string:${context/portal_url}/admin-modifier-une-institution?institutionPk=${institutionPk}">
                                     Modifier</a>
                             </li>
                             <li>
