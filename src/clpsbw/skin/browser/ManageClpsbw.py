@@ -3202,7 +3202,7 @@ class ManageClpsbw(BrowserView):
         url = "%s/admin-creer-un-type-institution" % (portalUrl)
         self.request.response.redirect(url)
 
-    def addInstitution(self):
+    def insertInstitution(self):
         """
         table pg institution
         ajout d'une institution
@@ -3310,7 +3310,9 @@ class ManageClpsbw(BrowserView):
                                      institution_institution_type_fk = institution_institution_type_fk)
         session.add(newEntry)
         session.flush()
-        return {'status': 1}
+        session.refresh(newEntry)
+        institutionPk = newEntry.institution_pk
+        return institutionPk
 
     def insertAssuetudeInterventionForInstitution(self):
         """
@@ -3428,7 +3430,7 @@ class ManageClpsbw(BrowserView):
             session.add(newEntry)
         session.flush()
 
-    def addLinkAssuetudeActiviteProposeeForInstitution(self, institutionFk, assuetudeActiviteProposeePublicFk):
+    def addLinkAssuetudeActiviteProposeeForInstitutionPublic(self, institutionFk, assuetudeActiviteProposeePublicFk):
         """
         table pg link_institution_assuetude_activite_proposee_public
         ajout des activites proposees assuetude liees a une institution
@@ -3436,8 +3438,8 @@ class ManageClpsbw(BrowserView):
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
         for activiteFk in assuetudeActiviteProposeePublicFk:
-            newEntry = LinkAssuetudeActiviteProposeeForInstitution(institution_fk = institutionFk,
-                                                                   assuetude_activite_proposee_public_fk = activiteFk)
+            newEntry = LinkAssuetudeActiviteProposeeForInstitutionPublic(institution_fk = institutionFk,
+                                                                         assuetude_activite_proposee_public_fk = activiteFk)
             session.add(newEntry)
         session.flush()
 
@@ -3826,15 +3828,15 @@ class ManageClpsbw(BrowserView):
             session.delete(institutionFk)
         session.flush()
 
-    def deleteLinkAssuetudeActiviteProposeeForInstitution(self, institutionFk):
+    def deleteLinkAssuetudeActiviteProposeeForInstitutionPublic(self, institutionFk):
         """
         table pg link_institution_assuetude_activite_proposee_public
         suppression des asuetudes activite proposee liées à une institution
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        query = session.query(LinkAssuetudeActiviteProposeeForInstitution)
-        query = query.filter(LinkAssuetudeActiviteProposeeForInstitution.institution_fk == institutionFk)
+        query = session.query(LinkAssuetudeActiviteProposeeForInstitutionPublic)
+        query = query.filter(LinkAssuetudeActiviteProposeeForInstitutionPublic.institution_fk == institutionFk)
         allInstitutions = query.all()
 
         for institutionFk in allInstitutions:
@@ -3994,8 +3996,8 @@ class ManageClpsbw(BrowserView):
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        query = session.query(InstitutionSousPlateForme)
-        query = query.filter(InstitutionSousPlateForme.institution_fk == institutionFk)
+        query = session.query(LinkInstitutionSousPlateForme)
+        query = query.filter(LinkInstitutionSousPlateForme.institution_fk == institutionFk)
         for institutionFk in query.all():
             session.delete(institutionFk)
         session.flush()
@@ -4007,8 +4009,8 @@ class ManageClpsbw(BrowserView):
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        query = session.query(InstitutionCommuneCouverte)
-        query = query.filter(InstitutionCommuneCouverte.institution_fk == institutionFk)
+        query = session.query(LinkInstitutionCommuneCouverte)
+        query = query.filter(LinkInstitutionCommuneCouverte.institution_fk == institutionFk)
         for institutionFk in query.all():
             session.delete(institutionFk)
         session.flush()
@@ -4958,14 +4960,13 @@ class ManageClpsbw(BrowserView):
         institutionClpsProprioFk = getattr(fields, 'institution_clps_proprio_fk', None)
 
         if operation == "insert":
-            self.addInstitution()
-            institutionFk = self.getInstitutionMaxPk()
-
+            institutionFk = self.insertInstitution()
+            
             if assuetudeInterventionFk > 0:
                 self.addLinkAssuetudeInterventionForInstitution(institutionFk)
 
             if assuetudeActiviteProposeePublicFk > 0:
-                self.addLinkAssuetudeActiviteProposeeForInstitution(institutionFk, assuetudeActiviteProposeePublicFk)
+                self.addLinkAssuetudeActiviteProposeeForInstitutionPublic(institutionFk, assuetudeActiviteProposeePublicFk)
 
             if assuetudeActiviteProposeeProFk > 0:
                 self.addLinkAssuetudeActiviteProposeeForInstitutionPro(institutionFk, assuetudeActiviteProposeeProFk)
@@ -4981,7 +4982,14 @@ class ManageClpsbw(BrowserView):
 
             if institutionClpsProprioFk:                             # gestion du clps_proprio
                 self.addLinkInstitutionClpsProprio(institutionFk)
-            return {'status': 1}
+
+            portalUrl = getToolByName(self.context, 'portal_url')()
+            ploneUtils = getToolByName(self.context, 'plone_utils')
+            message = u"L'institution a été ajoutée !"
+            ploneUtils.addPortalMessage(message, 'info')
+            url = "%s/admin-decrire-une-institution?institutionPk=%s" % (portalUrl, institutionFk)
+            self.request.response.redirect(url)
+
 
         if operation == "update":
             institutionSousPlateFormeFk = getattr(fields, 'institution_sousplateforme_fk', None)
@@ -4992,9 +5000,9 @@ class ManageClpsbw(BrowserView):
             if assuetudeInterventionFk > 0:
                 self.addLinkAssuetudeInterventionForInstitution(institutionFk)
 
-            self.deleteLinkAssuetudeActiviteProposeeForInstitution(institutionFk)
+            self.deleteLinkAssuetudeActiviteProposeeForInstitutionPublic(institutionFk)
             if assuetudeActiviteProposeePublicFk > 0:
-                self.addLinkAssuetudeActiviteProposeeForInstitution(institutionFk, assuetudeActiviteProposeePublicFk)
+                self.addLinkAssuetudeActiviteProposeeForInstitutionPublic(institutionFk, assuetudeActiviteProposeePublicFk)
 
             self.deleteLinkAssuetudeActiviteProposeeForInstitutionPro(institutionFk)
             if assuetudeActiviteProposeeProFk > 0:
@@ -5016,8 +5024,13 @@ class ManageClpsbw(BrowserView):
             if institutionClpsProprioFk > 0:
                 self.addLinkInstitutionClpsProprio(institutionFk)
 
+            portalUrl = getToolByName(self.context, 'portal_url')()
+            ploneUtils = getToolByName(self.context, 'plone_utils')
+            message = u"L'institution a été ajoutée !"
+            ploneUtils.addPortalMessage(message, 'info')
+            url = "%s/admin-decrire-une-institution?institutionPk=%s" % (portalUrl, institutionFk)
+            self.request.response.redirect(url)
 
-            return {'status': 1}
 
     def manageRessource(self):
         """

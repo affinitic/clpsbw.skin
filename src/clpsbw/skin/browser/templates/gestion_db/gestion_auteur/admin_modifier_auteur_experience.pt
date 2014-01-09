@@ -20,7 +20,7 @@
         <tal:requete tal:define="auteurPk request/auteurPk;
                                  Auteur python:view.getAuteurByPk(auteurPk);">
             <tal:boucle tal:repeat="auteur Auteur">
-                <form action="admin-auteur-inserer"
+                <form action="manageAuteur"
                       method="post">
                     <fieldset>
                         <legend class="legende">Coordonn&eacute;es</legend>

@@ -650,7 +650,14 @@
           class=".ManageClpsbw.ManageClpsbw"
           allowed_interface=".interfaces.IManageClpsbw"
           />
-
+    <browser:page
+          name="manageInstitution"
+          for="*"
+          class=".ManageClpsbw.ManageClpsbw"
+          permission="zope.Public"
+          attribute="manageInstitution"
+          allowed_interface=".interfaces.IManageClpsbw"
+          />
 
 
     <browser:page
@@ -994,23 +1001,23 @@
     <browser:page
           name="admin-auteur-creer"
           for="*"
-          template="templates/gestion_db/gestion_auteur/admin_auteur_experience_creation_form.pt"
+          template="templates/gestion_db/gestion_auteur/admin_creer_auteur_experience.pt"
           permission="zope.Public"
           class=".ManageClpsbw.ManageClpsbw"
           allowed_interface=".interfaces.IManageClpsbw"
           />
     <browser:page
-          name="admin-auteur-inserer"
-          for="*"
-          template="templates/gestion_db/gestion_auteur/admin_auteur_experience_insertion.pt"
-          permission="zope.Public"
-          class=".ManageClpsbw.ManageClpsbw"
-          allowed_interface=".interfaces.IManageClpsbw"
-          />
+         name="manageAuteur"
+         for="*"
+         class=".ManageClpsbw.ManageClpsbw"
+         permission="zope.Public"
+         attribute="manageAuteur"
+         allowed_interface=".interfaces.IManageClpsbw"
+         />
     <browser:page
           name="admin-auteur-modifier"
           for="*"
-          template="templates/gestion_db/gestion_auteur/admin_auteur_experience_modification_form.pt"
+          template="templates/gestion_db/gestion_auteur/admin_modifier_auteur_experience.pt"
           permission="zope.Public"
           class=".ManageClpsbw.ManageClpsbw"
           allowed_interface=".interfaces.IManageClpsbw"
@@ -1018,7 +1025,7 @@
     <browser:page
           name="admin-auteur-supprimer"
           for="*"
-          template="templates/gestion_db/gestion_auteur/admin_auteur_experience_suppression_form.pt"
+          template="templates/gestion_db/gestion_auteur/admin_supprimer_auteur_experience.pt"
           permission="zope.Public"
           class=".ManageClpsbw.ManageClpsbw"
           allowed_interface=".interfaces.IManageClpsbw"
@@ -1026,7 +1033,7 @@
     <browser:page
           name="admin-auteur-chercher"
           for="*"
-          template="templates/gestion_db/gestion_auteur/admin_auteur_moteur_recherche_db.pt"
+          template="templates/gestion_db/gestion_auteur/admin_chercher_auteur_experience.pt"
           permission="zope.Public"
           class=".ManageClpsbw.ManageClpsbw"
           allowed_interface=".interfaces.IManageClpsbw"
