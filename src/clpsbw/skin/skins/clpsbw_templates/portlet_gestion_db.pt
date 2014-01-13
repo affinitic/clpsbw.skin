@@ -32,11 +32,11 @@
                 </dd>
                 <dd class="portletItemDB">
                     <a href=""
-                       tal:attributes="href string:${context/portal_url}/admin-experience-recherche">Modifier</a>
+                       tal:attributes="href string:${context/portal_url}/admin-chercher-une-experience">Modifier</a>
                 </dd>
                 <dd class="portletItemDB">
                     <a href=""
-                       tal:attributes="href string:${context/portal_url}/admin-experience-recherche">Chercher</a>
+                       tal:attributes="href string:${context/portal_url}/admin-chercher-une-experience">Chercher</a>
                 </dd>
                 <dd class="portletItemDB">
                     <br />
@@ -74,17 +74,17 @@
                     Auteurs
                 </dt>
                 <dd class="portletItemDB">
-                    <a href="" tal:attributes="href string:${context/portal_url}/admin-auteur-creer">
+                    <a href="" tal:attributes="href string:${context/portal_url}/admin-creer-un-auteur">
                         Créer
                     </a>
                 </dd>
                 <dd class="portletItemDB">
-                    <a href="" tal:attributes="href string:${context/portal_url}/admin-auteur-creer">
+                    <a href="" tal:attributes="href string:${context/portal_url}/admin-creer-un-auteur">
                         Lister
                     </a>
                 </dd>
                 <dd class="portletItemDB">
-                    <a href="" tal:attributes="href string:${context/portal_url}/admin-auteur-chercher">
+                    <a href="" tal:attributes="href string:${context/portal_url}/admin-chercher-un-auteur">
                         Chercher
                     </a>
                 </dd>
