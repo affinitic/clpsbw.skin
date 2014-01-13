@@ -13,7 +13,7 @@
     
     <h1>Cadastre des institutions</h1>
 
-    <div tal:define="institutionTypePk request:institutionTypePk;
+    <div tal:define="institutionTypePk request/institutionTypePk;
                      institutionTypes python:view.getAllInstitutionType()">
         <p>
             Dans le cadre de ses missions le "Point d'appui" réalise un
