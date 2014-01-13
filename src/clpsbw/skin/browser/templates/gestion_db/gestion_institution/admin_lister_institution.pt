@@ -25,14 +25,14 @@
                            class="titre_formation">nom de l'institution</a>
                    </h2>
                    <div class="description-listing">
-                        <h3>Adresse :</h3>
+                        <h4>Adresse :</h4>
                             <p><span tal:content="institution/institution_adresse" /></p>
-                        <h3>Localité :</h3>
+                        <h4>Localité :</h4>
                             <p>
                                <span tal:content="institution/commune/com_localite_cp" />
                                <span tal:content="institution/commune/com_localite_nom" />
                             </p>
-                        <h3>Contact :</h3>
+                        <h4>Contact :</h4>
                             <p><span tal:content="institution/institution_nom_contact" /></p>
                    </div>
                    <hr class="ligne-top-menu-gestion-donnee" /> 

@@ -16,7 +16,7 @@
         <tal:boucle tal:repeat="ressource ressources">
             <tal:block tal:define="ressourcePk ressource/ressource_pk;
                                    publics python:view.getPublicByRessourcePk(ressourcePk, 'nom');">
-                <div class="formulaire">
+                <article class="formulaire">
                     <h2>
                         <a href=""
                          tal:content="ressource/ressource_titre"
@@ -24,16 +24,16 @@
                          class="titre_formation">titre de la ressource</a>
                     </h2>
                     <div class="description-listing">
-                            <h3>Description</h3>
+                            <h4>Description</h4>
                             <p><span tal:replace="structure ressource/ressource_description" /></p>
                             
-                            <h3>Auteur</h3>
+                            <h4>Auteur</h4>
                             <p><span tal:content="ressource/ressource_auteur" /></p>
                             
-                            <h3>Année de parution</h3>
+                            <h4>Année de parution</h4>
                             <p><span tal:content="ressource/ressource_date_edition" /></p>
                             
-                            <h3>Public</h3>
+                            <h4>Public</h4>
                             <p>
                             <tal:boucle tal:repeat="public publics">
                                 <span tal:content="public" /><br />
@@ -86,7 +86,7 @@
                             </ul>
                         <div class="visualClear" />
                     </div>
-                </div>
+                </article>
             </tal:block>
         </tal:boucle>
     </div><!--define-->
