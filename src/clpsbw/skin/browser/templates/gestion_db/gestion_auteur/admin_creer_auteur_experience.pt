@@ -12,38 +12,35 @@
 <body>
 <div metal:fill-slot="main"
      tal:condition="python:user.has_role(['Manager'], here)">
-    <br />
-     
-    <h1>:: Gestion des auteurs d'expériences ::</h1>
-    <fieldset>
-        <legend class="legende">Liste des auteurs</legend>
+    <h1>Gestion des auteurs d'expériences</h1>
+    <div class="formulaire">
+        <h2>Liste des auteurs</h2>
         <tal:requete tal:define="Auteurs python:view.getAllAuteur();">
             <table class="listing">
                 <thead>
                     <tr>
-                        <th>Nom</th>
-                        <th>Prénom</th>
+                        <th>Nom Prénom</th>
                         <th>Identifant</th>
                         <th>Pass</th>
                         <th>Email</th>
                         <th>Institution</th>
-                        <th>ID FileMaker</th>
                         <th>Etat</th>
-                        <th>Modifier</th>
-                        <th>Effacer</th>
                     </tr>
                 </thead>
                 <tbody>
                 <tal:boucle tal:repeat="auteur Auteurs">
                     <span tal:define="odd repeat/auteur/odd">
                         <tr tal:attributes="class python:odd and 'odd' or 'even'">
-                            <td><span tal:content="auteur/auteur_nom" /></td>
-                            <td><span tal:content="auteur/auteur_prenom" /></td>
+                            <td>
+                                <a href=""
+                                   tal:attributes="href string: admin-decrire-un-auteur?auteurPk=${auteur/auteur_pk}">
+                                <span tal:content="auteur/auteur_nom" />
+                                <span tal:content="auteur/auteur_prenom" /></a>
+                            </td>
                             <td><span tal:content="auteur/auteur_login" /></td>
                             <td><span tal:content="auteur/auteur_pass" /></td>
                             <td><span tal:content="auteur/auteur_email" /></td>
                             <td><span tal:content="auteur/auteur_institution" /></td>
-                            <td><span tal:content="auteur/auteur_id_filemaker" /></td>
                             <td>
                                <span tal:condition="python: auteur.auteur_actif">
                                     <span class="vert-actif">Actif</span>
@@ -52,27 +49,13 @@
                                     <span class="rouge-non-actif">Non-actif</span>
                                 </span>
                             </td>
-                            <td align="center">
-                                <div class="btn-modifier">
-                                    <a href=""
-                                       tal:attributes="href string: admin-auteur-modifier?auteurPk=${auteur/auteur_pk}">&nbsp;</a>
-                                </div>
-                            </td>
-                            <td tal:define="experience python:view.isAuteurHadExperience(auteur.auteur_pk);
-                                            institution python:view.isAuteurHadInstitution(auteur.auteur_pk)">
-                                <div tal:condition="python: experience==False and institution==False">
-                                    <a href=""
-                                       tal:attributes="href string: admin-auteur-supprimer?auteurPk=${auteur/auteur_pk}">
-                                       <img src="supprimer.png" /></a>
-                                </div>
-                            </td>
                         </tr>
                     </span>
                 </tal:boucle>
                 </tbody>
             </table>
         </tal:requete>
-    </fieldset>
+    </div>
 
     <fieldset>
         <legend class="legende">Ajouter un auteur</legend>

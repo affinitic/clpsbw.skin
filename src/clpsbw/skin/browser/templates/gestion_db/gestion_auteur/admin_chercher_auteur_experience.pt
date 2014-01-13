@@ -42,13 +42,13 @@
             <div id="info-champs">
             </div>
             <br />
-            <form action="admin-auteur-modifier"
+            <form action="admin-modifier-un-auteur"
                   method="post">
                 <input type="text"
                        id="auteur_nom"
                        name="nomAuteur"
                        value=""
-                       size="50">
+                       size="100">
                 <br />
                 <input type="submit"
                        value="lancer la recherche"
@@ -58,7 +58,7 @@
 
         <fieldset  class="search-zone-nom">
             <legend class="search-legend-titre"> A partir de la PK de l'auteur</legend>
-            <form action="admin-auteur-modifier"
+            <form action="admin-modifier-un-auteur"
                   method="post">
                 Pk de l'auteur<br />
                 <input type="text"
@@ -76,7 +76,7 @@
 
         <fieldset  class="search-zone-nom">
             <legend class="search-legend-titre"> Toutes les auteurs de la DB </legend>
-            <form action="admin-auteur-modifier"
+            <form action="admin-modifier-un-auteur"
                   method="post">
                 Ci-dessous, la liste des différents auteurs encodés dans la base.
                 <br />
