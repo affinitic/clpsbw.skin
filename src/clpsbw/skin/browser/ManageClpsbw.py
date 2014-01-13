@@ -27,52 +27,51 @@ from plone.memoize.instance import memoize
 
 
 # mettre ici toute les classe de initializer
-from clpsbw.db.pgsql.baseTypes import \
-                        Auteur, \
-                        Commune, \
-                        Clps, \
-                        Experience, \
-                        Institution, \
-                        InstitutionType, \
-                        MilieuDeVie, \
-                        MotCle, \
-                        Public, \
-                        Ressource, \
-                        Support, \
-                        Theme, \
-                        PlateForme, \
-                        SousPlateForme, \
-                        LinkExperienceMilieuDeVie, \
-                        LinkExperienceTheme, \
-                        LinkExperienceRessource, \
-                        LinkExperienceCommune, \
-                        LinkExperienceMotCle, \
-                        LinkExperiencePublic, \
-                        LinkExperienceInstitutionPorteur, \
-                        LinkExperienceInstitutionPartenaire, \
-                        LinkExperienceInstitutionRessource, \
-                        LinkExperienceClpsProprio, \
-                        LinkRessourceTheme, \
-                        LinkRessourcePublic, \
-                        LinkRessourceClpsProprio, \
-                        LinkRessourceClpsDispo, \
-                        LinkRessourceSupport, \
-                        LinkInstitutionSousPlateForme, \
-                        LinkInstitutionCommuneCouverte, \
-                        LinkInstitutionClpsProprio, \
-                        ExperienceMaj, \
-                        RechercheLog, \
-                        AssuetudeInterventionForInstitution, \
-                        LinkAssuetudeInterventionForInstitution, \
-                        AssuetudeActiviteProposeeForInstitution, \
-                        LinkAssuetudeActiviteProposeeForInstitutionPublic, \
-                        LinkAssuetudeActiviteProposeeForInstitutionPro, \
-                        AssuetudeThemeForInstitution, \
-                        LinkAssuetudeThemeForInstitution, \
-                        RechercheLog
-                        #InstitutionAssuetudeIntervention, \
-                        #InstitutionAssuetudeActiviteProposee, \
-                        #AssuetudeThemeForInstitution, \
+from clpsbw.db.pgsql.baseTypes import Auteur, \
+                                      Commune, \
+                                      Clps, \
+                                      Experience, \
+                                      Institution, \
+                                      InstitutionType, \
+                                      MilieuDeVie, \
+                                      MotCle, \
+                                      Public, \
+                                      Ressource, \
+                                      Support, \
+                                      Theme, \
+                                      PlateForme, \
+                                      SousPlateForme, \
+                                      LinkExperienceMilieuDeVie, \
+                                      LinkExperienceTheme, \
+                                      LinkExperienceRessource, \
+                                      LinkExperienceCommune, \
+                                      LinkExperienceMotCle, \
+                                      LinkExperiencePublic, \
+                                      LinkExperienceInstitutionPorteur, \
+                                      LinkExperienceInstitutionPartenaire, \
+                                      LinkExperienceInstitutionRessource, \
+                                      LinkExperienceClpsProprio, \
+                                      LinkRessourceTheme, \
+                                      LinkRessourcePublic, \
+                                      LinkRessourceClpsProprio, \
+                                      LinkRessourceClpsDispo, \
+                                      LinkRessourceSupport, \
+                                      LinkInstitutionSousPlateForme, \
+                                      LinkInstitutionCommuneCouverte, \
+                                      LinkInstitutionClpsProprio, \
+                                      ExperienceMaj, \
+                                      RechercheLog, \
+                                      AssuetudeInterventionForInstitution, \
+                                      LinkAssuetudeInterventionForInstitution, \
+                                      AssuetudeActiviteProposeeForInstitution, \
+                                      LinkAssuetudeActiviteProposeeForInstitutionPublic, \
+                                      LinkAssuetudeActiviteProposeeForInstitutionPro, \
+                                      AssuetudeThemeForInstitution, \
+                                      LinkAssuetudeThemeForInstitution, \
+                                      RechercheLog
+                                      #InstitutionAssuetudeIntervention, \
+                                      #InstitutionAssuetudeActiviteProposee, \
+                                      #AssuetudeThemeForInstitution, \
 
 
 
@@ -270,7 +269,7 @@ class ManageClpsbw(BrowserView):
         if isCorrectCaptcha:
             cible = "%s/experience-inscription-auteur-merci" % (obj.portal_url(), )
             obj.REQUEST.RESPONSE.redirect(cible)
-            self.addAuteur()
+            self.insertAuteur()
             self.sendMailForNewAuteurExperience()
 
         else:
@@ -331,7 +330,7 @@ class ManageClpsbw(BrowserView):
                   En modifiant l'auteur, tu peux l'activer et lui donner un dentifiant "FileMaker"
                   <br />
                   Voir la liste des auteurs en cliquant sur ce
-                  <a href="http://www.clpsbw.be/admin-auteur-creer">lien</a>.
+                  <a href="http://www.clpsbw.be/admin-creer-un-auteur">lien</a>.
                   <hr />
                   """ \
                   % (auteurNom, \
@@ -531,7 +530,7 @@ class ManageClpsbw(BrowserView):
         self.context.REQUEST.RESPONSE.redirect(cible)
         return
 
-    def addLoginAuteur(self, login, passw, role):
+    def insertLoginAuteur(self, login, passw, role):
         """
         ajoute le login et le pass d'un auteur qui
         s'inscrit via le site
@@ -540,7 +539,7 @@ class ManageClpsbw(BrowserView):
         uf = getToolByName(self.context, 'acl_users')
         uf.userFolderAddUser(login, passw, [role], [])
 
-    def addInfoAuteur(self, userId, userEmail, userName):
+    def insertInfoAuteur(self, userId, userEmail, userName):
         """
         ajoute l'email de l'auteur qui vient de s'inscrire
         """
@@ -723,7 +722,7 @@ class ManageClpsbw(BrowserView):
         query = session.query(Auteur)
         query = query.filter(Auteur.auteur_pk == auteur_pk)
         query = query.order_by(Auteur.auteur_nom)
-        auteur = query.all()
+        auteur = query.one()
         return auteur
 
     def getAuteurLogin(self, auteur_pk):
@@ -833,7 +832,7 @@ class ManageClpsbw(BrowserView):
         for auteur in query.all():
             session.delete(auteur)
         session.flush()
-        cible = "%s/admin-auteur-creer" % (obj.portal_url(), )
+        cible = "%s/admin-creer-un-auteur" % (obj.portal_url(), )
         obj.REQUEST.RESPONSE.redirect(cible)
 
     def getAuteurByLeffeSearch(self, searchString):
@@ -2704,7 +2703,7 @@ class ManageClpsbw(BrowserView):
 #        return institutionType
 
 #### ADD ####
-    def addAuteur(self):
+    def insertAuteur(self):
         """
         table pg auteur
         ajout d'un auteur
@@ -3264,50 +3263,50 @@ class ManageClpsbw(BrowserView):
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
         newEntry = Institution(institution_nom = institution_nom, \
-                                     institution_sigle = institution_sigle, \
-                                     institution_adresse = institution_adresse, \
-                                     institution_nom_contact = institution_nom_contact, \
-                                     institution_email_contact = institution_email_contact, \
-                                     institution_tel_contact = institution_tel_contact, \
-                                     institution_fonction_contact = institution_fonction_contact, \
-                                     institution_url_site = institution_url_site, \
-                                     institution_lien_siss = institution_lien_siss,\
-                                     institution_lien_autre = institution_lien_autre, \
-                                     institution_autre_info = institution_autre_info, \
-                                     institution_mission = institution_mission, \
-                                     institution_activite = institution_activite, \
-                                     institution_public = institution_public, \
-                                     institution_territoire_tout_brabant_wallon = institution_territoire_tout_brabant_wallon, \
-                                     institution_zone_internationale = institution_zone_internationale, \
-                                     institution_zone_internationale_info = institution_zone_internationale_info, \
-                                     institution_zone_belgique = institution_zone_belgique, \
-                                     institution_zone_cfwb = institution_zone_cfwb, \
-                                     institution_zone_rw = institution_zone_rw, \
-                                     institution_zone_brxl = institution_zone_brxl, \
-                                     institution_commentaire = institution_commentaire, \
-                                     institution_assuet_intervention = institution_assuet_intervention, \
-                                     institution_assuet_intervention_precision = institution_assuet_intervention_precision, \
-                                     institution_assuet_activite_proposee = institution_assuet_activite_proposee, \
-                                     institution_assuet_activite_proposee_precision = institution_assuet_activite_proposee_precision, \
-                                     institution_assuet_thematique_precision = institution_assuet_thematique_precision, \
-                                     institution_assuet_aide_soutien_ecole = institution_assuet_aide_soutien_ecole, \
-                                     institution_assuet_activite_entourage = institution_assuet_activite_entourage, \
-                                     institution_auteur_login = institution_auteur_login, \
-                                     institution_plate_forme_sante_ecole = institution_plate_forme_sante_ecole, \
-                                     institution_plate_forme_assuetude = institution_plate_forme_assuetude, \
-                                     institution_plate_forme_sante_famille = institution_plate_forme_sante_famille, \
-                                     institution_plate_forme_sante_environnement = institution_plate_forme_sante_environnement, \
-                                     institution_listing_ressource_plate_forme_sante_ecole = institution_listing_ressource_plate_forme_sante_ecole, \
-                                     institution_listing_ressource_plate_forme_assuetude = institution_listing_ressource_plate_forme_assuetude, \
-                                     institution_listing_ressource_plate_forme_sante_famille = institution_listing_ressource_plate_forme_sante_famille, \
-                                     institution_listing_ressource_plate_forme_sante_environnement = institution_listing_ressource_plate_forme_sante_environnement, \
-                                     institution_etat = institution_etat, \
-                                     institution_creation_date = institution_creation_date, \
-                                     institution_modification_employe = institution_modification_employe, \
-                                     institution_commune_fk = institution_commune_fk, \
-                                     institution_auteur_fk = institution_auteur_fk, \
-                                     institution_clps_proprio_fk =institution_clps_proprio_fk, \
-                                     institution_institution_type_fk = institution_institution_type_fk)
+                               institution_sigle = institution_sigle, \
+                               institution_adresse = institution_adresse, \
+                               institution_nom_contact = institution_nom_contact, \
+                               institution_email_contact = institution_email_contact, \
+                               institution_tel_contact = institution_tel_contact, \
+                               institution_fonction_contact = institution_fonction_contact, \
+                               institution_url_site = institution_url_site, \
+                               institution_lien_siss = institution_lien_siss,\
+                               institution_lien_autre = institution_lien_autre, \
+                               institution_autre_info = institution_autre_info, \
+                               institution_mission = institution_mission, \
+                               institution_activite = institution_activite, \
+                               institution_public = institution_public, \
+                               institution_territoire_tout_brabant_wallon = institution_territoire_tout_brabant_wallon, \
+                               institution_zone_internationale = institution_zone_internationale, \
+                               institution_zone_internationale_info = institution_zone_internationale_info, \
+                               institution_zone_belgique = institution_zone_belgique, \
+                               institution_zone_cfwb = institution_zone_cfwb, \
+                               institution_zone_rw = institution_zone_rw, \
+                               institution_zone_brxl = institution_zone_brxl, \
+                               institution_commentaire = institution_commentaire, \
+                               institution_assuet_intervention = institution_assuet_intervention, \
+                               institution_assuet_intervention_precision = institution_assuet_intervention_precision, \
+                               institution_assuet_activite_proposee = institution_assuet_activite_proposee, \
+                               institution_assuet_activite_proposee_precision = institution_assuet_activite_proposee_precision, \
+                               institution_assuet_thematique_precision = institution_assuet_thematique_precision, \
+                               institution_assuet_aide_soutien_ecole = institution_assuet_aide_soutien_ecole, \
+                               institution_assuet_activite_entourage = institution_assuet_activite_entourage, \
+                               institution_auteur_login = institution_auteur_login, \
+                               institution_plate_forme_sante_ecole = institution_plate_forme_sante_ecole, \
+                               institution_plate_forme_assuetude = institution_plate_forme_assuetude, \
+                               institution_plate_forme_sante_famille = institution_plate_forme_sante_famille, \
+                               institution_plate_forme_sante_environnement = institution_plate_forme_sante_environnement, \
+                               institution_listing_ressource_plate_forme_sante_ecole = institution_listing_ressource_plate_forme_sante_ecole, \
+                               institution_listing_ressource_plate_forme_assuetude = institution_listing_ressource_plate_forme_assuetude, \
+                               institution_listing_ressource_plate_forme_sante_famille = institution_listing_ressource_plate_forme_sante_famille, \
+                               institution_listing_ressource_plate_forme_sante_environnement = institution_listing_ressource_plate_forme_sante_environnement, \
+                               institution_etat = institution_etat, \
+                               institution_creation_date = institution_creation_date, \
+                               institution_modification_employe = institution_modification_employe, \
+                               institution_commune_fk = institution_commune_fk, \
+                               institution_auteur_fk = institution_auteur_fk, \
+                               institution_clps_proprio_fk =institution_clps_proprio_fk, \
+                               institution_institution_type_fk = institution_institution_type_fk)
         session.add(newEntry)
         session.flush()
         session.refresh(newEntry)
@@ -5132,9 +5131,9 @@ class ManageClpsbw(BrowserView):
         userName = ('%s %s') % (prenom, nom)
 
         if operation == "insert":
-            self.addAuteur()
-            self.addLoginAuteur(login, passw, role)
-            self.addInfoAuteur(userId, userEmail, userName)
+            self.insertAuteur()
+            self.insertLoginAuteur(login, passw, role)
+            self.insertInfoAuteur(userId, userEmail, userName)
             return {'status': 1}
 
         if operation == "update":
