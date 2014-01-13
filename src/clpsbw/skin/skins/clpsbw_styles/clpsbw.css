@@ -719,19 +719,19 @@ margin-top:5px;
 margin-right:26px;
 }
 
-div.description-listing h3{
+div.description-listing h4{
 display:block;
 width:80%;
 cursor:pointer;
 margin-top:15px;
 font-size:1.2em;
-color:#666;
+color:#b93f00 !important;
 text-shadow:1px 1px 1px rgba(255,255,255, 1); 
-padding-left:15px;
+padding-left:12px;
 margin-bottom:4px;
-background-image:url(label_flch_rouge.png);
+background-image:url(flch_blanche.png);   /*(label_flch_rouge.png);*/
 background-repeat:no-repeat;
-background-position:left 3px;
+background-position:left center;
 }
 
 div.description-listing p{
@@ -903,7 +903,7 @@ padding:1em;
 
 #footer-listing{
 width:700px;
-height:46px;
+/*height:46px;*/
 margin:10px auto;
 padding:8px 2em;
 /*border-top:1px dotted #999;*/
