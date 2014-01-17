@@ -182,7 +182,12 @@ padding-left:10px;
 }
 
 
-
+/*** PLONE SANS THEME ***/
+div#portal-top,
+div#portal-columns,
+div#portal-footer-wrapper{
+background-color:#eee;
+}
 
 /*** LIEN GESTION DES PORTLETS ***/
 #portal-column-two div.managePortletsLink{
