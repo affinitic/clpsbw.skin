@@ -24,6 +24,7 @@
                         <th>Pass</th>
                         <th>Email</th>
                         <th>Institution</th>
+                        <th>CLPS</th>
                         <th>Etat</th>
                     </tr>
                 </thead>
@@ -41,6 +42,7 @@
                             <td><span tal:content="auteur/auteur_pass" /></td>
                             <td><span tal:content="auteur/auteur_email" /></td>
                             <td><span tal:content="auteur/auteur_institution" /></td>
+                            <td><span tal:content="auteur/clpsOrigine/clps_sigle" /></td>
                             <td>
                                <span tal:condition="python: auteur.auteur_actif">
                                     <span class="vert-actif">Actif</span>
@@ -57,105 +59,101 @@
         </tal:requete>
     </div>
 
-    <fieldset>
-        <legend class="legende">Ajouter un auteur</legend>
+    <div class="formulaire">
+        <h2>Ajouter un auteur</h2>
         <form action="manageAuteur"
               method="post">
-            <div class="div_question">
-                <span class="fieldRequired" title="Requis">&nbsp;</span>
-                <span class="clps-etiquette">Nom de l'auteur</span>
-                <br />
+            <div class="formInput">
+                <label for="auteur_nom">Nom de l'auteur</label>
                 <input type="text"
                        name="auteur_nom"
+                       id="auteur_nom"
                        value=""
                        size="50" />
             </div>
-            <div class="div_question">
-                <span class="clps-etiquette">Prénom de l'auteur</span><br />
+            <div class="formInput">
+                <label for="auteur_prenom">Prénom de l'auteur</label>
                 <input type="text"
                        name="auteur_prenom"
+                       id="auteur_prenom"
                        value=""
                        size="50" />
             </div>
-
-            <div class="div_question">
-                <span class="fieldRequired" title="Requis">&nbsp;</span>
-                <span class="clps-etiquette">Identifiant</span>
-                <br />
+            <div class="formInput">
+                
+                <label for="auteur_login">Identifiant</label>
                 <input type="text"
                        name="auteur_login"
+                       id="auteur_login"
                        value=""
                        class="string required"
                        size="50" />
             </div>
-            <div class="div_question">
-                <span class="fieldRequired" title="Requis">&nbsp;</span>
-                <span class="clps-etiquette">Pass</span>
-                <br />
+            <div class="formInput">
+                
+                <label for="auteur_pass">Pass</label>
                 <input type="text"
                        name="auteur_pass"
+                       id="auteur_pass"
                        value=""
                        class="required"
                        size="50" />
             </div>
-            <div class="div_question">
-                <span class="fieldRequired" title="Requis">&nbsp;</span>
-                <span class="clps-etiquette">Email</span>
-                <br />
+            <div class="formInput">
+                
+                <label for="auteur_email">Email</label>
                 <input type="text"
                        name="auteur_email"
+                       id="auteur_email"
                        value=""
                        class="required"
                        size="50" />
             </div>
-            <div class="div_question">
-                <span class="fieldRequired" title="Requis">&nbsp;</span>
-                <span class="clps-etiquette">Institution</span>
-                <br />
+            <div class="formInput">
+                
+                <label for="auteur_institution">Institution</label>
                 <input type="text"
                        name="auteur_institution"
+                       id="auteur_institution"
                        value=""
                        class="required"
                        size="50" />
             </div>
-            <div class="div_question">
-                <span class="fieldRequired" title="Requis">&nbsp;</span>
-                <span class="clps-etiquette">ID FileMaker</span>
-                <br />
+            <div class="formInput">
+                
+                <label for="auteur_id_filemaker">ID FileMaker</label>
                 <input type="text"
                        name="auteur_id_filemaker"
+                       id="auteur_id_filemaker"
                        value=""
                        class="required"
                        size="50" />
             </div>
-            <div class="div_question">
-                <span class="fieldRequired" title="Requis">&nbsp;</span>
-                <span class="clps-etiquette">Etat</span>
-                <br />
+            <div class="formInput">
+                
+                <label for="auteur_actif">Etat</label>
                 <select name="auteur_actif"
                         id="auteur_actif">
                     <option value="True" selected="selected">Activer</option>
                     <option value="False">Désactiver</option>
                 </select>
             </div>
-            <div class="div_question">
-                <span class="fieldRequired" title="Requis">&nbsp;</span>
-                <span class="clps-etiquette">Rôle</span>
-                <br />
+            <div class="formInput">
+                
+                <label for="auteur_for_experience">Rôle</label>
+                &nbsp;&nbsp;&nbsp;
                 <input type="checkbox"
                        value="True"
                        name="auteur_for_experience"
                        id="auteur_for_experience" /> Auteur d'une expérience.
                 <br />
+                &nbsp;&nbsp;&nbsp;
                 <input type="checkbox"
                        value="True"
                        name="auteur_for_institution"
                        id="auteur_for_institution" /> Auteur d'une institution.
             </div>
-
-            <hr />
-
-            <div class="div_form_input">
+            <div class="formControls">
                 <input type="hidden"
                        name="operation"
                        value="insert">
@@ -163,7 +161,7 @@
                        value="Creer un auteur" />
             </div>
         </form>
-    </fieldset>
+    </div>
 </div><!-- div metal-->
 </body>
 </html>
