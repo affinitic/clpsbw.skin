@@ -24,6 +24,7 @@ from Products.Archetypes.atapi import BaseContent
 from interfaces import IManageClpsbw
 from collective.captcha.browser.captcha import Captcha
 from plone.memoize.instance import memoize
+from plone import api
 
 
 # mettre ici toute les classe de initializer
@@ -530,25 +531,29 @@ class ManageClpsbw(BrowserView):
         self.context.REQUEST.RESPONSE.redirect(cible)
         return
 
-    def insertLoginAuteur(self, login, passw, role):
+    def insertLoginAuteur(self, auteurLogin, auteurPassword, auteurEmail, auteurRole, auteurFullName):
         """
         ajoute le login et le pass d'un auteur qui
         s'inscrit via le site
         le role est RecitExperience
+        j'enlève le role Member
         """
-        uf = getToolByName(self.context, 'acl_users')
-        uf.userFolderAddUser(login, passw, [role], [])
+        properties = dict(fullname=auteurFullName)
+        api.user.create(username=auteurLogin,
+                        email=auteurEmail,
+                        password='secret',
+                        properties=properties)
+        api.user.grant_roles(username=auteurLogin,
+                             roles=[auteurRole])
+        api.user.revoke_roles(username=auteurLogin,
+                              roles=['Member'])
 
-    def insertInfoAuteur(self, userId, userEmail, userName):
+    def deleteLoginAuteur(self, auteurLogin):
         """
-        ajoute l'email de l'auteur qui vient de s'inscrire
+        suprime un auteur des users de plone
         """
-        membership = getToolByName(self.context, 'portal_membership')
-        member = membership.getMemberById(userId)
-        properties = {}
-        properties['email'] = userEmail
-        properties['fullname'] = userName
-        getToolByName(self, 'plone_utils').setMemberProperties(member, **properties)
+        api.user.delete(username=auteurLogin)
+
 
     def getToDayDate(self):
         toDay = datetime.date.today()
@@ -832,8 +837,13 @@ class ManageClpsbw(BrowserView):
         for auteur in query.all():
             session.delete(auteur)
         session.flush()
-        cible = "%s/admin-creer-un-auteur" % (obj.portal_url(), )
-        obj.REQUEST.RESPONSE.redirect(cible)
+
+        portalUrl = getToolByName(self.context, 'portal_url')()
+        ploneUtils = getToolByName(self.context, 'plone_utils')
+        message = u"L'auteur a été supprimé' !"
+        ploneUtils.addPortalMessage(message, 'info')
+        url = "%s/admin-decrire-un-auteur" % (portalUrl)
+        self.request.response.redirect(url)
 
     def getAuteurByLeffeSearch(self, searchString):
         """
@@ -5121,24 +5131,43 @@ class ManageClpsbw(BrowserView):
         fields = self.context.REQUEST
         operation = getattr(fields, 'operation')
 
-        login = getattr(fields, 'auteur_login')
-        passw = getattr(fields, 'auteur_pass')
-        role = 'RecitExperience'
-        userId = getattr(fields, 'auteur_login')
-        userEmail = getattr(fields, 'auteur_email')
-        prenom = getattr(fields, 'auteur_prenom')
-        nom = getattr(fields, 'auteur_nom')
-        userName = ('%s %s') % (prenom, nom)
+        auteurLogin = getattr(fields, 'auteur_login')
+        auteurPassword = getattr(fields, 'auteur_pass')
+        auteurRole = 'RecitExperience'
+        auteurEmail = getattr(fields, 'auteur_email')
+        auteurPrenom = getattr(fields, 'auteur_prenom')
+        auteurNom = getattr(fields, 'auteur_nom')
+        auteurFullName = ('%s %s') % (auteurPrenom, auteurNom)
+        auteurEtat = getattr(fields, 'auteur_actif')
 
         if operation == "insert":
             self.insertAuteur()
-            self.insertLoginAuteur(login, passw, role)
-            self.insertInfoAuteur(userId, userEmail, userName)
-            return {'status': 1}
+            self.insertLoginAuteur(auteurLogin,
+                                   auteurPassword,
+                                   auteurEmail,
+                                   auteurRole,
+                                   auteurFullName)
+            message = u"L'auteur a été créé."
 
         if operation == "update":
             self.updateAuteur()
-            return {'status': 1}
+            self.deleteLoginAuteur(auteurLogin)
+            if auteurEtat == 'True':
+                self.insertLoginAuteur(auteurLogin,
+                                       auteurPassword,
+                                       auteurEmail,
+                                       auteurRole,
+                                       auteurFullName)
+                message = u"L'auteur a été modifié et activé."
+            else:
+                message = u"L'auteur a été modifié et désactivé."
+        
+        portalUrl = getToolByName(self.context, 'portal_url')()
+        ploneUtils = getToolByName(self.context, 'plone_utils')
+        ploneUtils.addPortalMessage(message, 'info')
+        url = "%s/admin-creer-un-auteur" % (portalUrl)
+        self.request.response.redirect(url)
+
 
     def manageExperience(self):
         """

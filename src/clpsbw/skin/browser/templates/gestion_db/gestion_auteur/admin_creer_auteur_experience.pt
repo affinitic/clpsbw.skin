@@ -44,7 +44,7 @@
                             <td><span tal:content="auteur/auteur_institution" /></td>
                             <td><span tal:content="auteur/clpsOrigine/clps_sigle" /></td>
                             <td>
-                               <span tal:condition="python: auteur.auteur_actif">
+                                <span tal:condition="python: auteur.auteur_actif">
                                     <span class="vert-actif">Actif</span>
                                 </span>
                                 <span tal:condition="python: auteur.auteur_actif==False">
@@ -80,7 +80,6 @@
                        size="50" />
             </div>
             <div class="formInput">
-                
                 <label for="auteur_login">Identifiant</label>
                 <input type="text"
                        name="auteur_login"
@@ -90,7 +89,6 @@
                        size="50" />
             </div>
             <div class="formInput">
-                
                 <label for="auteur_pass">Pass</label>
                 <input type="text"
                        name="auteur_pass"
@@ -100,7 +98,6 @@
                        size="50" />
             </div>
             <div class="formInput">
-                
                 <label for="auteur_email">Email</label>
                 <input type="text"
                        name="auteur_email"
@@ -110,7 +107,6 @@
                        size="50" />
             </div>
             <div class="formInput">
-                
                 <label for="auteur_institution">Institution</label>
                 <input type="text"
                        name="auteur_institution"
@@ -120,7 +116,6 @@
                        size="50" />
             </div>
             <div class="formInput">
-                
                 <label for="auteur_id_filemaker">ID FileMaker</label>
                 <input type="text"
                        name="auteur_id_filemaker"
@@ -130,7 +125,6 @@
                        size="50" />
             </div>
             <div class="formInput">
-                
                 <label for="auteur_actif">Etat</label>
                 <select name="auteur_actif"
                         id="auteur_actif">
@@ -139,7 +133,6 @@
                 </select>
             </div>
             <div class="formInput">
-                
                 <label for="auteur_for_experience">Rôle</label>
                 &nbsp;&nbsp;&nbsp;
                 <input type="checkbox"

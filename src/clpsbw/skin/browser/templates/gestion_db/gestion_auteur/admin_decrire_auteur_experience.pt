@@ -42,7 +42,14 @@
                 </div>
                 <div class="description-listing">
                     <h4>Etat</h4>
-                    <p tal:content="auteur/auteur_actif" />
+                    <p>
+                        <span tal:condition="python: auteur.auteur_actif">
+                            <span class="vert-actif">Actif</span>
+                        </span>
+                        <span tal:condition="python: auteur.auteur_actif==False">
+                            <span class="rouge-non-actif">Non-actif</span>
+                        </span>
+                    </p>
                 </div>
                 <div class="description-listing">
                     <h4>Rôle</h4>
@@ -52,6 +59,10 @@
                     <tal:if tal:condition="python: auteur.auteur_for_institution==True">
                         <p>Auteur d'une institution.</p>
                     </tal:if>
+                </div>
+                <div class="description-listing">
+                    <h4>Clps</h4>
+                    <p><span tal:content="auteur/clpsOrigine/clps_sigle" /></p>
                 </div>
                 <hr class="ligne-top-menu-gestion-donnee" />
                 <div id="footer-listing">
@@ -66,6 +77,7 @@
                                tal:attributes="href string:${context/portal_url}/admin-modifier-un-auteur?auteurPk=${auteurPk}">
                                 Modifier</a>
                         </li>
+                        <!--
                         <tal:block tal:define="experience python:view.isAuteurHadExperience(auteurPk);
                                                institution python:view.isAuteurHadInstitution(auteurPk)">
                             <li tal:condition="python: experience==False and institution==False">
@@ -74,6 +86,7 @@
                                    Supprimer</a>
                             </li>
                         </tal:block>
+                        -->
                       </ul>
                 </div>
             </article>
