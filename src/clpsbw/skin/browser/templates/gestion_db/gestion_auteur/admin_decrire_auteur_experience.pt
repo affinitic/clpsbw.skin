@@ -12,8 +12,9 @@
 <div metal:fill-slot="main"
      tal:condition="python:user.has_role(['Manager'], here)">
     <h1>Gestion des auteurs d'expériences</h1>
-        <tal:requete tal:define="auteurPk request/auteurPk;
-                                 auteur python:view.getAuteurByPk(auteurPk);">
+        <tal:requete tal:define="auteurPk request/auteurPk | nothing;
+                                 auteur python:view.getAuteurByPk(auteurPk);
+                                 auteurPk auteur/auteur_pk">
             <article class="formulaire">
                 <h2>
                     <span tal:content="auteur/auteur_nom" />

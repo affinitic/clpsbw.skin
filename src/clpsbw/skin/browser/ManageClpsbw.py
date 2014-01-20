@@ -717,16 +717,23 @@ class ManageClpsbw(BrowserView):
         allAuteurFromInstitution = query.all()
         return allAuteurFromInstitution
 
-    def getAuteurByPk(self, auteur_pk):
+    def getAuteurByPk(self, auteurPk=None):
         """
         table pg auteur
         recuperation d'un auteur selon la pk
+        ou selon son nom via le leffesearch
         """
+        fields = self.request.form
+        nomAuteur = fields.get('nomAuteur')
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
         query = session.query(Auteur)
-        query = query.filter(Auteur.auteur_pk == auteur_pk)
-        query = query.order_by(Auteur.auteur_nom)
+        if nomAuteur:
+            nomAuteur = nomAuteur.split(' ')
+            nomAuteur = nomAuteur[0]
+            query = query.filter(Auteur.auteur_nom == nomAuteur)
+        if auteurPk:
+            query = query.filter(Auteur.auteur_pk == auteurPk)
         auteur = query.one()
         return auteur
 
@@ -1758,6 +1765,7 @@ class ManageClpsbw(BrowserView):
         """
         table pg ressource
         recuperation d'un ressource selon ressource_pk
+        ou selon son nom via le leffesearch
         """
         fields = self.request.form
         ressourceTitre = fields.get('ressourceTitre')
