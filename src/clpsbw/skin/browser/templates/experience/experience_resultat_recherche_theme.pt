@@ -78,10 +78,10 @@
                                 &Xi;
                                 <span tal:content="experience/experience_pk" />
                             </div>
-                            <div class="listing-experience-bouton">
+                            <div id="btn-detail">>
                                 <a href=""
-                                   tal:attributes="href string:decrire-une-experience?experiencePk=${experiencePk}">
-                                   <img src="btn_suivant.png" /></a>
+                                   tal:attributes="href string:decrire-une-experience?experiencePk=${experiencePk}"
+                                   class="btn-lister-decrire"></a>
                             </div>
                         </div><!--footer listing-->
                         <div id="listing-experience-bord-inf"></div>              

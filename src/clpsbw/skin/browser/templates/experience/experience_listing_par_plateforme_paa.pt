@@ -81,9 +81,8 @@
                                     </td>
                                     <td align="right">
                                         <a href=""
-                                           tal:attributes="href
-                                           string:decrire-une-experience?experiencePk=${experiencePk}">
-                                           <img src="btn_suivant.png" /></a>
+                                           tal:attributes="href string:decrire-une-experience?experiencePk=${experiencePk}"
+                                           class="btn-lister-decrire"></a>
                                     </td>
                                 </tr>
                             </table>

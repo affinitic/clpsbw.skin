@@ -76,8 +76,8 @@
                                   <a href=""
                                      tal:attributes="href string:institution-decrire?institutionPk=${institutionPk}"
                                      title="Description institution"
-                                     alt="Description institution">
-                                      <img src="btn_suivant.png" /></a>
+                                     alt="Description institution"
+                                     class="btn-lister-decrire"></a>
                               </td>
                           </tr>
                       </table>

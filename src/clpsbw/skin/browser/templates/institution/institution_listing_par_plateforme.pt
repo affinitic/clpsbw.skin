@@ -56,9 +56,8 @@
                    </ul>
                    <div align="right">
                         <a href=""
-                           tal:attributes="href
-                           string:institution-decrire?institutionPk=${institutionPk}">
-                           <img src="btn_suivant.png" /></a>
+                           tal:attributes="href string:institution-decrire?institutionPk=${institutionPk}"
+                           class="btn-lister-decrire"></a>
                    </div>
                </fieldset>
            </tal:block>
