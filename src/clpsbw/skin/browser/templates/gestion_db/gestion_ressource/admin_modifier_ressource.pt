@@ -307,7 +307,7 @@
                       </tal:boucle>
                 </div>
             </div>
-
+            <hr class="ligne-listing-experience" />
             <div class="formulaire-submit">
                 <input type="hidden"
                        name="operation"

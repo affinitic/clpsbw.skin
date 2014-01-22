@@ -71,7 +71,7 @@
                 <option value="False">Désactiver</option>
             </select>
         </div>
-        <div class="formInput">
+        <div class="formControls">
             <input type="hidden"
                    name="operation"
                    value="insert" />

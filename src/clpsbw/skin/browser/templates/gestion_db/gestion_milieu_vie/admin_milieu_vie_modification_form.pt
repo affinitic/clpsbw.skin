@@ -39,7 +39,7 @@
                                 tal:attributes="selected python:not milieudevie.milieudevie_actif and 'selected' or None;">Désactiver</option>
                     </select>
                 </div>
-
+                <hr class="ligne-listing-experience" />
                 <div class="formulaire-submit">
                     <input type="hidden"
                            name="operation"

@@ -55,6 +55,7 @@
                                value=""
                                size="100">
                     </div>
+                    <hr class="ligne-listing-experience" />
                     <div class="formulaire-submit">
                         <input type="submit"
                                value="lancer la recherche"
@@ -93,6 +94,7 @@
                             </tal:block>
                         </select>
                     </div>
+                    <hr class="ligne-listing-experience" />
                     <div class="formulaire-submit">
                         <input type="submit"
                                value="lancer la recherche"
@@ -119,6 +121,7 @@
                             </select>
                         </tal:block>
                     </div>
+                    <hr class="ligne-listing-experience" />
                     <div class="formulaire-submit">                
                         <input type="submit"
                                value="lancer la recherche"
@@ -145,6 +148,7 @@
                             </select>
                         </tal:block>
                     </div>
+                    <hr class="ligne-listing-experience" />
                     <div class="formulaire-submit">
                         <input type="submit"
                                value="lancer la recherche"
@@ -171,6 +175,7 @@
                             </select>
                         </tal:block>
                     </div>
+                    <hr class="ligne-listing-experience" />
                     <div class="formulaire-submit">
                         <input type="submit"
                                value="lancer la recherche"

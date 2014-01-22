@@ -27,7 +27,6 @@
                 à votre recherche
             </h1>
         </div>
-        <div id="bg_listing_bord_sup"><img src="bg_listing_bord_sup.png"></div>
         <div  id="listing-experience-main">
             <div id="listing-nbre-experience">
                 <div id="listing-nbre-experience">
@@ -48,15 +47,14 @@
 
             <tal:boucle tal:repeat="experience experiences">
                 <tal:block tal:define="experiencePk experience/experience_pk">
-                    <div class="listing-experience">
-                        <div id="listing-experience-bord-sup">
-                            <div class="listing-zone-titre">
-                                <a href=""
-                                   tal:content="experience/experience_titre"
-                                   tal:attributes="href string:decrire-une-experience?experiencePk=${experiencePk}"
-                                   class="listing-titre-experience">titre de l'expérience</a>
-                            </div><!--listing-titre-experience-->
-                        </div><!--listing-experience-bord-sup-->
+                    <article class="listing-experience">
+                        <header class="listing-titre-experience">
+                            <a href=""
+                               tal:content="experience/experience_titre"
+                               tal:attributes="href string:decrire-une-experience?experiencePk=${experiencePk}"
+                               class="listing-titre-experience">titre de l'expérience</a>
+                        </header><!--listing-experience-bord-sup-->
+                        <hr class="ligne-listing-experience" />
                         <div class="listing-texte-experience">
                             <span tal:replace="structure experience/experience_resume"
                                   class="rep-qest" />
@@ -73,6 +71,7 @@
                                 </li>
                             </ul>
                         </div><!--listing texte experience--> 
+                        <hr class="ligne-listing-experience" />
                         <div id="footer-listing">
                             <div class="listing-experience-etat"
                                  tal:define="experienceEtat python:view.getExperienceEtat(experiencePk)"
@@ -88,7 +87,7 @@
                             </div>
                         </div><!--footer listing-->
                         <div id="listing-experience-bord-inf"></div>              
-                    </div><!--listing-experience-->
+                    </article><!--listing-experience-->
                 </tal:block>
             </tal:boucle>
         </div><!--listing-experience-main-->
@@ -97,4 +96,3 @@
 </div><!--metal-->
 </body>
 </html>
-

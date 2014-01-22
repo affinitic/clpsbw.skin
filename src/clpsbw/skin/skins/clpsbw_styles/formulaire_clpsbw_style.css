@@ -142,9 +142,10 @@ margin:10px 6px;
 }
 
 .formulaire-submit{
-margin-top:20px;
-padding-top:5px;
-border-top:1px solid #aaa;
+margin-top:3px;
+margin-bottom:8px;
+padding-top:0px;
+/*border-top:1px solid #aaa;*/
 text-align:center;
 }
 

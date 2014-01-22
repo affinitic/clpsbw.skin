@@ -72,6 +72,7 @@
                     <option value="False">Désactiver</option>
                 </select>
             </div>
+            <hr class="ligne-listing-experience" />
             <div class="formulaire-submit">
                 <input type="hidden"
                        name="operation"

@@ -275,7 +275,7 @@ Il s'agit de livre, cd-rom, dvd, dossier pédagogique, jeu, ....
             </tal:block>
         </div>
     </div>
-
+    <hr class="ligne-listing-experience" />
     <div class="formulaire-submit">
         <input type="hidden"
                name="operation"

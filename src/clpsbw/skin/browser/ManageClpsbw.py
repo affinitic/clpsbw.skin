@@ -1529,7 +1529,7 @@ class ManageClpsbw(BrowserView):
         session = wrapper.session
         query = session.query(LinkExperienceTheme)
         for pk in themePk:
-            query = query.filter(LinkExperienceTheme.theme_fk.in_(pk))
+            query = query.filter(LinkExperienceTheme.theme_fk == pk)
             self.addRechercheLog(themePk=pk)
         query = query.all()
 
@@ -1563,9 +1563,9 @@ class ManageClpsbw(BrowserView):
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        query = session.query(LinkExperiencePublicTable)
+        query = session.query(LinkExperiencePublic)
         for pk in publicPk:
-            query = query.filter(LinkExperiencePublicTable.public_fk == pk)
+            query = query.filter(LinkExperiencePublic.public_fk == pk)
             self.addRechercheLog(publicPk=pk)
         query = query.all()
 
