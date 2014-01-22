@@ -70,7 +70,8 @@
                                           class="rep-qest" />
                                 </li>
                             </ul>
-                        </div><!--listing texte experience--> 
+                        </div><!--listing texte experience-->
+                        <hr class="ligne-listing-experience" />
                         <footer id="footer-listing">
                             <div class="listing-experience-etat"
                                  tal:define="experienceEtat python:view.getExperienceEtat(experiencePk)"
@@ -82,7 +83,7 @@
                             <div id="btn-detail">
                                 <a href=""
                                    alt="Voir la fiche complète"
-                                   titre="Voir la fiche complète"
+                                   title="Voir la fiche complète"
                                    tal:attributes="href string:decrire-une-experience?experiencePk=${experiencePk}"
                                    class="btn-lister-decrire"></a>
                             </div>
