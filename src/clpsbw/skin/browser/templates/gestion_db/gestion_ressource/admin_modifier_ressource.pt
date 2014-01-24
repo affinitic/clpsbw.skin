@@ -27,7 +27,7 @@
     <tal:macro tal:define="filename ressourcePk;
                            dest_localfs string:local_fs_ressource;
                            width string:300;
-                           height string:250;
+                           height string:300;
                            layoutmaxwidth string:500;
                            redirect string:${context/@@plone_portal_state/portal_url}/admin-modifier-une-ressource?ressourcePk=${ressourcePk}">
         <div metal:use-macro="context/@@affinitic.imageuploader.macros/affinitic-image-uploader" />
