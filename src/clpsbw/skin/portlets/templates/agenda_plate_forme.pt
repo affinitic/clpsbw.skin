@@ -42,7 +42,7 @@
             <!-- a tal:attributes="href collection_url" -->
             <a href = ""
                tal:attributes="href string:${context/portal_url}/listing-news">
-                Plus...
+                Plus...xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
             </a>
         <span class="portletBottomRight"></span>
     </dd>

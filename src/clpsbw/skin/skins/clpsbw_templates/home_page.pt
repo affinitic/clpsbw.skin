@@ -62,15 +62,15 @@
            tal:condition="news">
         <tal:if tal:condition="news">
             <tal:boucle tal:repeat="item news">
-                <div class="clpsnews">
+                <article class="clpsnews">
                     <div class="clpsnews-icone">
+                        <div class="news-image"
+                             tal:define="imgURL python:getNewsIconURL(item);">
+                            <img src=""
+                                 tal:attributes="src string: ${item/getURL}/${imgURL}" />
+                        </div>
                         <tal:block tal:define="newsClpsBw python:item.getObject()">
-                            <div class="news-image"
-                                 tal:define="imgURL python:getNewsIconURL(item);">
-                                <img src=""
-                                     tal:attributes="src string: ${item/getURL}/${imgURL}" />
-                            </div>
-                            <div class="newsClpsBw-image"
+                            <div class="newsClpsBw-tagClpsBw"
                                  tal:condition="newsClpsBw/isClpsBwNews | nothing">
                                 <img src="news_clpsbw.png" />
                             </div>
@@ -90,8 +90,7 @@
                               class="clpsnews-date" />
                     </div>
                     <div class="break-float"></div>
-                </div>
-                <div id="separationNews"></div>
+                </article>
             </tal:boucle>
         </tal:if>
       </div>
