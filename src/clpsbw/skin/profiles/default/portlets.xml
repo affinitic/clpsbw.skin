@@ -1,8 +1,4 @@
 <?xml version="1.0"?>
 <portlets>
     <!-- Portlet type registrations -->
-    <portlet
-       addview="clpsbw.agendaPlateForme"
-       title="Agenda Plate-Forme"
-       description="Portlet qui permet d'afficher les events des Plate-Formes" />
 </portlets>
