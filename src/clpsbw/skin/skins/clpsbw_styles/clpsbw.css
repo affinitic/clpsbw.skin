@@ -930,6 +930,12 @@ font-size:0.8em;
 color:#dc00be;
 }
 
+.listing-experience-clps-proprio{
+float:right;
+width:200px;
+margin-top:13px;
+}
+
 #btn-detail{
 float:right;
 margin-right:10px;

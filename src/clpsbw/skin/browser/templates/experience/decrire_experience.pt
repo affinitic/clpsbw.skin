@@ -112,6 +112,10 @@
                             <h3>Pour aller plus loin</h3>
                             <p><span tal:replace="structure experience/experience_aller_plus_loin"></span></p>
                         </div>
+                        <div>
+                                Publié par le
+                                <span tal:content="experience/clpsOrigine/clps_sigle" />
+                            </div>
                     </div><!--left-->
 
 
