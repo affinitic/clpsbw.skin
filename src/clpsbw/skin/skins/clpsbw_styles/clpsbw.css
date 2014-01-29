@@ -17,8 +17,13 @@ STYLE TEMPLATE PLONE
 /*enleve le border dans les zone tiny*/
 html body#content.mceContentBody{
 border:none;
+margin:0px;
+width:680px;
 }
 
+.texte-justifie{
+text-align:justify;
+}
 
 #content{
 /*color:#555 !important;*/
