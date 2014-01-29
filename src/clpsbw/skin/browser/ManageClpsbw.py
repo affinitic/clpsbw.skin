@@ -2831,7 +2831,7 @@ class ManageClpsbw(BrowserView):
         session.add(newEntry)
         session.flush()
 
-    def addPlateForme(self):
+    def insertPlateForme(self):
         """
         table pg plateforme
         ajout d'un plateforme
@@ -2852,6 +2852,13 @@ class ManageClpsbw(BrowserView):
                               plateforme_creation_employe=plateforme_creation_employe)
         session.add(newEntry)
         session.flush()
+
+        portalUrl = getToolByName(self.context, 'portal_url')()
+        ploneUtils = getToolByName(self.context, 'plone_utils')
+        message = u"La plate-forme a été ajoutée !"
+        ploneUtils.addPortalMessage(message, 'info')
+        url = "%s/admin-creer-une-plate-forme" % (portalUrl)
+        self.request.response.redirect(url)
 
     def addSousPlateForme(self):
         """
@@ -4211,6 +4218,13 @@ class ManageClpsbw(BrowserView):
             plateforme.plateforme_modification_employe = plateforme_modification_employe
         session.flush()
 
+        portalUrl = getToolByName(self.context, 'portal_url')()
+        ploneUtils = getToolByName(self.context, 'plone_utils')
+        message = u"La plate-forme a été ajoutée !"
+        ploneUtils.addPortalMessage(message, 'info')
+        url = "%s/admin-creer-une-plate-forme" % (portalUrl)
+        self.request.response.redirect(url)
+
     def updateSousPlateForme(self):
         """
         mise à jour des infos sousplateforme
@@ -4914,7 +4928,7 @@ class ManageClpsbw(BrowserView):
         operation = getattr(fields, 'operation')
 
         if operation == "insert":
-            self.addPlateForme()
+            self.insertPlateForme()
             return {'status': 1}
 
         if operation == "update":

@@ -244,6 +244,16 @@ class IManageClpsbw(Interface):
         insert une experience-maj par auteur
         """
 
+    def insertPlateForme():
+        """
+        insert une nouvelle plate-forme
+        """
+
+    def updatePlateForme():
+        """
+        update une nouvelle plate-forme
+        """
+
     def manageMotCle():
         """
         insertion ou update des donnees mot-cle

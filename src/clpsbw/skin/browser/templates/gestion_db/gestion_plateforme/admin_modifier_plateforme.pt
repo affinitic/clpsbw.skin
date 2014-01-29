@@ -13,27 +13,24 @@ public
 <div metal:fill-slot="main"
      tal:define="plateformePk request/plateformePk;
                  plateformes python:view.getPlateFormeByPk(plateformePk)">
-<form action="plateforme-inserer" method="post">
-    <br />
-    
-    <h1>:: Gestion des plate-formes ::</h1>
-    <fieldset>
-        <legend class="legende">Modifier un thème</legend>
+    <h1>Gestion des plate-formes</h1>
+    <div class="formulaire">
+        <h2>Modifier une plate-forme</h2>
         <tal:boucle tal:repeat="plateforme plateformes">
-            <form action="plateforme-inserer" method="post">
-                <div>
-                    <img src="label_flch_rouge.png" /> plate-forme
-                    <br />
+            <form action="updatePlateForme"
+                  method="post">
+                <div class="formulaire-input">
+                    <label for="plateform_nom">Plate-forme</label>
                     <input type="text"
                            name="plateforme_nom"
+                           id="plateforme_nom"
                            value=""
                            size="50"
                            class="grasorange"
                            tal:attributes="value plateforme/plateforme_nom" />
                 </div>
-                <div>
-                    <img src="label_flch_rouge.png" /> Etat
-                    <br />
+                <div class="formulaire-input">
+                    <label for="plateform_nom">Etat</label>
                     <select name="plateforme_actif">
                         <option value="True"
                                 tal:attributes="selected python:plateforme.plateforme_actif and 'selected' or None;">Activer</option>
@@ -41,8 +38,7 @@ public
                                 tal:attributes="selected python:not plateforme.plateforme_actif and 'selected' or None;">Désactiver</option>
                     </select>
                 </div>
-                <hr />
-                <div class="div_form_input">
+                <div class="formControls">
                     <input type="hidden"
                            name="operation"
                            value="update" />
@@ -55,9 +51,7 @@ public
                 </div>
             </form>
         </tal:boucle>
-    </fieldset>
-
-</form>
+    </div>
 </div><!-- div metal-->
 </body>
 </html>

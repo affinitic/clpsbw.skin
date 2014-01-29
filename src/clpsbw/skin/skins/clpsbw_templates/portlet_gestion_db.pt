@@ -247,7 +247,7 @@
                     Plateforme
                 </dt>
                 <dd class="portletItemDB">
-                    <a href="" tal:attributes="href string:${context/portal_url}/plateforme-creer">
+                    <a href="" tal:attributes="href string:${context/portal_url}/admin-creer-une-plate-forme">
                         Gestion des plates-formes
                     </a>
                 </dd>
