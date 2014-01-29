@@ -650,8 +650,6 @@ i18n_domain="clpsbw.skin">
       attribute="manageInstitution"
       allowed_interface=".interfaces.IManageClpsbw"
       />
-
-
 <browser:page
       name="institution-plate-forme-lister"
       for="*"
@@ -807,7 +805,7 @@ i18n_domain="clpsbw.skin">
     />
 
 
-<!-- theme -->
+<!-- THEME - THEME - THEME - THEME - THEME - THEME - THEME- THEME -->
 <browser:page
     name="theme-creer"
     for="*"
@@ -833,7 +831,9 @@ i18n_domain="clpsbw.skin">
     allowed_interface=".interfaces.IManageClpsbw"
     />
 
-<!-- mot-cle -->
+
+
+<!-- MOTCLE - MOTCLE - MOTCLE - MOTCLE - MOTCLE - MOTCLE - MOTCLE - -->
 <browser:page
     name="mot-cle-creer"
     for="*"
@@ -859,7 +859,9 @@ i18n_domain="clpsbw.skin">
       allowed_interface=".interfaces.IManageClpsbw"
       />
 
-<!-- support -->
+
+
+<!-- SUPPORT - SUPPORT - SUPPORT - SUPPORT - SUPPORT - SUPPORT - SUPPORT- -->
 <browser:page
       name="support-creer"
       for="*"
@@ -885,7 +887,9 @@ i18n_domain="clpsbw.skin">
       allowed_interface=".interfaces.IManageClpsbw"
       />
 
-<!-- public -->
+
+
+<!-- PUBLIC - PUBLIC - PUBLIC - PUBLIC - PUBLIC - PUBLIC - PUBLIC- PUBLIC -->
 <browser:page
       name="public-creer"
       for="*"
@@ -911,7 +915,9 @@ i18n_domain="clpsbw.skin">
       allowed_interface=".interfaces.IManageClpsbw"
       />
 
-<!-- plateforme -->
+
+
+<!-- PLATEFORME - PLATEFORME - PLATEFORME - PLATEFORME - PLATEFORME - -->
 <browser:page
     name="admin-creer-une-plate-forme"
     for="*"
@@ -954,7 +960,8 @@ i18n_domain="clpsbw.skin">
     />
 
 
-<!-- sous plateforme -->
+
+<!-- SOUS PLATEFORME - SOUS PLATEFORME - SOUS PLATEFORME - SOUS PLATEFORME - SOUS PLATEFORME - -->
 <browser:page
       name="sous-plateforme-creer"
       for="*"
@@ -980,7 +987,9 @@ i18n_domain="clpsbw.skin">
       allowed_interface=".interfaces.IManageClpsbw"
       />
 
-<!-- milieu de vie -->
+
+
+<!-- MILIEU DE VIE - MILIEU DE VIE - MILIEU DE VIE - MILIEU DE VIE - MILIEU DE VIE - -->
 <browser:page
       name="milieu-de-vie-creer"
       for="*"
@@ -1006,7 +1015,9 @@ i18n_domain="clpsbw.skin">
       allowed_interface=".interfaces.IManageClpsbw"
       />
 
-<!-- auteur -->
+
+
+<!-- AUTEUR - AUTEUR - AUTEUR - AUTEUR - AUTEUR - AUTEUR - AUTEUR - -->
 <browser:page
       name="admin-creer-un-auteur"
       for="*"

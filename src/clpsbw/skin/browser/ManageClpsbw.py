@@ -2187,15 +2187,20 @@ class ManageClpsbw(BrowserView):
         allActiveInstitutionByInstitutionTypePk = query.all()
         return allActiveInstitutionByInstitutionTypePk
 
-    def getInstitutionByPk(self, institutionPk):
+    def getInstitutionByPk(self, institutionPk=None):
         """
         table pg recit
         recuperation d'une instiution selon institution_pk
         """
+        fields = self.request.form
+        institutionNom = fields.get('institutionNom')
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
         query = session.query(Institution)
-        query = query.filter(Institution.institution_pk == institutionPk)
+        if institutionNom:
+            query = query.filter(Institution.institution_nom == institutionNom)
+        if institutionPk:
+            query = query.filter(Institution.institution_pk == institutionPk)
         institution = query.all()
         return institution
 
