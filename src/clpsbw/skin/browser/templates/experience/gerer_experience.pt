@@ -62,24 +62,28 @@
                                 </li>
                             </ul>
                         </div>
+                        <hr class="ligne-listing-experience" />
                         <div id="footer-listing">
                             <table width="100%">
                                 <tr>
                                     <td align="left" class="discreet" valign="bottom">
-                                        par 
+                                        Création par 
                                         <span tal:content="experience/auteurFromExperience/auteur_prenom | nothing"
                                               class="gras" />
                                         <span tal:content="experience/auteurFromExperience/auteur_nom | nothing"
-                                              class="gras" /> -
-                                        <span tal:content="experience/experience_auteur_login"
+                                              class="gras" />
+                                        (<span tal:content="experience/experience_auteur_login" />)
+                                        le
+                                        <span tal:content="python: experience.experience_creation_date.strftime('%d/%m/%Y %H:%M')"
                                               class="gras" />
                                         <br />
-                                        Dernière modification :
-                                        <span tal:content="python: experience.experience_modification_date.strftime('%d-%m-%Y %H:%M')"
-                                              class="gras" />
-                                        par
+                                        Dernière modification par
                                         <span tal:content="experience/experience_modification_employe"
                                               class="gras" />
+                                        le
+                                        <span tal:content="python: experience.experience_modification_date.strftime('%d/%m/%Y %H:%M')"
+                                              class="gras" />
+                                        
                                         <div class="experience-etat"
                                              tal:define="experienceEtat python:view.getExperienceEtat(experiencePk)">
                                              <span tal:content="experienceEtat" />

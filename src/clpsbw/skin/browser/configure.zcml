@@ -95,7 +95,7 @@ i18n_domain="clpsbw.skin">
  -->
 
 
-<!-- clpsbw footer -->
+<!-- CLPSBW FOOTER -->
 <browser:viewlet
     name="clpsbw.footer"
     manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
@@ -104,7 +104,7 @@ i18n_domain="clpsbw.skin">
     permission="zope.Public"
     />
 
-<!-- leffe search -->
+<!-- LEFFE SEARCH -->
 <browser:page
      for="*"
      name="experience-searchJSON"
@@ -193,7 +193,7 @@ i18n_domain="clpsbw.skin">
 
 
 
-<!-- GESTION DB -->
+<!-- GESTION DB - GESTION DB - GESTION DB - GESTION DB - GESTION DB - GESTION DB - GESTION DB -->
 <!-- versioning -->
 <browser:page
     name="showDiff"
@@ -203,7 +203,9 @@ i18n_domain="clpsbw.skin">
     attribute="getDiff"
     />
 
-<!-- experience -->
+
+<!-- EXPERIENCE - EXPERIENCE - EXPERIENCE - EXPERIENCE - EXPERIENCE - EXPERIENCE - EXPERIENCE -->
+<!-- USER EXEPRIENCE -->
 <browser:page
     name="experience-inscription-auteur"
     for="*"
@@ -213,6 +215,83 @@ i18n_domain="clpsbw.skin">
     allowed_interface=".interfaces.IManageClpsbw"
     />
 <browser:page
+    name="experience-inscription-auteur-merci"
+    for="*"
+    template="templates/experience/inscrire_auteur_experience_merci.pt"
+    permission="zope.Public"
+    class=".ManageClpsbw.ManageClpsbw"
+    allowed_interface=".interfaces.IManageClpsbw"
+    />
+<browser:page
+    name="experience-creer"
+    for="*"
+    template="templates/experience/creer_experience.pt"
+    permission="zope.Public"
+    class=".ManageClpsbw.ManageClpsbw"
+    allowed_interface=".interfaces.IManageClpsbw"
+    />
+<browser:page
+    name="experience-lister-auteur"
+    for="*"
+    template="templates/experience/lister_experience_par_auteur.pt"
+    permission="zope.Public"
+    class=".ManageClpsbw.ManageClpsbw"
+    allowed_interface=".interfaces.IManageClpsbw"
+    />
+<browser:page
+    name="experience-plate-forme-lister"
+    for="*"
+    template="templates/experience/lister_experience_par_plateforme.pt"
+    permission="zope.Public"
+    class=".ManageClpsbw.ManageClpsbw"
+    allowed_interface=".interfaces.IManageClpsbw"
+    />
+<browser:page
+    name="lister-experience-plate-forme-paa"
+    for="*"
+    template="templates/experience/lister_experience_par_plateforme_paa.pt"
+    permission="zope.Public"
+    class=".ManageClpsbw.ManageClpsbw"
+    allowed_interface=".interfaces.IManageClpsbw"
+    />
+<browser:page
+    name="gerer-les-experiences"
+    for="*"
+    template="templates/experience/gerer_experience.pt"
+    permission="zope.Public"
+    class=".ManageClpsbw.ManageClpsbw"
+    allowed_interface=".interfaces.IManageClpsbw"
+    />
+<browser:page
+    name="modifier-une-experience"
+    for="*"
+    template="templates/experience/modifier_experience.pt"
+    permission="zope.Public"
+    class=".ManageClpsbw.ManageClpsbw"
+    allowed_interface=".interfaces.IManageClpsbw"
+    />                        
+<browser:page
+    name="decrire-une-experience"
+    for="*"
+    template="templates/experience/decrire_experience.pt"
+    permission="zope.Public"
+    class=".ManageClpsbw.ManageClpsbw"
+    allowed_interface=".interfaces.IManageClpsbw"
+    />
+<browser:page
+    name="decrire-une-experience-maj"
+    for="*"
+    template="templates/experience/decrire_experience_maj.pt"
+    permission="zope.Public"
+    class=".ManageClpsbw.ManageClpsbw"
+    allowed_interface=".interfaces.IManageClpsbw"
+    />
+
+
+
+
+
+<browser:page
     name="deleteAuteurByPk"
     for="*"
     permission="zope.Public"
@@ -221,14 +300,8 @@ i18n_domain="clpsbw.skin">
     attribute="deleteAuteurByPk"
     />
 
-<browser:page
-    name="experience-inscription-auteur-merci"
-    for="*"
-    template="templates/experience/inscrire_auteur_experience_merci.pt"
-    permission="zope.Public"
-    class=".ManageClpsbw.ManageClpsbw"
-    allowed_interface=".interfaces.IManageClpsbw"
-    />
+
+<!-- ADMIN EXEPRIENCE -->
 <browser:page
     name="admin-experience-creer"
     for="*"
@@ -294,72 +367,6 @@ i18n_domain="clpsbw.skin">
     allowed_interface=".interfaces.IManageClpsbw"
     />
 <browser:page
-    name="experience-creer"
-    for="*"
-    template="templates/experience/creer_experience.pt"
-    permission="zope.Public"
-    class=".ManageClpsbw.ManageClpsbw"
-    allowed_interface=".interfaces.IManageClpsbw"
-    />
-<browser:page
-    name="experience-lister-auteur"
-    for="*"
-    template="templates/experience/lister_experience_par_auteur.pt"
-    permission="zope.Public"
-    class=".ManageClpsbw.ManageClpsbw"
-    allowed_interface=".interfaces.IManageClpsbw"
-    />
-<browser:page
-    name="experience-plate-forme-lister"
-    for="*"
-    template="templates/experience/lister_experience_par_plateforme.pt"
-    permission="zope.Public"
-    class=".ManageClpsbw.ManageClpsbw"
-    allowed_interface=".interfaces.IManageClpsbw"
-    />
-<browser:page
-    name="lister-experience-plate-forme-paa"
-    for="*"
-    template="templates/experience/lister_experience_par_plateforme_paa.pt"
-    permission="zope.Public"
-    class=".ManageClpsbw.ManageClpsbw"
-    allowed_interface=".interfaces.IManageClpsbw"
-    />
-
-<browser:page
-    name="gerer-les-experiences"
-    for="*"
-    template="templates/experience/gerer_experience.pt"
-    permission="zope.Public"
-    class=".ManageClpsbw.ManageClpsbw"
-    allowed_interface=".interfaces.IManageClpsbw"
-    />
-
-<browser:page
-    name="modifier-une-experience"
-    for="*"
-    template="templates/experience/modifier_experience.pt"
-    permission="zope.Public"
-    class=".ManageClpsbw.ManageClpsbw"
-    allowed_interface=".interfaces.IManageClpsbw"
-    />                        
-<browser:page
-    name="decrire-une-experience"
-    for="*"
-    template="templates/experience/decrire_experience.pt"
-    permission="zope.Public"
-    class=".ManageClpsbw.ManageClpsbw"
-    allowed_interface=".interfaces.IManageClpsbw"
-    />
-<browser:page
-    name="decrire-une-experience-maj"
-    for="*"
-    template="templates/experience/decrire_experience_maj.pt"
-    permission="zope.Public"
-    class=".ManageClpsbw.ManageClpsbw"
-    allowed_interface=".interfaces.IManageClpsbw"
-    />
-<browser:page
     name="admin-decrire-une-experience"
     for="*"
     template="templates/gestion_db/gestion_experience/admin_experience_description.pt"
@@ -403,7 +410,7 @@ i18n_domain="clpsbw.skin">
 
 
 
-<!-- moteur recherche -->
+<!-- MOTEUR RECHERCHE - MOTEUR RECHERCHE - MOTEUR RECHERCHE - MOTEUR RECHERCHE - MOTEUR RECHERCHE -->
 <browser:page
     name="presentation-db"
     for="*"
@@ -412,7 +419,6 @@ i18n_domain="clpsbw.skin">
     class=".ManageClpsbw.ManageClpsbw"
     allowed_interface=".interfaces.IManageClpsbw"
     />
-
 <browser:page
     name="experience-recherche"
     for="*"
@@ -455,8 +461,36 @@ i18n_domain="clpsbw.skin">
     />
 
 
+
+
 <!--  RESOURCES - RESOURCES - RESOURCES - RESOURCES - RESOURCES  -->
-<!-- admin ressource -->
+<!-- USER RESSOURCE -->
+<browser:page
+      name="decrire-une-ressource"
+      for="*"
+      template="templates/ressource/decrire_ressource.pt"
+      permission="zope.Public"
+      class=".ManageClpsbw.ManageClpsbw"
+      allowed_interface=".interfaces.IManageClpsbw"
+      />
+<browser:page
+      name="listing-ressource-par-theme"
+      for="*"
+      template="templates/assuetude/assuetude_listing_ressource_by_theme.pt"
+      permission="zope.Public"
+      class=".ManageClpsbw.ManageClpsbw"
+      allowed_interface=".interfaces.IManageClpsbw"
+      />
+<browser:page
+      name="ressource-pour-un-theme"
+      for="*"
+      template="templates/assuetude/assuetude_ressource_for_one_theme.pt"
+      permission="zope.Public"
+      class=".ManageClpsbw.ManageClpsbw"
+      allowed_interface=".interfaces.IManageClpsbw"
+      />
+
+<!-- ADMIN RESSOURCE -->
 <browser:page
       name="admin-creer-une-ressource"
       for="*"
@@ -513,37 +547,11 @@ i18n_domain="clpsbw.skin">
       attribute="manageRessource"
       allowed_interface=".interfaces.IManageClpsbw"
       />
-<!-- user ressource -->
-<browser:page
-      name="decrire-une-ressource"
-      for="*"
-      template="templates/ressource/decrire_ressource.pt"
-      permission="zope.Public"
-      class=".ManageClpsbw.ManageClpsbw"
-      allowed_interface=".interfaces.IManageClpsbw"
-      />
-<browser:page
-      name="listing-ressource-par-theme"
-      for="*"
-      template="templates/assuetude/assuetude_listing_ressource_by_theme.pt"
-      permission="zope.Public"
-      class=".ManageClpsbw.ManageClpsbw"
-      allowed_interface=".interfaces.IManageClpsbw"
-      />
-<browser:page
-      name="ressource-pour-un-theme"
-      for="*"
-      template="templates/assuetude/assuetude_ressource_for_one_theme.pt"
-      permission="zope.Public"
-      class=".ManageClpsbw.ManageClpsbw"
-      allowed_interface=".interfaces.IManageClpsbw"
-      />
-
 
 
 
 <!-- INSTITUTION - INSTITUTION - INSTITUTION - INSTITUTION - INSTITUTION - -->
-<!-- user institution -->
+<!-- USER INSTITUTION -->
 <browser:page
       name="institution-creer"
       for="*"
@@ -569,7 +577,7 @@ i18n_domain="clpsbw.skin">
       allowed_interface=".interfaces.IManageClpsbw"
       />
 
-<!-- admin institution -->
+<!-- ADMIN INSTITUTION -->
 <browser:page
       name="admin-institution-lister"
       for="*"
@@ -683,7 +691,9 @@ i18n_domain="clpsbw.skin">
       allowed_interface=".interfaces.IManageClpsbw"
       />
 
-<!-- institution_type -->
+
+
+<!-- INSTITUTION-TYPE - INSTITUTION-TYPE - INSTITUTION-TYPE - INSTITUTION-TYPE - INSTITUTION-TYPE - -->
 <browser:page
       name="admin-creer-un-type-institution"
       for="*"
@@ -718,7 +728,9 @@ i18n_domain="clpsbw.skin">
     />
 
 
-<!-- assuetude pour institution-->
+
+
+<!-- ASSUETUDE POUR INSTITUTION - ASSUETUDE POUR INSTITUTION - ASSUETUDE POUR INSTITUTION -->
 <browser:page
     name="gestion-des-assuetudes-pour-institution"
     for="*"
@@ -768,7 +780,9 @@ i18n_domain="clpsbw.skin">
     allowed_interface=".interfaces.IManageClpsbw"
     />
   
-<!-- assuetude pour thematique -->
+
+
+<!-- ASSUETUDE POUR THEMATIQUE - ASSUETUDE POUR THEMATIQUE - ASSUETUDE POUR THEMATIQUE - ASSUETUDE POUR THEMATIQUE -->
 <browser:page
     name="assuetude-thematique-modifier"
     for="*"
@@ -778,7 +792,9 @@ i18n_domain="clpsbw.skin">
     allowed_interface=".interfaces.IManageClpsbw"
     />
 
-<!-- assuetude pour ressource -->
+
+
+<!-- ASSUETUDE POUR RESSOURCE - ASSUETUDE POUR RESSOURCE - ASSUETUDE POUR RESSOURCE - ASSUETUDE POUR RESSOURCE -->
 <browser:page
     name="assuetude-ressource-type-institution"
     for="*"
