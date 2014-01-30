@@ -28,7 +28,7 @@
                     <div class="btn-modifier-description"
                              tal:condition="python:user.has_role(['Manager'], here)">
                             <a href=""
-                               tal:attributes="href string: admin-experience-modifier?experiencePk=${experiencePk}">&nbsp;</a>
+                               tal:attributes="href string: admin-modifier-une-experience?experiencePk=${experiencePk}">&nbsp;</a>
                     </div>
                     <div class="break-float"></div>
                 </div>

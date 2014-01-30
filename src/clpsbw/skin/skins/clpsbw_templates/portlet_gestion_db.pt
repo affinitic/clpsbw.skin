@@ -24,11 +24,11 @@
                 </dt>
                 <dd class="portletItemDB">
                     <a href=""
-                       tal:attributes="href string:${context/portal_url}/admin-experience-creer">Créer</a>
+                       tal:attributes="href string:${context/portal_url}/admin-creer-une-experience">Créer</a>
                 </dd>
                 <dd class="portletItemDB">
                     <a href=""
-                       tal:attributes="href string:${context/portal_url}/admin-experience-lister">Lister</a>
+                       tal:attributes="href string:${context/portal_url}/admin-lister-les-experiences">Lister</a>
                 </dd>
                 <dd class="portletItemDB">
                     <a href=""
@@ -44,19 +44,19 @@
                 </dd>
                 <dd tal:define="nbrExp python:experiences.getCountExperienceByEtat('private')"
                     class="portletItemDB">
-                    <a href="admin-experience-lister-par-etat?etat=private">
+                    <a href="admin-lister-les-experiences-par-etat?etat=private">
                         privé : <span tal:content="nbrExp">nbr</span>
                     </a>
                 </dd>
                 <dd tal:define="nbrExp python:experiences.getCountExperienceByEtat('pending')"
                     class="portletItemDB">
-                    <a href="admin-experience-lister-par-etat?etat=pending">
+                    <a href="admin-lister-les-experiences-par-etat?etat=pending">
                         en attente : <span tal:content="nbrExp">nbr</span>
                     </a>
                 </dd>
                 <dd tal:define="nbrExp python:experiences.getCountExperienceByEtat('publish')"
                     class="portletItemDB">
-                    <a href="admin-experience-lister-par-etat?etat=publish">
+                    <a href="admin-lister-les-experiences-par-etat?etat=publish">
                         publi&eacute; : <span tal:content="nbrExp">nbr</span>
                     </a>
                 </dd>

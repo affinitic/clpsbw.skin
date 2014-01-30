@@ -268,7 +268,7 @@ class ManageClpsbw(BrowserView):
         captchaView = Captcha(obj, self.request)
         isCorrectCaptcha = captchaView.verify(captcha)
         if isCorrectCaptcha:
-            cible = "%s/experience-inscription-auteur-merci" % (obj.portal_url(), )
+            cible = "%s/inscrire-un-auteur-experience-merci" % (obj.portal_url(), )
             obj.REQUEST.RESPONSE.redirect(cible)
             self.insertAuteur()
             self.sendMailForNewAuteurExperience()
@@ -369,7 +369,7 @@ class ManageClpsbw(BrowserView):
                   </ul>
                   <hr />
                   Modifier et publier l'expérience en cliquant sur ce
-                  <a href="http://www.clpsbw.be/admin-experience-modifier?experiencePk=%s">lien</a>.
+                  <a href="http://www.clpsbw.be/admin-modifier-une-experience?experiencePk=%s">lien</a>.
                   <hr />
                   <font size="1">
                   :: Autre public visé : <font color='#ff9c1b'><b>%s</b></font><br />
@@ -461,7 +461,7 @@ class ManageClpsbw(BrowserView):
                   </ul>
                   <hr />
                   Modifier et publier l'expérience en cliquant sur ce
-                  <a href="http://www.clpsbw.be/admin-experience-modifier?experiencePk=%s">lien</a>.
+                  <a href="http://www.clpsbw.be/admin-modifier-une-experience?experiencePk=%s">lien</a>.
                   <hr />
                   <font size="1">
                   :: Autre public visé : <font color='#ff9c1b'><b>%s</b></font><br />

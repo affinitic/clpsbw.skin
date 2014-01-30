@@ -207,57 +207,17 @@ i18n_domain="clpsbw.skin">
 <!-- EXPERIENCE - EXPERIENCE - EXPERIENCE - EXPERIENCE - EXPERIENCE - EXPERIENCE - EXPERIENCE -->
 <!-- USER EXEPRIENCE -->
 <browser:page
-    name="experience-inscription-auteur"
-    for="*"
-    template="templates/experience/inscrire_auteur_experience.pt"
-    permission="zope.Public"
-    class=".ManageClpsbw.ManageClpsbw"
-    allowed_interface=".interfaces.IManageClpsbw"
-    />
-<browser:page
-    name="experience-inscription-auteur-merci"
-    for="*"
-    template="templates/experience/inscrire_auteur_experience_merci.pt"
-    permission="zope.Public"
-    class=".ManageClpsbw.ManageClpsbw"
-    allowed_interface=".interfaces.IManageClpsbw"
-    />
-<browser:page
-    name="experience-creer"
-    for="*"
-    template="templates/experience/creer_experience.pt"
-    permission="zope.Public"
-    class=".ManageClpsbw.ManageClpsbw"
-    allowed_interface=".interfaces.IManageClpsbw"
-    />
-<browser:page
-    name="experience-lister-auteur"
-    for="*"
-    template="templates/experience/lister_experience_par_auteur.pt"
-    permission="zope.Public"
-    class=".ManageClpsbw.ManageClpsbw"
-    allowed_interface=".interfaces.IManageClpsbw"
-    />
-<browser:page
-    name="experience-plate-forme-lister"
-    for="*"
-    template="templates/experience/lister_experience_par_plateforme.pt"
-    permission="zope.Public"
-    class=".ManageClpsbw.ManageClpsbw"
-    allowed_interface=".interfaces.IManageClpsbw"
-    />
-<browser:page
-    name="lister-experience-plate-forme-paa"
-    for="*"
-    template="templates/experience/lister_experience_par_plateforme_paa.pt"
-    permission="zope.Public"
-    class=".ManageClpsbw.ManageClpsbw"
-    allowed_interface=".interfaces.IManageClpsbw"
-    />
-<browser:page
     name="gerer-les-experiences"
     for="*"
     template="templates/experience/gerer_experience.pt"
+    permission="zope.Public"
+    class=".ManageClpsbw.ManageClpsbw"
+    allowed_interface=".interfaces.IManageClpsbw"
+    />
+<browser:page
+    name="creer-une-experience"
+    for="*"
+    template="templates/experience/creer_experience.pt"
     permission="zope.Public"
     class=".ManageClpsbw.ManageClpsbw"
     allowed_interface=".interfaces.IManageClpsbw"
@@ -286,58 +246,69 @@ i18n_domain="clpsbw.skin">
     class=".ManageClpsbw.ManageClpsbw"
     allowed_interface=".interfaces.IManageClpsbw"
     />
-
-
-
-
-
 <browser:page
-    name="deleteAuteurByPk"
+    name="lister-experience-par-auteur"
     for="*"
+    template="templates/experience/lister_experience_par_auteur.pt"
     permission="zope.Public"
     class=".ManageClpsbw.ManageClpsbw"
     allowed_interface=".interfaces.IManageClpsbw"
-    attribute="deleteAuteurByPk"
+    />
+<browser:page
+    name="lister-experience-par-plate-forme"
+    for="*"
+    template="templates/experience/lister_experience_par_plateforme.pt"
+    permission="zope.Public"
+    class=".ManageClpsbw.ManageClpsbw"
+    allowed_interface=".interfaces.IManageClpsbw"
+    />
+<browser:page
+    name="lister-experience-par-plate-forme-paa"
+    for="*"
+    template="templates/experience/lister_experience_par_plateforme_paa.pt"
+    permission="zope.Public"
+    class=".ManageClpsbw.ManageClpsbw"
+    allowed_interface=".interfaces.IManageClpsbw"
     />
 
 
 <!-- ADMIN EXEPRIENCE -->
 <browser:page
-    name="admin-experience-creer"
+    name="admin-creer-une-experience"
     for="*"
-    template="templates/gestion_db/gestion_experience/admin_experience_creation_form.pt"
+    template="templates/gestion_db/gestion_experience/admin_creer_experience.pt"
     permission="zope.Public"
     class=".ManageClpsbw.ManageClpsbw"
     allowed_interface=".interfaces.IManageClpsbw"
     />
 <browser:page
-    name="admin-experience-lister"
+    name="admin-chercher-une-experience"
     for="*"
-    template="templates/gestion_db/gestion_experience/admin_experience_listing.pt"
+    template="templates/gestion_db/gestion_experience/admin_chercher_experience.pt"
     permission="zope.Public"
     class=".ManageClpsbw.ManageClpsbw"
     allowed_interface=".interfaces.IManageClpsbw"
     />
 <browser:page
-    name="admin-experience-lister-par-etat"
+    name="admin-lister-les-experiences"
     for="*"
-    template="templates/gestion_db/gestion_experience/admin_experience_listing_par_etat.pt"
+    template="templates/gestion_db/gestion_experience/admin_lister_experience.pt"
     permission="zope.Public"
     class=".ManageClpsbw.ManageClpsbw"
     allowed_interface=".interfaces.IManageClpsbw"
     />
 <browser:page
-    name="admin-experience-gerer"
+    name="admin-lister-les-experiences-par-etat"
     for="*"
-    template="templates/gestion_db/gestion_experience/admin_experience_gestion.pt"
+    template="templates/gestion_db/gestion_experience/admin_lister_experience_par_etat.pt"
     permission="zope.Public"
     class=".ManageClpsbw.ManageClpsbw"
     allowed_interface=".interfaces.IManageClpsbw"
     />
 <browser:page
-    name="admin-experience-modifier"
+    name="admin-gerer-les-experiences"
     for="*"
-    template="templates/gestion_db/gestion_experience/admin_experience_modification_form.pt"
+    template="templates/gestion_db/gestion_experience/admin_gerer_experience.pt"
     permission="zope.Public"
     class=".ManageClpsbw.ManageClpsbw"
     allowed_interface=".interfaces.IManageClpsbw"
@@ -359,9 +330,9 @@ i18n_domain="clpsbw.skin">
     allowed_interface=".interfaces.IManageClpsbw"
     />
 <browser:page
-    name="admin-experience-inserer"
+    name="admin-inserer-une-experience"
     for="*"
-    template="templates/gestion_db/gestion_experience/admin_experience_insertion.pt"
+    template="templates/gestion_db/gestion_experience/admin_inserer_experience.pt"
     permission="zope.Public"
     class=".ManageClpsbw.ManageClpsbw"
     allowed_interface=".interfaces.IManageClpsbw"
@@ -369,7 +340,7 @@ i18n_domain="clpsbw.skin">
 <browser:page
     name="admin-decrire-une-experience"
     for="*"
-    template="templates/gestion_db/gestion_experience/admin_experience_description.pt"
+    template="templates/gestion_db/gestion_experience/admin_decrire_experience.pt"
     permission="zope.Public"
     class=".ManageClpsbw.ManageClpsbw"
     allowed_interface=".interfaces.IManageClpsbw"
@@ -420,7 +391,7 @@ i18n_domain="clpsbw.skin">
     allowed_interface=".interfaces.IManageClpsbw"
     />
 <browser:page
-    name="experience-recherche"
+    name="chercher-une-experience"
     for="*"
     template="templates/experience/chercher_experience.pt"
     permission="zope.Public"
@@ -447,14 +418,6 @@ i18n_domain="clpsbw.skin">
     name="experience-resultat-recherche-public"
     for="*"
     template="templates/experience/experience_resultat_recherche_public.pt"
-    permission="zope.Public"
-    class=".ManageClpsbw.ManageClpsbw"
-    allowed_interface=".interfaces.IManageClpsbw"
-    />
- <browser:page
-    name="admin-chercher-une-experience"
-    for="*"
-    template="templates/gestion_db/gestion_experience/admin_experience_recherche_db.pt"
     permission="zope.Public"
     class=".ManageClpsbw.ManageClpsbw"
     allowed_interface=".interfaces.IManageClpsbw"
@@ -1034,6 +997,25 @@ i18n_domain="clpsbw.skin">
 
 
 <!-- AUTEUR - AUTEUR - AUTEUR - AUTEUR - AUTEUR - AUTEUR - AUTEUR - -->
+<!-- USER AUTEUR -->
+<browser:page
+    name="inscrire-un-auteur-experience"
+    for="*"
+    template="templates/auteur/inscrire_auteur_experience.pt"
+    permission="zope.Public"
+    class=".ManageClpsbw.ManageClpsbw"
+    allowed_interface=".interfaces.IManageClpsbw"
+    />
+<browser:page
+    name="inscrire-un-auteur-experience-merci"
+    for="*"
+    template="templates/auteur/inscrire_auteur_experience_merci.pt"
+    permission="zope.Public"
+    class=".ManageClpsbw.ManageClpsbw"
+    allowed_interface=".interfaces.IManageClpsbw"
+    />
+
+<!-- ADMIN AUTEUR -->
 <browser:page
       name="admin-creer-un-auteur"
       for="*"
@@ -1081,6 +1063,14 @@ i18n_domain="clpsbw.skin">
      permission="zope.Public"
      attribute="manageAuteur"
      allowed_interface=".interfaces.IManageClpsbw"
+     />
+ <browser:page
+     name="deleteAuteurByPk"
+     for="*"
+     permission="zope.Public"
+     class=".ManageClpsbw.ManageClpsbw"
+     allowed_interface=".interfaces.IManageClpsbw"
+     attribute="deleteAuteurByPk"
      />
 
 

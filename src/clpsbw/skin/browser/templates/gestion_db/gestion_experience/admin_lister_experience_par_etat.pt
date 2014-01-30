@@ -23,7 +23,7 @@
                     <header class="listing-titre-experience">
                         <a href=""
                            tal:content="experience/experience_titre"
-                           tal:attributes="href string:admin-experience-modifier?experiencePk=${experiencePk}"
+                           tal:attributes="href string:admin-modifier-une-experience?experiencePk=${experiencePk}"
                            class="titre_formation">titre de l'expérience</a>
                     </header>
                     <hr class="ligne-listing-experience" />
@@ -55,24 +55,27 @@
                                 </div>
                             </li>
                         </ul>
-
+                        <hr class="ligne-listing-experience" />
                         <div id="footer-listing">
                             <table width="100%">
                                 <tr>
                                     <td align="left" class="discreet" valign="bottom">
-                                        par 
+                                        Création par 
                                         <span tal:content="experience/auteurFromExperience/auteur_prenom | nothing"
                                               class="gras" />
                                         <span tal:content="experience/auteurFromExperience/auteur_nom | nothing"
                                               class="gras" /> - 
                                         [<span tal:content="experience/experience_auteur_login"
                                                class="gras discreet" />]
-                                        <br />
-                                        Dernière modification :
-                                        <span tal:content="python: experience.experience_modification_date.strftime('%d-%m-%Y %H:%M')"
+                                        le
+                                        <span tal:content="python: experience.experience_creation_date.strftime('%d-%m-%Y %H:%M')"
                                               class="gras" />
-                                        par :
+                                        <br />
+                                        Dernière modification par
                                         <span tal:content="experience/experience_modification_employe"
+                                              class="gras" />
+                                        le
+                                        <span tal:content="python: experience.experience_modification_date.strftime('%d-%m-%Y %H:%M')"
                                               class="gras" />
                                         <div class="experience-etat"
                                              tal:define="experienceEtat python:view.getExperienceEtat(experiencePk)"
@@ -81,11 +84,15 @@
                                              &Xi;
                                              PK : <span tal:content="experience/experience_pk" />
                                         </div>
+                                        <div class="listing-experience-clps-proprio">
+                                            Publié par le
+                                            <span tal:content="experience/clpsOrigine/clps_sigle" />
+                                        </div>
                                     </td>
                                     <td align="right">
                                         <div class="btn-modifier">
                                             <a href=""
-                                               tal:attributes="href string: admin-experience-modifier?experiencePk=${experiencePk}">&nbsp;</a>
+                                               tal:attributes="href string: admin-modifier-une-experience?experiencePk=${experiencePk}">&nbsp;</a>
                                         </div>
                                     </td>
                                 </tr>

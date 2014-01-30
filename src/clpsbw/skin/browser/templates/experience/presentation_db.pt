@@ -36,7 +36,7 @@
             <h1>Présentation de la base de données</h1>
         </div>
         <div id="moteur-presentation-db">
-            <a href="experience-recherche">Effectuer<br /> une recherche</a>
+            <a href="chercher-une-experience">Effectuer<br /> une recherche</a>
         </div>
         <div id="intro-presentation-db">
             <ul>
@@ -132,12 +132,12 @@
             Cette base est appelée à évoluer et à s'enrichir en permanence.
             <p>
             C’est par ici…
-            Pour consulter la base de données <a href="experience-recherche">cliquer ici</a> 
-            (ou : <a href="experience-recherche">moteur de recherche</a>)
+            Pour consulter la base de données <a href="chercher-une-experience">cliquer ici</a> 
+            (ou : <a href="chercher-une-experience">moteur de recherche</a>)
             </p>
             <p>
             Pour contribuer à enrichir cette base de données, vous pouvez
-            remplir ce <a href="experience-inscription-auteur">formulaire</a>. Le CLPS vous contactera. Si le passage à
+            remplir ce <a href="inscrire-un-auteur-experience">formulaire</a>. Le CLPS vous contactera. Si le passage à
             l’écrit ne vous enthousiasme pas, le CLPS peut vous aider...
             <a href="contact/coordonnees-et-acces">contactez-nous</a> !
             </p>

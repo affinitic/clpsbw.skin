@@ -39,7 +39,7 @@
             <dt class="portletFooterDB">
                 <div id="portletFooterDB-Liens">
                     <div id="btn-flch-verte">
-                        <a href="experience-plate-forme-lister?plateForme=experience_plate_forme_sante_famille"
+                        <a href="lister-experience-par-plate-forme?plateForme=experience_plate_forme_sante_famille"
                            title="listing des projets partagés"
                            alt="listing des projets partagés">
                            Autres...&nbsp;&nbsp;</a>
