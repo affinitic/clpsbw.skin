@@ -359,6 +359,16 @@
                                name="experience_plate_forme_sante_environnement"
                                value="True"
                                tal:attributes="checked python:experience.experience_plate_forme_sante_environnement and 'checked' or None;" />&nbsp;&nbsp;Santé et environnement
+                        <br />
+                        <input type="checkbox"
+                               name="experience_plate_forme_sante_commune"
+                               value="True"
+                               tal:attributes="checked python:experience.experience_plate_forme_sante_commune and 'checked' or None;" />&nbsp;&nbsp;Santé des communes
+                        <br />
+                        <input type="checkbox"
+                               name="experience_plate_forme_vie_affective_sexuelle"
+                               value="True"
+                               tal:attributes="checked python:experience.experience_plate_forme_vie_affective_sexuelle and 'checked' or None;" />&nbsp;&nbsp;Vie affective et sexuelle
                         <!--
                         <tal:blok tal:define="plateformes python:view.getAllActivePlateForme()">
                             <tal:boucle tal:repeat="plateforme plateformes">

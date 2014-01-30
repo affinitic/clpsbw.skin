@@ -3577,6 +3577,8 @@ class ManageClpsbw(BrowserView):
         experience_plate_forme_assuetude = getattr(fields, 'experience_plate_forme_assuetude', 'False')
         experience_plate_forme_sante_famille = getattr(fields, 'experience_plate_forme_sante_famille', 'False')
         experience_plate_forme_sante_environnement = getattr(fields, 'experience_plate_forme_sante_environnement', 'False')
+        experience_plate_forme_sante_commune = getattr(fields, 'experience_plate_forme_sante_commune', 'False'),
+        experience_plate_forme_vie_affective_sexuelle = getattr(fields, 'experience_plate_forme_vie_affective_sexuelle', 'False'),
         experience_mission_centre_documentation = getattr(fields, 'experience_mission_centre_documentation', 'False')
         experience_mission_accompagnement_projet = getattr(fields, 'experience_mission_accompagnement_projet', 'False')
         experience_mission_reseau_echange = getattr(fields, 'experience_mission_reseau_echange', 'False')
@@ -3594,8 +3596,7 @@ class ManageClpsbw(BrowserView):
             experience_auteur_fk = auteur.auteur_pk
         #else:
         #    experience_auteur_fk = self.getAuteurPkByName(experience_auteur)
-
-
+        
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
         newEntry = Experience(experience_titre = experience_titre, \
@@ -3624,6 +3625,8 @@ class ManageClpsbw(BrowserView):
                                     experience_plate_forme_assuetude = experience_plate_forme_assuetude, \
                                     experience_plate_forme_sante_famille = experience_plate_forme_sante_famille, \
                                     experience_plate_forme_sante_environnement = experience_plate_forme_sante_environnement, \
+                                    experience_plate_forme_sante_commune = experience_plate_forme_sante_commune, \
+                                    experience_plate_forme_vie_affective_sexuelle = experience_plate_forme_vie_affective_sexuelle, \
                                     experience_mission_centre_documentation = experience_mission_centre_documentation, \
                                     experience_mission_accompagnement_projet = experience_mission_accompagnement_projet, \
                                     experience_mission_reseau_echange = experience_mission_reseau_echange, \
@@ -4634,6 +4637,8 @@ class ManageClpsbw(BrowserView):
         experience_plate_forme_assuetude = getattr(fields, 'experience_plate_forme_assuetude', False)
         experience_plate_forme_sante_famille = getattr(fields, 'experience_plate_forme_sante_famille', False)
         experience_plate_forme_sante_environnement = getattr(fields, 'experience_plate_forme_sante_environnement', False)
+        experience_plate_forme_sante_commune = getattr(fields, 'experience_plate_forme_sante_commune', 'False'),
+        experience_plate_forme_vie_affective_sexuelle = getattr(fields, 'experience_plate_forme_vie_affective_sexuelle', 'False'),
         experience_mission_centre_documentation = getattr(fields, 'experience_mission_centre_documentation', False)
         experience_mission_accompagnement_projet = getattr(fields, 'experience_mission_accompagnement_projet', False)
         experience_mission_reseau_echange = getattr(fields, 'experience_mission_reseau_echange', False)
@@ -4686,6 +4691,8 @@ class ManageClpsbw(BrowserView):
         experience.experience_plate_forme_assuetude = experience_plate_forme_assuetude
         experience.experience_plate_forme_sante_famille = experience_plate_forme_sante_famille
         experience.experience_plate_forme_sante_environnement = experience_plate_forme_sante_environnement
+        experience.experience_plate_forme_sante_commune = experience_plate_forme_sante_commune
+        experience.experience_plate_forme_vie_affective_sexuelle = experience_plate_forme_vie_affective_sexuelle
         experience.experience_mission_centre_documentation = experience_mission_centre_documentation
         experience.experience_mission_accompagnement_projet = experience_mission_accompagnement_projet
         experience.experience_mission_reseau_echange = experience_mission_reseau_echange
@@ -5241,7 +5248,7 @@ class ManageClpsbw(BrowserView):
                 experienceCommuneFk.append(pk)
 
         if operation == "insert":
-            self.addExperience()
+            self.insertExperience()
             experienceFk = self.getExperienceMaxPk()
 
             if experienceCommuneFk > 0:
@@ -5373,7 +5380,6 @@ class ManageClpsbw(BrowserView):
 
             #suppresion dans la table experience_maj (versionning)
             if experience_etat == "publish":
-                import pdb;pdb.set_trace()
                 self.deleteExperienceMaj(experienceFk)
 
             self.sendMailForUpdateExperience()
