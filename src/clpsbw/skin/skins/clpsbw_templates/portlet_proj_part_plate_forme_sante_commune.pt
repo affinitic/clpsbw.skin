@@ -8,7 +8,7 @@
 -->
 <div metal:define-macro="portlet"
      tal:define="exp context/@@manageClpsbw;
-                 experiences python:exp.getExperienceByPlateForme('experience_plate_forme_sante_famille', True)"
+                 experiences python:exp.getExperienceByPlateForme('experience_plate_forme_sante_commune', True)"
      tal:condition="python:len(experiences) > 0">
 
      <div class="portlet-left-column">
