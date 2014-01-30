@@ -3270,6 +3270,8 @@ class ManageClpsbw(BrowserView):
         institution_plate_forme_assuetude = getattr(fields, 'institution_plate_forme_assuetude', 'False')
         institution_plate_forme_sante_famille = getattr(fields, 'institution_plate_forme_sante_famille', 'False')
         institution_plate_forme_sante_environnement = getattr(fields, 'institution_plate_forme_sante_environnement', False)
+        institution_plate_forme_sante_commune = getattr(fields, 'institution_plate_forme_sante_commune', False)
+        institution_plate_forme_vie_affective_sexuelle = getattr(fields, 'institution_plate_forme_vie_affective_sexuelle', False)
         institution_listing_ressource_plate_forme_sante_ecole = getattr(fields, 'institution_listing_ressource_plate_forme_sante_ecole', False)
         institution_listing_ressource_plate_forme_assuetude = getattr(fields, 'institution_listing_ressource_plate_forme_assuetude', False)
         institution_listing_ressource_plate_forme_sante_famille = getattr(fields, 'institution_listing_ressource_plate_forme_sante_famille', False)
@@ -3326,6 +3328,8 @@ class ManageClpsbw(BrowserView):
                                institution_plate_forme_assuetude = institution_plate_forme_assuetude, \
                                institution_plate_forme_sante_famille = institution_plate_forme_sante_famille, \
                                institution_plate_forme_sante_environnement = institution_plate_forme_sante_environnement, \
+                               institution_plate_forme_sante_commune = institution_plate_forme_sante_commune, \
+                               institution_plate_forme_vie_affective_sexuelle = institution_plate_forme_vie_affective_sexuelle, \
                                institution_listing_ressource_plate_forme_sante_ecole = institution_listing_ressource_plate_forme_sante_ecole, \
                                institution_listing_ressource_plate_forme_assuetude = institution_listing_ressource_plate_forme_assuetude, \
                                institution_listing_ressource_plate_forme_sante_famille = institution_listing_ressource_plate_forme_sante_famille, \
@@ -4471,6 +4475,8 @@ class ManageClpsbw(BrowserView):
         institution_plate_forme_assuetude = getattr(fields, 'institution_plate_forme_assuetude', 'False')
         institution_plate_forme_sante_famille = getattr(fields, 'institution_plate_forme_sante_famille', 'False')
         institution_plate_forme_sante_environnement = getattr(fields, 'institution_plate_forme_sante_environnement', 'False')
+        institution_plate_forme_sante_commune = getattr(fields, 'institution_plate_forme_sante_commune', 'False')
+        institution_plate_forme_vie_affective_sexuelle = getattr(fields, 'institution_plate_forme_vie_affective_sexuelle', 'False')
         institution_listing_ressource_plate_forme_sante_ecole = getattr(fields, 'institution_listing_ressource_plate_forme_sante_ecole', 'False')
         institution_listing_ressource_plate_forme_assuetude = getattr(fields, 'institution_listing_ressource_plate_forme_assuetude', 'False')
         institution_listing_ressource_plate_forme_sante_famille = getattr(fields, 'institution_listing_ressource_plate_forme_sante_famille', 'False')
@@ -4521,6 +4527,8 @@ class ManageClpsbw(BrowserView):
         institution.institution_plate_forme_assuetude = institution_plate_forme_assuetude
         institution.institution_plate_forme_sante_famille = institution_plate_forme_sante_famille
         institution.institution_plate_forme_sante_environnement = institution_plate_forme_sante_environnement
+        institution.institution_plate_forme_sante_commune = institution_plate_forme_sante_commune
+        institution.institution_plate_forme_vie_affective_sexuelle = institution_plate_forme_vie_affective_sexuelle
         institution.institution_listing_ressource_plate_forme_sante_ecole = institution_listing_ressource_plate_forme_sante_ecole
         institution.institution_listing_ressource_plate_forme_assuetude = institution_listing_ressource_plate_forme_assuetude
         institution.institution_listing_ressource_plate_forme_sante_famille = institution_listing_ressource_plate_forme_sante_famille

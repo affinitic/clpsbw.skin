@@ -423,6 +423,15 @@
                        name="institution_plate_forme_sante_environnement"
                        value="True" />
                 &nbsp;&nbsp;Santé et environnement
+                <input type="checkbox"
+                       name="institution_plate_forme_sante_commune"
+                       value="True" />
+                &nbsp;&nbsp;Santé des communes
+                <input type="checkbox"
+                       name="institution_plate_forme_vie_affective_sexuelle"
+                       value="True" />
+                &nbsp;&nbsp;Vie affective et sexuelle
+
             </div>
             <!--
             <tal:blok tal:define="plateformes python:view.getAllActivePlateForme()">

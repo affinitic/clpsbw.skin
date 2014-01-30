@@ -448,7 +448,18 @@
                                name="institution_plate_forme_sante_environnement"
                                value="True"
                                tal:attributes="checked python:institution.institution_plate_forme_sante_environnement and 'checked' or None;" />&nbsp;&nbsp;Santé et environnement
-
+                        <br />
+                        <input type="checkbox"
+                               name="institution_plate_forme_sante_commune"
+                               value="True"
+                               tal:attributes="checked python:institution.institution_plate_forme_sante_commune and 'checked' or None;" />&nbsp;&nbsp;Santé des commmunes
+                        <br />
+                        <input type="checkbox"
+                               name="institution_plate_forme_vie_affective_sexuelle"
+                               value="True"
+                               tal:attributes="checked python:institution.institution_plate_forme_vie_affective_sexuelle and 'checked' or None;" />&nbsp;&nbsp;Vie afffective et sexuelle
+                        
+                        
 
                         <!--
                         <tal:blok tal:define="plateformes python:view.getAllActivePlateForme()">

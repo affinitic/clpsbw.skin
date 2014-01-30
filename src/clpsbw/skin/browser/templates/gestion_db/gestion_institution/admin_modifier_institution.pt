@@ -462,6 +462,20 @@
                            &nbsp;&nbsp;
                            Santé et environnement
                     <br />
+                    <input type="checkbox"
+                           name="institution_plate_forme_sante_commune"
+                           value="True"
+                           tal:attributes="checked python:institution.institution_plate_forme_sante_commune and 'checked' or None;" />
+                           &nbsp;&nbsp;
+                           Santé des communes
+                    <br />
+                    <input type="checkbox"
+                           name="institution_plate_forme_vie_affective_sexuelle"
+                           value="True"
+                           tal:attributes="checked python:institution.institution_plate_forme_vie_affective_sexuelle and 'checked' or None;" />
+                           &nbsp;&nbsp;
+                           Santé et environnement
+                    <br />
                 </div>
 
                 <div class="formulaire">
