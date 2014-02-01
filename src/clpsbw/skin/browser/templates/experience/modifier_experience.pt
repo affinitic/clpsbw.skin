@@ -329,7 +329,7 @@
                               tal:content="experience/experience_institution_porteur_autre"
                               class="grasorange"></textarea>                
                     <div class="btn-links-table">
-                        <a href="institution-creer"
+                        <a href="creer-une-institution"
                            target="_blank"
                            alt="add_db"
                            title="créer une nouvelle institution"><img src ="add_db.png" /></a>
@@ -370,7 +370,7 @@
                               tal:content="experience/experience_institution_partenaire_autre"
                               class="grasorange"></textarea>
                     <div class="btn-links-table">
-                        <a href="institution-creer"
+                        <a href="creer-une-institution"
                            target="_blank"
                            alt="add_db"
                            title="créer une nouvelle institution"><img src ="add_db.png" /></a>
@@ -406,7 +406,7 @@
                               tal:content="experience/experience_institution_ressource_autre"
                               class="grasorange"></textarea>
                     <div class="btn-links-table">
-                        <a href="institution-creer"
+                        <a href="creer-une-institution"
                            target="_blank"
                            alt="add_db"
                            title="créer une nouvelle institution"><img src ="add_db.png" /></a>

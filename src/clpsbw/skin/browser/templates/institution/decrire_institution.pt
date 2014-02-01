@@ -35,7 +35,7 @@
                     <div class="btn-modifier-description"
                              tal:condition="python:user.has_role(['Manager'], here)">
                             <a href=""
-                               tal:attributes="href string: admin-institution-modifier?institutionPk=${institutionPk}">&nbsp;</a>
+                               tal:attributes="href string: admin-modifier-une-institution?institutionPk=${institutionPk}">&nbsp;</a>
                     </div>
                     <div class="break-float"></div>
                 </div>
@@ -396,7 +396,7 @@
 
                     <fieldset>
                         <legend class="legende"> Lien pour la newsletter</legend>
-                        <span tal:content="string:${context/portal_url}/institution-decrire?institutionPk=${institution/institution_pk}" />
+                        <span tal:content="string:${context/portal_url}/decrire-une-institution?institutionPk=${institution/institution_pk}" />
                     </fieldset>
 
                     <fieldset>

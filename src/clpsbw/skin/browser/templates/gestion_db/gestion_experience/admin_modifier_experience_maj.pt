@@ -387,7 +387,7 @@
                               rows="8"
                               tal:content="experienceMaj/experience_maj_institution_porteur_autre"></textarea>                
                     <div class="btn-links-table">
-                        <a href="institution-creer"
+                        <a href="creer-une-institution"
                            target="_blank"
                            alt="add_db"
                            title="créer une nouvelle institution"><img src ="add_db.png" /></a>
@@ -430,7 +430,7 @@
                               rows="8"
                               tal:content="experienceMaj/experience_maj_institution_partenaire_autre"></textarea>
                     <div class="btn-links-table">
-                        <a href="institution-creer"
+                        <a href="creer-une-institution"
                            target="_blank"
                            alt="add_db"
                            title="créer une nouvelle institution"><img src ="add_db.png" /></a>
@@ -468,7 +468,7 @@
                               rows="8"
                               tal:content="experienceMaj/experience_maj_institution_ressource_autre"></textarea>
                     <div class="btn-links-table">
-                        <a href="institution-creer"
+                        <a href="creer-une-institution"
                            target="_blank"
                            alt="add_db"
                            title="créer une nouvelle institution"><img src ="add_db.png" /></a>

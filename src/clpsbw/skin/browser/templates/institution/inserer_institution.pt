@@ -31,13 +31,13 @@
           
           <div class="btn-nouvelle-recherche">
               <a href=""
-                 tal:attributes="href string:${context/portal_url}/institution-creer">
+                 tal:attributes="href string:${context/portal_url}/creer-une-institution">
                   Cr&eacute;er une nouvelle institution</a>
           </div> 
           <div class="btn-nouvelle-recherche"
                tal:condition="python:user.has_role(['Manager'], here)">
                 <a href=""
-                   tal:attributes="href string:${context/portal_url}/institution-chercher">
+                   tal:attributes="href string:${context/portal_url}/chercher-une-institution">
                     Modifier une institution</a>
           </div>
     </div>   

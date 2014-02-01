@@ -382,7 +382,7 @@
                 <div class="formulaire">
                     <h2> Lien pour la newsletter</h2>
                     <p><br /></p>
-                    <span tal:content="string:${context/portal_url}/institution-decrire?institutionPk=${institution/institution_pk}" />
+                    <span tal:content="string:${context/portal_url}/decrire-une-institution?institutionPk=${institution/institution_pk}" />
                 </div>
 
                 <div class="formulaire">

@@ -22,7 +22,7 @@
                              widht="50%"/>
                         <a href=""
                            tal:content="institution/institution_nom"
-                           tal:attributes="href string:institution-decrire?institutionPk=${institutionPk}"
+                           tal:attributes="href string:decrire-une-institution?institutionPk=${institutionPk}"
                            class="titre_formation">nom de l'institution</a>
                    </legend>
                    <div class="experience-etat"
@@ -68,14 +68,14 @@
                                   <div class="btn-modifier"
                                        tal:condition="python:user.has_role(['Manager'], here)">
                                        <a href=""
-                                          tal:attributes="href string: institution-modifier?institutionPk=${institutionPk}"
+                                          tal:attributes="href string: modifier-une-institution?institutionPk=${institutionPk}"
                                           title="Modifier institution"
                                           alt="Modifier institution">&nbsp;</a>
                                   </div>
                               </td>
                               <td align="right">
                                   <a href=""
-                                     tal:attributes="href string:institution-decrire?institutionPk=${institutionPk}"
+                                     tal:attributes="href string:decrire-une-institution?institutionPk=${institutionPk}"
                                      title="Description institution"
                                      alt="Description institution"
                                      class="btn-lister-decrire"></a>

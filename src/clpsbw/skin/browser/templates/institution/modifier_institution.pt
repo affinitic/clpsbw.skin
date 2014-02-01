@@ -14,7 +14,7 @@
      tal:define="institutions python:view.getInstitutionByPk(institutionPk=request.institutionPk);
                  auteur python:view.getAuteurByLogin()"
      tal:condition="python:user.has_role(['RecitExperience'], here)">
-<form action="institution-inserer" method="post">
+<form action="inserer-une-institution" method="post">
     <tal:boucle tal:repeat="institution institutions">
         <tal:block tal:define="institutionPk institution/institution_pk">
             <h1>:: Modifier l'institution : <span tal:content="institution/institution_nom" class="rouge-titre"/> ::</h1>

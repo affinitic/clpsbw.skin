@@ -4368,7 +4368,7 @@ class ManageClpsbw(BrowserView):
             assuetudeIntervention.assuetude_intervention_modification_employe = assuetude_intervention_modification_employe
 
         session.flush()
-        cible = "%s/assuetude-for-institution-gerer" % (self.context.portal_url(), )
+        cible = "%s/assuetude-for-gerer-les-institutions" % (self.context.portal_url(), )
         self.context.REQUEST.RESPONSE.redirect(cible)
 
     def updateAssuetudeActiviteProposeeForInstitution(self):
@@ -4401,7 +4401,7 @@ class ManageClpsbw(BrowserView):
             assuetudeActivite.assuetude_activite_proposee_modification_employe = assuetude_activite_proposee_modification_employe
 
         session.flush()
-        cible = "%s/assuetude-for-institution-gerer" % (self.context.portal_url(), )
+        cible = "%s/assuetude-for-gerer-les-institutions" % (self.context.portal_url(), )
         self.context.REQUEST.RESPONSE.redirect(cible)
 
     def updateAssuetudeThemeForInstitution(self):
@@ -4430,7 +4430,7 @@ class ManageClpsbw(BrowserView):
             assuetudeThematique.assuetude_thematique_modification_employe = assuetude_thematique_modification_employe
 
         session.flush()
-        cible = "%s/assuetude-for-institution-gerer" % (self.context.portal_url(), )
+        cible = "%s/assuetude-for-gerer-les-institutions" % (self.context.portal_url(), )
         self.context.REQUEST.RESPONSE.redirect(cible)
 
     def updateInstitution(self):

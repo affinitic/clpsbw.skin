@@ -23,7 +23,7 @@
                           <h2>
                                 <a href=""
                                    tal:content="institution/institution_nom"
-                                   tal:attributes="href string:institution-decrire?institutionPk=${institutionPk}"
+                                   tal:attributes="href string:decrire-une-institution?institutionPk=${institutionPk}"
                                    class="titre_formation">nom de l'institution</a>
                           </h2>
                           <div class="description-listing">
