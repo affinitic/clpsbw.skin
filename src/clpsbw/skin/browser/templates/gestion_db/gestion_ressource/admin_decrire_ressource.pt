@@ -202,28 +202,27 @@
                     <div id="projet-partage-ressource"
                          tal:define="experiences python:view.getExperienceByRessource(ressourcePk)"
                          tal:condition="python: len(experiences) > 0"
-                             id="projet-partage-ressource">
-                            <div id="right-header-logo-projet-partage">
-                                <a href=""
-                                   tal:attributes="href string:${context/portal_url}/presentation-db">
-                                    <img src="projet_partage_header_portlet.png"
-                                         width="124"
-                                         height="31"
-                                         alt="CLPS-Bw : Projets partagés" /></a>
-                            </div>
-                            <div id="comment-porjet-partage-portlet">
-                                Expériences dans lesquelles cette ressource est utilisée.
-                            </div>
-                            <hr class="hr-grise" />
-                            <tal:boucle tal:repeat="experience experiences">
-                                <p class="right-section-description">
-                                &#8226;
-                                <a href=""
-                                   tal:attributes="href string:${context/portal_url}/decrire-une-experience?experiencePk=${experience/experience_pk}">
-                                    <span tal:content="experience/experience_titre"></span></a>
-                                </p>
-                            </tal:boucle>
-                        
+                         id="projet-partage-ressource">
+                        <div id="right-header-logo-projet-partage">
+                            <a href=""
+                               tal:attributes="href string:${context/portal_url}/presentation-db">
+                                <img src="projet_partage_header_portlet.png"
+                                     width="124"
+                                     height="31"
+                                     alt="CLPS-Bw : Projets partagés" /></a>
+                        </div>
+                        <div id="comment-porjet-partage-portlet">
+                            Expériences dans lesquelles cette ressource est utilisée.
+                        </div>
+                        <hr class="hr-grise" />
+                        <tal:boucle tal:repeat="experience experiences">
+                            <p class="right-section-description">
+                            &#8226;
+                            <a href=""
+                               tal:attributes="href string:${context/portal_url}/decrire-une-experience?experiencePk=${experience/experience_pk}">
+                                <span tal:content="experience/experience_titre"></span></a>
+                            </p>
+                        </tal:boucle>
                     </div>
                         
                     <div class="break-float"></div>
