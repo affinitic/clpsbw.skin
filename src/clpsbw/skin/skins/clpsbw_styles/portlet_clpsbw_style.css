@@ -229,8 +229,8 @@ div.portlet-left-column dl#portlet-experience-vie-affective-sexuelle dt.portletI
 div.portlet-left-column dl#portlet-experience-assuetude dt.portletItemPP{
 padding:8px 3px 8px 20px;
 text-align:left;
-border-left:1px solid #00728a;
-border-right:1px solid #00728a;
+border-left:1px solid #9a0546;
+border-right:1px solid #9a0546;
 }
 
 div.portlet-left-column dl#portlet-experience-assuetude dt.portletItemPP a,
@@ -263,9 +263,9 @@ div.portlet-left-column dl#portlet-experience-vie-affective-sexuelle dt.portletF
 div.portlet-left-column dl#portlet-experience-assuetude dt.portletFooterDB{
 line-height:30px;
 text-align:right;
-border-left:1px solid #00728a;
-border-right:1px solid #00728a;
-border-bottom:1px solid #00728a;
+border-left:1px solid #9a0546;
+border-right:1px solid #9a0546;
+border-bottom:1px solid #9a0546;
 border-radius:0px 0px 8px 8px;
 }
 
@@ -491,4 +491,3 @@ dl.portlet-collection-agenda .portletItem a:hover,
 dd.portletFooter a:hover{
 color:#205C90 !important;
 }
-

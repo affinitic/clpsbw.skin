@@ -547,22 +547,6 @@ padding:0px 15px 0px 15px;
 margin-bottom:8px;
 }
 
-#right-header-logo-projet-partage{
-margin-bottom:8px;
-border:1px solid #9a0546;
-border-radius:4px;
-height:30px;
-background: rgb(255,188,53); /* Old browsers */
-background: -moz-linear-gradient(top,  rgba(255,188,53,1) 0%, rgba(223,155,0,1) 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,188,53,1)), color-stop(100%,rgba(223,155,0,1))); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top,  rgba(255,188,53,1) 0%,rgba(223,155,0,1) 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top,  rgba(255,188,53,1) 0%,rgba(223,155,0,1) 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top,  rgba(255,188,53,1) 0%,rgba(223,155,0,1) 100%); /* IE10+ */
-background: linear-gradient(to bottom,  rgba(255,188,53,1) 0%,rgba(223,155,0,1) 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffbc35', endColorstr='#df9b00',GradientType=0 ); /* IE6-9 */
-text-align:center;
-}
-
 .puzzle-vert{
 background-image:url(puzzle_vert.png);
 }
@@ -578,8 +562,6 @@ background-image:url(puzzle_rouge.png);
 .puzzle-gris{
 background-image:url(puzzle_gris_vert.png);
 }
-
-
 
 .info-actuelle{
 border:1px solid #ddd;
@@ -599,9 +581,6 @@ border:1px dotted #20a3af;
 border-radius:3px;
 width:300px;
 }
-
-
-
 
 .rouge-titre{
 color:#90113d;
@@ -671,9 +650,44 @@ background-image: -o-linear-gradient(left, rgba(140,140,140,0), rgba(140,140,140
 }
 
 
+
+/***
+	portlet projet partage pour institution ressource 
+	colonne de droite fiche descriptive
+***/
+#right-header-logo-projet-partage{
+margin-bottom:8px;
+margin-left:-1px;
+border-style:solid;
+border-color:#9a0546;
+border-width:1px 1px 1px 1px;
+border-radius:4px;
+width:200px;
+height:30px;
+background: rgb(255,188,53); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(255,188,53,1) 0%, rgba(223,155,0,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,188,53,1)), color-stop(100%,rgba(223,155,0,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(255,188,53,1) 0%,rgba(223,155,0,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(255,188,53,1) 0%,rgba(223,155,0,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(255,188,53,1) 0%,rgba(223,155,0,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(255,188,53,1) 0%,rgba(223,155,0,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffbc35', endColorstr='#df9b00',GradientType=0 ); /* IE6-9 */
+text-align:center;
+}
+
+
 #projet-partage-institution,
 #projet-partage-ressource{
+float:right;
+width:200px;
 margin-top:20px;
+color:#111;
+font-size:0.9em;
+border-radius:12px;
+padding:0px 0px 0px 0px;
+border-width:0px 1px 1px 1px;
+border-color:#9a0546;
+border-style:solid;
 }
 
 #projet-partage-institution a,
@@ -685,6 +699,14 @@ color: #20A3AF !important;
 #projet-partage-ressource a:hover{
 color: #000 !important;
 }
+
+#comment-porjet-partage-portlet{
+color:#aaa;
+padding:5px;
+text-align:center;
+}
+
+
 
 
 #pdf-experience,
