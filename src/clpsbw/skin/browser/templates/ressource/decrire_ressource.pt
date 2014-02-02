@@ -202,8 +202,8 @@
 
                     <!-- portlet assuetude projets partagés -->
                     <div id="projet-partage-ressource"
-                         tal:define="experiences python:view.getExperienceByRessource(ressource.ressource_pk)">
-                        <div tal:condition="python: len(experiences) > 0">
+                         tal:define="experiences python:view.getExperienceByRessource(ressource.ressource_pk)"
+                         tal:condition="python: len(experiences) > 0">
                             <div id="right-header-logo-projet-partage">
                                 <a href=""
                                    tal:attributes="href string:${context/portal_url}/presentation-db">
@@ -224,7 +224,6 @@
                                     <span tal:content="experience/experience_titre"></span></a>
                                 </p>
                             </tal:boucle>
-                        </div>
                     </div>
                         
                     

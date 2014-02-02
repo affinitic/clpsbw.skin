@@ -188,42 +188,44 @@
                                           class="rubrique-db">support</span><br />
                                 </tal:boucle>
                             </div>
-                        </div><!--right-content-->
-
-
-                        <!-- portlet assuetude projets partagés -->
-                        <div id="projet-partage-ressource"
-                             tal:define="experiences python:view.getExperienceByRessource(ressourcePk)">
-                            <div tal:condition="python: len(experiences) > 0"
-                                 id="projet-partage-ressource">
-                                <div id="right-header-logo-projet-partage">
-                                    <a href=""
-                                       tal:attributes="href string:${context/portal_url}/presentation-db">
-                                        <img src="projet_partage_header_portlet.png"
-                                             width="124"
-                                             height="31"
-                                             alt="CLPS-Bw : Projets partagés" /></a>
-                                </div>
-                                <tal:boucle tal:repeat="experience experiences">
-                                    <p class="right-section-description">
-                                    &#8226;
-                                    <a href=""
-                                       tal:attributes="href string:${context/portal_url}/decrire-une-experience?experiencePk=${experience/experience_pk}">
-                                        <span tal:content="experience/experience_titre"></span></a>
-                                    </p>
-                                </tal:boucle>
+                            <div id="pdf-ressource">
+                                <a href=""
+                                   tal:attributes="href string:${context/portal_url}/getPdf?ressourcePk=${ressourcePk}">
+                                    <span class="right-rubrique-db">Télécharger la fiche en PDF</span>
+                                    <img src="logo_pdf.png"
+                                         width="18" /></a>
                             </div>
-                        </div>
-                        <div id="pdf-ressource">
-                            <a href=""
-                               tal:attributes="href string:${context/portal_url}/getPdf?ressourcePk=${ressourcePk}">
-                                <span class="right-rubrique-db">Télécharger la fiche en PDF</span>
-                                <img src="logo_pdf.png"
-                                     width="18" /></a>
-                        </div>
-                        <div id="right-footer"></div>
+                        </div><!--right-content-->
                     </div><!--right-ressource-->
 
+                    <!-- portlet assuetude projets partagés -->
+                    <div id="projet-partage-ressource"
+                         tal:define="experiences python:view.getExperienceByRessource(ressourcePk)"
+                         tal:condition="python: len(experiences) > 0"
+                             id="projet-partage-ressource">
+                            <div id="right-header-logo-projet-partage">
+                                <a href=""
+                                   tal:attributes="href string:${context/portal_url}/presentation-db">
+                                    <img src="projet_partage_header_portlet.png"
+                                         width="124"
+                                         height="31"
+                                         alt="CLPS-Bw : Projets partagés" /></a>
+                            </div>
+                            <div id="comment-porjet-partage-portlet">
+                                Expériences dans lesquelles cette ressource est utilisée.
+                            </div>
+                            <hr class="hr-grise" />
+                            <tal:boucle tal:repeat="experience experiences">
+                                <p class="right-section-description">
+                                &#8226;
+                                <a href=""
+                                   tal:attributes="href string:${context/portal_url}/decrire-une-experience?experiencePk=${experience/experience_pk}">
+                                    <span tal:content="experience/experience_titre"></span></a>
+                                </p>
+                            </tal:boucle>
+                        
+                    </div>
+                        
                     <div class="break-float"></div>
 
 <!-- =========================================================================================================================================== -->
