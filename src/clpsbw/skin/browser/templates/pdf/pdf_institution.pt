@@ -57,7 +57,7 @@
                             <div class="rubrique"
                                  tal:condition="python: institution.institution_activite!=''">
                                 <h2>Activités</h2>
-                                <div> class="text-rubrique-db">
+                                <div class="text-rubrique-db">
                                     <span tal:replace="structure institution/institution_activite" />
                                 </div>
                             </div>
