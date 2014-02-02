@@ -62,7 +62,7 @@
                                 </div>
                             </div>
 
-                    <!-- ASSUETUDE INSTITUION -->
+                            <!-- ASSUETUDE INSTITUION -->
                             <div class="rubrique"
                                  tal:condition="python: len(interventions)>0">
                                 <h2>Assuétudes</h2>

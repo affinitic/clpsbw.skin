@@ -23,6 +23,12 @@ margin-top:45px;
 border-top:1px solid #cfd9d7;
 }
 
+.textdb{
+color:#333;
+font-size:8pt;
+padding:0px 10px;
+}
+
 h2{
 font-size:1em;
 color:#00718b;
@@ -588,6 +594,13 @@ width:450px;
 height:117px;
 margin-top:-30px;
 margin-left:10px;
+}
+
+img#image-ressource{
+display:block;
+margin:auto;
+box-shadow:3px 3px 6px rgba(50,50,50,0.5);
+margin-bottom:20px;
 }
 
 #titre-experience{

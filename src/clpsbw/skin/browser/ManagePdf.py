@@ -41,7 +41,6 @@ class ManagePdf(ManageClpsbw):
         elif ressourcePk is not None:
             viewName = 'pdf-ressource'
             filename = 'Ressource.pdf'
-            import pdb; pdb.set_trace()
             url = '%s/%s?ressourcePk=%s' % (portalUrl, viewName, ressourcePk)
             command = PDF_COMMAND % 'Ressource'
 

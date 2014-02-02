@@ -5,7 +5,10 @@
     <meta http-equiv="Content-Type"
           content="text/html;charset=utf-8" />
     <title>Centre local de promotion de la santé du Brabant wallon</title>
-    <meta content="Le Centre local de promotion de la santé du Brabant wallon (CLPS-Bw) est une association sans but lucratif agréée et subsidiée par la Communauté française, pour le développement de la promotion de la santé à l'échelon local"
+    <meta content="Le Centre local de promotion de la santé du Brabant wallon 
+                   (CLPS-Bw) est une association sans but lucratif agréée et
+                   subsidiée par la Communauté française, pour le développement
+                   de la promotion de la santé à l'échelon local"
           name="description" />
     <link href="pdf_clpsbw_style.css"
           rel="stylesheet"
@@ -13,193 +16,156 @@
 </head>
 
 <body class=" template-" dir="ltr">
-<div id="wrapper">
-    <table>
-        <tr>
-            <td>
-                <div id="main-clpsbw-header"></div>
-                <div id="main-experience">
-                    <div id="logo-projet-partage">
-                        <img src="projet_partage_logo_texte.png" />
-                    </div>
-                    <h1 id="titre-principal">
-                        Nourrir la terre
-                    </h1>
-                    <div class="rubrique">
-                        <h2 class="left-rubrique-ressource">&bull; Public</h2>
-                        <div class="text-rubrique-db">
-                            <ul>
-                                <li>Adolescent</li>
-                                <li>Adulte</li>
-                                <li>Enfant</li>
-                                <li>de 4 ans à l'âge adulte</li>
-                            </ul>
-                        </div>
-                    </div>
+<div id="wrapper"
+     tal:define="ressourcePk request/ressourcePk | nothing;
+                 ressources python:view.getRessourceByPk(ressourcePk);
+                 publics python:view.getPublicByRessourcePk(ressourcePk, 'nom');
+                 supports python:view.getSupportByRessourcePk(ressourcePk, 'titre');
+                 clpsDispo python:view.getClpsDispoByRessourcePk(ressourcePk, 'titre');
+                 allClps python: view.getAllClps();
+                 selectedClpsProprio python:view.getClpsProprioForRessource(ressourcePk, 'pk')">
+    <tal:boucle tal:repeat="ressource ressources">
+        <tal:block tal:define="ressourcePk ressource/ressource_pk">
+            <table>
+                <tr>
+                    <td>
+                        <div id="main-clpsbw-header"></div>
+                        <div id="main-experience">
+                            <div id="logo-projet-partage">
+                                <img src="projet_partage_logo_texte.png" />
+                            </div>
+                            <h1 id="titre-principal">
+                                <span tal:content="ressource/ressource_titre" />
+                            </h1>
+                            <div class="rubrique">
+                                <img src=""
+                                     id="image-ressource"
+                                     tal:attributes="src string:${context/@@plone_portal_state/portal_url}/local_fs_ressource/${ressourcePk}.png" />
+                                <br /><br />
+                            </div>
+                            <div class="rubrique">
+                                <h2>Public</h2>
+                                <div class="text-rubrique-db">
+                                    <tal:boucle tal:repeat="public publics">
+                                        <span tal:content="public"
+                                              class="rubrique-db">public</span><br />
+                                    </tal:boucle>
+                                </div>
+                                <div class="text-rubrique-db"
+                                     tal:condition="python: ressource.ressource_autre_info != ''">
+                                    <span tal:content="ressource/ressource_autre_info"
+                                          class="rubrique-db" />
+                                </div>
+                            </div>
 
-                    <div class="rubrique">
-                        <h2 class="left-rubrique-ressource">&bull; Objectif(s)</h2>
-                        <div class="text-rubrique-db">
-                            <p>
-                                <img class="image-right image-inline"
-                                     src="images/nourrirlaterre2.jpg"
-                                     alt="image"
-                                     height="161"
-                                     width="210" /><br />
-                                Cet outil permet de :
+                            <div class="rubrique"
+                                 tal:condition="python: ressource.ressource_objectif!=''">
+                                <h2>Objectif(s)</h2>
+                                <div class="text-rubrique-db">
+                                    <span tal:replace="structure ressource/ressource_objectif"></span>
+                                </div>
+                            </div>
 
-                            </p>
-                            <ul>
-                                <li>
-                                    prendre conscience des liens entre l'homme et la terre ;
-                                </li>
-                                <li>
-                                    (re)découvrir ces liens ;
-                                </li>
-                                <li>
-                                    travailler sur les représentations&nbsp;sur l'homme et la terre ;
-                                </li>
-                                <li>
-                                    amener&nbsp;une réflexion&nbsp;des participants sur&nbsp;
-                                    la place de l'homme dans le cylce de la terre ;
-                                </li>
-                                <li>
-                                    réfléchir àdes pistes,&nbsp;des solutions dans la vie de
-                                    tous les jours ;
-                                </li>
-                                <li>
-                                    renforcer la capacité d’agir par
-                                    rapport à la thématique.
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                            <div class="rubrique"
+                                 tal:condition="python: ressource.ressource_description!=''">
+                                <h2>Description</h2>
+                                <div class="text-rubrique-db">
+                                    <span tal:replace="structure ressource/ressource_description" />
+                                </div>
+                            </div>
 
-                    <div class="rubrique">
-                        <h2 class="left-rubrique-ressource">&bull; Description</h2>
-                        <div class="text-rubrique-db">
-                          <p>
-                              "Nourrir la terre" est un kit pédagogique, réalisé par la Maison du Développement Durable et le CLPS-Bw en collaboration avec Scienceinfuse. Les différentes activités proposées permettent de mieux connaître la terre (ses êtres vivants, ses besoins, ses échanges), son lien aux humains (l’alimentation, la digestion, le compost, les pesticides, les excréments,…) et la manière dont l’homme peut contribuer à maintenir une terre vivante.<br />Le &nbsp;kit se compose :</p>
-                            <ul>
-                                <li>
-                                    d’un dossier pédagogique contenant&nbsp; 12 fiches
-                                    d’animation et 5 dossiers de références permettant
-                                    d’approfondir certains aspects de la thématique
-                                </li>
-                                <li>
-                                    d’une ‘boîte à outils’ contenant une trentaine d’outils
-                                    d’animation, livres, cd, expériences, dvd...
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                            <div class="rubrique"
+                                 tal:condition="python: ressource.ressource_utilisation!=''">
+                                <h2>Utilisation</h2>
+                                <div class="text-rubrique-db">
+                                    <span tal:replace="structure ressource/ressource_utilisation" />
+                                </div>
+                            </div>
 
-                    <div class="rubrique">
-                        <h2 class="left-rubrique-ressource">&bull; Utilisation</h2>
-                        <div class="text-rubrique-db">
-                            <p>
-                                Le kit propose des fiches pédagogiques qui peuvent
-                                être exploitées dans l'ordre souhaité.
-                            </p>
-                            <ul>
-                                <li>
-                                    Les 5 premières fiches permettent&nbsp;d'introduire
-                                    le sujet&nbsp;&nbsp;;
-                                </li>
-                                <li>
-                                    les fiches 6 à 12 permettent d'explorer des thématiques
-                                    connexes (alimentation, digestion, rôle des de chacun,...)
-                                </li>
-                                <li>
-                                    5 dossiers complémentaires plus théoriques permettent d'aller
-                                    plus loin.
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                            <div class="rubrique"
+                                 tal:condition="python: ressource.ressource_avis_clps!=''">
+                                <h2>Avis du CLPS</h2>
+                                <div class="text-rubrique-db">
+                                    <span tal:replace="structure ressource/ressource_avis_clps" />
+                                </div>
+                            </div>
 
-                    <div class="rubrique">
-                        <h2 class="left-rubrique-ressource">&bull; Avis du CLPS</h2>
-                        <div class="text-rubrique-db">
-                            <p>
-                                Le CLPS-Bw travaille depuis plusieurs années la thématique de
-                                l'environnement et de la santé. Peu d'outils pédagogiques
-                                permettent d'aborder ces deux aspects. C'est pourquoi il a
-                                saisi l'opportunité de travailler à l'élaboration de ce kit
-                                pédagogique avec le Maison du Développement durable.
-                            </p>
-                        </div>
-                    </div>
-            </div><!--left-->
-            </td>
+                    </td>
 
-<!--============================================================================================================= -->
+<!-- ==================================================================================================== -->
 
-            <td id="ressource-coordonnee">
-                <div>
-                    <div>
-                        <div id="logo-puzzle-ressource"></div>
-                        <h2><span class="bull-coordonnee">&bull; Editeur</h2>
-                        <div class="text-coordonnee-db">
-                            <ul>
-                                <li>MDD - CLPS-Bw</li>
-                            </ul>
-                        </div>
-                    </div>
+                    <td id="ressource-coordonnee">
+                        <div>
+                            <div id="logo-puzzle-ressource"></div>
+                            <div class="right-section-description"
+                                 tal:condition="python: ressource.ressource_auteur!=''">
+                                <h2><span class="bull-coordonnee">&bull;</span> Auteur(s)</h2>
+                                <div class="textdb">
+                                    <span tal:content="ressource/ressource_auteur" />
+                                </div>
+                            </div>
 
-                    <div>
-                        <h2><span class="bull-coordonnee">&bull; Lieu d'édition</h2>
-                        <div class="text-coordonnee-db">
-                            <ul>
-                                <li>Wavre</li>
-                            </ul>
-                        </div>
-                    </div>
+                            <div class="right-section-description"
+                                 tal:condition="python: ressource.ressource_edition!=''">
+                                <h2><span class="bull-coordonnee">&bull;</span> Editeur</h2>
+                                <span tal:content="ressource/ressource_edition"
+                                      class="textdb" />
+                            </div>
 
-                    <div>
-                        <h2><span class="bull-coordonnee">&bull; Date d'édition</h2>
-                        <div class="text-coordonnee-db">
-                            <ul>
-                                <li>2012</li>
-                            </ul>
+                            <div class="right-section-description"
+                                 tal:condition="python: ressource.ressource_lieu_edition!=''">
+                                <h2><span class="bull-coordonnee">&bull;</span> Lieu d'édition</h2>
+                                <span tal:content="ressource/ressource_lieu_edition"
+                                      class="textdb" />
+                            </div>
+
+                            <div class="right-section-description"
+                                 tal:condition="python: ressource.ressource_date_edition!=''">
+                                <h2><span class="bull-coordonnee">&bull;</span> Date d'édition</h2>
+                                <span tal:content="ressource/ressource_date_edition"
+                                      class="textdb" />
+                            </div>
+
+                            <div class="right-section-description"
+                                 tal:condition="python: ressource.ressource_collection!=''">
+                                <h2><span class="bull-coordonnee">&bull;</span> Collection</h2>
+                                <span tal:content="ressource/ressource_collection"
+                                      class="textdb" />
+                            </div>
+
+                            <div class="right-section-description"
+                                 tal:condition="clpsDispo">
+                                <h2><span class="bull-coordonnee">&bull;</span> Disponibilité</h2>
+                                <tal:boucle tal:repeat="clps clpsDispo">
+                                    <span tal:content="clps"
+                                          class="textdb">clps ou est disponible la ressource</span>
+                                    <br />
+                                </tal:boucle>
+                            </div>
+
+                            <div class="right-section-description"
+                                 tal:condition="python: ressource.ressource_disponible_autre!=''">
+                                <h2><span class="bull-coordonnee">&bull;</span> Autre disponibilité</h2>
+                                <span tal:content="ressource/ressource_disponible_autre"
+                                      class="textdb" />
+                            </div>
+
+                            <div class="right-section-description"
+                                 tal:condition="supports">
+                                <h2><span class="bull-coordonnee">&bull;</span> Support</h2>
+                                <tal:boucle tal:repeat="support supports">
+                                    <div class="textdb">
+                                        <span tal:content="support"
+                                              class="textdb">support</span>
+                                    </div>
+                                </tal:boucle>
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <h2><span class="bull-coordonnee">&bull; Disponibilité</h2>
-                        <div class="text-coordonnee-db">
-                            <ul>
-                                <li>
-                                    Centre Local de Promotion de la Santé en province de Brabant wallon asbl
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div>
-                        <h2><span class="bull-coordonnee">&bull;> Autre disponibilité</h2>
-                        <div class="text-coordonnee-db">
-                            <ul>
-                                <li>
-                                    MDD Brabant wallon
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div>
-                        <h2><span class="bull-coordonnee">&bull; Support</h2>
-                        <div class="text-coordonnee-db">
-                            <ul>
-                                <li>DVD</li>
-                                <li>Dossier pédagogique</li>
-                                <li>Livre</li>
-                                <li>affiche</li>
-                                <li>jeu</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-           </td>
-        </tr>
-    </table>
+                   </td>
+                </tr>
+            </table>
+        </tal:block>
+    </tal:boucle>
 </div><!-- wrapper -->
 </body>
 </html>
