@@ -470,7 +470,7 @@ padding:25px 0px 20px 0px;
 #titre-institution{
 /*margin-top:45px;*/
 margin-bottom:20px;
-height:90px;
+min-height:90px;
 width:88%;
 font-variant:small-caps;
 font-size:1.3em;
