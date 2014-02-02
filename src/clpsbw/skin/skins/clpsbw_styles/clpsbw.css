@@ -533,13 +533,20 @@ font-size:1.3em;
 color:#51686d;    
 }
 
-.left-section-description{
+div.left-section-description{
 border-bottom:1px dotted #ddd;
 background-repeat:no-repeat;
 background-position:left 18px;
 padding-left:50px;
 margin-top:-12px;
 padding-top:18px;
+}
+
+img#image-ressource{
+display:block;
+margin:auto;
+box-shadow:3px 3px 6px rgba(50,50,50,0.5);
+margin-bottom:20px;
 }
 
 .right-section-description{

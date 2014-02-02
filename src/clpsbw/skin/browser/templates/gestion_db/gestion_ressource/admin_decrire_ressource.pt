@@ -49,10 +49,10 @@
                     </div>
 
                     <div id="left-ressource">
-                        <div class="left-section-description" >
+                        <div class="left-section-description">
                             <img src=""
-                                tal:attributes="src string:${context/@@plone_portal_state/portal_url}/local_fs_ressource/${ressourcePk}.png" />
-                            <br /><br />
+                                 id="image-ressource"
+                                 tal:attributes="src string:${context/@@plone_portal_state/portal_url}/local_fs_ressource/${ressourcePk}.png" />
                         </div>
 
                         <div class="left-section-description puzzle-rouge">
