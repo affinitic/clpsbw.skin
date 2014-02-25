@@ -37,13 +37,19 @@
         </p>
         <div id="cadatsre-institution">
             <tal:boucle tal:repeat="type institutionTypes">
-                <div tal:define="institutionTypePk type/institution_type_pk"
-                     class="icone_ressource">
+                <div tal:define="institutionTypePk type/institution_type_pk;
+                                 institutions python:view.getAllActiveInstitutionByInstitutionTypePk(institutionTypePk);
+                                 nbreInstitutions python:len(institutions)"
+                     tal:condition="python: len(institutions) > 0"
+                     class="btn-cadastre">
                     <a href=""
                        tal:attributes="href string:${context/portal_url}/point-d-appui-assuetudes/ressources/admin-assuetude-organisme-ressource?institutionTypePk=${institutionTypePk}">
-                       <img src="icone_ressource_tux.png">
-                       <br />
-                       <span tal:content="type/institution_type_nom">type institution</span></a>
+                        <span tal:content="type/institution_type_nom">type institution</span>
+                        <br />
+                        <span class="nombre-institution">
+                            (<span tal:content="nbreInstitutions" />)
+                        </span>
+                    </a>
                 </div>
             </tal:boucle>
             <div class="break-float"></div>
@@ -52,4 +58,3 @@
 </div><!--metal-->
 </body>
 </html>
-

@@ -2098,7 +2098,7 @@ class ManageClpsbw(BrowserView):
         query = query.order_by(InstitutionType.institution_type_nom)
         allInstitutionType = query.all()
         return allInstitutionType
-
+  
     def getAllActiveInstitutionType(self):
         """
         table pg institution_type

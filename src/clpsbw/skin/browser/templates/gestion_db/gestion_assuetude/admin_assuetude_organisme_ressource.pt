@@ -17,7 +17,7 @@
         <p>Liste de toutes les institutions pour la plate-forme assuétude quelque soit l'état</p>
         <tal:block tal:define="institutions python:view.getAllActiveInstitutionByInstitutionTypePk(institutionTypePk)">
             <tal:test tal:condition="python: len(institutions) == 0">
-                <p>Aucun organisme dasns cette catégorie</p>
+                <p>Aucun organisme dans cette catégorie</p>
             </tal:test>
             <tal:test tal:condition="python: len(institutions) > 0">
                 <div tal:condition="python: type.institution_type_pk != 0">

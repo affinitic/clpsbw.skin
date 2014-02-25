@@ -21,11 +21,7 @@
              <tal:block tal:define="themePk theme/theme_pk;
                                     ressourcePkForTheme python:view.getAllActiveRessourceByThemeRessourcePk(themePk)">
                 <tal:test tal:condition="python: len(themeForRessources) > 0">
-                    <fieldset>
-                        <legend class="legende">
-                            <img src="carre_orange.gif" widht="50%"/>
-                            <span tal:content="theme/theme_nom">theme</span>
-                        </legend>
+                        <h2><span tal:content="theme/theme_nom">theme</span></h2>
                         <tal:boucle tal:repeat="ressourceFk ressourcePkForTheme">
                             <tal:article tal:define="ressourcePk ressourceFk/ressource_fk;
                                                      selectedRessources python:view.getRessourceByPk(ressourcePk)">
@@ -50,7 +46,6 @@
                                 </tal:boucleRessource>
                             </tal:article>
                         </tal:boucle>
-                    </fieldset>
                 </tal:test>
             </tal:block>
         </tal:boucle>
