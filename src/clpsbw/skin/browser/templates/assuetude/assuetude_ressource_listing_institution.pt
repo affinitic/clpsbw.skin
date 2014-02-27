@@ -37,20 +37,22 @@
         </p>
         <div id="cadatsre-institution">
             <tal:boucle tal:repeat="type institutionTypes">
-                <div tal:define="institutionTypePk type/institution_type_pk;
-                                 institutions python:view.getAllActiveInstitutionByInstitutionTypePk(institutionTypePk);
-                                 nbreInstitutions python:len(institutions)"
-                     tal:condition="python: len(institutions) > 0"
-                     class="btn-cadastre">
-                    <a href=""
-                       tal:attributes="href string:${context/portal_url}/point-d-appui-assuetudes/ressources/admin-assuetude-organisme-ressource?institutionTypePk=${institutionTypePk}">
-                        <span tal:content="type/institution_type_nom">type institution</span>
-                        <br />
-                        <span class="nombre-institution">
-                            (<span tal:content="nbreInstitutions" />)
-                        </span>
-                    </a>
-                </div>
+                <tal:block tal:condition="python: type.institution_type_pk > 0">
+                    <div tal:define="institutionTypePk type/institution_type_pk;
+                                     institutions python:view.getAllActiveInstitutionByInstitutionTypePk(institutionTypePk);
+                                     nbreInstitutions python:len(institutions)"
+                         tal:condition="python: len(institutions) > 0"
+                         class="btn-cadastre">
+                        <a href=""
+                           tal:attributes="href string:${context/portal_url}/point-d-appui-assuetudes/ressources/admin-assuetude-organisme-ressource?institutionTypePk=${institutionTypePk}">
+                            <span tal:content="type/institution_type_nom">type institution</span>
+                            <br />
+                            <span class="nombre-institution">
+                                (<span tal:content="nbreInstitutions" />)
+                            </span>
+                        </a>
+                    </div>
+                </tal:block>
             </tal:boucle>
             <div class="break-float"></div>
         </div>
