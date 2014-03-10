@@ -2,7 +2,7 @@
 
 import datetime
 #import time
-#import random
+import random
 from Acquisition import aq_inner
 from sqlalchemy import select, func, desc
 from mailer import Mailer
@@ -100,6 +100,19 @@ class ManageClpsbw(BrowserView):
         else:
             # image par défaut
             return 'news.gif'
+
+    def getClassCss(self):
+        """
+        renvoie une des 3 classes pur le cadastre des institutionSousPlateFormeFk
+        """
+        chiffre = random.randint(1,3)
+        if chiffre == 1:
+          classCss = 'btn-cadastre bnt-cadastre-fond-mauve'
+        if chiffre == 2:
+          classCss = 'btn-cadastre bnt-cadastre-fond-jaune'
+        if chiffre == 3:
+          classCss = 'btn-cadastre bnt-cadastre-fond-bleu'
+        return classCss
 
 # ### gestion des widgets kupu addRemoveList ###
 

@@ -42,9 +42,10 @@
                                      institutions python:view.getAllActiveInstitutionByInstitutionTypePk(institutionTypePk);
                                      nbreInstitutions python:len(institutions)"
                          tal:condition="python: len(institutions) > 0"
-                         class="btn-cadastre">
+                         tal:attributes="class python:view.getClassCss()">
                         <a href=""
                            tal:attributes="href string:${context/portal_url}/point-d-appui-assuetudes/ressources/admin-assuetude-organisme-ressource?institutionTypePk=${institutionTypePk}">
+                            <img src="icone_cadastre_institution.png" /><br />
                             <span tal:content="type/institution_type_nom">type institution</span>
                             <br />
                             <span class="nombre-institution">
