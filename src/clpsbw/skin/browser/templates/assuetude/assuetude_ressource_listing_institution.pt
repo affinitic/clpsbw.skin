@@ -40,18 +40,19 @@
                 <tal:block tal:condition="python: type.institution_type_pk > 0">
                     <div tal:define="institutionTypePk type/institution_type_pk;
                                      institutions python:view.getAllActiveInstitutionByInstitutionTypePk(institutionTypePk);
-                                     nbreInstitutions python:len(institutions)"
-                         tal:condition="python: len(institutions) > 0"
-                         tal:attributes="class python:view.getClassCss()">
+                                     nbreInstitutions python:len(institutions);
+                                     chiffre python:1"
+                         tal:condition="python: len(institutions) > 0">
+                        
                         <a href=""
-                           tal:attributes="href string:${context/portal_url}/point-d-appui-assuetudes/ressources/admin-assuetude-organisme-ressource?institutionTypePk=${institutionTypePk}">
-                            <img src="icone_cadastre_institution.png" /><br />
-                            <span tal:content="type/institution_type_nom">type institution</span>
-                            <br />
-                            <span class="nombre-institution">
+                           tal:attributes="href string:${context/portal_url}/point-d-appui-assuetudes/ressources/admin-assuetude-organisme-ressource?institutionTypePk=${institutionTypePk};
+                           class python:view.getClassCss(chiffre)">
+                        <span tal:content="type/institution_type_nom" />
+                        <br />
+                        <span class="nombre-institution">
                                 (<span tal:content="nbreInstitutions" />)
-                            </span>
-                        </a>
+                        </span></a>
+                    
                     </div>
                 </tal:block>
             </tal:boucle>

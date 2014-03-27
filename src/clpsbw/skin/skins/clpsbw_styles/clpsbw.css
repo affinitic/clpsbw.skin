@@ -1029,63 +1029,64 @@ margin:auto;
 
 .btn-cadastre{
 float:left;
-width:110px;
-height:150px;
+width:95px;
+height:94px;
 margin:10px;
-padding:5px 5px 5px 0px;
+padding:0px;
 text-align:center;
-font-weight:bold;
 margin:1em;
 border-radius:18px;
-/*
-background: rgb(254,255,255);
-background: -moz-linear-gradient(top,  rgba(254,255,255,1) 0%, rgba(210,235,249,1) 100%);
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(254,255,255,1)), color-stop(100%,rgba(210,235,249,1)));
-background: -webkit-linear-gradient(top,  rgba(254,255,255,1) 0%,rgba(210,235,249,1) 100%);
-background: -o-linear-gradient(top,  rgba(254,255,255,1) 0%,rgba(210,235,249,1) 100%);
-background: -ms-linear-gradient(top,  rgba(254,255,255,1) 0%,rgba(210,235,249,1) 100%);
-background: linear-gradient(to bottom,  rgba(254,255,255,1) 0%,rgba(210,235,249,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffff', endColorstr='#d2ebf9',GradientType=0 );
-*/
 box-shadow:3px 3px 9px rgba(50,50,50,0.5);
 }
 
-.btn-cadastre a{
+div a.btn-cadastre{
 border-bottom: none !important;
-color:#000 !important;
 display:block;
-width:110px;
-height:150px;
+color:#ff9fbd !important;
 }
 
-div#content div.btn-cadastre a:hover{
+div#content div div div#cadatsre-institution div a.btn-cadastre:hover{
 color:#fff !important;
-}
-
-.btn-cadastre:hover{
 box-shadow:1px 1px 3px rgba(50,50,50,0.5);
 }
 
-.bnt-cadastre-fond-jaune{
+.btn-cadastre-fond-jaune,
+.btn-cadastre-fond-rouge,
+.btn-cadastre-fond-bleu,
+.btn-cadastre-fond-bleu-fonce{
+padding:20px 4px 0px 4px;
+width:85px;
+height:75px;
 border:1px solid #888;                         /*#9e0144;*/
-background-color:rgba(222,140,35,0.7);
+background-repeat:no-repeat;
+background-position: center;
 }
 
-.bnt-cadastre-fond-mauve{
-border:1px solid #888; /*#de8c23;*/
-background-color:rgba(158,1,68,0.8);
+.btn-cadastre-fond-jaune{
+background-image:url(icone_cadastre_institution_jaune.png);
+background-color:#ccc426;
 }
 
-.bnt-cadastre-fond-bleu{
-border:1px solid #888; /*#de8c23;*/
-background-color:rgba(0,115,137,0.7);
+.btn-cadastre-fond-rouge{
+background-image:url(icone_cadastre_institution_rouge.png);
+background-color:#900a3c;
+}
+
+.btn-cadastre-fond-bleu{
+background-image:url(icone_cadastre_institution_bleu.png);
+background-color:#77b1b9;
+}
+
+.btn-cadastre-fond-bleu-fonce{
+background-image:url(icone_cadastre_institution_bleu_fonce.png);
+background-color:#77b1b9;
 }
 
 
 .nombre-institution{
 font-weight:none;
 font-size:0.8em;
-color:#eee;
+color:#fff;
 }
 
 .organisme-fiche{

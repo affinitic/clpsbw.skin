@@ -101,17 +101,20 @@ class ManageClpsbw(BrowserView):
             # image par défaut
             return 'news.gif'
 
-    def getClassCss(self):
+    def getClassCss(self, chiffre):
         """
         renvoie une des 3 classes pur le cadastre des institutionSousPlateFormeFk
         """
-        chiffre = random.randint(1,3)
+        classCss=''
+        #for chiffre in len(range 4):
         if chiffre == 1:
-          classCss = 'btn-cadastre bnt-cadastre-fond-mauve'
+          classCss = 'btn-cadastre btn-cadastre-fond-rouge'
         if chiffre == 2:
-          classCss = 'btn-cadastre bnt-cadastre-fond-jaune'
+          classCss = 'btn-cadastre btn-cadastre-fond-bleu'
         if chiffre == 3:
-          classCss = 'btn-cadastre bnt-cadastre-fond-bleu'
+          classCss = 'btn-cadastre btn-cadastre-fond-jaune'
+        if chiffre == 4:
+          classCss = 'btn-cadastre btn-cadastre-fond-bleu-fonce'
         return classCss
 
 # ### gestion des widgets kupu addRemoveList ###
