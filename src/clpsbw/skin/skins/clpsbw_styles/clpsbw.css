@@ -1042,7 +1042,7 @@ box-shadow:3px 3px 9px rgba(50,50,50,0.5);
 div a.btn-cadastre{
 border-bottom: none !important;
 display:block;
-color:#ff9fbd !important;
+
 }
 
 div#content div div div#cadatsre-institution div a.btn-cadastre:hover{
@@ -1051,8 +1051,9 @@ box-shadow:1px 1px 3px rgba(50,50,50,0.5);
 }
 
 .btn-cadastre-fond-jaune,
+.btn-cadastre-fond-lime,
 .btn-cadastre-fond-rouge,
-.btn-cadastre-fond-bleu,
+.btn-cadastre-fond-gris-bleu,
 .btn-cadastre-fond-bleu-fonce{
 padding:20px 4px 0px 4px;
 width:85px;
@@ -1060,28 +1061,38 @@ height:75px;
 border:1px solid #888;                         /*#9e0144;*/
 background-repeat:no-repeat;
 background-position: center;
+text-shadow:1px 1px 1px rgba(50,50,50,0.7);
 }
 
 .btn-cadastre-fond-jaune{
 background-image:url(icone_cadastre_institution_jaune.png);
 background-color:#ccc426;
+color:#ffff7b !important;
+}
+
+.btn-cadastre-fond-lime{
+background-image:url(icone_cadastre_institution_lime.png);
+background-color:#ccc426;
+color:#edff00 !important;
 }
 
 .btn-cadastre-fond-rouge{
 background-image:url(icone_cadastre_institution_rouge.png);
 background-color:#900a3c;
+color:#ff9fbd !important;
 }
 
-.btn-cadastre-fond-bleu{
-background-image:url(icone_cadastre_institution_bleu.png);
+.btn-cadastre-fond-gris-bleu{
+background-image:url(icone_cadastre_institution_gris_bleu.png);
 background-color:#77b1b9;
+color:#c1ffff !important;
 }
 
 .btn-cadastre-fond-bleu-fonce{
 background-image:url(icone_cadastre_institution_bleu_fonce.png);
 background-color:#77b1b9;
+color:#afffff !important;
 }
-
 
 .nombre-institution{
 font-weight:none;

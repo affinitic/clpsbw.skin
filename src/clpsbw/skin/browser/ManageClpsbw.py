@@ -105,12 +105,14 @@ class ManageClpsbw(BrowserView):
         """
         renvoie une des 3 classes pur le cadastre des institutionSousPlateFormeFk
         """
-        classCss=''
-        #for chiffre in len(range 4):
-        if chiffre == 1:
+        classCss = ''
+        chiffre = chiffre % 5
+        if chiffre == 0:
           classCss = 'btn-cadastre btn-cadastre-fond-rouge'
+        if chiffre == 1:
+          classCss = 'btn-cadastre btn-cadastre-fond-lime'
         if chiffre == 2:
-          classCss = 'btn-cadastre btn-cadastre-fond-bleu'
+          classCss = 'btn-cadastre btn-cadastre-fond-gris-bleu'
         if chiffre == 3:
           classCss = 'btn-cadastre btn-cadastre-fond-jaune'
         if chiffre == 4:

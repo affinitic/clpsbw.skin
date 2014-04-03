@@ -41,9 +41,8 @@
                     <div tal:define="institutionTypePk type/institution_type_pk;
                                      institutions python:view.getAllActiveInstitutionByInstitutionTypePk(institutionTypePk);
                                      nbreInstitutions python:len(institutions);
-                                     chiffre python:1"
+                                     chiffre repeat/type/number"
                          tal:condition="python: len(institutions) > 0">
-                        
                         <a href=""
                            tal:attributes="href string:${context/portal_url}/point-d-appui-assuetudes/ressources/admin-assuetude-organisme-ressource?institutionTypePk=${institutionTypePk};
                            class python:view.getClassCss(chiffre)">
@@ -52,7 +51,6 @@
                         <span class="nombre-institution">
                                 (<span tal:content="nbreInstitutions" />)
                         </span></a>
-                    
                     </div>
                 </tal:block>
             </tal:boucle>

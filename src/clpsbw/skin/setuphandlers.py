@@ -18,7 +18,7 @@ def setupClpsbw(context):
     portal = context.getSite()
     #clearPortlets(portal)
     deleteFolder(portal, 'Members')
-    #setupNavigationPortlet(portal)
+    setupNavigationPortlet(portal)
     setupClassicPortlet(portal, 'portlet_projet_partage', 'left')
     setupClassicPortlet(portal, 'portlet_plate_forme', 'left')
     setupClassicPortlet(portal, 'portlet_exp_auteur', 'left')
