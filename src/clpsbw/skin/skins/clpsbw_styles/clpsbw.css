@@ -1066,7 +1066,7 @@ text-shadow:1px 1px 1px rgba(50,50,50,0.7);
 
 .btn-cadastre-fond-jaune{
 background-image:url(icone_cadastre_institution_jaune.png);
-background-color:#ccc426;
+background-color:#de9d00;
 color:#ffff7b !important;
 }
 
@@ -1084,13 +1084,13 @@ color:#ff9fbd !important;
 
 .btn-cadastre-fond-gris-bleu{
 background-image:url(icone_cadastre_institution_gris_bleu.png);
-background-color:#77b1b9;
+background-color:#7db0b8;
 color:#c1ffff !important;
 }
 
 .btn-cadastre-fond-bleu-fonce{
 background-image:url(icone_cadastre_institution_bleu_fonce.png);
-background-color:#77b1b9;
+background-color:#00738c;
 color:#afffff !important;
 }
 
