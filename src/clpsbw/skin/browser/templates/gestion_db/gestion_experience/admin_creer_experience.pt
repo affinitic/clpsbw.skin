@@ -20,7 +20,7 @@
 <body>
 <div metal:fill-slot="main"
      tal:condition="python:user.has_role(['Manager'], here)">
-<form action="admin-experience-inserer"
+<form action="manageExperience"
       method="post">
     <h1>Encoder une expérience</h1>
     <div class="formulaire">

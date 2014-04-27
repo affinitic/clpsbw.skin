@@ -18,7 +18,9 @@
      tal:condition="python:user.has_role(['Manager'], here)">
     <div id="experience-template">
         <tal:boucle tal:repeat="experience experiences">
-            <tal:block tal:define="experiencePk experience/experience_pk">
+            <tal:block tal:define="experiencePk experience/experience_pk;
+                                   etat experience/experience_etat;
+                                   etatFr python: view.getTranslationExperienceEtat(etat)">
                 <div id="header-description">
                     <div id="logo-projet-paratge">
                         <img src="projet_partage_logo_texte.png"
@@ -257,9 +259,7 @@
 
 
 
-<!-- =========================================================================================================================================== -->                
-                <hr/>
-                <br />
+<!-- === ZONE ADMIN ======================================================================= -->
                 <div tal:condition="python:user.has_role(['Manager'], here)"
                      class="description-for-manager">
                     <div class="titre-for-manage">
@@ -268,20 +268,14 @@
                         PK : <span tal:content="experience/experience_pk" />
                     </div>
             
-                    <fieldset>
-                        <legend class="legende"> Lien pour la newsletter</legend>
+                    <div class="formulaire">
+                        <h2> Lien pour la newsletter</h2>
                         <span tal:content="string:${context/portal_url}/decrire-une-experience?experiencePk=${experience/experience_pk}" />
-                    </fieldset>
+                    </div>
 
-                    <fieldset>
-                        <legend class="legende">Auteur - Editeur</legend>
-                        <div id="info-champs">
-                            <img src="info.png" />
-                            Nom, prénom et login de la personne qui
-                            pourra modifier le contenu de cette expérience
-                        </div>
+                    <div class="formulaire">
+                        <h2>Auteur - Editeur</h2>
                         <p>
-                        Actuellement :
                         <tal:blok tal:define="auteurPk experience/experience_auteur_fk;
                                               auteur python:view.getAuteurByPk(auteurPk)">
                             <span tal:content="auteur/auteur_nom" class="gras" />
@@ -294,23 +288,10 @@
                                value=""
                                tal:attributes="value experience/experience_auteur_fk" />
                         </p>
-                        <p>
-                        Sélectionner un autre auteur<br />
-                        <input type="text"
-                               id="auteur_nom"
-                               name="experienceAuteur"
-                               value=""
-                               size="50">
-                        </p>
+                    </div>
 
-                    </fieldset>
-
-                    <fieldset>
-                        <legend class="legende">Mots-clés</legend>
-                        <img src="list_flch_rouge.png" />
-                        Mots-clés
-                        <br />
-                        Choisissez parmi les mots clé prédéfinis<br />
+                    <div class="formulaire">
+                        <h2>Mots-clés</h2>
                         <tal:addremove define="errors python:{};">
                             <span metal:use-macro="python: view.getAddRemoveField('experience_mot_cle_fk', ' ',
                                                            view.getAllMotCle(),
@@ -319,15 +300,10 @@
                                                            selectedPks=view.getMotCleByExperiencePk(experience.experience_pk))" />
                         </tal:addremove>
                         <br />
-                    </fieldset>
+                    </div>
 
-                    <fieldset>
-                        <legend class="legende">Thèmes</legend>
-                        <img src="list_flch_rouge.png" />
-                        Thèmes
-                        <br />
-                        Choisissez parmi les thèmes prédéfinis
-                        <br />
+                    <div class="formulaire">
+                        <h2>Thèmes</h2>
                         <tal:addremove define="errors python:{};">
                             <span metal:use-macro="python: view.getAddRemoveField('experience_theme_fk', ' ',
                                                            view.getAllTheme(),
@@ -335,11 +311,10 @@
                                                            pkKey='theme_pk',
                                                            selectedPks=view.getThemeByExperiencePk(experience.experience_pk))" />
                         </tal:addremove>
-                        <br />
-                    </fieldset>
+                    </div>
 
-                    <fieldset>
-                        <legend class="legende">Plate-formes et sous plate-formes concernées</legend>
+                    <div class="formulaire">
+                        <h2>Plate-formes et sous plate-formes concernées</h2>
                         <input type="checkbox"
                                name="experience_plate_forme_assuetude"
                                value="True"
@@ -396,11 +371,10 @@
                         recupere la sous plateforme_nom
                         recuperer la plateforme_nom
                         -->
-                        <br />
-                    </fieldset>
+                    </div>
 
-                    <fieldset>
-                        <legend class="legende">Mission concernée</legend>
+                    <div class="formulaire">
+                        <h2>Mission concernée</h2>
                         <span class="discreet">Ici les notes explicatives</span>
                         <br />
                         <input type="checkbox"
@@ -426,15 +400,13 @@
                                value="True"
                                tal:attributes="checked python:experience.experience_mission_formation and 'checked' or None;" />
                         &nbsp;&nbsp;Formation
-                        <br />
-                    </fieldset>
+                    </div>
             
-                    <fieldset>
-                        <legend>Propriétaire</legend>
-                        <ul class="formulaire">
+                    <div class="formulaire">
+                        <h2>Propriétaire</h2>
+                        <ul>
                             <tal:boucle tal:repeat="clps allClps">
                                 <li>
-                                    <img src="list_flch_rouge.png" />
                                     <input type="checkbox"
                                            name="experience_clps_proprio_fk:list"
                                            checked=""
@@ -446,25 +418,13 @@
                                 </li>
                             </tal:boucle>
                         </ul>
-                    </fieldset>
+                    </div>
 
-                    <fieldset>
-                        <legend class="legende">Niveau visibilité</legend>
-                        <select name="experience_etat">
-                            <option value="private"
-                                    selected=""
-                                    tal:attributes="selected python:experience.experience_etat=='private' and 'selected' or None;">Privé</option>
-                            <option value="pending"
-                                    selected=""
-                                    tal:attributes="selected python:experience.experience_etat=='pending' and 'selected' or None;">Attente</option>
-                            <option value="pending"
-                                    selected=""
-                                    tal:attributes="selected python:experience.experience_etat=='pending' and 'selected' or None;">En cours de validation</option>
-                            <option value="publish"
-                                    selected=""
-                                    tal:attributes="selected python:experience.experience_etat=='publish' and 'selected' or None;">Publié</option>
-                        </select>
-                    </fieldset>
+                    <div class="formulaire">
+                        <h2>Niveau visibilité</h2>
+                        <span tal:content="etatFr"
+                              class="gras" />
+                    </div>
                 </div><!--fin admin-->
             </tal:block>
         </tal:boucle>
