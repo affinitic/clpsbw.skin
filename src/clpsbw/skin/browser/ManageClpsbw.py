@@ -2163,15 +2163,31 @@ class ManageClpsbw(BrowserView):
         allInstitution = query.all()
         return allInstitution
 
+    def getAllInstitutionPkByClspProprio(self, clpsProprioPk):
+        """
+        table pg link_institution_clps_proprio
+        recuperation de toutes les institutions d'un clps
+        """
+        wrapper = getSAWrapper('clpsbw')
+        session = wrapper.session
+        query = session.query(LinkInstitutionClpsProprio)
+        query = query.filter(LinkInstitutionClpsProprio.clps_fk == clpsProprioPk)
+        allInstitutionPk = query.all()
+        return allInstitutionPk
+
     def getAllInstitutionByClpsProprio(self, clpsProprioPk):
         """
         table pg institution
         recuperation de toutes les institutions d'un clps
         """
+        institutionPk = self.getAllInstitutionPkByClspProprio(clpsProprioPk)
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
         query = session.query(Institution)
-        query = query.filter(Institution.institution_clps_proprio_fk == clpsProprioPk)
+        institutionsPk=[]
+        for pk in institutionPk:
+            institutionsPk.append(pk.institution_fk)
+        query = query.filter(Institution.institution_pk.in_(institutionsPk))
         query = query.order_by(Institution.institution_nom)
         allInstitution = query.all()
         return allInstitution
@@ -2547,6 +2563,7 @@ class ManageClpsbw(BrowserView):
         query = query.filter(Institution.institution_nom.ilike("%%%s%%" % searchString))
         institution = [inst.institution_nom for inst in query.all()]
         return institution
+
 
 ### assuetude for institution ###
 
