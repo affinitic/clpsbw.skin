@@ -94,6 +94,7 @@
                                             <a href=""
                                                tal:attributes="href string: modifier-une-experience?experiencePk=${experiencePk}">&nbsp;</a>
                                         </div>
+                                        <!--lien vers modif -->
                                     </td>
                                 </tr>
                             </table>
