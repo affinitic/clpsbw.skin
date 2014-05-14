@@ -119,6 +119,14 @@
                         </div>
                     </div>
 
+                    <div class="rubrique"
+                         tal:condition="python: experience.experience_aller_plus_loin!=''">
+                        <h2 class="left-rubrique-experience">&bull; Pour aller plus loin</h2>
+                        <div class="text-rubrique-db">
+                            <p><span tal:replace="structure experience/experience_aller_plus_loin"></span></p>
+                        </div>
+                    </div>
+
                     <div class="rubrique">
                           <h2 class="left-rubrique-experience">&bull; Personne de contact</h2>
                           <div class="text-rubrique-db">

@@ -270,6 +270,7 @@ class PdfGenerator(BrowserView):
         moyen = ('%s')%(self._experience.experience_moyens)
         evalautaion = ('%s')%(self._experience.experience_evaluation_enseignement)
         perspective = ('%s')%(self._experience.experience_perspective_envisagee)
+        pourAllerPlusLoin = ('%s')%(self._experience.experience_aller_plus_loin)
 
         leftFields = [("Résumé", resume),
                       ("Eléments de contexte", contexte),
@@ -279,9 +280,10 @@ class PdfGenerator(BrowserView):
                       ("Démarches et actions", demarche),
                       ("Moyens", moyen),
                       ("Evaluation et enseignement", evalautaion),
-                      ("Prespectives envisagées", perspective)
+                      ("Prespectives envisagées", perspective),
+                      ("Pour aller plus loin", pourAllerPlusLoin)
                      ]
-
+        
         for field in leftFields:
             if not field[1]:
                 continue
