@@ -888,7 +888,8 @@ color:#8d173e;
 border-bottom:none;
 }
 
-.listing-experience{
+.listing-experience,
+.listing-institution{
 margin:auto;
 margin-top:4em;
 border:1px solid rgba(58, 142, 162, 1.0000);
@@ -904,7 +905,8 @@ background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(246,246,246,
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
 }
 
-hr.ligne-listing-experience{
+hr.ligne-listing-experience,
+hr.ligne-listing-institution{
 margin:8px 0px 9px 0px;
 border: 0;
 height: 1px;
@@ -922,7 +924,8 @@ font-weight:bold;
 text-align:center;
 }
 
-.listing-titre-experience{
+.listing-titre-experience,
+.listing-titre-institution{
 background-color:rgba(250,250,250,0.3);
 border-radius:18px 18px 0px 0px;
 padding-left:20px;
@@ -948,6 +951,22 @@ background-position:left center;
 .listing-texte-experience{
 padding:1em;
 }
+
+.listing-titre-instittution a{
+display:inline-block;
+height:30px;
+width:500px;
+color:#00728a !important;
+font-variant:small-caps;
+font-size:1.4em;
+font-weight:bold;
+line-height:28px;
+padding:0px 1em 0px 2em;
+text-decoration:none;
+border-bottom:none !important;
+}
+
+
 
 #footer-listing{
 width:700px;
