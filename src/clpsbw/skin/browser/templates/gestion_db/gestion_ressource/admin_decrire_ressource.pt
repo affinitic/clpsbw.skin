@@ -34,90 +34,91 @@
                                tal:attributes="href string: admin-modifier-une-ressource?ressourcePk=${ressourcePk}">&nbsp;</a>
                     </div>
                     <div class="break-float"></div>
-                </div>
+            </div>
                 
-                <div id="main-ressource">
-                    <div id="alerte"
-                         tal:condition="python: ressource.ressource_etat=='pending'">
-                        <img src="alerte.png" /> Cette ressource est en cours de validation
+            <div id="main-ressource">
+                <div id="alerte"
+                     tal:condition="python: ressource.ressource_etat=='pending'">
+                    <img src="alerte.png" /> Cette ressource est en cours de validation
+                </div>
+
+                <div id="titre-ressource">
+                    <h2>Ressource</h2>
+                    <hr />
+                    <h1><span tal:content="ressource/ressource_titre" /></h1>
+                </div>
+
+                <div id="left-ressource">
+                    <div class="left-section-description">
+                        <img src=""
+                             id="image-ressource"
+                             tal:attributes="src string:${context/@@plone_portal_state/portal_url}/local_fs_ressource/${ressourcePk}.png" />
                     </div>
 
-                    <div id="titre-ressource">
-                        <h2>Ressource</h2>
-                        <hr />
-                        <h1><span tal:content="ressource/ressource_titre" /></h1>
+                    <div class="left-section-description puzzle-rouge">
+                        <h3>Public</h3>
+                        <p>
+                            <tal:boucle tal:repeat="public publics">
+                                <span tal:content="public"
+                                      class="rubrique-db">public</span><br />
+                            </tal:boucle>
+                        </p>
+                        <p tal:condition="python: ressource.ressource_autre_info != ''">
+                            <span tal:content="ressource/ressource_autre_info"
+                                  class="rubrique-db" />
+                        </p>
+                    </div>
+                    
+                    <div class="left-section-description puzzle-jaune"
+                         tal:condition="python: ressource.ressource_objectif!=''">
+                        <h3>Objectif(s)</h3>
+                        <p><span tal:replace="structure ressource/ressource_objectif"></span></p>
                     </div>
 
-                    <div id="left-ressource">
-                        <div class="left-section-description">
-                            <img src=""
-                                 id="image-ressource"
-                                 tal:attributes="src string:${context/@@plone_portal_state/portal_url}/local_fs_ressource/${ressourcePk}.png" />
-                        </div>
+                    <div class="left-section-description puzzle-vert"
+                         tal:condition="python: ressource.ressource_description!=''">
+                        <h3>Description</h3>
+                        <p><span tal:replace="structure ressource/ressource_description" /></p>
+                    </div>
 
-                        <div class="left-section-description puzzle-rouge">
-                            <h3>Public</h3>
-                            <p>
-                                <tal:boucle tal:repeat="public publics">
-                                    <span tal:content="public"
-                                          class="rubrique-db">public</span><br />
-                                </tal:boucle>
-                            </p>
-                            <p tal:condition="python: ressource.ressource_autre_info != ''">
-                                <span tal:content="ressource/ressource_autre_info"
-                                      class="rubrique-db" />
-                            </p>
-                        </div>
-                        
-                        <div class="left-section-description puzzle-jaune"
-                             tal:condition="python: ressource.ressource_objectif!=''">
-                            <h3>Objectif(s)</h3>
-                            <p><span tal:replace="structure ressource/ressource_objectif"></span></p>
-                        </div>
+                    <div class="left-section-description puzzle-gris"
+                         tal:condition="python: ressource.ressource_utilisation!=''">
+                        <h3>Utilisation</h3>
+                        <p><span tal:replace="structure ressource/ressource_utilisation" /></p>
+                    </div>
 
-                        <div class="left-section-description puzzle-vert"
-                             tal:condition="python: ressource.ressource_description!=''">
-                            <h3>Description</h3>
-                            <p><span tal:replace="structure ressource/ressource_description" /></p>
-                        </div>
+                    <div class="left-section-description puzzle-rouge"
+                         tal:condition="python: ressource.ressource_avis_clps!=''">
+                        <h3>Avis du CLPS</h3>
+                        <p><span tal:replace="structure ressource/ressource_avis_clps" /></p>
+                    </div>
 
-                        <div class="left-section-description puzzle-gris"
-                             tal:condition="python: ressource.ressource_utilisation!=''">
-                            <h3>Utilisation</h3>
-                            <p><span tal:replace="structure ressource/ressource_utilisation" /></p>
-                        </div>
+                    <div class="left-section-description puzzle-vert"
+                         tal:condition="python: ressource.ressource_lien_pipsa!=''">
+                        <h3>Lien pipsa</h3>
+                        <p>
+                        <a href=""
+                           target="_blank"
+                           tal:attributes="href ressource/ressource_lien_pipsa">
+                            <span tal:content="ressource/ressource_lien_pipsa" /></a>
+                        </p>
+                    </div>
 
-                        <div class="left-section-description puzzle-rouge"
-                             tal:condition="python: ressource.ressource_avis_clps!=''">
-                            <h3>Avis du CLPS</h3>
-                            <p><span tal:replace="structure ressource/ressource_avis_clps" /></p>
-                        </div>
-
-                        <div class="left-section-description puzzle-vert"
-                             tal:condition="python: ressource.ressource_lien_pipsa!=''">
-                            <h3>Lien pipsa</h3>
-                            <p>
-                            <a href=""
-                               target="_blank"
-                               tal:attributes="href ressource/ressource_lien_pipsa">
-                                <span tal:content="ressource/ressource_lien_pipsa" /></a>
-                            </p>
-                        </div>
-
-                        <div class="left-section-description puzzle-jaune"
-                             tal:condition="python: ressource.ressource_autre_lien!=''">
-                            <h3>Autre lien</h3>
-                            <p>
-                            <a href=""
-                               target="_blank"
-                               tal:attributes="href ressource/ressource_autre_lien">
-                            <span tal:content="ressource/ressource_autre_lien" /></a>
-                            </p>
-                        </div>
-                    </div><!--left-->
+                    <div class="left-section-description puzzle-jaune"
+                         tal:condition="python: ressource.ressource_autre_lien!=''">
+                        <h3>Autre lien</h3>
+                        <p>
+                        <a href=""
+                           target="_blank"
+                           tal:attributes="href ressource/ressource_autre_lien">
+                        <span tal:content="ressource/ressource_autre_lien" /></a>
+                        </p>
+                    </div>
+                </div><!--left-->
 
 
-<!-- =========================================================================================================================================== -->
+<!-- ==================================================================================================== -->
+                <div id="right-column">
                     <div id="right-ressource-header"></div>
                     <div id="right-ressource">
                         <div id="right-content">
@@ -211,7 +212,7 @@
                                      height="31"
                                      alt="CLPS-Bw : Projets partagés" /></a>
                         </div>
-                        <div id="comment-porjet-partage-portlet">
+                        <div class="discreet info">
                             Expériences dans lesquelles cette ressource est utilisée.
                         </div>
                         <hr class="hr-grise" />
@@ -223,13 +224,12 @@
                                 <span tal:content="experience/experience_titre"></span></a>
                             </p>
                         </tal:boucle>
-                    </div>
-                        
-                    <div class="break-float"></div>
+                    </div><!--projet-partage-ressource-->
+                </div><!--right-column-->
+                <div class="break-float"></div>
+            </div><!--main-ressource-->
 
-<!-- =========================================================================================================================================== -->
-
-        <!-- ZONE GESTION ADMIN -->
+<!-- === ZONE ADMIN ======================================================================= -->
             <div tal:condition="python:user.has_role(['Manager'], here)"
                  class="description-for-manager">
                 <div class="titre-for-manage">
@@ -342,8 +342,7 @@
                         </div>
                     </tal:boucle>
                 </div>
-                
-            </div>
+            </div><!--condition-->
             <hr />
         </tal:block>
     </tal:boucle>
