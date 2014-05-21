@@ -33,7 +33,7 @@
         <dt class="portletItemDB portletTireDb"><img src="puce_ecrivain_bd.png" /> institutions</dt>
             <dd class="portletItemDB">
                 <a href=""
-                   tal:attributes="href string:${context/portal_url}/creer-une-instituion">Cr&eacute;er</a>
+                   tal:attributes="href string:${context/portal_url}/creer-une-institution">Cr&eacute;er</a>
             </dd>
             <dd class="portletItemDB">
                 <a href=""
@@ -41,7 +41,7 @@
             </dd>
             <dd class="portletItemDB">
                 <a href=""
-                   tal:attributes="href string:${context/portal_url}/gerer-les-gerer-les-institutions">Modifier</a>
+                   tal:attributes="href string:${context/portal_url}/gerer-les-institutions">Modifier</a>
             </dd>
         </div>
         <dt class="portletFooterDB">
