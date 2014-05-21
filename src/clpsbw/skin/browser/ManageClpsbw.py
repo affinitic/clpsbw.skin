@@ -3272,16 +3272,16 @@ class ManageClpsbw(BrowserView):
         ajout d'une institution
         """
         fields = self.context.REQUEST
-        institution_nom = getattr(fields, 'institution_nom')
-        institution_sigle = getattr(fields, 'institution_sigle')
-        institution_adresse = getattr(fields, 'institution_adresse')
-        institution_nom_contact = getattr(fields, 'institution_nom_contact')
-        institution_email_contact = getattr(fields, 'institution_email_contact')
-        institution_tel_contact = getattr(fields, 'institution_tel_contact')
-        institution_fonction_contact = getattr(fields, 'institution_fonction_contact')
-        institution_url_site = getattr(fields, 'institution_url_site')
-        institution_lien_siss = getattr(fields, 'institution_lien_siss')
-        institution_lien_autre = getattr(fields, 'institution_lien_autre')
+        institution_nom = getattr(fields, 'institution_nom', None)
+        institution_sigle = getattr(fields, 'institution_sigle', None)
+        institution_adresse = getattr(fields, 'institution_adresse', None)
+        institution_nom_contact = getattr(fields, 'institution_nom_contact', None)
+        institution_email_contact = getattr(fields, 'institution_email_contact', None)
+        institution_tel_contact = getattr(fields, 'institution_tel_contact', None)
+        institution_fonction_contact = getattr(fields, 'institution_fonction_contact', None)
+        institution_url_site = getattr(fields, 'institution_url_site', None)
+        institution_lien_siss = getattr(fields, 'institution_lien_siss', None)
+        institution_lien_autre = getattr(fields, 'institution_lien_autre', None)
         institution_autre_info = getattr(fields, 'field.institution_autre_info', None)
         institution_mission = getattr(fields, 'field.institution_mission', None)
         institution_activite = getattr(fields, 'field.institution_activite', None)
@@ -5027,6 +5027,7 @@ class ManageClpsbw(BrowserView):
         fields = self.context.REQUEST
         operation = getattr(fields, 'operation')
         institutionSousPlateFormeFk = getattr(fields, 'institution_sousplateforme_fk', None)
+        auteurExterne = getattr(fields, 'auteurExterne', None)
 
         #creation de la liste des communes
         institutionCommuneCouverteFk = []
@@ -5073,7 +5074,10 @@ class ManageClpsbw(BrowserView):
             ploneUtils = getToolByName(self.context, 'plone_utils')
             message = u"L'institution a été ajoutée !"
             ploneUtils.addPortalMessage(message, 'info')
-            url = "%s/admin-decrire-une-institution?institutionPk=%s" % (portalUrl, institutionFk)
+            if auteurExterne:
+                url = "%s/decrire-une-institution?institutionPk=%s" % (portalUrl, institutionFk)
+            else:
+                url = "%s/admin-decrire-une-institution?institutionPk=%s" % (portalUrl, institutionFk)
             self.request.response.redirect(url)
 
 
@@ -5114,6 +5118,8 @@ class ManageClpsbw(BrowserView):
             ploneUtils = getToolByName(self.context, 'plone_utils')
             message = u"L'institution a été modifiée !"
             ploneUtils.addPortalMessage(message, 'info')
+
+
             url = "%s/admin-decrire-une-institution?institutionPk=%s" % (portalUrl, institutionFk)
             self.request.response.redirect(url)
 

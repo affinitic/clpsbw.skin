@@ -231,8 +231,10 @@
         </div>
     </div>
     <div class="formulaire">
-        <label for="institution_commentaire">Commentaires</label>
-        <span tal:replace="structure python: view.getWysiwygField('institution_commentaire', '')" />
+        <div class="formInput">
+            <label for="institution_commentaire">Commentaires</label>
+            <span tal:replace="structure python: view.getWysiwygField('institution_commentaire', '')" />
+        </div>
     </div>
     
 
@@ -336,12 +338,14 @@
                 </tal:boucle>
             </tal:block>
         </div>
+
         <div class="formulaire">
             <h2>Précision par rapport aux thématiques</h2>
             <p>Vous voulez préciser vos activités par rapport aux thématiques
             (par exemple vers quels publics vous aborder quelles thématiques)</p>
             <span tal:replace="structure python: view.getWysiwygField('institution_assuet_thematique_precision', '')" />
         </div>
+
         <div class="formulaire">
             <h2>Aide et soutien aux écoles</h2>
             <p>Pouvez-vous expliquer en quelques mots de quelle
