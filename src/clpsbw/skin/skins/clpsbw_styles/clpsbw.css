@@ -801,7 +801,8 @@ div.zone-menu-gestion{
 padding:4px 0px;
 }
 
-div.experience-etat{
+div.experience-etat,
+div.institution-etat{
 margin-top:6px;
 width:170px;
 text-align:center;

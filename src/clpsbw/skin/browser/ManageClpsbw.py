@@ -5112,7 +5112,7 @@ class ManageClpsbw(BrowserView):
 
             portalUrl = getToolByName(self.context, 'portal_url')()
             ploneUtils = getToolByName(self.context, 'plone_utils')
-            message = u"L'institution a été ajoutée !"
+            message = u"L'institution a été modifiée !"
             ploneUtils.addPortalMessage(message, 'info')
             url = "%s/admin-decrire-une-institution?institutionPk=%s" % (portalUrl, institutionFk)
             self.request.response.redirect(url)

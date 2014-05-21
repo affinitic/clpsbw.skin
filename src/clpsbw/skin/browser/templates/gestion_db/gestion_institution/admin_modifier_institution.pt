@@ -80,119 +80,122 @@
             </div>
             <div class="formulaire">
                 <h2>Contact</h2>
-                    <div class="formInput">
-                        <p>Attention pas du projet mais personne de contact</p>
-                        <label for="institution_nom_contact">Nom, Prénom de la personne de contact</label>
-                        <input type="text"
-                               name="institution_nom_contact"
-                               value=""
-                               size="50"
-                               tal:attributes="value institution/institution_nom_contact"
-                               class="grasorange" />
-                    </div>
-                    <div class="formInput">
-                        <label for="institution_fonction_contact">Fonction de la personne de contact</label>
-                        <input type="text"
-                               name="institution_fonction_contact"
-                               value=""
-                               size="50"
-                               tal:attributes="value institution/institution_fonction_contact"
-                               class="grasorange" />
-                    </div>
-                    <div class="formInput">
-                        <label for="institution_email_contact">E-mail de la personne de contact</label>
-                        <input type="text"
-                               name="institution_email_contact"
-                               value=""
-                               size="50"
-                               tal:attributes="value institution/institution_email_contact"
-                               class="grasorange" />
-                    </div>
-                    <div class="formInput">
-                        <label for="institution_tel_contact">Tél de la personne de contact</label>
-                        <input type="text"
-                               name="institution_tel_contact"
-                               value=""
-                               size="50"
-                               tal:attributes="value institution/institution_tel_contact"
-                               class="grasorange" />
-                    </div>
-                    <div class="formInput">
-                        <label for="institution_url_site">Site web</label>
-                        <input type="text"
-                               name="institution_url_site"
-                               value=""
-                               size="50"
-                               tal:attributes="value institution/institution_url_site"
-                               class="grasorange" />
-                    </div>
-                    <div class="formInput">
-                        <label for="institution_lien_siss">Lien SISS</label>
-                        <input type="text"
-                               name="institution_lien_siss"
-                               value=""
-                               size="50"
-                               tal:attributes="value institution/institution_lien_siss"
-                               class="grasorange" />
-                    </div>
-                    <div class="formInput">
-                        <label for="institution_lien_autre">Autre Lien</label>
-                        <input type="text"
-                               name="institution_lien_autre"
-                               value=""
-                               size="50"
-                               tal:attributes="value institution/institution_lien_autre"
-                               class="grasorange" />
-                    </div>
-                    <div class="formInput">
-                        <label for="institution_autre_info">Autres informations</label>
-                        <span tal:replace="structure python: view.getWysiwygField('institution_autre_info', institution.institution_autre_info)" />
-                    </div>
-              </div>
-              <div class="formulaire">
-                    <div class="formInput">
-                        <label for="institution_mission">Missions</label>
-                        <span tal:replace="structure python: view.getWysiwygField('institution_mission', institution.institution_mission)" />
-                    </div>
-              </div>
-              <div class="formulaire">
-                    <div class="formInput">
-                        <label for="institution_activite">Activités</label>
-                        <span tal:replace="structure python: view.getWysiwygField('institution_activite', institution.institution_activite)" />
-                    </div>
-              </div>
-              <div class="formulaire">
-                    <div class="formInput">
-                        <label for="institution_public">Public</label>
-                        <span tal:replace="structure python: view.getWysiwygField('institution_public', institution.institution_public)" />
-                    </div>
-              </div>
-              <div class="formulaire">
-                    <div class="formInput">
-                        <h2>Territoire couvert par institution.</h2>
-                        <p>Sur quel territoire l’institution mène-t-elle ses activités ? 
-                        Ce territoire n’est pas nécessairement le même que celui sur 
-                        lequel elle est implantée.</p>
-                        <label for="com_localite_nom">Localité(s) du Brabant wallon couverte(s) par cette institution</label>
-                        <tal:addremove define="errors python:{};">
-                            <span metal:use-macro="python: view.getAddRemoveField('institution_commune_couverte_inbw_fk', ' ',
-                                                           view.getAllCommune((5,)),
-                                                           nameKey=['com_localite_cp', 'com_localite_nom'],
-                                                           pkKey='com_pk',
-                                                           selectedPks=view.getInstitutionCommuneCouvertePkInBw(institution.institution_pk))" />
-                        </tal:addremove>
-                        
-                        <label for="com_localite_nom">Localité(s) hors Brabant wallon couverte(s) par cette institution</label>
-                        <tal:addremove define="errors python:{};">
-                            <span metal:use-macro="python: view.getAddRemoveField('institution_commune_couverte_outbw_fk', ' ',
-                                                           view.getAllCommune((1,2,3,4,11)),
-                                                           nameKey=['com_localite_cp', 'com_localite_nom'],
-                                                           pkKey='com_pk',
-                                                           selectedPks=view.getInstitutionCommuneCouvertePkOutBw(institution.institution_pk))" />
-                        </tal:addremove>
-                    </div>
-                    <div class="formInput">
-                        <label for="institution_zone_cfwb">
+                <div class="formInput">
+                    <p>Attention pas du projet mais personne de contact</p>
+                    <label for="institution_nom_contact">Nom, Prénom de la personne de contact</label>
+                    <input type="text"
+                           name="institution_nom_contact"
+                           value=""
+                           size="50"
+                           tal:attributes="value institution/institution_nom_contact"
+                           class="grasorange" />
+                </div>
+                <div class="formInput">
+                    <label for="institution_fonction_contact">Fonction de la personne de contact</label>
+                    <input type="text"
+                           name="institution_fonction_contact"
+                           value=""
+                           size="50"
+                           tal:attributes="value institution/institution_fonction_contact"
+                           class="grasorange" />
+                </div>
+                <div class="formInput">
+                    <label for="institution_email_contact">E-mail de la personne de contact</label>
+                    <input type="text"
+                           name="institution_email_contact"
+                           value=""
+                           size="50"
+                           tal:attributes="value institution/institution_email_contact"
+                           class="grasorange" />
+                </div>
+                <div class="formInput">
+                    <label for="institution_tel_contact">Tél de la personne de contact</label>
+                    <input type="text"
+                           name="institution_tel_contact"
+                           value=""
+                           size="50"
+                           tal:attributes="value institution/institution_tel_contact"
+                           class="grasorange" />
+                </div>
+                <div class="formInput">
+                    <label for="institution_url_site">Site web</label>
+                    <input type="text"
+                           name="institution_url_site"
+                           value=""
+                           size="50"
+                           tal:attributes="value institution/institution_url_site"
+                           class="grasorange" />
+                </div>
+                <div class="formInput">
+                    <label for="institution_lien_siss">Lien SISS</label>
+                    <input type="text"
+                           name="institution_lien_siss"
+                           value=""
+                           size="50"
+                           tal:attributes="value institution/institution_lien_siss"
+                           class="grasorange" />
+                </div>
+                <div class="formInput">
+                    <label for="institution_lien_autre">Autre Lien</label>
+                    <input type="text"
+                           name="institution_lien_autre"
+                           value=""
+                           size="50"
+                           tal:attributes="value institution/institution_lien_autre"
+                           class="grasorange" />
+                </div>
+                <div class="formInput">
+                    <label for="institution_autre_info">Autres informations</label>
+                    <span tal:replace="structure python: view.getWysiwygField('institution_autre_info', institution.institution_autre_info)" />
+                </div>
+            </div>
+            <div class="formulaire">
+                <h2>Mission</h2>
+                <div class="formInput">
+                    <label for="institution_mission">Missions</label>
+                    <span tal:replace="structure python: view.getWysiwygField('institution_mission', institution.institution_mission)" />
+                </div>
+            </div>
+            <div class="formulaire">
+                <h2>Activités</h2>
+                <div class="formInput">
+                    <label for="institution_activite">Activités</label>
+                    <span tal:replace="structure python: view.getWysiwygField('institution_activite', institution.institution_activite)" />
+                </div>
+            </div>
+            <div class="formulaire">
+                <h2>Public</h2>
+                <div class="formInput">
+                    <label for="institution_public">Public</label>
+                    <span tal:replace="structure python: view.getWysiwygField('institution_public', institution.institution_public)" />
+                </div>
+            </div>
+            <div class="formulaire">
+                <h2>Territoire couvert par l'institution.</h2>
+                <div class="formInput">
+                    <p>Sur quel territoire l’institution mène-t-elle ses activités ? 
+                    Ce territoire n’est pas nécessairement le même que celui sur 
+                    lequel elle est implantée.</p>
+                    <label for="com_localite_nom">Localité(s) du Brabant wallon couverte(s) par cette institution</label>
+                    <tal:addremove define="errors python:{};">
+                        <span metal:use-macro="python: view.getAddRemoveField('institution_commune_couverte_inbw_fk', ' ',
+                                                       view.getAllCommune((5,)),
+                                                       nameKey=['com_localite_cp', 'com_localite_nom'],
+                                                       pkKey='com_pk',
+                                                       selectedPks=view.getInstitutionCommuneCouvertePkInBw(institution.institution_pk))" />
+                    </tal:addremove>
+                    
+                    <label for="com_localite_nom">Localité(s) hors Brabant wallon couverte(s) par cette institution</label>
+                    <tal:addremove define="errors python:{};">
+                        <span metal:use-macro="python: view.getAddRemoveField('institution_commune_couverte_outbw_fk', ' ',
+                                                       view.getAllCommune((1,2,3,4,11)),
+                                                       nameKey=['com_localite_cp', 'com_localite_nom'],
+                                                       pkKey='com_pk',
+                                                       selectedPks=view.getInstitutionCommuneCouvertePkOutBw(institution.institution_pk))" />
+                    </tal:addremove>
+                </div>
+                <div class="formInput">
+                        <label for="institution_zone_bw">
                         <input type="checkbox"
                                name="institution_territoire_tout_brabant_wallon"
                                value="True"
@@ -201,7 +204,7 @@
                         </label>
                     </div>
                     <div class="formInput">
-                        <label for="institution_zone_rw">
+                        <label for="institution_zone_cfwb">
                         <input type="checkbox"
                                name="institution_zone_cfwb"
                                value="True"
@@ -209,7 +212,7 @@
                         </label>
                     </div>
                     <div class="formInput">
-                        <label for="institution_zone_brxl">
+                        <label for="institution_zone_rw">
                         <input type="checkbox"
                                name="institution_zone_rw"
                                value="True"
@@ -249,6 +252,7 @@
                     </div>
               </div>
               <div class="formulaire">
+                    <h2>Commentaires</h2>
                     <div class="formInput">
                         <label for="institution_commentaire">Commentaires</label>
                         <span tal:replace="structure python: view.getWysiwygField('institution_commentaire', institution.institution_commentaire)" />

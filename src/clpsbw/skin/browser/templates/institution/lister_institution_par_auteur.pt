@@ -64,11 +64,8 @@
                                   <span tal:content="python: institution.institution_modification_date.strftime('%d/%m/%Y %H:%M')"
                                         class="gras" />
                                   <div class="experience-etat"
-                                       tal:define="institutionEtat python:view.getInstitutionEtat(institutionPk)"
-                                       tal:condition="python:user.has_role(['Manager'], here)">
+                                       tal:define="institutionEtat python:view.getInstitutionEtat(institutionPk)">
                                     <span tal:content="institutionEtat" />
-                                    &Xi;
-                                    <span tal:content="institutionPk" />
                                 </div>
                               </td>
                               <td align="right">
