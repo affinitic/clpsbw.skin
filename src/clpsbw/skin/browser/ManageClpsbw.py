@@ -3272,7 +3272,7 @@ class ManageClpsbw(BrowserView):
         ajout d'une institution
         """
         fields = self.context.REQUEST
-        institution_nom = getattr(fields, 'institution_nom', None)
+        institution_nom = getattr(fields, 'institution_nom', None&)
         institution_sigle = getattr(fields, 'institution_sigle', None)
         institution_adresse = getattr(fields, 'institution_adresse', None)
         institution_nom_contact = getattr(fields, 'institution_nom_contact', None)
@@ -5119,8 +5119,10 @@ class ManageClpsbw(BrowserView):
             message = u"L'institution a été modifiée !"
             ploneUtils.addPortalMessage(message, 'info')
 
-
-            url = "%s/admin-decrire-une-institution?institutionPk=%s" % (portalUrl, institutionFk)
+            if auteurExterne:
+                url = "%s/decrire-une-institution?institutionPk=%s" % (portalUrl, institutionFk)
+            else:
+                url = "%s/admin-decrire-une-institution?institutionPk=%s" % (portalUrl, institutionFk)
             self.request.response.redirect(url)
 
 
