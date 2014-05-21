@@ -76,11 +76,8 @@
                                               class="gras" />
                                         
                                         <div class="experience-etat"
-                                             tal:define="experienceEtat python:view.getExperienceEtat(experiencePk)"
-                                             tal:condition="python:user.has_role(['Manager'], here)">
+                                             tal:define="experienceEtat python:view.getExperienceEtat(experiencePk)">
                                             <span tal:content="experienceEtat" />
-                                            &Xi;
-                                            <span tal:content="experience/experience_pk" />
                                         </div>
                                     </td>
                                     <td align="right">

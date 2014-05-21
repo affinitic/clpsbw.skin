@@ -699,6 +699,9 @@
                        name="operation"
                        value="updateByClps" />
                 <input type="hidden"
+                       name="auteurExterne"
+                       value="False" />
+                <input type="hidden"
                        name="experience_pk"
                        value=""
                        tal:attributes="value experience/experience_pk" />

@@ -26,9 +26,8 @@
     <div class="formulaire">
         <h2>Informations générales</h2>
         <div class="formInput">
+            <p>Quel nom avez-vous donné au projet ?</p>
             <label for="experience_titre">Nom de l'activité ou du projet</label>
-            Quel nom avez-vous donné au projet ?
-            <br />
             <input type="text"
                    name="experience_titre"
                    id="experience_titre"
@@ -36,15 +35,15 @@
                    size="100" />
         </div>
         <div class="formInput">
+            <p>Pouvez-vous résumer le projet en quelques lignes ?</p>
             <label for="experience_resume">Résumé</label>
-            Pouvez-vous résumer le projet en quelques lignes ?
             <span tal:replace="structure python: view.getWysiwygField('experience_resume', '')" />
         </div>
     </div>
 
     <div class="formulaire">
         <h2>Contact</h2>
-        Quelle personne peut-on contacter pour un renseignementau sujet de ce projet ?            
+        <p>Quelle personne peut-on contacter pour un renseignementau sujet de ce projet ?</p>           
         <div class="formInput">                    
             <label for="experience_titre">Personne de contact</label>
             <input type="text"
@@ -71,22 +70,23 @@
 
     <div class="formulaire">
         <h2> Element de contexte</h2>
-        Quelle situation – quelles observations sont à l’origine du projet / de l’action ?
+        <p>Quelle situation – quelles observations sont à l’origine du projet / de l’action ?</p>
         <label for="experience_titre">Contexte</label>
         <span tal:replace="structure python: view.getWysiwygField('experience_element_contexte', '')" />
     </div>
 
     <div class="formulaire">
         <h2> Objectifs</h2>
-        Quels objectifs poursuivez vous en mettant ce projet
-        en place ? Quel(s) changement(s) attendez-vous ?
+        <p>Quels objectifs poursuivez vous en mettant ce projet
+        en place ?<br />
+        Quel(s) changement(s) attendez-vous ?</p>
         <label for="experience_objectif">Objectifs</label>
         <span tal:replace="structure python: view.getWysiwygField('experience_objectif', '')" />
     </div>
 
     <div class="formulaire">
         <h2> Public</h2>
-        Quel est le public visé par le projet ?
+        <p>Quel est le public visé par le projet ?</p>
         <ul>
             <li>Public final (touché au final par les
                 actions mises en place)</li>
@@ -151,7 +151,7 @@
 
     <div class="formulaire">
         <h2> Territoire</h2>
-        Quelles communes sont concernées ?
+        <p>Quelles communes sont concernées ?</p>
         <label for="experience_titre">
             &nbsp;
             <input type="checkbox"
@@ -182,7 +182,7 @@
 
     <div class="formulaire">
         <h2>Periode de déroulement du projet</h2>
-        Quand s’est déroulé le projet ?
+        <p>Quand s’est déroulé le projet ?</p>
         <label for="experience_titre">Période de déroulement</label>
         <textarea name="experience_periode_deroulement"
                   rows="5"
@@ -209,26 +209,26 @@
 
     <div class="formulaire">
         <h2>Evaluation et enseignements</h2>
-        Qu’est-ce que le projet a apporté ?
+        <p>Qu’est-ce que le projet a apporté ?</p>
         <ul>
             <li>Au public</li>
             <li>A vous</li>
             <li>Aux partenaires</li>
             <li>Autres ?</li>
         </ul>
-        Qu’est-ce qui a été facile ? Pourquoi ?<br />
+        <p>Qu’est-ce qui a été facile ? Pourquoi ?<br />
         Qu’est-ce qui a été difficile ? Pourquoi ?<br />
         Qu’est-ce qui a été soutenant ?<br />
         Et si c’était à refaire, que garderiez-vous ?
-        Que changeriez vous?<br />       
+        Que changeriez vous?</p>
         <label for="experience_titre">Evaluation et enseignements</label>
         <span tal:replace="structure python: view.getWysiwygField('experience_evaluation_enseignement', '')" />
     </div>
 
     <div class="formulaire">
         <h2>Perspectives envisagées</h2>
-        Y a-t-il des suites prévues à ce projet ?
-        Une reconduction ? Une réorientation... ?
+        <p>Y a-t-il des suites prévues à ce projet ?<br />
+        Une reconduction ? Une réorientation... ?</p>
         <label for="experience_titre">Perspectives envisagées</label>
         <span tal:replace="structure python: view.getWysiwygField('experience_perspective_envisagee', '')" />
     </div>
@@ -236,12 +236,8 @@
 
     <div class="formulaire">
         <h2> Porteur(s) de l'expérience.</h2>
-        Quelles sont les personnes ou institutions qui ont
-        construit et/ou porté le projet avec vous?
-        <br />
-        Il peut s’agir d’une personne, de plusieurs personnes,
-        d’une association, d’une institution… qui ne figurent
-        pas dans la liste déroulante ci-dessus.<br />
+        <p>Quelles sont les personnes ou institutions qui ont
+        construit et/ou porté le projet avec vous?</p>
         <label for="experience_titre">Institution</label>
         <tal:addremove define="errors python:{};">
             <span metal:use-macro="python: view.getAddRemoveField('experience_institution_porteur_fk', ' ',
@@ -250,11 +246,10 @@
                                            pkKey='institution_pk')" />
         </tal:addremove>
         <label for="experience_titre">Autre(s) : nom et adresse complète</label>
-        Il peut s’agir d’une personne, de plusieurs personnes,
+        <p>Il peut s’agir d’une personne, de plusieurs personnes,
         d’une association, d’une institution… qui ne figurent
-        pas dans la liste déroulante ci-dessus.
-        <br />
-        Soyez le plus complet possible.
+        pas dans la liste déroulante ci-dessus.<br />
+        Soyez le plus complet possible.</p>
         <textarea name="experience_institution_porteur_autre"
                   cols="70"
                   rows="8"></textarea>
@@ -262,12 +257,8 @@
 
     <div class="formulaire">
         <h2> Partenaire(s)</h2>
-        Quelles sont les personnes ou institutions qui ont
-        construit et/ou porté le projet avec vous?
-        <br />
-        Il peut s’agir d’une personne, de plusieurs personnes,
-        d’une association, d’une institution… qui ne figurent
-        pas dans la liste déroulante ci-dessus.
+        <p>Quelles sont les personnes ou institutions qui ont
+        construit et/ou porté le projet avec vous?</p>
         <label for="experience_titre">Institution</label>
         <tal:addremove define="errors python:{};">
             <span metal:use-macro="python: view.getAddRemoveField('experience_institution_partenaire_fk', ' ',
@@ -276,11 +267,11 @@
                                            pkKey='institution_pk')" />
         </tal:addremove>
         <label for="experience_titre">Autre(s) : nom et adresse complète</label>
-        Il peut s’agir d’une personne, de plusieurs personnes,
+        <p>Il peut s’agir d’une personne, de plusieurs personnes,
         d’une association, d’une institution… qui ne figurent
         pas dans la liste déroulante ci-dessus.
         <br />
-        Soyez le plus complet possible.
+        Soyez le plus complet possible.</p>
         <textarea name="experience_institution_partenaire_autre"
                   cols="70"
                   rows="8"></textarea>
@@ -288,9 +279,9 @@
 
     <div class="formulaire">
         <h2> Ressources</h2>
-        Y a-t-il des personnes qui sont intervenus à l’un ou
+        <p>Y a-t-il des personnes qui sont intervenus à l’un ou
         l’autre moment du projet, mais qui n’ont pas participé à
-        l’ensemble du projet ?
+        l’ensemble du projet ?</p>
         <label for="experience_titre">Institutions</label>
         <tal:addremove define="errors python:{};">
             <span metal:use-macro="python: view.getAddRemoveField('experience_ressource_porteur_fk', ' ',
@@ -298,25 +289,28 @@
                                            nameKey='institution_nom',
                                            pkKey='institution_pk')" />
         </tal:addremove>
+        
         <label for="experience_titre">Autres institutions : nom et adresse complète</label>
+        <p>
         Il peut s’agir d’une personne, de plusieurs personnes,
         d’une association, d’une institution… qui ne figurent
         pas dans la liste déroulante ci-dessus.
         <br />
-        Soyez le plus complet possible.
+        Soyez le plus complet possible.</p>
         <textarea name="experience_institution_ressource_autre"
                   cols="70"
                   rows="8"></textarea>
         <label for="experience_titre">Outils - Ressources - Ouvrages</label>
-        Y a-t-il des outils qui vous ont soutenu, aidé ?
+        <p>Y a-t-il des outils qui vous ont soutenu, aidé ?</p>
         <tal:addremove define="errors python:{};">
             <span metal:use-macro="python: view.getAddRemoveField('experience_ressource_fk', ' ',
                                            view.getAllActiveRessource(),
                                            nameKey='ressource_titre',
                                            pkKey='ressource_pk')" />
         </tal:addremove>
+        
         <label for="experience_titre">Autres outils : nom, éditeur</label>
-        Outils qui ne figurent pas dans le menu déroulant ci-dessus
+        <p>Outils qui ne figurent pas dans le menu déroulant ci-dessus</p>
         <textarea name="experience_institution_outil_autre"
                   cols="70"
                   rows="8"></textarea>
@@ -327,8 +321,8 @@
 
     <div class="formulaire">
         <h2>Pour aller plus loin </h2>
-        Si quelqu’un souhaitait mener le même type de projets,
-        vous lui conseilleriez de contacter qui ? de commencer par où ?
+        <p>Si quelqu’un souhaitait mener le même type de projets,
+        vous lui conseilleriez de contacter qui ? de commencer par où ?</p>
         <label for="experience_titre">Pour aller plus loin</label>
         <span tal:replace="structure python: view.getWysiwygField('experience_aller_plus_loin', '')" />
     </div>
@@ -492,6 +486,9 @@
         <input type="hidden"
                name="operation"
                value="insert" />
+        <input type="hidden"
+               name="auteurExterne"
+               value="False" />
         <input type="submit"
                value="Enregister l'expérience" />
     </div>
