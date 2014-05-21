@@ -3678,17 +3678,9 @@ class ManageClpsbw(BrowserView):
                                     experience_creation_employe = experience_creation_employe)
         session.add(newEntry)
         session.flush()
-        
         session.refresh(newEntry)
         experiencePk = newEntry.experience_pk
-
-        portalUrl = getToolByName(self.context, 'portal_url')()
-        ploneUtils = getToolByName(self.context, 'plone_utils')
-        message = u"Vos informations ont été enregistrées !"
-        ploneUtils.addPortalMessage(message, 'info')
-        url = "%s/decrire-une-experience?experiencePk=%s" % (portalUrl, experiencePk)
-        self.request.response.redirect(url)
-        return ''
+        return 'experiencePk'
 
     def addLinkExperienceCommune(self, experienceFk, experienceCommuneFk):
         """
@@ -5215,6 +5207,7 @@ class ManageClpsbw(BrowserView):
         """
         fields = self.context.REQUEST
         operation = getattr(fields, 'operation')
+        auteurExterne = getattr(fields, 'auteurExterne', None)
 
         auteurLogin = getattr(fields, 'auteur_login')
         auteurPassword = getattr(fields, 'auteur_pass')
@@ -5299,9 +5292,8 @@ class ManageClpsbw(BrowserView):
                 experienceCommuneFk.append(pk)
 
         if operation == "insert":
-            self.insertExperience()
-            experienceFk = self.getExperienceMaxPk()
-
+            experienceFk = self.insertExperience()
+            
             if experienceCommuneFk > 0:
                 self.addLinkExperienceCommune(experienceFk, experienceCommuneFk)
 
@@ -5336,6 +5328,16 @@ class ManageClpsbw(BrowserView):
                 self.addLinkExperienceClpsProprio(experienceFk)
 
             self.sendMailForInsertExperience(experiencePk = experienceFk)
+
+            portalUrl = getToolByName(self.context, 'portal_url')()
+            ploneUtils = getToolByName(self.context, 'plone_utils')
+            message = u"L'expérience a été enregistrée !"
+            ploneUtils.addPortalMessage(message, 'info')
+            if auteurExterne:
+                url = "%s/admin-decrire-une-experience?experiencePk=%s" % (portalUrl, experiencePk)
+            else:
+                url = "%s/decrire-une-experience?experiencePk=%s" % (portalUrl, experiencePk)
+            self.request.response.redirect(url)
 
 
         if operation == "updateByClps":
@@ -5383,6 +5385,16 @@ class ManageClpsbw(BrowserView):
                 self.addLinkExperienceClpsProprio(experienceFk)
 
             self.sendMailForUpdateExperience()
+
+            portalUrl = getToolByName(self.context, 'portal_url')()
+            ploneUtils = getToolByName(self.context, 'plone_utils')
+            message = u"L'expérience a été enregistrée !"
+            ploneUtils.addPortalMessage(message, 'info')
+            if auteurExterne:
+                url = "%s/admin-decrire-une-experience?experiencePk=%s" % (portalUrl, experiencePk)
+            else:
+                url = "%s/decrire-une-experience?experiencePk=%s" % (portalUrl, experiencePk)
+            self.request.response.redirect(url)
 
 
         if operation == "updateByAuteur":
@@ -5434,6 +5446,16 @@ class ManageClpsbw(BrowserView):
                 self.deleteExperienceMaj(experienceFk)
 
             self.sendMailForUpdateExperience()
+
+            portalUrl = getToolByName(self.context, 'portal_url')()
+            ploneUtils = getToolByName(self.context, 'plone_utils')
+            message = u"L'expérience a été enregistrée !"
+            ploneUtils.addPortalMessage(message, 'info')
+            if auteurExterne:
+                url = "%s/admin-decrire-une-experience?experiencePk=%s" % (portalUrl, experiencePk)
+            else:
+                url = "%s/decrire-une-experience?experiencePk=%s" % (portalUrl, experiencePk)
+            self.request.response.redirect(url)
 
             #envoi d'un mail à SISS Prov BW lorsque etat experience est publie
 
