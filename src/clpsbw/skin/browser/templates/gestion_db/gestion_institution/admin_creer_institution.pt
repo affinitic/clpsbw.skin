@@ -231,6 +231,7 @@
         </div>
     </div>
     <div class="formulaire">
+        <h2>Commentaires</h2>
         <div class="formInput">
             <label for="institution_commentaire">Commentaires</label>
             <span tal:replace="structure python: view.getWysiwygField('institution_commentaire', '')" />
