@@ -3680,7 +3680,7 @@ class ManageClpsbw(BrowserView):
         session.flush()
         session.refresh(newEntry)
         experiencePk = newEntry.experience_pk
-        return 'experiencePk'
+        return experiencePk
 
     def addLinkExperienceCommune(self, experienceFk, experienceCommuneFk):
         """
@@ -3839,11 +3839,10 @@ class ManageClpsbw(BrowserView):
         session = wrapper.session
         experienceClps = getattr(fields, 'experience_clps_proprio_fk', None)
         for clpsFk in experienceClps:
-            newEntry = LinkExperienceClpsProprio(experience_fk = experienceFk,
-                                                       clps_fk = clpsFk)
+            newEntry = LinkExperienceClpsProprio(experience_fk=experienceFk,
+                                                 clps_fk=clpsFk)
             session.add(newEntry)
         session.flush()
-
 
     def addRechercheLog(self, \
                         experiencePk = None, \
@@ -5335,9 +5334,9 @@ class ManageClpsbw(BrowserView):
             message = u"L'expérience a été enregistrée !"
             ploneUtils.addPortalMessage(message, 'info')
             if auteurExterne:
-                url = "%s/admin-decrire-une-experience?experiencePk=%s" % (portalUrl, experiencePk)
+                url = "%s/decrire-une-experience?experiencePk=%s" % (portalUrl, experienceFk)
             else:
-                url = "%s/decrire-une-experience?experiencePk=%s" % (portalUrl, experiencePk)
+                url = "%s/admin-decrire-une-experience?experiencePk=%s" % (portalUrl, experienceFk)
             self.request.response.redirect(url)
 
 
@@ -5392,9 +5391,9 @@ class ManageClpsbw(BrowserView):
             message = u"L'expérience a été enregistrée !"
             ploneUtils.addPortalMessage(message, 'info')
             if auteurExterne:
-                url = "%s/admin-decrire-une-experience?experiencePk=%s" % (portalUrl, experienceFk)
-            else:
                 url = "%s/decrire-une-experience?experiencePk=%s" % (portalUrl, experienceFk)
+            else:
+                url = "%s/admin-decrire-une-experience?experiencePk=%s" % (portalUrl, experienceFk)
             self.request.response.redirect(url)
 
 
@@ -5453,9 +5452,9 @@ class ManageClpsbw(BrowserView):
             message = u"L'expérience a été enregistrée !"
             ploneUtils.addPortalMessage(message, 'info')
             if auteurExterne:
-                url = "%s/admin-decrire-une-experience?experiencePk=%s" % (portalUrl, experienceFk)
-            else:
                 url = "%s/decrire-une-experience?experiencePk=%s" % (portalUrl, experienceFk)
+            else:
+                url = "%s/admin-decrire-une-experience?experiencePk=%s" % (portalUrl, experienceFk)
             self.request.response.redirect(url)
 
             #envoi d'un mail à SISS Prov BW lorsque etat experience est publie
