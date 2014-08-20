@@ -70,7 +70,7 @@
                                           class="rep-qest" />
                                 </li>
                             </ul>
-                        </div><!--listing texte experience--> 
+                        </div><!--listing texte experience-->
                         <hr class="ligne-listing-experience" />
                         <div id="footer-listing">
                             <div class="listing-experience-etat"
@@ -86,11 +86,13 @@
                                    class="btn-lister-decrire"></a>
                             </div>
                             <div class="listing-experience-clps-proprio">
+                                <!--
                                 Publié par le
                                 <span tal:content="experience/clpsOrigine/clps_sigle" />
+                                -->
                             </div>
                         </div><!--footer listing-->
-                        <div id="listing-experience-bord-inf"></div>              
+                        <div id="listing-experience-bord-inf"></div>
                     </article><!--listing-experience-->
                 </tal:block>
             </tal:boucle>

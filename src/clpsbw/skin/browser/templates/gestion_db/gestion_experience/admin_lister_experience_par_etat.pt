@@ -14,7 +14,7 @@
                  etat python: view.getTranslationExperienceEtat(etatExperience)"
      tal:condition="python:user.has_role(['Manager'], here)">
    <h1>Listing des expériences selon l'état &nbsp;<span tal:content="etat" class="italic" /></h1>
-   
+
     <div tal:define="etatExperience request/etat;
                      experiences python:view.getAllExperienceByEtat(etatExperience);">
         <tal:boucle tal:repeat="experience experiences">
@@ -60,11 +60,11 @@
                             <table width="100%">
                                 <tr>
                                     <td align="left" class="discreet" valign="bottom">
-                                        Création par 
+                                        Création par
                                         <span tal:content="experience/auteurFromExperience/auteur_prenom | nothing"
                                               class="gras" />
                                         <span tal:content="experience/auteurFromExperience/auteur_nom | nothing"
-                                              class="gras" /> - 
+                                              class="gras" /> -
                                         [<span tal:content="experience/experience_auteur_login"
                                                class="gras discreet" />]
                                         le
@@ -85,8 +85,10 @@
                                              PK : <span tal:content="experience/experience_pk" />
                                         </div>
                                         <div class="listing-experience-clps-proprio">
+                                            <!--
                                             Publié par le
                                             <span tal:content="experience/clpsOrigine/clps_sigle" />
+                                            -->
                                         </div>
                                     </td>
                                     <td align="right">

@@ -2116,7 +2116,7 @@ class ManageClpsbw(BrowserView):
         query = query.order_by(InstitutionType.institution_type_nom)
         allInstitutionType = query.all()
         return allInstitutionType
-  
+
     def getAllActiveInstitutionType(self):
         """
         table pg institution_type
@@ -3258,7 +3258,7 @@ class ManageClpsbw(BrowserView):
                                    institution_typecreation_employe = institution_type_creation_employe)
         session.add(newEntry)
         session.flush()
-        
+
         portalUrl = getToolByName(self.context, 'portal_url')()
         ploneUtils = getToolByName(self.context, 'plone_utils')
         message = u"Le type d'institution a été ajouté !"
@@ -3405,7 +3405,7 @@ class ManageClpsbw(BrowserView):
                                                        assuetude_intervention_modification_employe = assuetude_intervention_modification_employe)
         session.add(newEntry)
         session.flush()
-        
+
         portalUrl = getToolByName(self.context, 'portal_url')()
         ploneUtils = getToolByName(self.context, 'plone_utils')
         message = u"Vos informations ont été enregistrées !"
@@ -3413,7 +3413,7 @@ class ManageClpsbw(BrowserView):
         url = "%s/gestion-des-assuetudes-pour-institution" % (portalUrl)
         self.request.response.redirect(url)
         return ''
-        
+
     def insertAssuetudeActiviteProposeeForInstitution(self):
         """
         table pg assuetude_activite_proposee_for_institution
@@ -3441,7 +3441,7 @@ class ManageClpsbw(BrowserView):
                                                            assuetude_activite_proposee_modification_employe = assuetude_activite_proposee_modification_employe)
         session.add(newEntry)
         session.flush()
-        
+
         portalUrl = getToolByName(self.context, 'portal_url')()
         ploneUtils = getToolByName(self.context, 'plone_utils')
         message = u"Vos informations ont été enregistrées !"
@@ -3473,7 +3473,7 @@ class ManageClpsbw(BrowserView):
                                                 assuetude_thematique_modification_employe = assuetude_thematique_modification_employe)
         session.add(newEntry)
         session.flush()
-        
+
         portalUrl = getToolByName(self.context, 'portal_url')()
         ploneUtils = getToolByName(self.context, 'plone_utils')
         message = u"Vos informations ont été enregistrées !"
@@ -3481,8 +3481,8 @@ class ManageClpsbw(BrowserView):
         url = "%s/gestion-des-assuetudes-pour-institution" % (portalUrl)
         self.request.response.redirect(url)
         return ''
-        
-        
+
+
     def addLinkAssuetudeInterventionForInstitution(self, institutionFk):
         """
         table pg link_institution_assuetude_intervention
@@ -3635,7 +3635,7 @@ class ManageClpsbw(BrowserView):
             experience_auteur_fk = auteur.auteur_pk
         #else:
         #    experience_auteur_fk = self.getAuteurPkByName(experience_auteur)
-        
+
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
         newEntry = Experience(experience_titre = experience_titre, \
@@ -4360,7 +4360,7 @@ class ManageClpsbw(BrowserView):
             institutionType.institution_type_modification_employe = institution_type_modification_employe
 
         session.flush()
-        
+
         portalUrl = getToolByName(self.context, 'portal_url')()
         ploneUtils = getToolByName(self.context, 'plone_utils')
         message = u"Le type d'institution a été modifié !"
@@ -4737,7 +4737,7 @@ class ManageClpsbw(BrowserView):
         experience.experience_modification_employe = experience_modification_employe
         experience.experience_modification_date = experience_modification_date
         session.flush()
-        
+
         portalUrl = getToolByName(self.context, 'portal_url')()
         ploneUtils = getToolByName(self.context, 'plone_utils')
         message = u"Les informations ont été modifiées !"
@@ -4760,7 +4760,7 @@ class ManageClpsbw(BrowserView):
         experience = query.one()
         experience.experience_etat = experienceEtat
         session.flush()
-    
+
 
     def updateExperienceByAuteur(self):
         """
@@ -4815,7 +4815,7 @@ class ManageClpsbw(BrowserView):
         experience_modification_employe = self.getAuteurLogin(experience_auteur)
         experience_etat = 'pending'
         experienceMaj = True
-        
+
 
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
@@ -4856,15 +4856,15 @@ class ManageClpsbw(BrowserView):
                                  experience_maj_etat = experience_etat, \
                                  experience_maj_modification_date = experience_modification_date, \
                                  experience_maj_modification_employe = experience_modification_employe)
-                                    
+
         session.add(newEntry)
         session.flush()
-        
+
         session.refresh(newEntry)
         experienceMajPk = newEntry.experience_maj_pk
 
         self.updateEtatExperience(experiencePk)
-        
+
         portalUrl = getToolByName(self.context, 'portal_url')()
         ploneUtils = getToolByName(self.context, 'plone_utils')
         message = u"Les informations ont été modifiées !"
@@ -5039,7 +5039,7 @@ class ManageClpsbw(BrowserView):
 
         if operation == "insert":
             institutionFk = self.insertInstitution()
-            
+
             if assuetudeInterventionFk > 0:
                 self.addLinkAssuetudeInterventionForInstitution(institutionFk)
 
@@ -5152,7 +5152,7 @@ class ManageClpsbw(BrowserView):
             url = "%s/admin-decrire-une-ressource?ressourcePk=%s" % (portalUrl, ressourceFk)
             self.request.response.redirect(url)
 
-        
+
         if operation == "update":
             ressourceFk = getattr(fields, 'ressource_pk')
             self.updateRessource()
@@ -5238,7 +5238,7 @@ class ManageClpsbw(BrowserView):
                 message = u"L'auteur a été modifié et activé."
             else:
                 message = u"L'auteur a été modifié et désactivé."
-        
+
         portalUrl = getToolByName(self.context, 'portal_url')()
         ploneUtils = getToolByName(self.context, 'plone_utils')
         ploneUtils.addPortalMessage(message, 'info')
@@ -5293,7 +5293,7 @@ class ManageClpsbw(BrowserView):
 
         if operation == "insert":
             experienceFk = self.insertExperience()
-            
+
             if experienceCommuneFk > 0:
                 self.addLinkExperienceCommune(experienceFk, experienceCommuneFk)
 

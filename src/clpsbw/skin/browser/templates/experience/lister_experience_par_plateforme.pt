@@ -11,7 +11,7 @@
 <body>
 <div metal:fill-slot="main"
      tal:define="plateForme request/plateForme">
-    
+
     <div id="experience-template">
         <div  id="logo-projet-paratge">
             <img src="projet_partage_logo_texte.png"
@@ -70,11 +70,11 @@
                             <table width="100%">
                                 <tr>
                                     <td align="left" class="discreet" valign="bottom">
-                                        Création par 
+                                        Création par
                                         <span tal:content="experience/auteurFromExperience/auteur_prenom | nothing"
                                               class="gras" />
                                         <span tal:content="experience/auteurFromExperience/auteur_nom | nothing"
-                                              class="gras" /> - 
+                                              class="gras" /> -
                                         [<span tal:content="experience/experience_auteur_login"
                                                class="gras discreet" />]
                                         le
@@ -95,8 +95,10 @@
                                             <span tal:content="experience/experience_pk" />
                                         </div>
                                         <div class="listing-experience-clps-proprio">
+                                            <!--
                                             Publié par le
                                             <span tal:content="experience/clpsOrigine/clps_sigle" />
+                                            -->
                                         </div>
                                     </td>
                                     <td align="right">

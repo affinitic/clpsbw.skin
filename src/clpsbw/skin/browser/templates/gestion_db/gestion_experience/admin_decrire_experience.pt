@@ -37,7 +37,7 @@
                     <div class="break-float"></div>
                 </div>
 
-                <div id="main-experience">                    
+                <div id="main-experience">
                     <div id="alerte"
                          tal:condition="python: experience.experience_etat=='pending'">
                         <img src="alerte.png" /> Cette expérience en en cours de validation
@@ -46,6 +46,7 @@
                     <div id="titre-experience">
                         <h2>Expérience</h2>
                         <hr />
+<!--                        <span tal:content="experience/clpsOrigine/clps_sigle" />-->
                         <h1><span tal:content="experience/experience_titre"></span></h1>
                     </div>
 
@@ -81,7 +82,7 @@
                                     </tal:boucle>
                                     )
                                 </span>
-                            </p> 
+                            </p>
                         </div>
                         <div class="left-section-description puzzle-rouge">
                             <h3>Milieu de vie </h3>
@@ -121,7 +122,7 @@
 
 
 <!-- ================================================================================= -->
-                    <div id="right-column"> 
+                    <div id="right-column">
                       <div id="right-experience-header"></div>
                       <div id="right-experience">
                           <div id="right-content">
@@ -134,7 +135,7 @@
                                       <span tal:condition="python: institution.institution_porteur.institution_etat == 'publish'">
                                           <a href=""
                                              tal:attributes="href string:decrire-une-institution?institutionPk=${institution/institution_porteur/institution_pk}">
-                                             &#8226; <span tal:content="institution/institution_porteur/institution_nom" /></a> 
+                                             &#8226; <span tal:content="institution/institution_porteur/institution_nom" /></a>
                                           <br />
                                       </span>
                                       <span tal:condition="python: institution.institution_porteur.institution_etat == 'private'">
@@ -257,7 +258,7 @@
                     </div><!--right-column"-->
                     <div class="break-float"></div>
                 </div><!-- main-experience-->
-                
+
 
 
 
@@ -269,7 +270,7 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         PK : <span tal:content="experience/experience_pk" />
                     </div>
-            
+
                     <div class="formulaire">
                         <h2> Lien pour la newsletter</h2>
                         <span tal:content="string:${context/portal_url}/decrire-une-experience?experiencePk=${experience/experience_pk}" />
@@ -403,7 +404,7 @@
                                tal:attributes="checked python:experience.experience_mission_formation and 'checked' or None;" />
                         &nbsp;&nbsp;Formation
                     </div>
-            
+
                     <div class="formulaire">
                         <h2>Propriétaire</h2>
                         <ul>
