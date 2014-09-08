@@ -5,11 +5,6 @@
 
 <head>
     <metal:js fill-slot="javascript_head_slot">
-        <script src="++resource++collective.javascript.jqueryui/js/jquery-1.4.2.min.js"
-                type="text/javascript"></script>
-        <script src="++resource++collective.javascript.jqueryui/js/jquery-ui.min.js"
-                type="text/javascript"></script>
-
         <script src="++resource++validate_forms.js" type="text/javascript"></script>
         <script src="++resource++clpsbw.js" type="text/javascript"></script>
     </metal:js>
@@ -18,7 +13,7 @@
               type="text/css"
               rel="stylesheet" />
     </metal:css>
-    
+
     <metal:noborder fill-slot="top_slot"
                  tal:define="dummy python:request.set('disable_border',1)" />
 </head>
@@ -51,9 +46,9 @@
                        class="search-button" />
             </form>
         </fieldset>
-        
+
         <p><br /></p>
-        
+
         <fieldset  class="search-zone">
             <legend class="search-legend-titre"> A partir de la PK de la ressouce </legend>
             <form action="admin-decrire-une-ressource"

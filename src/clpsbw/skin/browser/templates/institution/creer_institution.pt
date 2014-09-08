@@ -5,8 +5,6 @@
 
 <head>
     <metal:js fill-slot="javascript_head_slot">
-        <script src="++resource++collective.javascript.jqueryui/js/jquery-1.4.2.min.js" type="text/javascript"></script>
-        <script src="++resource++collective.javascript.jqueryui/js/jquery-ui.min.js" type="text/javascript"></script>
         <script src="++resource++validate_forms.js" type="text/javascript"></script>
         <script src="++resource++clpsbw.js" type="text/javascript"></script>
     </metal:js>
@@ -132,21 +130,21 @@
         </div>
         <div class="formInput">
             <label for="institution_">Autres informations</label>
-            <span tal:replace="structure python: view.getWysiwygField('institution_autre_info', '')" /> 
+            <span tal:replace="structure python: view.getWysiwygField('institution_autre_info', '')" />
         </div>
     </div>
     <div class="formulaire">
         <h2>Mission</h2>
         <div class="formInput">
             <label for="institution_">Missions</label>
-            <span tal:replace="structure python: view.getWysiwygField('institution_mission', '')" /> 
+            <span tal:replace="structure python: view.getWysiwygField('institution_mission', '')" />
         </div>
     </div>
     <div class="formulaire">
         <h2>Activités</h2>
         <div class="formInput">
             <label for="institution_">Activités</label>
-            <span tal:replace="structure python: view.getWysiwygField('institution_activite', '')" /> 
+            <span tal:replace="structure python: view.getWysiwygField('institution_activite', '')" />
         </div>
     </div>
     <div class="formulaire">
@@ -154,14 +152,14 @@
         <div class="formInput">
             <label for="institution_">Public</label>
             <br />
-            <span tal:replace="structure python: view.getWysiwygField('institution_public', '')" /> 
+            <span tal:replace="structure python: view.getWysiwygField('institution_public', '')" />
         </div>
     </div>
     <div class="formulaire">
         <h2>Territoire couvert par cette institution.</h2>
         <p>
-        Sur quel territoire l’institution mène-t-elle ses activités ? 
-        Ce territoire n’est pas nécessairement le même que celui sur 
+        Sur quel territoire l’institution mène-t-elle ses activités ?
+        Ce territoire n’est pas nécessairement le même que celui sur
         lequel elle est implantée.</p>
         <div class="formInput">
             <label for="institution_">Localité(s) du Brabant wallon couverte(s) par cette institution</label>
@@ -189,7 +187,7 @@
                    value="True" />
                Tout le Brabant wallon
             </label>
-            
+
         </div>
         <div class="formInput">
             <label for="institution_zone_cfwb">
@@ -247,7 +245,7 @@
             <span tal:replace="structure python: view.getWysiwygField('institution_commentaire', '')" />
         </div>
     </div>
-    
+
 
 
 <!-- === ZONE ASSUETUDE ======================================================================= -->
@@ -299,7 +297,7 @@
                 </tal:boucle>
             </tal:block>
             <br />
-            
+
             <label fro="assuetude_intervention_fk">Pour son entourage</label>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <input type="checkbox"
@@ -308,7 +306,7 @@
                    id="institution_assuet_activite_entourage" />
             &nbsp;&nbsp;Pour son entourage
             <br /><br />
-            
+
             <label fro="assuetude_intervention_fk">Pour des professionnels</label>
             <tal:block tal:define="activites python:view.getAllAssuetudeActiviteProposeeForInstitution('pro')">
                 <tal:boucle tal:repeat="activite activites">

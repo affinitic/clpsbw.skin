@@ -5,9 +5,6 @@
 
 <head>
     <metal:js fill-slot="javascript_head_slot">
-    <script src="++resource++collective.javascript.jqueryui/js/jquery-1.4.2.min.js" type="text/javascript"></script>
-        <script src="++resource++collective.javascript.jqueryui/js/jquery-ui.min.js" type="text/javascript"></script>
-
         <script src="++resource++validate_forms.js" type="text/javascript"></script>
         <script src="++resource++clpsbw.js" type="text/javascript"></script>
     </metal:js>
@@ -132,7 +129,7 @@
             Cette base est appelée à évoluer et à s'enrichir en permanence.
             <p>
             C’est par ici…
-            Pour consulter la base de données <a href="chercher-une-experience">cliquer ici</a> 
+            Pour consulter la base de données <a href="chercher-une-experience">cliquer ici</a>
             (ou : <a href="chercher-une-experience">moteur de recherche</a>)
             </p>
             <p>
@@ -142,7 +139,7 @@
             <a href="contact/coordonnees-et-acces">contactez-nous</a> !
             </p>
             <p>
-            Vous avez déjà partagé une expérience et souhaitez la modifier, 
+            Vous avez déjà partagé une expérience et souhaitez la modifier,
             <a href="login_form">entrez vos login et mot de passe</a>.
             </p>
         </div>

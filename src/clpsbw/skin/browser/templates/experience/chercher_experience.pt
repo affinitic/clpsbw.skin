@@ -5,11 +5,6 @@
 
 <head>
     <metal:js fill-slot="javascript_head_slot">
-        <script src="++resource++collective.javascript.jqueryui/js/jquery-1.4.2.min.js"
-                type="text/javascript"></script>
-        <script src="++resource++collective.javascript.jqueryui/js/jquery-ui.min.js"
-                type="text/javascript"></script>
-
         <script src="++resource++validate_forms.js" type="text/javascript"></script>
         <script src="++resource++clpsbw.js" type="text/javascript"></script>
     </metal:js>
@@ -122,7 +117,7 @@
                         </tal:block>
                     </div>
                     <hr class="ligne-listing-experience" />
-                    <div class="formulaire-submit">                
+                    <div class="formulaire-submit">
                         <input type="submit"
                                value="lancer la recherche"
                                class="search-button" />

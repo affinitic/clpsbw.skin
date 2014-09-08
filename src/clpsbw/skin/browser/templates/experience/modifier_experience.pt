@@ -5,8 +5,6 @@
 
 <head>
     <metal:js fill-slot="javascript_head_slot">
-        <script src="++resource++collective.javascript.jqueryui/js/jquery-1.4.2.min.js" type="text/javascript"></script>
-        <script src="++resource++collective.javascript.jqueryui/js/jquery-ui.min.js" type="text/javascript"></script>
         <script src="++resource++validate_forms.js" type="text/javascript"></script>
         <script src="++resource++clpsbw.js" type="text/javascript"></script>
     </metal:js>
@@ -50,7 +48,7 @@
                 <span tal:replace="structure python: view.getWysiwygField('experience_resume', experience.experience_resume)" />
             </div>
         </div>
-        
+
             <div class="formulaire">
                 <h2>Contact</h2>
                 Quelle personne peut-on contacter pour un renseignement
@@ -90,8 +88,8 @@
                             class="grasorange" />
                 </div>
             </div>
-        
-            <div class="formulaire">        
+
+            <div class="formulaire">
                 <h2>Element de contexte</h2>
                 Quelle situation – quelles observations sont à l’origine du projet / de l’action ?
                 <div class="formInput">
@@ -101,7 +99,7 @@
 
             </div>
 
-            <div class="formulaire">     
+            <div class="formulaire">
                 <h2>Objectifs</h2>
                 Quels objectifs poursuivez vous en mettant ce projet
                 en place ? Quel(s) changement(s) attendez-vous ?
@@ -109,9 +107,9 @@
                     <label for="experience_objectif">Objectifs</label>
                     <span tal:replace="structure python: view.getWysiwygField('experience_objectif', experience.experience_objectif)" />
                 </div>
-            </div>       
+            </div>
 
-            <div class="formulaire">       
+            <div class="formulaire">
                 <h2>Public</h2>
                 Quel est le public visé par le projet ?
                 <ul>
@@ -146,8 +144,8 @@
                     </div>
                 </div>
             </div>
-        
-            <div class="formulaire">        
+
+            <div class="formulaire">
                 <h2>Milieu de vie</h2>
                 <ul>
                     <li>
@@ -170,7 +168,7 @@
                     </tal:addremove>
                 </div>
             </div>
-        
+
             <div class="formulaire">
                 <h2>Démarches et actions</h2>
                 <ul>
@@ -178,7 +176,7 @@
                     <li>Qu’est-ce qui a été fait ?</li>
                     <li>Par qui ? </li>
                     <li>Comment ?</li>
-                    <li>Le(s) public(s) ont-ils été associés 
+                    <li>Le(s) public(s) ont-ils été associés
                         <ul>
                             <li>au projet ?</li>
                             <li>à sa construction ?</li>
@@ -190,13 +188,13 @@
                     <span tal:replace="structure python: view.getWysiwygField('experience_demarche_actions', experience.experience_demarche_actions)" />
                 </div>
             </div>
-        
+
             <div class="formulaire">
                 <h2>Territoire</h2>
                 Quelles communes sont concernées ?
                 <div class="formInput">
                     <label for="experience_titre">
-                        &nbsp; 
+                        &nbsp;
                         <input type="checkbox"
                                name="experience_territoire_tout_brabant_wallon"
                                value="True"
@@ -234,8 +232,8 @@
                               class="grasorange"></textarea>
                 </div>
             </div>
-        
-            <div class="formulaire">       
+
+            <div class="formulaire">
                 <h2>Periode de déroulement du projet</h2>
                 Quand s’est déroulé le projet ?
                 <div class="formInput">
@@ -247,8 +245,8 @@
                               class="grasorange"></textarea>
                 </div>
             </div>
-        
-            <div class="formulaire">       
+
+            <div class="formulaire">
                 <h2>Moyens</h2>
                 <ul>
                     <li>De quoi avez-vous (eu) besoin pour mettre ce
@@ -261,13 +259,13 @@
                         multimédia, matériel de bricolage… Les ouvrages
                         et jeux seront abordés dans le champ ressources.</li>
                     <li>De quels moyens financiers ?</li>
-                </ul>        
+                </ul>
                 <div class="formInput">
                     <label for="experience_titre">Moyens</label>
                     <span tal:replace="structure python: view.getWysiwygField('experience_moyens', experience.experience_moyens)" />
                 </div>
             </div>
-        
+
             <div class="formulaire">
                 <h2>Evaluation et enseignements</h2>
                 Qu’est-ce que le projet a apporté ?
@@ -281,13 +279,13 @@
                 Qu’est-ce qui a été difficile ? Pourquoi ?<br />
                 Qu’est-ce qui a été soutenant ?<br />
                 Et si c’était à refaire, que garderiez-vous ?
-                Que changeriez vous?<br /> 
-                <div class="formInput">      
-                    <label for="experience_titre">Evaluation et enseignements</label> 
+                Que changeriez vous?<br />
+                <div class="formInput">
+                    <label for="experience_titre">Evaluation et enseignements</label>
                     <span tal:replace="structure python: view.getWysiwygField('experience_evaluation_enseignement', experience.experience_evaluation_enseignement)" />
                 </div>
             </div>
-        
+
             <div class="formulaire">
                 <h2>Perspectives envisagées</h2>
                  Y a-t-il des suites prévues à ce projet ?
@@ -327,7 +325,7 @@
                               cols="70"
                               rows="8"
                               tal:content="experience/experience_institution_porteur_autre"
-                              class="grasorange"></textarea>                
+                              class="grasorange"></textarea>
                     <div class="btn-links-table">
                         <a href="creer-une-institution"
                            target="_blank"
@@ -337,7 +335,7 @@
                 </div>
             </div>
 
-            <div class="formulaire">        
+            <div class="formulaire">
                 <h2>Partenaire(s)</h2>
                 Quelles sont les personnes ou institutions qui ont
                 construit et/ou porté le projet avec vous?
@@ -362,7 +360,7 @@
                     Il peut s’agir d’une personne, de plusieurs personnes,
                     d’une association, d’une institution… qui ne figurent
                     pas dans la liste déroulante ci-dessus.
-                    
+
                     <label for="experience_titre">Institution</label>
                     <textarea name="experience_institution_partenaire_autre"
                               cols="70"
@@ -377,7 +375,7 @@
                     </div>
                 </div>
             </div>
-        
+
             <div class="formulaire">
                 <h2>Ressources</h2>
                 Y a-t-il des personnes qui sont intervenus à l’un ou
@@ -445,7 +443,7 @@
                 </div>
             </div>
 
-            <div class="formulaire">        
+            <div class="formulaire">
                 <h2>Pour aller plus loin</h2>
                 Si quelqu’un souhaitait mener le même type de projets,
                 vous lui conseilleriez de contacter qui ? de commencer

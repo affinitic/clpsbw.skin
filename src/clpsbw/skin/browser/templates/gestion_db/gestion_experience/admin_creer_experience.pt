@@ -5,8 +5,6 @@
 
 <head>
     <metal:js fill-slot="javascript_head_slot">
-        <script src="++resource++collective.javascript.jqueryui/js/jquery-1.4.2.min.js" type="text/javascript"></script>
-        <script src="++resource++collective.javascript.jqueryui/js/jquery-ui.min.js" type="text/javascript"></script>
         <script src="++resource++validate_forms.js" type="text/javascript"></script>
         <script src="++resource++clpsbw.js" type="text/javascript"></script>
     </metal:js>
@@ -43,8 +41,8 @@
 
     <div class="formulaire">
         <h2>Contact</h2>
-        <p>Quelle personne peut-on contacter pour un renseignementau sujet de ce projet ?</p>           
-        <div class="formInput">                    
+        <p>Quelle personne peut-on contacter pour un renseignementau sujet de ce projet ?</p>
+        <div class="formInput">
             <label for="experience_titre">Personne de contact</label>
             <input type="text"
                     name="experience_personne_contact"
@@ -106,7 +104,7 @@
         pouvez ici apporter des précisions concernant le public.
         <textarea name="experience_public_vise"
                   rows="3"
-                  cols="70"></textarea>                        
+                  cols="70"></textarea>
     </div>
 
     <div class="formulaire">
@@ -138,7 +136,7 @@
             <li>Qu’est-ce qui a été fait ?</li>
             <li>Par qui ? </li>
             <li>Comment ?</li>
-            <li>Le(s) public(s) ont-ils été associés 
+            <li>Le(s) public(s) ont-ils été associés
                 <ul>
                     <li>au projet ?</li>
                     <li>à sa construction ?</li>
@@ -202,7 +200,7 @@
                 multimédia, matériel de bricolage… Les ouvrages
                 et jeux seront abordés dans le champ ressources.</li>
             <li>De quels moyens financiers ?</li>
-        </ul>        
+        </ul>
         <label for="experience_titre">Moyens</label>
         <span tal:replace="structure python: view.getWysiwygField('experience_moyens', '')" />
     </div>
@@ -289,7 +287,7 @@
                                            nameKey='institution_nom',
                                            pkKey='institution_pk')" />
         </tal:addremove>
-        
+
         <label for="experience_titre">Autres institutions : nom et adresse complète</label>
         <p>
         Il peut s’agir d’une personne, de plusieurs personnes,
@@ -308,7 +306,7 @@
                                            nameKey='ressource_titre',
                                            pkKey='ressource_pk')" />
         </tal:addremove>
-        
+
         <label for="experience_titre">Autres outils : nom, éditeur</label>
         <p>Outils qui ne figurent pas dans le menu déroulant ci-dessus</p>
         <textarea name="experience_institution_outil_autre"
@@ -335,7 +333,7 @@
 
         <div class="formulaire">
             <h2> Auteur - Editeur</h2>
-            Nom, prénom et identifiant de la personne qui pourra modifier 
+            Nom, prénom et identifiant de la personne qui pourra modifier
             le contenu de cette expérience &nbsp;&nbsp; <img src="alerte.png" /><br />
             <label for="experience_titre">Auteur - Editeur</label>
             <input type="text"
