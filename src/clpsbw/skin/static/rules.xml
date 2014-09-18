@@ -5,7 +5,7 @@
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
     <theme href="index.html" css:if-content="#visual-portal-wrapper" />
-    
+
     <!-- Common Plone rules -->
     <drop theme="/html/head/meta" />
     <drop theme="/html/head/title" />
@@ -21,6 +21,9 @@
         theme-children="/html/head"
         />
 
+        <after theme-children="/html/head" if="$banner_style != ''">
+            <xsl:value-of select="$banner_style" disable-output-escaping="yes" />
+        </after>
 
     <copy attributes="class id dir" content="/html/body" theme="/html/body" />
 
@@ -28,7 +31,7 @@
     <copy attributes="href"
           css:content="#portal-logo"
           css:theme="#logo .logo-link" />
-    
+
     <replace css:content-children="#portal-siteactions"
              css:theme-children="#site-action" />
 
@@ -37,7 +40,7 @@
 
     <replace css:content-children="#user-name"
              css:theme-children="#username" />
-    
+
     <replace css:content-children="#portal-personaltools-wrapper"
              css:theme-children="#personal-tools" />
 
@@ -53,13 +56,13 @@
     <rules if-path="prefs_pfg_permits/">
         <drop css:content="#portal-column-two" />
     </rules>
-    
+
     <rules if-path="@@personal-preferences/">
         <drop css:content="#portal-column-two" />
     </rules>
-    
+
     <rules if-path="admin-creer-une-experience/">
         <drop css:content="#portal-column-two" />
     </rules>
-    
+
 </rules>

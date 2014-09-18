@@ -146,14 +146,14 @@ i18n_domain="clpsbw.skin">
     for="*"
     permission="zope.Public"
     />
-<browser:page
+ <browser:page
+    name="getBannerStyle"
     for="*"
-    name="bannerView"
     class=".BannerView.BannerView"
-    permission="zope.Public"
-    allowed_interface=".interfaces.IBannerView"
+    attribute="getBannerStyle"
+    permission="zope2.View"
+    layer=".interfaces.IClpsbwTheme"
     />
-
 <!-- Home page header with flash animation viewlet -->
 <browser:viewlet
     name="clpsbw.header"
@@ -229,7 +229,7 @@ i18n_domain="clpsbw.skin">
     permission="zope.Public"
     class=".ManageClpsbw.ManageClpsbw"
     allowed_interface=".interfaces.IManageClpsbw"
-    />                        
+    />
 <browser:page
     name="decrire-une-experience"
     for="*"
@@ -354,7 +354,7 @@ i18n_domain="clpsbw.skin">
     permission="zope.Public"
     attribute="updateExperienceByClps"
     allowed_interface=".interfaces.IManageClpsbw"
-    /> 
+    />
 <browser:page
     name="updateExperienceByAuteur"
     for="*"
@@ -362,7 +362,7 @@ i18n_domain="clpsbw.skin">
     permission="zope.Public"
     attribute="updateExperienceByClps"
     allowed_interface=".interfaces.IManageClpsbw"
-    /> 
+    />
 <browser:page
     name="manageExperience"
     for="*"
@@ -370,7 +370,7 @@ i18n_domain="clpsbw.skin">
     permission="zope.Public"
     attribute="manageExperience"
     allowed_interface=".interfaces.IManageClpsbw"
-    /> 
+    />
 
 
 
@@ -736,7 +736,7 @@ i18n_domain="clpsbw.skin">
     attribute="insertAssuetudeThemeForInstitution"
     allowed_interface=".interfaces.IManageClpsbw"
     />
-  
+
 
 
 <!-- ASSUETUDE POUR THEMATIQUE - ASSUETUDE POUR THEMATIQUE - ASSUETUDE POUR THEMATIQUE - ASSUETUDE POUR THEMATIQUE -->
