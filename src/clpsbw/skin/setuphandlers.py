@@ -96,6 +96,8 @@ def setupClassicPortlet(folder, template, column):
 def setupNavigationPortlet(folder):
     manager = getManager(folder, 'left')
     assignments = getMultiAdapter((folder, manager, ), IPortletAssignmentMapping)
+    if 'navtree' in assignments:
+        return
     assignment = navigation.Assignment(name=u"Navigation",
                                        root=None,
                                        currentFolderOnly=False,
@@ -103,7 +105,6 @@ def setupNavigationPortlet(folder):
                                        topLevel=0,
                                        bottomLevel=0)
     assignments['navtree'] = assignment
-
 
 def getManager(folder, column):
     if column == 'left':
