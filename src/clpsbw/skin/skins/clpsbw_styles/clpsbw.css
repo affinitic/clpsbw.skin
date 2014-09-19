@@ -2,7 +2,9 @@
 CLPS-BW 2.0
 AFFINITIC - AOUT 2013
 
-mauve #9a0546 
+test
+
+mauve #9a0546
 bleu-titre #00728a
 bleu-border #20a3af
 vert background #afa61d
@@ -247,7 +249,7 @@ background-repeat:no-repeat;
 }
 
 #moteur-presentation-db a{
-color:#9a0546 !important;  
+color:#9a0546 !important;
 text-decoration:none !important;
 border-bottom:none !important;
 }
@@ -497,11 +499,11 @@ border: 1px solid #9A0546;
 }
 
 #titre-experience{
-background-color:#da951f;    
+background-color:#da951f;
 }
 
 #titre-ressource{
-background-color:#aca733;    
+background-color:#aca733;
 }
 
 #titre-institution{
@@ -534,16 +536,16 @@ color:#003544 !important;
 margin:8px 0px 9px 0px;
 border: 0;
 height: 1px;
-background-image: -webkit-linear-gradient(left, rgba(240,240,240,0), rgba(240,240,240,0.75), rgba(240,240,240,0)); 
-background-image: -moz-linear-gradient(left, rgba(240,240,240,0), rgba(240,240,240,0.75), rgba(240,240,240,0)); 
-background-image: -ms-linear-gradient(left, rgba(240,240,240,0), rgba(240,240,240,0.75), rgba(240,240,240,0)); 
+background-image: -webkit-linear-gradient(left, rgba(240,240,240,0), rgba(240,240,240,0.75), rgba(240,240,240,0));
+background-image: -moz-linear-gradient(left, rgba(240,240,240,0), rgba(240,240,240,0.75), rgba(240,240,240,0));
+background-image: -ms-linear-gradient(left, rgba(240,240,240,0), rgba(240,240,240,0.75), rgba(240,240,240,0));
 background-image: -o-linear-gradient(left, rgba(240,240,240,0), rgba(240,240,240,0.75), rgba(240,240,240,0));
 }
 
 #left-experience h3{
 font-weight:bold;
 font-size:1.3em;
-color:#51686d;    
+color:#51686d;
 }
 
 div.left-section-description{
@@ -663,16 +665,16 @@ font-weight:bold;
 margin:8px 0px 9px 0px;
 border: 0;
 height: 1px;
-background-image: -webkit-linear-gradient(left, rgba(140,140,140,0), rgba(140,140,140,0.75), rgba(140,140,140,0)); 
-background-image: -moz-linear-gradient(left, rgba(140,140,140,0), rgba(140,140,140,0.75), rgba(140,140,140,0)); 
-background-image: -ms-linear-gradient(left, rgba(140,140,140,0), rgba(140,140,140,0.75), rgba(140,140,140,0)); 
+background-image: -webkit-linear-gradient(left, rgba(140,140,140,0), rgba(140,140,140,0.75), rgba(140,140,140,0));
+background-image: -moz-linear-gradient(left, rgba(140,140,140,0), rgba(140,140,140,0.75), rgba(140,140,140,0));
+background-image: -ms-linear-gradient(left, rgba(140,140,140,0), rgba(140,140,140,0.75), rgba(140,140,140,0));
 background-image: -o-linear-gradient(left, rgba(140,140,140,0), rgba(140,140,140,0.75), rgba(140,140,140,0));
 }
 
 
 
 /***
-	portlet projet partage pour institution ressource 
+	portlet projet partage pour institution ressource
 	colonne de droite fiche descriptive
 ***/
 #right-header-logo-projet-partage{
@@ -753,7 +755,7 @@ background-color:transparent;
 }
 
 .titre-for-manage{
-font-size:2em;    
+font-size:2em;
 }
 
 .div_question{
@@ -773,7 +775,7 @@ cursor:pointer;
 margin-top:15px;
 font-size:1.2em;
 color:#b93f00 !important;
-text-shadow:1px 1px 1px rgba(255,255,255, 1); 
+text-shadow:1px 1px 1px rgba(255,255,255, 1);
 padding-left:12px;
 margin-bottom:4px;
 background-image:url(flch_blanche.png);   /*(label_flch_rouge.png);*/
@@ -791,9 +793,9 @@ hr.ligne-top-menu-gestion-donnee{
 margin:8px 0px 9px 0px;
 border: 0;
 height: 1px;
-background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
-background-image: -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
-background-image: -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+background-image: -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+background-image: -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
 background-image: -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
 }
 
@@ -865,7 +867,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fceabb', end
 
 
 
-/*** LISTING EXPERIENCE ***/ 
+/*** LISTING EXPERIENCE ***/
 #listing-experience-main{
 margin:auto;
 margin-top:1em;
@@ -911,9 +913,9 @@ hr.ligne-listing-institution{
 margin:8px 0px 9px 0px;
 border: 0;
 height: 1px;
-background-image: -webkit-linear-gradient(left, rgba(58,142,162,0), rgba(58,142,162,0.75), rgba(58,142,162,0)); 
-background-image: -moz-linear-gradient(left, rgba(58,142,162,0), rgba(58,142,162,0.75), rgba(58,142,162,0)); 
-background-image: -ms-linear-gradient(left, rgba(58,142,162,0), rgba(58,142,162,0.75), rgba(58,142,162,0)); 
+background-image: -webkit-linear-gradient(left, rgba(58,142,162,0), rgba(58,142,162,0.75), rgba(58,142,162,0));
+background-image: -moz-linear-gradient(left, rgba(58,142,162,0), rgba(58,142,162,0.75), rgba(58,142,162,0));
+background-image: -ms-linear-gradient(left, rgba(58,142,162,0), rgba(58,142,162,0.75), rgba(58,142,162,0));
 background-image: -o-linear-gradient(left, rgba(58,142,162,0), rgba(58,142,162,0.75), rgba(58,142,162,0));
 }
 
@@ -1156,7 +1158,7 @@ cursor:pointer;
 margin-top:15px;
 font-size:1.2em;
 color:#666;
-text-shadow:1px 1px 1px rgba(255,255,255, 1); 
+text-shadow:1px 1px 1px rgba(255,255,255, 1);
 padding-left:15px;
 margin-bottom:4px;
 background-image:url(label_flch_rouge.png);
