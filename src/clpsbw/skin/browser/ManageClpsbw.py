@@ -68,8 +68,7 @@ from clpsbw.db.pgsql.baseTypes import Auteur, \
                                       LinkAssuetudeActiviteProposeeForInstitutionPublic, \
                                       LinkAssuetudeActiviteProposeeForInstitutionPro, \
                                       AssuetudeThemeForInstitution, \
-                                      LinkAssuetudeThemeForInstitution, \
-                                      RechercheLog
+                                      LinkAssuetudeThemeForInstitution
                                       #InstitutionAssuetudeIntervention, \
                                       #InstitutionAssuetudeActiviteProposee, \
                                       #AssuetudeThemeForInstitution, \
@@ -243,10 +242,10 @@ class ManageClpsbw(BrowserView):
                 int(value)
             except ValueError:
                 newEntry = MilieuDeVie(milieudevie_nom=value, \
-                                            milieudevie_actif=True, \
-                                            milieudevie_creation_date=self.getTimeStamp(), \
-                                            milieudevie_modification_date=self.getTimeStamp(), \
-                                            milieudevie_modification_employe=self.getUserAuthenticated())
+                                       milieudevie_actif=True, \
+                                       milieudevie_creation_date=self.getTimeStamp(), \
+                                       milieudevie_modification_date=self.getTimeStamp(), \
+                                       milieudevie_modification_employe=self.getUserAuthenticated())
                 session.add(newEntry)
                 session.flush()
                 pks.append(int(newEntry.milieudevie_pk))
@@ -267,10 +266,10 @@ class ManageClpsbw(BrowserView):
                 int(value)
             except ValueError:
                 newEntry = Theme(theme_nom=value, \
-                                      theme_actif=True, \
-                                      theme_creation_date=self.getTimeStamp(), \
-                                      theme_modification_date=self.getTimeStamp(), \
-                                      theme_modification_employe=self.getUserAuthenticated())
+                                 theme_actif=True, \
+                                 theme_creation_date=self.getTimeStamp(), \
+                                 theme_modification_date=self.getTimeStamp(), \
+                                 theme_modification_employe=self.getUserAuthenticated())
                 session.add(newEntry)
                 session.flush()
                 pks.append(int(newEntry.theme_pk))
@@ -1466,10 +1465,6 @@ class ManageClpsbw(BrowserView):
         table pg experience
         recuperation du nombre d'experience
         """
-        #wrapper = getSAWrapper('clpsbw')
-        #session = wrapper.session
-        #ExperienceTable = wrapper.getMapper('experience')
-        #query = session.query(Experience)
         nbrExp = select([func.count(Experience.experience_pk).label('count')])
         nbrAllExperiences = nbrExp.execute().fetchone().count
         return nbrAllExperiences
@@ -2348,10 +2343,6 @@ class ManageClpsbw(BrowserView):
         table pg institution
         recuperation du nombre total d'institution
         """
-        #wrapper = getSAWrapper('clpsbw')
-        #session = wrapper.session
-        #InstitutionTable = wrapper.getMapper('institution')
-        #query = session.query(InstitutionTable)
         nbrInst = select([func.count(Institution.institution_pk).label('count')])
         nbrAllInstitutions = nbrInst.execute().fetchone().count
         return nbrAllInstitutions
@@ -3708,7 +3699,7 @@ class ManageClpsbw(BrowserView):
             institutionPorteur = getattr(fields, 'experience_institution_porteur_fk', None)
             for pk in institutionPorteur:
                 newEntry = LinkExperienceInstitutionPorteur(experience_fk=experienceFk,
-                                                              institution_fk=pk)
+                                                            institution_fk=pk)
                 session.add(newEntry)
         session.flush()
 
@@ -3724,7 +3715,7 @@ class ManageClpsbw(BrowserView):
             institutionPartenaire = getattr(fields, 'experience_institution_partenaire_fk', None)
             for pk in institutionPartenaire:
                 newEntry = LinkExperienceInstitutionPartenaire(experience_fk=experienceFk,
-                                                                 institution_fk=pk)
+                                                               institution_fk=pk)
                 session.add(newEntry)
         session.flush()
 
@@ -3740,7 +3731,7 @@ class ManageClpsbw(BrowserView):
             institutionRessource = getattr(fields, 'experience_institution_ressource_fk', None)
             for pk in institutionRessource:
                 newEntry = LinkExperienceInstitutionRessource(experience_fk = experienceFk,
-                                                                institution_fk= pk)
+                                                              institution_fk= pk)
                 session.add(newEntry)
         session.flush()
 
@@ -3755,7 +3746,7 @@ class ManageClpsbw(BrowserView):
         experienceRessourceFk = getattr(fields, 'experience_ressource_fk', None)
         for ressourceFk in experienceRessourceFk:
             newEntry = LinkExperienceRessource(experience_fk = experienceFk,
-                                                     ressource_fk = ressourceFk)
+                                               ressource_fk = ressourceFk)
             session.add(newEntry)
         session.flush()
 
@@ -3796,7 +3787,7 @@ class ManageClpsbw(BrowserView):
         session = wrapper.session
         for publicFk in publicFks:
             newEntry = LinkExperiencePublic(experience_fk = experienceFk,
-                                                  public_fk = publicFk)
+                                            public_fk = publicFk)
             session.add(newEntry)
         session.flush()
 
@@ -3810,7 +3801,7 @@ class ManageClpsbw(BrowserView):
         session = wrapper.session
         for motCleFk in motCleFks:
             newEntry = LinkExperienceMotCle(experience_fk = experienceFk,
-                                                  motcle_fk = motCleFk)
+                                            motcle_fk = motCleFk)
             session.add(newEntry)
         session.flush()
 
