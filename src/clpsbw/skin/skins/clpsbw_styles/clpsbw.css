@@ -433,9 +433,6 @@ td .btn-modifier{
 margin:5px 0px;
 }
 
-
-
-
 #main-experience,
 #main-ressource,
 #main-institution{
@@ -660,6 +657,14 @@ color:#660033;
 padding-left:12px;
 font-weight:bold;
 }
+
+.right-rubrique-clps-proprio{
+float:right;
+width:200px;
+margin-top:13px;
+text-align:center;
+}
+
 
 .hr-grise{
 margin:8px 0px 9px 0px;

@@ -124,138 +124,140 @@
 
 <!-- =========================================================================================================================================== -->
                     <div id="right-column">
-                      <div id="right-experience-header"></div>
-                      <div id="right-experience">
-                          <div id="right-content">
-                              <div class="right-section-description"
-                                   tal:define="institutions python:view.getInstitutionPorteur(experiencePk)"
-                                   tal:condition="python: len(institutions) > 0">
-                                  <span class="right-rubrique-db">Institution porteur(s) de l'expérience</span>
-                                  <br />
-                                  <span tal:repeat="institution institutions">
-                                      <span tal:condition="python: institution.institution_porteur.institution_etat == 'publish'">
-                                          <a href=""
-                                             tal:attributes="href string:decrire-une-institution?institutionPk=${institution/institution_porteur/institution_pk}">
-                                             &#8226; <span tal:content="institution/institution_porteur/institution_nom" /></a>
-                                          <br />
-                                      </span>
-                                      <span tal:condition="python: institution.institution_porteur.institution_etat == 'private'">
-                                          &#8226; <span tal:content="institution/institution_porteur/institution_nom" />
-                                          <br />
-                                      </span>
-                                  </span>
-                              </div>
-                              <div class="right-section-description"
-                                   tal:define="institutions python:view.getInstitutionPartenaire(experiencePk)"
-                                   tal:condition="python: len(institutions) > 0">
-                                  <span class="right-rubrique-db">Institution partenaire(s) de l'expérience</span>
-                                  <br />
-                                  <span tal:repeat="institution institutions">
-                                      <span tal:condition="python: institution.institution_partenaire.institution_etat == 'publish'">
-                                          <a href=""
-                                             tal:attributes="href string:decrire-une-institution?institutionPk=${institution/institution_partenaire/institution_pk}">
-                                              &#8226; <span tal:content="institution/institution_partenaire/institution_nom" /></a>
-                                          <br />
-                                      </span>
-                                      <span tal:condition="python: institution.institution_partenaire.institution_etat == 'private'">
-                                          &#8226; <span tal:content="institution/institution_partenaire/institution_nom" />
-                                          <br />
-                                      </span>
-                                  </span>
-                              </div>
-                              <div class="right-section-description"
-                                   tal:define="institutions python:view.getInstitutionRessource(experiencePk)"
-                                   tal:condition="python: len(institutions) > 0">
-                                  <span class="right-rubrique-db">Institution ressource(s) de l'expérience</span>
-                                  <br />
-                                  <span tal:define="institutions python:view.getInstitutionRessource(experiencePk)">
-                                      <span tal:repeat="institution institutions">
-                                          <span tal:condition="python: institution.institution_ressource.institution_etat == 'publish'">
-                                              <a href=""
-                                                 tal:attributes="href string:decrire-une-institution?institutionPk=${institution/institution_ressource/institution_pk}">
-                                                &#8226; <span tal:content="institution/institution_ressource/institution_nom" /></a>
-                                              <br />
-                                          </span>
-                                          <span tal:condition="python: institution.institution_ressource.institution_etat == 'private'">
-                                              &#8226; <span tal:content="institution/institution_ressource/institution_nom" />
-                                              <br />
-                                          </span>
+                        <div id="right-experience-header"></div>
+                        <div id="right-experience">
+                            <div id="right-content">
+                                <div class="right-section-description"
+                                     tal:define="institutions python:view.getInstitutionPorteur(experiencePk)"
+                                     tal:condition="python: len(institutions) > 0">
+                                    <span class="right-rubrique-db">Institution porteur(s) de l'expérience</span>
+                                    <br />
+                                    <span tal:repeat="institution institutions">
+                                        <span tal:condition="python: institution.institution_porteur.institution_etat == 'publish'">
+                                            <a href=""
+                                               tal:attributes="href string:decrire-une-institution?institutionPk=${institution/institution_porteur/institution_pk}">
+                                               &#8226; <span tal:content="institution/institution_porteur/institution_nom" /></a>
+                                            <br />
+                                        </span>
+                                        <span tal:condition="python: institution.institution_porteur.institution_etat == 'private'">
+                                            &#8226; <span tal:content="institution/institution_porteur/institution_nom" />
+                                            <br />
+                                        </span>
                                     </span>
-                                  </span>
-                              </div>
-                              <div class="right-section-description"
-                                   tal:condition="python: experience.experience_periode_deroulement != ''">
-                                  <span class="right-rubrique-db">Periode de déroulement du projet</span>
-                                  <br />
-                                  &#8226; <span tal:content="experience/experience_periode_deroulement"></span>
-                                  <br />
-                              </div>
-                              <div class="right-section-description">
-                                  <span class="right-rubrique-db">Territoire</span>
-                                      <br />
-                                      <span tal:condition="python:experience.experience_territoire_tout_brabant_wallon">
-                                          <span>Tout le Brabant wallon</span>
-                                          <br />
+                                </div>
+                                <div class="right-section-description"
+                                     tal:define="institutions python:view.getInstitutionPartenaire(experiencePk)"
+                                     tal:condition="python: len(institutions) > 0">
+                                    <span class="right-rubrique-db">Institution partenaire(s) de l'expérience</span>
+                                    <br />
+                                    <span tal:repeat="institution institutions">
+                                        <span tal:condition="python: institution.institution_partenaire.institution_etat == 'publish'">
+                                            <a href=""
+                                               tal:attributes="href string:decrire-une-institution?institutionPk=${institution/institution_partenaire/institution_pk}">
+                                                &#8226; <span tal:content="institution/institution_partenaire/institution_nom" /></a>
+                                            <br />
+                                        </span>
+                                        <span tal:condition="python: institution.institution_partenaire.institution_etat == 'private'">
+                                            &#8226; <span tal:content="institution/institution_partenaire/institution_nom" />
+                                            <br />
+                                        </span>
+                                    </span>
+                                </div>
+                                <div class="right-section-description"
+                                     tal:define="institutions python:view.getInstitutionRessource(experiencePk)"
+                                     tal:condition="python: len(institutions) > 0">
+                                    <span class="right-rubrique-db">Institution ressource(s) de l'expérience</span>
+                                    <br />
+                                    <span tal:define="institutions python:view.getInstitutionRessource(experiencePk)">
+                                        <span tal:repeat="institution institutions">
+                                            <span tal:condition="python: institution.institution_ressource.institution_etat == 'publish'">
+                                                <a href=""
+                                                   tal:attributes="href string:decrire-une-institution?institutionPk=${institution/institution_ressource/institution_pk}">
+                                                  &#8226; <span tal:content="institution/institution_ressource/institution_nom" /></a>
+                                                <br />
+                                            </span>
+                                            <span tal:condition="python: institution.institution_ressource.institution_etat == 'private'">
+                                                &#8226; <span tal:content="institution/institution_ressource/institution_nom" />
+                                                <br />
+                                            </span>
                                       </span>
-                                      <span tal:condition="python:experience.experience_commune_international">
-                                          <span tal:content="experience/experience_commune_international" />
-                                          <br />
-                                      </span>
-                                      <tal:block tal:define="communes python:view.getCommuneNomByExperiencePk(experiencePk)">
-                                          <tal:boucle tal:repeat="commune communes">
-                                              &#8226; <span tal:content="commune">commune</span><br />
-                                          </tal:boucle>
-                                      </tal:block>
-                              </div>
-                              <div class="right-section-description"
-                                   tal:define="ressources python:view.getRessourceByExperiencePk(experiencePk)"
-                                   tal:condition="python: len(ressources)>0">
-                                  <span class="right-rubrique-db">Outils</span>
-                                  <br />
-                                  <tal:boucle tal:repeat="ressource ressources">
-                                      <span tal:define="ressourcePk python:ressource[0];
-                                                        ressourceTitre python:ressource[1]">
-                                          <a href=""
-                                             tal:attributes="href
-                                                             string:decrire-une-ressource?ressourcePk=${ressourcePk}">
-                                            &#8226; <span tal:content="ressourceTitre" /></a>
-                                          <br />
-                                      </span>
-                                  </tal:boucle>
-                                  <span tal:condition="python: experience.experience_institution_outil_autre != ''">
-                                      &#8226; <span tal:content="experience/experience_institution_outil_autre"></span>
-                                  </span>
-                              </div>
-                              <div class="right-section-description"
-                                   tal:condition="python: experience.experience_formation_suivie != ''">
-                                  <span class="right-rubrique-db">Formations</span>
-                                  <span tal:replace="structure experience/experience_formation_suivie"></span>
-                              </div>
-                              <div class="right-section-description"
-                                   tal:condition="python: experience.experience_personne_contact != ''">
-                                  <span class="right-rubrique-db">Personne de contact</span>
-                                  <br />
-                                  &#8226; <span tal:content="experience/experience_personne_contact"></span><br />
-                                  <span tal:condition= "python: len(experience.experience_personne_contact_email)>0">
-                                      &#8226; <span tal:content="experience/experience_personne_contact_email"></span><br />
-                                  </span>
-                                  <span tal:condition= "python: len(experience.experience_personne_contact_telephone)>0">
-                                      &#8226; <span tal:content="experience/experience_personne_contact_telephone"></span><br />
-                                  </span>
-                                  <br />
-                              </div>
-                              <!--<span tal:condition="python:user.has_role(['Manager'], here)">-->
-                              <div id="pdf-experience">
-                                   <a href=""
-                                      tal:attributes="href string:${context/portal_url}/getPdf?experiencePk=${experiencePk}">
-                                      <span class="right-rubrique-db">Télécharger la fiche en PDF</span>
-                                      <img src="logo_pdf.png"
-                                           width="18" /></a>
-                              </div>
-                              <!--</span>-->
-                          </div><!--content-->
-                          <div id="right-footer"></div>
-                      </div><!--right-experience-->
+                                    </span>
+                                </div>
+                                <div class="right-section-description"
+                                     tal:condition="python: experience.experience_periode_deroulement != ''">
+                                    <span class="right-rubrique-db">Periode de déroulement du projet</span>
+                                    <br />
+                                    &#8226; <span tal:content="experience/experience_periode_deroulement"></span>
+                                    <br />
+                                </div>
+                                <div class="right-section-description">
+                                    <span class="right-rubrique-db">Territoire</span>
+                                        <br />
+                                        <span tal:condition="python:experience.experience_territoire_tout_brabant_wallon">
+                                            <span>Tout le Brabant wallon</span>
+                                            <br />
+                                        </span>
+                                        <span tal:condition="python:experience.experience_commune_international">
+                                            <span tal:content="experience/experience_commune_international" />
+                                            <br />
+                                        </span>
+                                        <tal:block tal:define="communes python:view.getCommuneNomByExperiencePk(experiencePk)">
+                                            <tal:boucle tal:repeat="commune communes">
+                                                &#8226; <span tal:content="commune">commune</span><br />
+                                            </tal:boucle>
+                                        </tal:block>
+                                </div>
+                                <div class="right-section-description"
+                                     tal:define="ressources python:view.getRessourceByExperiencePk(experiencePk)"
+                                     tal:condition="python: len(ressources)>0">
+                                    <span class="right-rubrique-db">Outils</span>
+                                    <br />
+                                    <tal:boucle tal:repeat="ressource ressources">
+                                        <span tal:define="ressourcePk python:ressource[0];
+                                                          ressourceTitre python:ressource[1]">
+                                            <a href=""
+                                               tal:attributes="href
+                                                               string:decrire-une-ressource?ressourcePk=${ressourcePk}">
+                                              &#8226; <span tal:content="ressourceTitre" /></a>
+                                            <br />
+                                        </span>
+                                    </tal:boucle>
+                                    <span tal:condition="python: experience.experience_institution_outil_autre != ''">
+                                        &#8226; <span tal:content="experience/experience_institution_outil_autre"></span>
+                                    </span>
+                                </div>
+                                <div class="right-section-description"
+                                     tal:condition="python: experience.experience_formation_suivie != ''">
+                                    <span class="right-rubrique-db">Formations</span>
+                                    <span tal:replace="structure experience/experience_formation_suivie"></span>
+                                </div>
+                                <div class="right-section-description"
+                                     tal:condition="python: experience.experience_personne_contact != ''">
+                                    <span class="right-rubrique-db">Personne de contact</span>
+                                    <br />
+                                    &#8226; <span tal:content="experience/experience_personne_contact"></span><br />
+                                    <span tal:condition= "python: len(experience.experience_personne_contact_email)>0">
+                                        &#8226; <span tal:content="experience/experience_personne_contact_email"></span><br />
+                                    </span>
+                                    <span tal:condition= "python: len(experience.experience_personne_contact_telephone)>0">
+                                        &#8226; <span tal:content="experience/experience_personne_contact_telephone"></span><br />
+                                    </span>
+                                    <br />
+                                </div>
+                                <div id="pdf-experience">
+                                     <a href=""
+                                        tal:attributes="href string:${context/portal_url}/getPdf?experiencePk=${experiencePk}">
+                                        <span class="right-rubrique-db">Télécharger la fiche en PDF</span>
+                                        <img src="logo_pdf.png"
+                                             width="18" /></a>
+                                </div>
+                            </div><!--content-->
+                            <div id="right-footer"></div>
+                        </div><!--right-experience-->
+                      <div class="right-rubrique-clps-proprio">
+                          Edité par le
+                          <span tal:content="experience/clpsOrigine/clps_sigle" />
+                      </div>
                     </div><!--right-column-->
                     <div class="break-float"></div>
                 </div><!-- main-experience-->

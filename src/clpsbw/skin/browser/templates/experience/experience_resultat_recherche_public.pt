@@ -86,10 +86,8 @@
                                    class="btn-lister-decrire"></a>
                             </div>
                             <div class="listing-experience-clps-proprio">
-                                <!--
-                                Publié par le
+                                Edité par le
                                 <span tal:content="experience/clpsOrigine/clps_sigle" />
-                                -->
                             </div>
                         </div><!--footer listing-->
                         <div id="listing-experience-bord-inf"></div>
