@@ -658,10 +658,11 @@ padding-left:12px;
 font-weight:bold;
 }
 
-.right-rubrique-clps-proprio{
-float:right;
-width:200px;
-margin-top:13px;
+.description-experience-clps-proprio{
+float:left;
+width:190px;
+margin-left:5px;
+margin-top:5px;
 text-align:center;
 }
 

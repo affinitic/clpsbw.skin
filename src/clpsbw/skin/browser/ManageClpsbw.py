@@ -2,7 +2,7 @@
 
 import datetime
 #import time
-import random
+#import random
 from Acquisition import aq_inner
 from sqlalchemy import select, func, desc
 from mailer import Mailer
@@ -3760,7 +3760,7 @@ class ManageClpsbw(BrowserView):
         session = wrapper.session
         for milieuDeVieFk in milieuDeVieFks:
             newEntry = LinkExperienceMilieuDeVie(experience_fk = experienceFk,
-                                                       milieudevie_fk = milieuDeVieFk)
+                                                 milieudevie_fk = milieuDeVieFk)
             session.add(newEntry)
         session.flush()
 
@@ -3816,7 +3816,7 @@ class ManageClpsbw(BrowserView):
         experienceSousPlateFormeFk = getattr(fields, 'experience_sousplateforme_fk', None)
         for sousPlateFormeFk in experienceSousPlateFormeFk:
             newEntry = LinkExperienceSousPlateForme(experience_fk = experienceFk,
-                                                          sousplateforme_fk = sousPlateFormeFk)
+                                                    sousplateforme_fk = sousPlateFormeFk)
             session.add(newEntry)
         session.flush()
 
@@ -3914,7 +3914,7 @@ class ManageClpsbw(BrowserView):
     def deleteLinkAssuetudeThemeForInstitution(self, institutionFk):
         """
         table pg link_institution_assuetude_thematique
-        suppression des asuetudes yhematique liées à une institution
+        suppression des asuetudes thematique liées à une institution
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
