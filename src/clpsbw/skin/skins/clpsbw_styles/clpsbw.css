@@ -658,7 +658,8 @@ padding-left:12px;
 font-weight:bold;
 }
 
-.description-experience-clps-proprio{
+.description-experience-clps-proprio,
+.description-experience-derniere-modif{
 float:left;
 width:190px;
 margin-left:5px;
@@ -1001,7 +1002,6 @@ color:#dc00be;
 }
 
 .listing-experience-clps-proprio{
-float:right;
 width:200px;
 margin-top:13px;
 }
