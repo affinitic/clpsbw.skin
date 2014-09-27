@@ -302,7 +302,8 @@ class ManageClpsbw(BrowserView):
         envoi de mail à clpsbw admin
         """
         #mailer = Mailer("localhost", "houtain@clps-bw.be, alain.meurant@affinitic.be")
-        mailer = Mailer("relay.skynet.be", "alain.meurant@affinitic.be, houtain@clps-bw.be" )
+        #mailer = Mailer("relay.skynet.be", "alain.meurant@affinitic.be, houtain@clps-bw.be" )
+        mailer = Mailer("relay.skynet.be", "alain.meurant@affinitic.be")
         mailer.setSubject(sujet)
         #mailer.setRecipients("alain.meurant@affinitic.be, houtain@clps-bw.be")
         mailer.setRecipients("alain.meurant@affinitic.be")
