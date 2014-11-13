@@ -582,15 +582,28 @@ background-image:url(puzzle_rouge.png);
 background-image:url(puzzle_gris_vert.png);
 }
 
-.info-actuelle{
-border:1px solid #ddd;
+.rouge-titre{
+color:#90113d;
+}
+
+.left-rubrique-db{
+font-weight:bold;
+font-size:1.1em;
+color:#51686d;
+}
+
+
+/*** VERSIONNING ***/
+.diff{
+border:1px solid #C6680F !important;
 border-radius:5px;
 padding:1em;
 margin:4px 0px;
 /*font-weight:bold;*/
 font-size:1.2em;
-color:#C6680F;  /*#ff6f00;*/
+color:*#ff6f00;
 background-color:rgba(255,245,234,0.5);
+word-wrap: break-word;
 }
 
 .info-aide-maj{
@@ -601,15 +614,7 @@ border-radius:3px;
 width:300px;
 }
 
-.rouge-titre{
-color:#90113d;
-}
 
-.left-rubrique-db{
-font-weight:bold;
-font-size:1.1em;
-color:#51686d;
-}
 
 
 /*** COLONNE DROITE DESCRIPTION EXPERIENCE RESSOURCE INSTITUTION***/

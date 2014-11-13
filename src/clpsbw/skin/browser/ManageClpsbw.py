@@ -308,6 +308,7 @@ class ManageClpsbw(BrowserView):
         #mailer.setRecipients("alain.meurant@affinitic.be, houtain@clps-bw.be")
         mailer.setRecipients("alain.meurant@affinitic.be")
         mail = message
+        print mail
         #mailer.sendAllMail(mail)
 
     def sendMailWhenLoginByAuteur(self, sujet, message):
@@ -320,6 +321,7 @@ class ManageClpsbw(BrowserView):
         #mailer.setRecipients("alain.meurant@affinitic.be, houtain@clps-bw.be")
         mailer.setRecipients("alain.meurant@affinitic.be")
         mail = message
+        print mail
         #mailer.sendAllMail(mail)
 
     def sendMailForNewAuteurExperience(self):
@@ -4665,8 +4667,8 @@ class ManageClpsbw(BrowserView):
         experience_plate_forme_assuetude = getattr(fields, 'experience_plate_forme_assuetude', False)
         experience_plate_forme_sante_famille = getattr(fields, 'experience_plate_forme_sante_famille', False)
         experience_plate_forme_sante_environnement = getattr(fields, 'experience_plate_forme_sante_environnement', False)
-        experience_plate_forme_sante_commune = getattr(fields, 'experience_plate_forme_sante_commune', 'False'),
-        experience_plate_forme_vie_affective_sexuelle = getattr(fields, 'experience_plate_forme_vie_affective_sexuelle', 'False'),
+        experience_plate_forme_sante_commune = getattr(fields, 'experience_plate_forme_sante_commune', False),
+        experience_plate_forme_vie_affective_sexuelle = getattr(fields, 'experience_plate_forme_vie_affective_sexuelle', False),
         experience_mission_centre_documentation = getattr(fields, 'experience_mission_centre_documentation', False)
         experience_mission_accompagnement_projet = getattr(fields, 'experience_mission_accompagnement_projet', False)
         experience_mission_reseau_echange = getattr(fields, 'experience_mission_reseau_echange', False)
@@ -5127,9 +5129,9 @@ class ManageClpsbw(BrowserView):
                 self.addLinkRessourceTheme(ressourceFk)
             if ressourceClpsProprioFk:                          # gestion du clps proprio
                 self.addLinkRessourceClpsProprio(ressourceFk)
-            if ressourceClpsDispoFk:                            
+            if ressourceClpsDispoFk:
                 self.addLinkRessourceClpsDispo(ressourceFk)
-            if ressourcePhoto:                                  
+            if ressourcePhoto:
                 self.addRessourcePhoto(ressourceFk)
 
             portalUrl = getToolByName(self.context, 'portal_url')()
