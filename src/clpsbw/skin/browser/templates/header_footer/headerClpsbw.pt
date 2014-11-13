@@ -5,5 +5,5 @@
       <img tal:condition="banner" src="" tal:replace="structure banner" />
   </span>
 
-</div>a
+</div>
 <!--<div class="visualClear"></div>-->
