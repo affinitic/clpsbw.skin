@@ -16,7 +16,7 @@
    <h1>Gestion des institutions</h1>
 
     <div tal:define="institutions python:view.getAllInstitutionByEtat(etatInstitution);">
-            <h2>Listing des institution selon l'état "<span tal:content="etat" class="mauve" />"</h2>
+            <h2>Listing des institutions selon l'état "<span tal:content="etat" class="mauve" />"</h2>
             <tal:boucle tal:repeat="institution institutions">
                   <tal:block tal:define="institutionPk institution/institution_pk">
                       <div class="formulaire">
