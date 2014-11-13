@@ -651,6 +651,8 @@ class ManageClpsbw(BrowserView):
         for institution in institutions:
             for clps in allClps:
                 if institution.clps_fk == clps.clps_pk:
+                    if retour == 'sigle':
+                        clpsProprioListe.append(clps.clps_sigle)
                     if retour == 'nom':
                         clpsProprioListe.append(clps.clps_nom)
                     if retour == 'pk':
@@ -3611,7 +3613,7 @@ class ManageClpsbw(BrowserView):
         experience_plate_forme_sante_commune = getattr(fields, 'experience_plate_forme_sante_commune', 'False'),
         experience_plate_forme_vie_affective_sexuelle = getattr(fields, 'experience_plate_forme_vie_affective_sexuelle', 'False'),
         experience_mission_centre_documentation = getattr(fields, 'experience_mission_centre_documentation', 'False')
-        experience_mission_accompagnement_projet = getattr(fields, 'experience_mission_accompagnement_projet', 'False')
+        experience_mission_accompagnement_projet = getattr(fields, 'experince_mission_accompagnement_projet', 'False')
         experience_mission_reseau_echange = getattr(fields, 'experience_mission_reseau_echange', 'False')
         experience_mission_formation = getattr(fields, 'experience_mission_formation', 'False')
         experience_etat = getattr(fields, 'experience_etat', None)
@@ -4729,13 +4731,6 @@ class ManageClpsbw(BrowserView):
         experience.experience_modification_employe = experience_modification_employe
         experience.experience_modification_date = experience_modification_date
         session.flush()
-
-        portalUrl = getToolByName(self.context, 'portal_url')()
-        ploneUtils = getToolByName(self.context, 'plone_utils')
-        message = u"Les informations ont été modifiées !"
-        ploneUtils.addPortalMessage(message, 'info')
-        url = "%s/admin-decrire-une-experience?experiencePk=%s" % (portalUrl, experience_pk)
-        self.request.response.redirect(url)
         return ''
 
     def updateEtatExperience(self, experiencePk):
@@ -5132,9 +5127,9 @@ class ManageClpsbw(BrowserView):
                 self.addLinkRessourceTheme(ressourceFk)
             if ressourceClpsProprioFk:                          # gestion du clps proprio
                 self.addLinkRessourceClpsProprio(ressourceFk)
-            if ressourceClpsDispoFk:                            # gestion du clps proprio
+            if ressourceClpsDispoFk:                            
                 self.addLinkRessourceClpsDispo(ressourceFk)
-            if ressourcePhoto:                            # gestion du clps proprio
+            if ressourcePhoto:                                  
                 self.addRessourcePhoto(ressourceFk)
 
             portalUrl = getToolByName(self.context, 'portal_url')()
