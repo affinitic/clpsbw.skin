@@ -154,14 +154,6 @@ i18n_domain="clpsbw.skin">
     permission="zope2.View"
     layer=".interfaces.IClpsbwTheme"
     />
-<!-- Home page header with flash animation viewlet -->
-<browser:viewlet
-    name="clpsbw.header"
-    manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
-    class=".viewlets.ClpsbwSectionsViewlet"
-    layer=".interfaces.IClpsbwTheme"
-    permission="zope.Public"
-    />
 
 <!-- move portlet plone.path_bar-->
 <browser:viewlet
@@ -451,14 +443,6 @@ i18n_domain="clpsbw.skin">
       name="admin-creer-une-ressource"
       for="*"
       template="templates/gestion_db/gestion_ressource/admin_creer_ressource.pt"
-      permission="zope.Public"
-      class=".ManageClpsbw.ManageClpsbw"
-      allowed_interface=".interfaces.IManageClpsbw"
-      />
-<browser:page
-      name="admin-ressource-inserer"
-      for="*"
-      template="templates/gestion_db/gestion_ressource/admin_ressource_insertion.pt"
       permission="zope.Public"
       class=".ManageClpsbw.ManageClpsbw"
       allowed_interface=".interfaces.IManageClpsbw"
