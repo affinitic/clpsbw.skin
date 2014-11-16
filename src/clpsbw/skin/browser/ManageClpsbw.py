@@ -1269,11 +1269,8 @@ class ManageClpsbw(BrowserView):
 
     def getActiveExperience(self, experiencePk=None, experienceMaj=None):
         """
-        table pg recit
-        recuperation de l'experience selon la pk
-        la pk peut arriver via le form en hidden ou via un lien construit,
-         (cas du listing de resultat de moteur de recherche)
-        je teste si la pk arrive par param, si pas je prends celle du form
+         si eperience_pk récupère les infos d'une experience dans la table experience
+         si experience_maj_pk récupère les infos d'une experience dans la table experience_maj
         """
         fields = self.request.form
         experienceTitre = fields.get('titreExperience')
@@ -1294,9 +1291,6 @@ class ManageClpsbw(BrowserView):
             if experiencePk:
                 query = query.filter(Experience.experience_pk == experiencePk)
             allExperiences = query.all()
-            for experience in allExperiences:
-                experiencePk = experience.experience_pk
-                self.addRechercheLog(experiencePk=experiencePk)
         return allExperiences
 
     def getExperienceMaxPk(self):
@@ -1387,7 +1381,8 @@ class ManageClpsbw(BrowserView):
     def getExperienceByPk(self, experiencePk, experienceEtat=None):
         """
         table pg experience
-        recuperation d'un recit selon experience_pk
+        recuperation d'un recit selon experience_pk et
+        eventuellement son etat
         """
         if not isinstance(experiencePk, list):
             experiencePk = [experiencePk]
@@ -5241,7 +5236,7 @@ class ManageClpsbw(BrowserView):
         """
         fields = self.context.REQUEST
         operation = getattr(fields, 'operation')
-        auteurExterne = getattr(fields, 'auteurExterne', None)
+        auteurExterne = getattr(fields, 'auteur_externe', None)
 
         experienceInstitutionPorteurFk = getattr(fields, 'experience_institution_porteur_fk', None)
         experienceInstitutionPartenaireFk = getattr(fields, 'experience_institution_partenaire_fk', None)
@@ -5373,6 +5368,9 @@ class ManageClpsbw(BrowserView):
             if experienceClpsProprioFk > 0:
                 self.addLinkExperienceClpsProprio(experienceFk)
 
+            #suppresion dans la table experience_maj (versionning)XXXXXXXXXXXXXXXXXXXXXXXXXXX
+            self.deleteExperienceMaj(experienceFk)
+
             self.sendMailForUpdateExperience()
 
             portalUrl = getToolByName(self.context, 'portal_url')()
@@ -5430,10 +5428,6 @@ class ManageClpsbw(BrowserView):
             if experienceClpsProprioFk > 0:
                 self.addLinkExperienceClpsProprio(experienceFk)
 
-            #suppresion dans la table experience_maj (versionning)
-            if experience_etat == "publish":
-                self.deleteExperienceMaj(experienceFk)
-
             self.sendMailForUpdateExperience()
 
             portalUrl = getToolByName(self.context, 'portal_url')()
@@ -5441,7 +5435,7 @@ class ManageClpsbw(BrowserView):
             message = u"L'expérience a été enregistrée !"
             ploneUtils.addPortalMessage(message, 'info')
             if auteurExterne:
-                url = "%s/decrire-une-experience?experiencePk=%s" % (portalUrl, experienceFk)
+                url = "%s/decrire-une-experience-maj?experiencePk=%s" % (portalUrl, experienceFk)
             else:
                 url = "%s/admin-decrire-une-experience?experiencePk=%s" % (portalUrl, experienceFk)
             self.request.response.redirect(url)

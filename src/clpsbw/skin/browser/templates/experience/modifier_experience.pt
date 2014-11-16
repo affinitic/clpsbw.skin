@@ -454,6 +454,10 @@
 
             <div class="formControls">
                 <input type="hidden"
+                       name="auteur_externe"
+                       value=""
+                       tal:attributes="value python: True" />
+                <input type="hidden"
                        name="experience_auteur_login"
                        value=""
                        tal:attributes="value experience/experience_auteur_login" />
