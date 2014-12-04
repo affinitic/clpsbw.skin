@@ -43,12 +43,15 @@
                                     <tr>
                                         <td align="left" class="discreet" valign="bottom">
                                             par
-                                            <span tal:content="institution/auteur/auteur_prenom | nothing" />
-                                            <span tal:content="institution/auteur/auteur_nom | nothing" /> -
-                                            <span tal:content="institution/auteur/auteur_login | nothing" />
+                                            <span tal:content="institution/auteur/auteur_prenom | nothing"
+                                                  class="gras" />
+                                            <span tal:content="institution/auteur/auteur_nom | nothing"
+                                                  class="gras" /> -
+                                            <span tal:content="institution/auteur/auteur_login | nothing"
+                                                  class="gras" />
                                             <br />
                                             Dernière modification :
-                                            <span tal:content="python: institution.institution_modification_date.strftime('%d-%m-%Y %H:%M')" />
+                                            <span tal:content="python: institution.institution_modification_date.strftime('%d-%m-%Y %H:%M')"      class="gras"/>
                                         </td>
                                         <td align="right">
                                                 <div class="experience-etat"
