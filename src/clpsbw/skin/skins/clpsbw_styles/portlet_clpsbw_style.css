@@ -27,15 +27,7 @@ div.portlet-left-column dl.portletNavigationTree dt.portletHeaderNav{
 margin-bottom:8px;
 border:1px solid #9a0546;
 border-radius:4px;
-/*background-color:#AFA61D;*/
-background: rgb(207,219,162); /* Old browsers */
-background: -moz-linear-gradient(top,  rgba(207,219,162,1) 0%, rgba(170,167,123,1) 44%, rgba(175,166,29,1) 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(207,219,162,1)), color-stop(44%,rgba(170,167,123,1)), color-stop(100%,rgba(175,166,29,1))); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top,  rgba(207,219,162,1) 0%,rgba(170,167,123,1) 44%,rgba(175,166,29,1) 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top,  rgba(207,219,162,1) 0%,rgba(170,167,123,1) 44%,rgba(175,166,29,1) 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top,  rgba(207,219,162,1) 0%,rgba(170,167,123,1) 44%,rgba(175,166,29,1) 100%); /* IE10+ */
-background: linear-gradient(to bottom,  rgba(207,219,162,1) 0%,rgba(170,167,123,1) 44%,rgba(175,166,29,1) 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cfdba2', endColorstr='#afa61d',GradientType=0 ); /* IE6-9 */
+background-color:#aea61d;
 }
 
 div.portlet-left-column dl.portletNavigationTree dt.portletHeaderNav a{
@@ -221,7 +213,7 @@ background-position:center;
 }
 
 div.portlet-left-column dl#portlet-experience-assuetude dt.portletItemPP,
-div.portlet-left-column dl#portlet-experience-sante-commune dt.portletItemPP, 
+div.portlet-left-column dl#portlet-experience-sante-commune dt.portletItemPP,
 div.portlet-left-column dl#portlet-experience-sante-ecole dt.portletItemPP,
 div.portlet-left-column dl#portlet-experience-sante-environnement dt.portletItemPP,
 div.portlet-left-column dl#portlet-experience-sante-famille dt.portletItemPP,
@@ -234,7 +226,7 @@ border-right:1px solid #9a0546;
 }
 
 div.portlet-left-column dl#portlet-experience-assuetude dt.portletItemPP a,
-div.portlet-left-column dl#portlet-experience-sante-commune dt.portletItemPP a, 
+div.portlet-left-column dl#portlet-experience-sante-commune dt.portletItemPP a,
 div.portlet-left-column dl#portlet-experience-sante-ecole dt.portletItemPP a,
 div.portlet-left-column dl#portlet-experience-sante-environnement dt.portletItemPP a,
 div.portlet-left-column dl#portlet-experience-sante-famille dt.portletItemPP a,
@@ -244,7 +236,7 @@ color:#20a3af !important;
 }
 
 div.portlet-left-column dl#portlet-experience-assuetude dt.portletItemPP a:hover,
-div.portlet-left-column dl#portlet-experience-sante-commune dt.portletItemPP a:hover, 
+div.portlet-left-column dl#portlet-experience-sante-commune dt.portletItemPP a:hover,
 div.portlet-left-column dl#portlet-experience-sante-ecole dt.portletItemPP a:hover,
 div.portlet-left-column dl#portlet-experience-sante-environnement dt.portletItemPP a:hover,
 div.portlet-left-column dl#portlet-experience-sante-famille dt.portletItemPP a:hover,
@@ -255,7 +247,7 @@ color:#333 !important;
 
 
 div.portlet-left-column dl#portlet-experience-assuetude dt.portletFooterDB,
-div.portlet-left-column dl#portlet-experience-sante-commune dt.portletFooterDB, 
+div.portlet-left-column dl#portlet-experience-sante-commune dt.portletFooterDB,
 div.portlet-left-column dl#portlet-experience-sante-ecole dt.portletFooterDB,
 div.portlet-left-column dl#portlet-experience-sante-environnement dt.portletFooterDB,
 div.portlet-left-column dl#portlet-experience-sante-famille dt.portletFooterDB,
@@ -305,7 +297,7 @@ border-bottom:1px solid #e9953a;
 /*** PORLET DB AUTEUR ***/
 #portlet-db-auteur .portletHeaderDB{
 background-color:#ff76f0;
-border:1px solid #8e0045;   
+border:1px solid #8e0045;
 }
 
 #portlet-db-auteur .portletItemDB{
@@ -332,13 +324,13 @@ text-shadow:1px 1px 1px rgba(255,255,255, 0.5);
 padding:2px 0px 0px 20px;
 }
 
-#portlet-db-auteur a:link, 
+#portlet-db-auteur a:link,
 #portlet-db-auteur dl.portlet a:link{
 border-bottom:none;
 color:#205C90;
 }
 
-#portlet-db-auteur a:hover, 
+#portlet-db-auteur a:hover,
 #portlet-db-auteur dl.portlet a:hover{
 color:#aa0059 !important;
 }
@@ -353,13 +345,13 @@ background-color:#ffefdd;
 
 
 /*** PORTLET GESTION DB ***/
-#portlet-gestion-db a:link, 
+#portlet-gestion-db a:link,
 #portlet-gestion-db dl.portlet a:link{
 border-bottom:none;
 color:#205C90;
 }
 
-#portlet-gestion-db a:hover, 
+#portlet-gestion-db a:hover,
 #portlet-gestion-db dl.portlet a:hover{
 color:#aa0059 !important;
 }
@@ -425,13 +417,13 @@ height:15px;
 }
 
 
+#portlet-logo-promosante-net{
+margin-left:58px;
+}
 
-
-
-
-
-
-
+#portlet-logo-promosante-net a:link{
+border-bottom:0px;
+}
 
 
 
@@ -451,7 +443,7 @@ width:150px;
 background-color:#fff;
 border-radius:20px 20px;
 border:solid 2px #008b9d;
-box-shadow:5px 5px 5px #888;    
+box-shadow:5px 5px 5px #888;
 }
 
 dl.portlet-collection-agenda dt.portletHeader,
@@ -485,7 +477,7 @@ dl.portlet-collection-agenda .portletItem a,
 dd.portletFooter a{
 color:#9a0546 !important;
 border-bottom:0px !important;
-}    
+}
 
 dl.portlet-collection-agenda .portletItem a:hover,
 dd.portletFooter a:hover{
