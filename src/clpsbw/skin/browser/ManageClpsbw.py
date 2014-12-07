@@ -301,28 +301,27 @@ class ManageClpsbw(BrowserView):
         """
         envoi de mail à clpsbw admin
         """
-        #mailer = Mailer("localhost", "houtain@clps-bw.be, alain.meurant@affinitic.be")
-        #mailer = Mailer("relay.skynet.be", "alain.meurant@affinitic.be, houtain@clps-bw.be" )
-        mailer = Mailer("relay.skynet.be", "alain.meurant@affinitic.be")
-        mailer.setSubject(sujet)
-        #mailer.setRecipients("alain.meurant@affinitic.be, houtain@clps-bw.be")
-        mailer.setRecipients("alain.meurant@affinitic.be")
-        mail = message
-        print mail
-        #mailer.sendAllMail(mail)
-
-    def sendMailWhenLoginByAuteur(self, sujet, message):
-        """
-        envoi de mail à clpsbw admin
-        """
         mailer = Mailer("localhost", "houtain@clps-bw.be, alain.meurant@affinitic.be")
         #mailer = Mailer("relay.skynet.be", "alain.meurant@affinitic.be")
         mailer.setSubject(sujet)
         #mailer.setRecipients("alain.meurant@affinitic.be, houtain@clps-bw.be")
         mailer.setRecipients("alain.meurant@affinitic.be")
         mail = message
-        print mail
-        #mailer.sendAllMail(mail)
+        #print mail
+        mailer.sendAllMail(mail)
+
+    def sendMailWhenLoginByAuteur(self, sujet, message):
+        """
+        envoi de mail à clpsbw admin
+        """
+        mailer = Mailer("localhost", "alain.meurant@affinitic.be")
+        #mailer = Mailer("relay.skynet.be", "alain.meurant@affinitic.be")
+        mailer.setSubject(sujet)
+        #mailer.setRecipients("alain.meurant@affinitic.be, houtain@clps-bw.be")
+        mailer.setRecipients("alain.meurant@affinitic.be")
+        mail = message
+        #print mail
+        mailer.sendAllMail(mail)
 
     def sendMailForNewAuteurExperience(self):
         """
@@ -4797,8 +4796,6 @@ class ManageClpsbw(BrowserView):
         experience_modification_employe = self.getAuteurLogin(experience_auteur)
         experience_etat = 'pending-by-auteur'
         experienceMaj = True
-        import pdb; pdb.set_trace()
-
 
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
