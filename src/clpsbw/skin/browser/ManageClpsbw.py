@@ -1315,14 +1315,14 @@ class ManageClpsbw(BrowserView):
         traduction de l'état d'une experience
         """
         experienceEtat = ''
-        if etat == 'private':
-            experienceEtat = 'Privé'
-        if etat == 'pending':
-            experienceEtat = 'En attente'
-        if etat == 'pending':
-            experienceEtat = 'En cours de validation'
-        if etat == 'publish':
-            experienceEtat = 'Publié'
+        if etat == "private":
+            experienceEtat = "Privé"
+        if etat == "pending-by-auteur":
+            experienceEtat = "En demande de validation par l'auteur"
+        if etat == "pending-by-clps":
+            experienceEtat = "En attente de validation par le CLPS"
+        if etat == "publish":
+            experienceEtat = "Publié"
         return experienceEtat
 
     def getExperienceEtat(self, experiencePk):
@@ -1449,7 +1449,8 @@ class ManageClpsbw(BrowserView):
         """
         table pg experience
         recuperation du nombre d'experience selon experience_etat
-        private pending publish
+        private pending-by-clps pending-by-auteur publish
+        par clps equipe
         """
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
@@ -1737,7 +1738,6 @@ class ManageClpsbw(BrowserView):
         query = query.order_by(ExperienceMaj.experience_maj_titre)
         experienceMaj = query.one()
         return experienceMaj
-
 
 ### ressources ###
     def getAllRessource(self, ressourcePk=None):
@@ -3575,9 +3575,10 @@ class ManageClpsbw(BrowserView):
     def insertExperience(self):
         """
         table pg  experience
-        ajout d'une experience par Auteur > experience_etat == pendinging
+        ajout d'une experience par Auteur > experience_etat == pending-by-auteur
         ou
         ajout d'une experience par equipse Clps > experience_etat == au choix de l'equipe
+           privé - pending-by-clps - pending-by-auteur - publish
         """
         fields = self.context.REQUEST
         experience_titre = getattr(fields, 'experience_titre', None)
@@ -4674,7 +4675,6 @@ class ManageClpsbw(BrowserView):
         experience_auteur_fk = getattr(fields, 'experience_auteur_fk', None)
         experience_auteur_login = getattr(fields, 'experience_auteur_login', None)
 
-
         #cas de modification de l'auteur via ligth search
         experience_auteur = getattr(fields, 'experienceAuteur', None)
         if experience_auteur:
@@ -4730,13 +4730,11 @@ class ManageClpsbw(BrowserView):
         session.flush()
         return ''
 
-    def updateEtatExperience(self, experiencePk):
+    def updateEtatExperience(self, experiencePk, experienceEtat):
         """
         table pg experience
         mise à jour de l'état d'une experience suite à la mise à jour par l'auteur dans experience_maj
         """
-        experienceEtat = 'pending'
-
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
         query = session.query(Experience)
@@ -4797,8 +4795,9 @@ class ManageClpsbw(BrowserView):
             experience_auteur_fk = self.getAuteurPkByName(experience_auteur)
 
         experience_modification_employe = self.getAuteurLogin(experience_auteur)
-        experience_etat = 'pending'
+        experience_etat = 'pending-by-auteur'
         experienceMaj = True
+        import pdb; pdb.set_trace()
 
 
         wrapper = getSAWrapper('clpsbw')
@@ -4847,7 +4846,7 @@ class ManageClpsbw(BrowserView):
         session.refresh(newEntry)
         experienceMajPk = newEntry.experience_maj_pk
 
-        self.updateEtatExperience(experiencePk)
+        self.updateEtatExperience(experiencePk,experience_etat)
 
         portalUrl = getToolByName(self.context, 'portal_url')()
         ploneUtils = getToolByName(self.context, 'plone_utils')

@@ -477,7 +477,7 @@
                        value="updateByAuteur" />
                 <input type="hidden"
                        name="experience_etat"
-                       value="pending" />
+                       value="pending-by-auteur" />
                 <input type="hidden"
                        name="experience_pk"
                        value=""

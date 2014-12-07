@@ -626,12 +626,9 @@
                         <option value="private"
                                 selected=""
                                 tal:attributes="selected python:experience.experience_etat=='private' and 'selected' or None;">Privé</option>
-                        <option value="pending"
+                        <option value="pending-by-clps"
                                 selected=""
-                                tal:attributes="selected python:experience.experience_etat=='pending' and 'selected' or None;">Attente</option>
-                        <option value="pending"
-                                selected=""
-                                tal:attributes="selected python:experience.experience_etat=='pending' and 'selected' or None;">En cours de validation</option>
+                                tal:attributes="selected python:experience.experience_etat=='pending-by-clps' and 'selected' or None;">En attente de validation par le CLPS</option>
                         <option value="publish"
                                 selected=""
                                 tal:attributes="selected python:experience.experience_etat=='publish' and 'selected' or None;">Publié</option>

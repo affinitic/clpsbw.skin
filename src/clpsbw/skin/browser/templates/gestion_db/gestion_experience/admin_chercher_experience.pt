@@ -44,7 +44,7 @@
                        id="titre_experience"
                        name="titreExperience"
                        value=""
-                       size="50">
+                       size="100">
                 <br />
                 <input type="submit"
                        value="lancer la recherche"
@@ -61,12 +61,16 @@
                             <option></option>
                             <optgroup label="CLPS-BW">
                                 <tal:boucle tal:repeat="experience experiences">
-                                    <option value=""
-                                            tal:attributes="value experience/experience_pk">
-                                        <span tal:content="experience/experience_titre">titre experience</span>
-                                        &nbsp;&nbsp;&nbsp;
-                                        [<span tal:content="experience/experience_etat"  style="color:blue;">etat experience</span>]
-                                    </option>
+                                    <tal:block tal:define="etatExperience experience/experience_etat;
+                                                           etat python: view.getTranslationExperienceEtat(etatExperience)">
+                                        <option value=""
+                                                tal:attributes="value experience/experience_pk">
+                                            <span tal:content="experience/experience_titre">titre experience</span>
+                                            &nbsp;&nbsp;&nbsp;
+                                            [<span tal:content="etat"
+                                                   style="color:blue;">etat experience</span>]
+                                        </option>
+                                    </tal:block>
                                 </tal:boucle>
                             </optgroup>
                     </tal:block>
@@ -74,12 +78,16 @@
                         <option></option>
                         <optgroup label="CLPS-LUX">
                             <tal:boucle tal:repeat="experience experiences">
+                                <tal:block tal:define="etatExperience experience/experience_etat;
+                                                       etat python: view.getTranslationExperienceEtat(etatExperience)">
                                     <option value=""
                                             tal:attributes="value experience/experience_pk">
                                         <span tal:content="experience/experience_titre">titre experience</span>
                                         &nbsp;&nbsp;&nbsp;
-                                        [<span tal:content="experience/experience_etat"  style="color:blue;">etat experience</span>]
+                                        [<span tal:content="etat"
+                                               style="color:#0000FF">etat experience</span>]
                                     </option>
+                                </tal:block>
                             </tal:boucle>
                         </optgroup>
                     </tal:block>

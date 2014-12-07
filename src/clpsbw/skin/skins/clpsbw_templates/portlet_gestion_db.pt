@@ -15,7 +15,7 @@
         </dt>
 
         <dt class="bgPortlet"></dt>
-        
+
         <div class="bgPortlet">
             <div class="rubriqueDB">
                 <dt class="portletTitreDb">
@@ -48,10 +48,16 @@
                         privé : <span tal:content="nbrExp">nbr</span>
                     </a>
                 </dd>
-                <dd tal:define="nbrExp python:experiences.getCountExperienceByEtat('pending')"
+                <dd tal:define="nbrExp python:experiences.getCountExperienceByEtat('pending-by-auteur')"
                     class="portletItemDB">
-                    <a href="admin-lister-les-experiences-par-etat?etat=pending">
-                        en attente : <span tal:content="nbrExp">nbr</span>
+                    <a href="admin-lister-les-experiences-par-etat?etat=pending-by-auteur">
+                        en attente par l'auteur : <span tal:content="nbrExp">nbr</span>
+                    </a>
+                </dd>
+                <dd tal:define="nbrExp python:experiences.getCountExperienceByEtat('pending-by-clps')"
+                    class="portletItemDB">
+                    <a href="admin-lister-les-experiences-par-etat?etat=pending-by-clps">
+                        en attente par le CLPS : <span tal:content="nbrExp">nbr</span>
                     </a>
                 </dd>
                 <dd tal:define="nbrExp python:experiences.getCountExperienceByEtat('publish')"

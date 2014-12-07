@@ -67,8 +67,7 @@ class IManageClpsbw(Interface):
         generates a WYSIWYG field containing value
         """
 
-    def getAddRemoveField(name, title, values, nameKey='name', pkKey='pk', \
-                          selectedPks=[]):
+    def getAddRemoveField(name, title, values, nameKey='name', pkKey='pk', selectedPks=[]):
         """
         generates an Add / Remove from list field with already selected pks
         nameKey and pkKey are used for the display value and the record pk to
@@ -175,7 +174,7 @@ class IManageClpsbw(Interface):
         """
         table pg experience
         recuperation d'un recit selon experience_pk
-        private pending publish
+        private pending-by-clps pending-by-auteur publish
         """
 
     def getExperienceByRessource(self, ressourcePk):
@@ -187,7 +186,8 @@ class IManageClpsbw(Interface):
         """
         table pg experience
         recuperation du nombre d'experience selon experience_etat
-        private pending publish
+        private pending-by-clps pending-by-auteur publish
+        par clps equipe
         """
 
     def getCountAllExperience(self):

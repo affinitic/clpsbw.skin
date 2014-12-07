@@ -36,8 +36,8 @@
 
     <div class="formulaire">
         <h2>Contact</h2>
-        Quelle personne peut-on contacter pour un renseignementau sujet de ce projet ?            
-        <div class="formInput">                    
+        Quelle personne peut-on contacter pour un renseignementau sujet de ce projet ?
+        <div class="formInput">
             <label for="experience_titre">Personne de contact</label>
             <input type="text"
                     name="experience_personne_contact"
@@ -99,7 +99,7 @@
         pouvez ici apporter des précisions concernant le public.
         <textarea name="experience_public_vise"
                   rows="3"
-                  cols="70"></textarea>                        
+                  cols="70"></textarea>
     </div>
 
     <div class="formulaire">
@@ -131,7 +131,7 @@
             <li>Qu’est-ce qui a été fait ?</li>
             <li>Par qui ? </li>
             <li>Comment ?</li>
-            <li>Le(s) public(s) ont-ils été associés 
+            <li>Le(s) public(s) ont-ils été associés
                 <ul>
                     <li>au projet ?</li>
                     <li>à sa construction ?</li>
@@ -195,7 +195,7 @@
                 multimédia, matériel de bricolage… Les ouvrages
                 et jeux seront abordés dans le champ ressources.</li>
             <li>De quels moyens financiers ?</li>
-        </ul>        
+        </ul>
         <label for="experience_titre">Moyens</label>
         <span tal:replace="structure python: view.getWysiwygField('experience_moyens', '')" />
     </div>
@@ -283,7 +283,7 @@
                                            nameKey='institution_nom',
                                            pkKey='institution_pk')" />
         </tal:addremove>
-        
+
         <label for="experience_titre">Autres institutions : nom et adresse complète</label>
         <p>
         Il peut s’agir d’une personne, de plusieurs personnes,
@@ -320,11 +320,11 @@
         <span tal:replace="structure python: view.getWysiwygField('experience_aller_plus_loin', '')" />
     </div>
 
-    
+
     <div class="formControls">
         <input type="hidden"
                name="experience_etat"
-               value="pending" />
+               value="pending-by-auteur" />
         <input type="hidden"
                name="experience_clps_proprio_fk"
                value="1" />

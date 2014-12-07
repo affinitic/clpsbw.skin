@@ -16,7 +16,7 @@
    <h1>Listing des expériences selon l'état &nbsp;<span tal:content="etat" class="italic" /></h1>
 
     <div tal:define="etatExperience request/etat;
-                     experiences python:view.getAllExperienceByEtat(etatExperience);">
+                     experiences python:view.getAllExperienceMajByEtat(etatExperience);">
         <tal:boucle tal:repeat="experience experiences">
             <tal:block tal:define="experiencePk experience/experience_pk">
                 <article class="listing-experience">
@@ -81,8 +81,8 @@
                                              tal:define="experienceEtat python:view.getExperienceEtat(experiencePk)"
                                              tal:condition="python:user.has_role(['Manager'], here)">
                                              <span tal:content="experienceEtat" />
-                                             <br />
-                                             &Xi;&nbsp; PK : <span tal:content="experience/experience_pk" />
+                                             &Xi;
+                                             PK : <span tal:content="experience/experience_pk" />
                                         </div>
                                         <div class="listing-experience-clps-proprio">
                                             <!--
@@ -93,15 +93,8 @@
                                     </td>
                                     <td align="right">
                                         <div class="btn-modifier">
-                                            <tal:block tal:condition="python: experience.experience_etat=='pending-by-auteur'">
-                                                <a href=""
-                                                   tal:attributes="href string: admin-modifier-une-experience-maj?experiencePk=${experiencePk}">&nbsp;</a>
-                                            </tal:block>
-
-                                            <tal:block tal:condition="python: experience.experience_etat=='pending-by-clps' or experience.experience_etat=='private'">
-                                                <a href=""
-                                                   tal:attributes="href string: admin-modifier-une-experience?experiencePk=${experiencePk}">&nbsp;</a>
-                                            </tal:block>
+                                            <a href=""
+                                               tal:attributes="href string: admin-modifier-une-experience-maj?experiencePk=${experiencePk}">&nbsp;</a>
                                         </div>
                                     </td>
                                 </tr>
