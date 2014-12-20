@@ -642,7 +642,7 @@
                        value="updateByClps" />
                 <input type="hidden"
                        name="auteurExterne"
-                       value="False" />
+                       value="" />
                 <input type="hidden"
                        name="experience_pk"
                        value=""

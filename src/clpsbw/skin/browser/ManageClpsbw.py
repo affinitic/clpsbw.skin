@@ -5234,7 +5234,7 @@ class ManageClpsbw(BrowserView):
         """
         fields = self.context.REQUEST
         operation = getattr(fields, 'operation')
-        auteurExterne = getattr(fields, 'auteur_externe', None)
+        auteurExterne = getattr(fields, 'auteurExterne', None)
 
         experienceInstitutionPorteurFk = getattr(fields, 'experience_institution_porteur_fk', None)
         experienceInstitutionPartenaireFk = getattr(fields, 'experience_institution_partenaire_fk', None)
@@ -5439,7 +5439,6 @@ class ManageClpsbw(BrowserView):
             self.request.response.redirect(url)
 
             #envoi d'un mail à SISS Prov BW lorsque etat experience est publie
-
             if experience_etat == 'publish':
                 etatPublicationForSiss = self.getExperienceStatutPublicationForSiss(experienceFk)
                 if etatPublicationForSiss != True:
