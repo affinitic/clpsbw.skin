@@ -307,8 +307,8 @@ class ManageClpsbw(BrowserView):
         #mailer.setRecipients("alain.meurant@affinitic.be, houtain@clps-bw.be")
         mailer.setRecipients("alain.meurant@affinitic.be")
         mail = message
-        #print mail
-        mailer.sendAllMail(mail)
+        print mail
+        #mailer.sendAllMail(mail)
 
     def sendMailWhenLoginByAuteur(self, sujet, message):
         """
@@ -320,8 +320,8 @@ class ManageClpsbw(BrowserView):
         #mailer.setRecipients("alain.meurant@affinitic.be, houtain@clps-bw.be")
         mailer.setRecipients("alain.meurant@affinitic.be")
         mail = message
-        #print mail
-        mailer.sendAllMail(mail)
+        print mail
+        #mailer.sendAllMail(mail)
 
     def sendMailForNewAuteurExperience(self):
         """
