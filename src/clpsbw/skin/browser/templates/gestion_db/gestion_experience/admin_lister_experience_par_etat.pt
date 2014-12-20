@@ -110,12 +110,6 @@
                                              <br />
                                              &Xi;&nbsp; PK : <span tal:content="experience/experience_pk" />
                                         </div>
-                                        <div class="listing-experience-clps-proprio">
-                                            <!--
-                                            Publié par le
-                                            <span tal:content="experience/clpsOrigine/clps_sigle" />
-                                            -->
-                                        </div>
                                     </td>
                                     <td align="right">
                                         <div class="btn-modifier">
@@ -124,7 +118,7 @@
                                                    tal:attributes="href string: admin-modifier-une-experience-maj?experiencePk=${experiencePk}">&nbsp;</a>
                                             </tal:block>
 
-                                            <tal:block tal:condition="python: experience.experience_etat=='pending-by-clps' or experience.experience_etat=='private'">
+                                            <tal:block tal:condition="python: experience.experience_etat=='pending-by-clps' or experience.experience_etat=='private' or experience.experience_etat=='publish'">
                                                 <a href=""
                                                    tal:attributes="href string: admin-modifier-une-experience?experiencePk=${experiencePk}">&nbsp;</a>
                                             </tal:block>
