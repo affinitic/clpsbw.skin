@@ -42,25 +42,25 @@
                     <br />
                     Etat :
                 </dd>
-                <dd tal:define="nbrExp python:experiences.getCountExperienceByEtat('private')"
+                <dd tal:define="nbrExp python:experiences.getCountExperienceByEtat('private', 1)"
                     class="portletItemDB">
                     <a href="admin-lister-les-experiences-par-etat?etat=private">
                         privé : <span tal:content="nbrExp">nbr</span>
                     </a>
                 </dd>
-                <dd tal:define="nbrExp python:experiences.getCountExperienceByEtat('pending-by-auteur')"
+                <dd tal:define="nbrExp python:experiences.getCountExperienceByEtat('pending-by-auteur', 1)"
                     class="portletItemDB">
                     <a href="admin-lister-les-experiences-par-etat?etat=pending-by-auteur">
                         en attente par l'auteur : <span tal:content="nbrExp">nbr</span>
                     </a>
                 </dd>
-                <dd tal:define="nbrExp python:experiences.getCountExperienceByEtat('pending-by-clps')"
+                <dd tal:define="nbrExp python:experiences.getCountExperienceByEtat('pending-by-clps', 1)"
                     class="portletItemDB">
                     <a href="admin-lister-les-experiences-par-etat?etat=pending-by-clps">
                         en attente par le CLPS : <span tal:content="nbrExp">nbr</span>
                     </a>
                 </dd>
-                <dd tal:define="nbrExp python:experiences.getCountExperienceByEtat('publish')"
+                <dd tal:define="nbrExp python:experiences.getCountExperienceByEtat('publish', 1)"
                     class="portletItemDB">
                     <a href="admin-lister-les-experiences-par-etat?etat=publish">
                         publi&eacute; : <span tal:content="nbrExp">nbr</span>
@@ -133,7 +133,7 @@
                     <a href="admin-lister-institution-par-etat?etat=private">
                         Etat priv&eacute; : <span tal:content="nbrInst">nbr</span></a>
                 </dd>
-                <dd tal:define="nbrInst python:institutions.getCountExperienceByEtat('publish')"
+                <dd tal:define="nbrInst python:institutions.getCountExperienceByEtat('publish', 1)"
                      class="portletItemDB">
                     <a href="admin-lister-institution-par-etat?etat=publish">
                         Etat publi&eacute; : <span tal:content="nbrInst">nbr</span></a>
