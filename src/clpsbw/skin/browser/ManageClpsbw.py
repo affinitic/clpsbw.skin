@@ -1315,7 +1315,7 @@ class ManageClpsbw(BrowserView):
         """
         experienceEtat = ''
         if etat == "private":
-            experienceEtat = "Privé"
+            experienceEtat = "Brouillon"
         if etat == "pending-by-auteur":
             experienceEtat = "En demande de validation par l'auteur"
         if etat == "pending-by-clps":
@@ -1444,20 +1444,22 @@ class ManageClpsbw(BrowserView):
         experience = [exp.experience_titre for exp in query.all()]
         return experience
 
-    def getCountExperienceByEtat(self, experienceEtat):
+    def getCountExperienceByEtat(self, experienceEtat, clpsPk):
         """
         table pg experience
         recuperation du nombre d'experience selon experience_etat
         private pending-by-clps pending-by-auteur publish
         par clps equipe
         """
-        wrapper = getSAWrapper('clpsbw')
-        session = wrapper.session
-        query = session.query(Experience)
-        query = query.filter(Experience.experience_etat == experienceEtat)
-        nbrExp = select([func.count(Experience.experience_pk).label('count')])
-        nbrExp.append_whereclause(Experience.experience_etat == experienceEtat)
-        nbrExperiencesByEtat = nbrExp.execute().fetchone().count
+        # wrapper = getSAWrapper('clpsbw')
+        # session = wrapper.session
+        # query = session.query(Experience)
+        # query = query.filter(Experience.experience_etat == experienceEtat)
+        # nbrExp = select([func.count(Experience.experience_pk).label('count')])
+        # nbrExp.append_whereclause(Experience.experience_etat == experienceEtat)
+        # nbrExperiencesByEtat = nbrExp.execute().fetchone().count
+        experienceByClps = self.getExperienceByClpsByEtat(clpsPk, experienceEtat)
+        nbrExperiencesByEtat = len(experienceByClps)
         return nbrExperiencesByEtat
 
     def getCountAllExperience(self):
@@ -1832,7 +1834,7 @@ class ManageClpsbw(BrowserView):
         ressource = query.one()
         ressourceEtat = ''
         if ressource.ressource_etat == 'private':
-            ressourceEtat = 'Privé'
+            ressourceEtat = 'Brouillon'
         if ressource.ressource_etat == 'pending':
             ressourceEtat = 'En attente'
         if ressource.ressource_etat == 'publish':
@@ -2302,7 +2304,7 @@ class ManageClpsbw(BrowserView):
         institution = query.one()
         institutionEtat = ''
         if institution.institution_etat == 'private':
-            institutionEtat = 'Privé'
+            institutionEtat = 'Brouillon'
         if institution.institution_etat == 'pending':
             institutionEtat = 'En attente'
         if institution.institution_etat == 'publish':
