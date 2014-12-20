@@ -625,7 +625,7 @@
                     <select name="experience_etat">
                         <option value="private"
                                 selected=""
-                                tal:attributes="selected python:experience.experience_etat=='private' and 'selected' or None;">Privé</option>
+                                tal:attributes="selected python:experience.experience_etat=='private' and 'selected' or None;">Brouillon</option>
                         <option value="pending-by-clps"
                                 selected=""
                                 tal:attributes="selected python:experience.experience_etat=='pending-by-clps' and 'selected' or None;">En attente de validation par le CLPS</option>
