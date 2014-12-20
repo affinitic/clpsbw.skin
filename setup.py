@@ -39,6 +39,7 @@ setup(name='clpsbw.skin',
       zip_safe=False,
       install_requires=[
           'setuptools',
+          'Products.AddRemoveWidget',
           'plone.app.theming',
           'plone.app.themingplugins',
           'collective.js.jqueryui',

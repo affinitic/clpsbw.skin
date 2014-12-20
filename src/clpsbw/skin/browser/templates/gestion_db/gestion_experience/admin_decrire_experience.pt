@@ -265,13 +265,12 @@
                               <!--</span>-->
                           </div><!--content-->
                           <div id="right-footer"></div>
-
                       </div><!--right-experience-->
                       <div class="description-experience-derniere-modif discreet">
-                            Dernière modification le :<br />
-                            <span tal:content="python: experience.experience_modification_date.strftime('%d-%m-%Y')"
+                          Dernière modification le :<br />
+                          <span tal:content="python: experience.experience_modification_date.strftime('%d-%m-%Y')"
                                  class="gras" />
-                        </div>
+                      </div>
                     </div><!--right-column"-->
                     <div class="break-float"></div>
                 </div><!-- main-experience-->
