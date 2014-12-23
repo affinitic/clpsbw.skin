@@ -45,7 +45,7 @@
                 <dd tal:define="nbrExp python:experiences.getCountExperienceByEtat('private', 1)"
                     class="portletItemDB">
                     <a href="admin-lister-les-experiences-par-etat?etat=private">
-                        privé : <span tal:content="nbrExp">nbr</span>
+                        brouillon : <span tal:content="nbrExp">nbr</span>
                     </a>
                 </dd>
                 <dd tal:define="nbrExp python:experiences.getCountExperienceByEtat('pending-by-auteur', 1)"
