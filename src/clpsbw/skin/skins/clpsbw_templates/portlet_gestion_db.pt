@@ -51,7 +51,7 @@
                 <dd tal:define="nbrExp python:experiences.getCountExperienceByEtat('pending-by-auteur', 1)"
                     class="portletItemDB">
                     <a href="admin-lister-les-experiences-par-etat?etat=pending-by-auteur">
-                        &bull; en demande de validation de l'auteur : <span tal:content="nbrExp">nbr</span>
+                        &bull; en demande de validation par l'auteur : <span tal:content="nbrExp">nbr</span>
                     </a>
                 </dd>
                 <dd tal:define="nbrExp python:experiences.getCountExperienceByEtat('pending-by-clps', 1)"
