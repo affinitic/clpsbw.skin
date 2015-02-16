@@ -1451,16 +1451,18 @@ class ManageClpsbw(BrowserView):
         private pending-by-clps pending-by-auteur publish
         par clps equipe
         """
-        # wrapper = getSAWrapper('clpsbw')
-        # session = wrapper.session
-        # query = session.query(Experience)
-        # query = query.filter(Experience.experience_etat == experienceEtat)
-        # nbrExp = select([func.count(Experience.experience_pk).label('count')])
-        # nbrExp.append_whereclause(Experience.experience_etat == experienceEtat)
-        # nbrExperiencesByEtat = nbrExp.execute().fetchone().count
         experienceByClps = self.getExperienceByClpsByEtat(clpsPk, experienceEtat)
         nbrExperiencesByEtat = len(experienceByClps)
         return nbrExperiencesByEtat
+
+    def getCountExperienceByClps(self, clpsPk):
+        """
+        table pg experience
+        recuperation du nombre d'experience selon le clps
+        """
+        experienceByClps = self.getExperienceByClpsByEtat(clpsPk)
+        nbrExperiencesByClps = len(experienceByClps)
+        return nbrExperiencesByClps
 
     def getCountAllExperience(self):
         """

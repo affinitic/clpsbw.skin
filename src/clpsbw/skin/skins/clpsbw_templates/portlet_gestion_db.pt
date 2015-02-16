@@ -40,38 +40,50 @@
                 </dd>
                 <dd class="portletItemDB">
                     <br />
-                    Etat :
+                    <span class="gras">Etat :</span>
                 </dd>
                 <dd tal:define="nbrExp python:experiences.getCountExperienceByEtat('private', 1)"
                     class="portletItemDB">
                     <a href="admin-lister-les-experiences-par-etat?etat=private">
-                        brouillon : <span tal:content="nbrExp">nbr</span>
+                        &bull; brouillon : <span tal:content="nbrExp">nbr</span>
                     </a>
                 </dd>
                 <dd tal:define="nbrExp python:experiences.getCountExperienceByEtat('pending-by-auteur', 1)"
                     class="portletItemDB">
                     <a href="admin-lister-les-experiences-par-etat?etat=pending-by-auteur">
-                        en attente par l'auteur : <span tal:content="nbrExp">nbr</span>
+                        &bull; en demande de validation de l'auteur : <span tal:content="nbrExp">nbr</span>
                     </a>
                 </dd>
                 <dd tal:define="nbrExp python:experiences.getCountExperienceByEtat('pending-by-clps', 1)"
                     class="portletItemDB">
                     <a href="admin-lister-les-experiences-par-etat?etat=pending-by-clps">
-                        en attente par le CLPS : <span tal:content="nbrExp">nbr</span>
+                        &bull; en attente par le CLPS : <span tal:content="nbrExp">nbr</span>
                     </a>
                 </dd>
                 <dd tal:define="nbrExp python:experiences.getCountExperienceByEtat('publish', 1)"
                     class="portletItemDB">
                     <a href="admin-lister-les-experiences-par-etat?etat=publish">
-                        publi&eacute; : <span tal:content="nbrExp">nbr</span>
+                        &bull; publi&eacute; : <span tal:content="nbrExp">nbr</span>
                     </a>
                 </dd>
-                <dd tal:define="nbrExp python:experiences.getCountAllExperience()"
-                    class="portletItemDB">
-                    <div class="totalDB">
-                        Total : <span tal:content="nbrExp">nbr</span>
+                <dd class="portletItemDB">
+                    <br />
+                    <span class="gras">Total :</span>
+                </dd>
+                <dd class="portletItemDB">
+                    <div tal:define="nbrExp python:experiences.getCountExperienceByClps(1)">
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="texte-etat-base">&bull; Clsp-Bw : <span tal:content="nbrExp" /></span>
                     </div>
-                    </dd>
+                    <div tal:define="nbrExp python:experiences.getCountExperienceByClps(2)">
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="texte-etat-base">&bull; Clps-Lux : <span tal:content="nbrExp" /></span>
+                    </div>
+                    <div tal:define="nbrExp python:experiences.getCountAllExperience()">
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="texte-etat-base">&bull; Total : <span tal:content="nbrExp">nbr</span>
+                    </div>
+                </dd>
             </div>
 
             <div class="rubriqueDB">

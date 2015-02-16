@@ -182,6 +182,12 @@ class IManageClpsbw(Interface):
         recuperation d'une experience selon une ressource
         """
 
+    def getCountExperienceByClps(self, clpsPk):
+        """
+        table pg experience
+        recuperation du nombre d'experience selon le clps
+        """
+
     def getCountExperienceByEtat(self, etatExperience):
         """
         table pg experience
