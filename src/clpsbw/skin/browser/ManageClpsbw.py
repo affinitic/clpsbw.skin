@@ -1290,6 +1290,9 @@ class ManageClpsbw(BrowserView):
             if experiencePk:
                 query = query.filter(Experience.experience_pk == experiencePk)
             allExperiences = query.all()
+        for experience in allExperiences:
+            experiencePk = experience.experience_pk
+            self.addRechercheLog(experiencePk=experiencePk)
         return allExperiences
 
     def getExperienceMaxPk(self):
@@ -1383,6 +1386,22 @@ class ManageClpsbw(BrowserView):
         recuperation d'un recit selon experience_pk et
         eventuellement son etat
         """
+        wrapper = getSAWrapper('clpsbw')
+        session = wrapper.session
+        query = session.query(Experience)
+        query = query.filter(Experience.experience_pk  == experiencePk)
+        if experienceEtat:
+            query = query.filter(Experience.experience_etat == experienceEtat)
+        query = query.order_by(Experience.experience_titre)
+        experience = query.one()
+        return experience
+
+    def getListOfExperienceByPk(self, experiencePk, experienceEtat=None):
+        """
+        table pg experience
+        recuperation des expériences selon une liste de pk experience_pk et
+        eventuellement son etat
+        """
         if not isinstance(experiencePk, list):
             experiencePk = [experiencePk]
         wrapper = getSAWrapper('clpsbw')
@@ -1422,9 +1441,9 @@ class ManageClpsbw(BrowserView):
         for pk in query:
             experiencePkByClps.append(pk.experience_fk)
         if experienceEtat:
-            experiencesByClps = self.getExperienceByPk(experiencePkByClps, experienceEtat)
+            experiencesByClps = self.getListOfExperienceByPk(experiencePkByClps, experienceEtat)
         else:
-            experiencesByClps = self.getExperienceByPk(experiencePkByClps)
+            experiencesByClps = self.getListOfExperienceByPk(experiencePkByClps)
         return experiencesByClps
 
     def getExperienceByLeffeSearch(self, searchString):
@@ -1532,7 +1551,7 @@ class ManageClpsbw(BrowserView):
         experiencePkByMilieuDeVie = []
         for pk in query:
             experiencePkByMilieuDeVie.append(pk.experience_fk)
-        experiencesByMilieuDeVie = self.getExperienceByPk(experiencePkByMilieuDeVie, 'publish')
+        experiencesByMilieuDeVie = self.getListOfExperienceByPk(experiencePkByMilieuDeVie, 'publish')
         return experiencesByMilieuDeVie
 
     def getExperienceByTheme(self, themePk):
@@ -1553,7 +1572,7 @@ class ManageClpsbw(BrowserView):
         experiencePkByTheme = []
         for pk in query:
             experiencePkByTheme.append(pk.experience_fk)
-        experiencesByTheme = self.getExperienceByPk(experiencePkByTheme, 'publish')
+        experiencesByTheme = self.getListOfExperienceByPk(experiencePkByTheme, 'publish')
         return experiencesByTheme
 
     def getExperienceByRessource(self, ressourcePk):
@@ -1589,7 +1608,7 @@ class ManageClpsbw(BrowserView):
         experiencePkByPublic = []
         for pk in query:
             experiencePkByPublic.append(pk.experience_fk)
-        experiencesByPublic = self.getExperienceByPk(experiencePkByPublic, 'publish')
+        experiencesByPublic = self.getListOfExperienceByPk(experiencePkByPublic, 'publish')
         return experiencesByPublic
 
     def getExperienceFromInstitutionPorteur(self, institutionPk):
