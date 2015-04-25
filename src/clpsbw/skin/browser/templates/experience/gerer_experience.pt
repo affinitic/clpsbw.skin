@@ -88,7 +88,8 @@
                                     </div>
                                 </td>
                                 <td align="right">
-                                    <div class="btn-modifier">
+                                    <div class="btn-modifier"
+                                         tal:condition="python: experience.experience_etat=='private' or experience.experience_etat=='publish'">
                                         <a href=""
                                            tal:attributes="href string: modifier-une-experience?experiencePk=${experiencePk}">&nbsp;</a>
                                     </div>

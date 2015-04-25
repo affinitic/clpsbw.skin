@@ -12,7 +12,8 @@
 <body>
 <div metal:fill-slot="main"
      tal:define="experiencePk request/experiencePk | nothing;
-                 experience python:view.getExperienceMajByPk(experiencePk)">
+                 experience python:view.getExperienceMajByPk(experiencePk);
+                 experienceEtat python:view.getExperienceEtat(experiencePk)">
     <div id="experience-template">
         <tal:block tal:define="experiencePk experience/experience_maj_pk">
             <div id="header-description">
