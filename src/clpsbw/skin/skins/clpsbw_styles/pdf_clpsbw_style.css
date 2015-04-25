@@ -353,7 +353,7 @@ text-align:center;
 background-color:#548962;
 }
 
-.titre-ressource-top{ 
+.titre-ressource-top{
 float:left;
 color:#fff;
 width:90%;
@@ -474,7 +474,7 @@ border:2px solid #005492;
 -webkit-border-radius: 12px 12px 12px 12px;
 -o-border-radius: 12px 12px 12px 12px;
 background-color:#f3fefb;
-padding:1em; 
+padding:1em;
 -moz-box-shadow:4px 4px 10px rgba(0,0,0,0.5);
 -webkit-box-shadow:4px 4px 10px rgba(0,0,0,0.5);
 -o-box-shadow:4px 4px 10px rgba(0,0,0,0.5);
@@ -494,7 +494,7 @@ text-transform:uppercase;
 
 #institution-description h4,
 #institution-coordonnee h4{
-background-image:url(images/flch_bleue.png);
+background-image:url(flch_bleue.png);
 background-repeat:no-repeat;
 background-position:left center;
 padding-left:12px;
@@ -697,7 +697,7 @@ padding-left:50px;
 
 
 
-/** COLONNE DROITE DESCRIPTION RESSOURCE **/ 
+/** COLONNE DROITE DESCRIPTION RESSOURCE **/
 #left-ressource{
 float:left;
 width:525px;
