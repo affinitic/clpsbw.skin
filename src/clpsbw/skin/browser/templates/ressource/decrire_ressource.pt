@@ -36,7 +36,7 @@
                     </div>
                     <div class="break-float"></div>
                 </div>
-                
+
                 <div id="main-ressource">
                     <div id="alerte"
                          tal:condition="python: ressource.ressource_etat=='pending'">
@@ -202,6 +202,7 @@
                         </div><!--right-ressource-->
 
                         <!-- portlet assuetude projets partagés -->
+                        <!--
                         <div id="projet-partage-ressource"
                              tal:define="experiences python:view.getExperienceByRessource(ressource.ressource_pk)"
                              tal:condition="python: len(experiences) > 0">
@@ -226,6 +227,7 @@
                                 </p>
                             </tal:boucle>
                         </div>
+                    -->
                     </div><!--right-column-->
                     <div class="break-float"></div>
                 </div><!--main-ressource-->
