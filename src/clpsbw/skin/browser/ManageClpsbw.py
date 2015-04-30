@@ -1589,7 +1589,7 @@ class ManageClpsbw(BrowserView):
         experiencePkByRessource = []
         for pk in query:
             experiencePkByRessource.append(pk.experience_fk)
-        experiencesByRessource = self.getExperienceByPk(experiencePkByRessource, 'publish')
+        experiencesByRessource = self.getListOfExperienceByPk(experiencePkByRessource, 'publish')
         return experiencesByRessource
 
     def getExperienceByPublic(self, publicPk):
