@@ -440,10 +440,10 @@ color:#fff;
 
 section#partenaire{
 background-color:rgba(250,250,250,0.8);
-width:60%;
+width:300px;
 margin:auto;
 border-radius:25px;
-padding:0.8em;
+padding:0.8em 30px;
 }
 
 section#partenaire div#logo-bw{
