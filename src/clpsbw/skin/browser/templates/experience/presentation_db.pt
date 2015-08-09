@@ -35,6 +35,9 @@
         <div id="moteur-presentation-db">
             <a href="chercher-une-experience">Effectuer<br /> une recherche</a>
         </div>
+        <div id="encoder-une-experience">
+            <a href="inscrire-un-auteur-experience">Encoder<br /> une expérience</a>
+        </div>
         <div id="intro-presentation-db">
             <ul>
                 <li>
@@ -138,10 +141,7 @@
             l’écrit ne vous enthousiasme pas, le CLPS peut vous aider...
             <a href="contact/coordonnees-et-acces">contactez-nous</a> !
             </p>
-            <p>
-            Vous avez déjà partagé une expérience et souhaitez la modifier,
-            <a href="login_form">entrez vos login et mot de passe</a>.
-            </p>
+
         </div>
     </div><!--id experience-template-->
 </div><!-- div metal-->
