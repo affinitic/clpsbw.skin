@@ -237,24 +237,39 @@ text-align:center;
 letter-spacing:2px;
 }
 
-#moteur-presentation-db{
+#moteur-presentation-db,
+#encoder-une-experience{
 position:absolute;
-top:148px;
-padding:55px 0px 0px 8px;
+padding:0px 0px 0px 35px;
 font-size:1.6em;
 margin-top:2px;
 margin-left:550px;
-background-image:url(loupe_recherche_db.png);
+}
+
+
+#moteur-presentation-db{
+top:200px;
+background-image:url(icone_loupe.png);
 background-repeat:no-repeat;
 }
 
-#moteur-presentation-db a{
+#encoder-une-experience{
+top:250px;
+background-image:url(icone_crayon.png);
+background-repeat:no-repeat;
+background-position:left center;
+}
+
+
+#moteur-presentation-db a,
+#encoder-une-experience a{
 color:#9a0546 !important;
 text-decoration:none !important;
 border-bottom:none !important;
 }
 
-#moteur-presentation-db a:hover{
+#moteur-presentation-db a:hover,
+#encoder-une-experience a:hover{
 color:#c64069 !important;
 }
 
