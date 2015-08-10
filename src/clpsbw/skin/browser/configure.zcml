@@ -976,6 +976,9 @@ i18n_domain="clpsbw.skin">
 
 <!-- AUTEUR - AUTEUR - AUTEUR - AUTEUR - AUTEUR - AUTEUR - AUTEUR - -->
 <!-- USER AUTEUR -->
+<!--
+    Suppression du form d'inscription d'un auteur
+    Doc plone éditable par les filles du CLPS - aout 2015
 <browser:page
     name="inscrire-un-auteur-experience"
     for="*"
@@ -992,6 +995,7 @@ i18n_domain="clpsbw.skin">
     class=".ManageClpsbw.ManageClpsbw"
     allowed_interface=".interfaces.IManageClpsbw"
     />
+-->
 
 <!-- ADMIN AUTEUR -->
 <browser:page
