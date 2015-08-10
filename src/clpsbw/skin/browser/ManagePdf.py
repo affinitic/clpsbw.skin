@@ -7,7 +7,7 @@ from Products.CMFCore.utils import getToolByName
 from clpsbw.skin.browser.ManageClpsbw import ManageClpsbw
 from clpsbw.skin.browser.interfaces import IManageClpsbw
 
-PDF_COMMAND = "wkhtmltopdf --page-size A4 \
+PDF_COMMAND = "wkhtmltopdf-amd64 --page-size A4 \
                --footer-spacing 5 --footer-line --footer-font-size 8 \
                --footer-left 'CLPS-Bw : Projets partagés' \
                --footer-center '%s' \
