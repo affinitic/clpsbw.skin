@@ -16,7 +16,8 @@
        <legend class="legende">Envoyer une demande d'inscription</legend>
        <p>
        Si vous désirez un soutien à la rédaction ou à l’encodage, si vous avez
-       une question ou besoin d’une précision, n’hésitez pas à nous contacter ou à compléter ce document en ligne avec vos nom, prénom, institution et coordonnées...
+       une question ou besoin d’une précision, n’hésitez pas à nous contacter ou à compléter ce
+       <a class="internal-link" href="resolveuid/b2cdaf127b2545e5b66931379ac125ae" target="_self" title="">document</a> a en ligne avec vos nom, prénom, institution et coordonnées...
         <br />
        Il serait dommage que votre expérience n’apparaisse pas dans  Projets
        Partagés par manque de temps ou parce que le passage à l’écrit ne vous
@@ -31,15 +32,10 @@
        <p>
        Par ailleurs, afin de garantir une certaine cohérence entre les
        présentations de projets et une adéquation avec ces balises, nous avons
-       mis en œuvre une procédure de relecture/modération. Lorsque vous aurez
+       mis en oeuvre une procédure de relecture/modération. Lorsque vous aurez
        encodé votre expérience, elle sera relue par le CLPS-Bw. Les éventuelles
        suggestions de modifications vous seront bien entendu soumises avant la
        mise en ligne.
-       </p>
-       <p>
-       Transmettez-nous ci-dessous vos coordonnées et les login et mot de passe
-       que vous souhaitez utiliser dans la base de données, nous vous
-       recontacterons rapidement.
        </p>
        <hr />
        <!--experience-inscription/demandeInscription-->
