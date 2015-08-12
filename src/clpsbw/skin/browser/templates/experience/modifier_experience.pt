@@ -18,13 +18,21 @@
 <body>
 <div metal:fill-slot="main"
      tal:define="experiencePk request/experiencePk;
-                 experience python:view.getExperienceByPk(experiencePk)">
-<!--     tal:condition="python:user.has_role(['RecitExperience'], here)"> -->
+                 experienceEtat request/experienceEtat;
+                 experience python:view.getExperienceByPk(experiencePk);
+                 experienceMaj python:view.getExperienceForModification(experiencePk, experienceEtat)"
+     tal:condition="python:user.has_role(['RecitExperience'], here)">
+
 <form action="manageExperience"
       method="post">
     <h1>
         Modifier l'expérience<br />
-        <span tal:content="experience/experience_titre" class="rouge-titre" />
+        <span tal:condition="python: experienceEtat!='private'"
+              tal:content="experience/experience_titre"
+              class="rouge-titre" />
+        <span tal:condition="python: experienceEtat=='private'"
+              tal:content="experienceMaj/experience_maj_titre"
+              class="rouge-titre" />
     </h1>
     <div class="formulaire">
         <h2>Informations générales</h2>
@@ -34,17 +42,31 @@
             <br />
             <input type="text"
                    name="experience_titre"
-                   id="experience_titre"
                    value=""
                    size="100"
                    tal:attributes="value experience/experience_titre"
+                   tal:condition="python: experienceEtat!='private'"
+                   class="grasorange" />
+
+            <input type="text"
+                   name="experience_titre"
+                   value=""
+                   size="100"
+                   tal:attributes="value experienceMaj/experience_maj_titre"
+                   tal:condition="python: experienceEtat=='private'"
                    class="grasorange" />
         </div>
         <div class="formInput">
             <label for="experience_resume">Résumé</label>
             Pouvez-vous résumer le projet en quelques lignes ?
             <br />
-            <span tal:replace="structure python: view.getWysiwygField('experience_resume', experience.experience_resume)" />
+            <div tal:condition="python: experienceEtat!='private'">
+                <span tal:replace="structure python: view.getWysiwygField('experience_resume', experience.experience_resume)" />
+            </div>
+
+            <div tal:condition="python: experienceEtat=='private'">
+                <span tal:replace="structure python: view.getWysiwygField('experience_resume', experienceMaj.experience_maj_resume)" />
+            </div>
         </div>
     </div>
 
@@ -55,36 +77,68 @@
         <div class="formInput">
             <label for="experience_personne_contact">Personne de contact</label>
             <input type="text"
-                    name="experience_personne_contact"
-                    id="experience_personne_contact"
-                    value=""
-                    size="100"
-                    tal:attributes="value experience/experience_personne_contact"
-                    class="grasorange" />
+                   name="experience_personne_contact"
+                   value=""
+                   size="100"
+                   tal:attributes="value experience/experience_personne_contact"
+                   tal:condition="python: experienceEtat!='private'"
+                   class="grasorange" />
+
+            <input type="text"
+                   name="experience_personne_contact"
+                   value=""
+                   size="100"
+                   tal:attributes="value experienceMaj/experience_maj_personne_contact"
+                   tal:condition="python: experienceEtat=='private'"
+                   class="grasorange" />
             <label for="experience_personne_contact_email">E-mail</label>
             <input type="text"
-                    name="experience_personne_contact_email"
-                    id="experience_personne_contact_email"
-                    value=""
-                    size="100"
-                    tal:attributes="value experience/experience_personne_contact_email"
-                    class="grasorange"/>
+                   name="experience_personne_contact_email"
+                   value=""
+                   size="100"
+                   tal:attributes="value experience/experience_personne_contact_email"
+                   tal:condition="python: experienceEtat!='private'"
+                   class="grasorange"/>
+
+            <input type="text"
+                   name="experience_personne_contact_email"
+                   value=""
+                   size="100"
+                   tal:attributes="value experienceMaj/experience_maj_personne_contact_email"
+                   tal:condition="python: experienceEtat=='private'"
+                   class="grasorange"/>
             <label for="experience_personne_contact_telephone">Téléphone</label>
             <input type="text"
-                    name="experience_personne_contact_telephone"
-                    id="experience_personne_contact_telephone"
-                    value=""
-                    size="100"
-                    tal:attributes="value experience/experience_personne_contact_telephone"
-                    class="grasorange" />
+                   name="experience_personne_contact_telephone"
+                   value=""
+                   size="100"
+                   tal:attributes="value experience/experience_personne_contact_telephone"
+                   tal:condition="python: experienceEtat!='private'"
+                   class="grasorange" />
+
+            <input type="text"
+                   name="experience_personne_contact_telephone"
+                   value=""
+                   size="100"
+                   tal:attributes="value experienceMaj/experience_maj_personne_contact_telephone"
+                   tal:condition="python: experienceEtat=='private'"
+                   class="grasorange" />
             <label for="experience_personne_contact_institution">Institution</label>
             <input type="text"
-                    name="experience_personne_contact_institution"
-                    id="experience_personne_contact_institution"
-                    value=""
-                    size="100"
-                    tal:attributes="value experience/experience_personne_contact_institution"
-                    class="grasorange" />
+                   name="experience_personne_contact_institution"
+                   value=""
+                   size="100"
+                   tal:attributes="value experience/experience_personne_contact_institution"
+                   tal:condition="python: experienceEtat!='private'"
+                   class="grasorange" />
+
+            <input type="text"
+                   name="experience_personne_contact_institution"
+                   value=""
+                   size="100"
+                   tal:attributes="value experienceMaj/experience_maj_personne_contact_institution"
+                   tal:condition="python: experienceEtat=='private'"
+                   class="grasorange" />
         </div>
     </div>
 
@@ -93,7 +147,12 @@
         Quelle situation – quelles observations sont à l’origine du projet / de l’action ?
         <div class="formInput">
             <label for="experience_titre">Contexte</label>
-            <span tal:replace="structure python: view.getWysiwygField('experience_element_contexte', experience.experience_element_contexte)" />
+            <div tal:condition="python: experienceEtat!='private'">
+                <span tal:replace="structure python: view.getWysiwygField('experience_element_contexte', experience.experience_element_contexte)" />
+            </div>
+            <div tal:condition="python: experienceEtat=='private'">
+                <span tal:replace="structure python: view.getWysiwygField('experience_element_contexte', experienceMaj.experience_maj_element_contexte)" />
+            </div>
         </div>
 
     </div>
@@ -104,7 +163,12 @@
         en place ? Quel(s) changement(s) attendez-vous ?
         <div class="formInput">
             <label for="experience_objectif">Objectifs</label>
-            <span tal:replace="structure python: view.getWysiwygField('experience_objectif', experience.experience_objectif)" />
+            <div tal:condition="python: experienceEtat!='private'">
+                <span tal:replace="structure python: view.getWysiwygField('experience_objectif', experience.experience_objectif)" />
+            </div>
+            <div tal:condition="python: experienceEtat=='private'">
+                <span tal:replace="structure python: view.getWysiwygField('experience_objectif', experienceMaj.experience_maj_objectif)" />
+            </div>
         </div>
     </div>
 
@@ -124,7 +188,7 @@
                                                view.getAllActivePublic(),
                                                nameKey='public_nom',
                                                pkKey='public_pk',
-                                               selectedPks=view.getPublicByExperiencePk(experience.experience_pk))" />
+                                               selectedPks=view.getPublicByExperiencePk(experience.experience_maj_expfk))" />
             </tal:addremove>
             <label for="experience_titre">Un autre type de public</label>
             Si vous le souhaitez, vous
@@ -133,7 +197,7 @@
                       rows="3"
                       cols="70"
                       class="grasorange"
-                      tal:content="experience/experience_public_vise">
+                      tal:content="experience/experience_maj_public_vise">
             </textarea>
             <div class="btn-links-table">
                 <a href="public-creer"
@@ -163,7 +227,7 @@
                                                view.getAllActiveMilieuDeVie(),
                                                nameKey='milieudevie_nom',
                                                pkKey='milieudevie_pk',
-                                               selectedPks=view.getMilieuDeVieByExperiencePk(experience.experience_pk, 'cle'))" />
+                                               selectedPks=view.getMilieuDeVieByExperiencePk(experience.experience_maj_expfk, 'cle'))" />
             </tal:addremove>
         </div>
     </div>
@@ -184,7 +248,7 @@
         </ul>
         <div class="formInput">
             <label for="experience_titre">Démarches et actions</label>
-            <span tal:replace="structure python: view.getWysiwygField('experience_demarche_actions', experience.experience_demarche_actions)" />
+            <span tal:replace="structure python: view.getWysiwygField('experience_demarche_actions', experience.experience_maj_demarche_actions)" />
         </div>
     </div>
 
@@ -197,7 +261,7 @@
                 <input type="checkbox"
                        name="experience_territoire_tout_brabant_wallon"
                        value="True"
-                       tal:attributes="checked python:experience.experience_territoire_tout_brabant_wallon and 'checked' or None;" />
+                       tal:attributes="checked python:experience.experience_maj_territoire_tout_brabant_wallon and 'checked' or None;" />
                 &nbsp;
                        Tout le Brabant wallon<br />
             </label>
@@ -209,7 +273,7 @@
                                                view.getAllCommune((5,)),
                                                nameKey=['com_localite_cp', 'com_localite_nom'],
                                                pkKey='com_pk',
-                                               selectedPks=view.getCommunePkInBwByExperiencePk(experience.experience_pk))" />
+                                               selectedPks=view.getCommunePkInBwByExperiencePk(experience.experience_maj_expfk))" />
             </tal:addremove>
         </div>
         <div class="formInput">
@@ -219,7 +283,7 @@
                                                view.getAllCommune((1,2,3,4,11)),
                                                nameKey=['com_localite_cp', 'com_localite_nom'],
                                                pkKey='com_pk',
-                                               selectedPks=view.getCommunePkOutBwByExperiencePk(experience.experience_pk))" />
+                                               selectedPks=view.getCommunePkOutBwByExperiencePk(experience.experience_maj_expfk))" />
             </tal:addremove>
         </div>
         <div class="formInput">
@@ -227,7 +291,7 @@
             <textarea name="experience_commune_international"
                       rows="5"
                       cols="50"
-                      tal:content="experience/experience_commune_international"
+                      tal:content="experience/experience_maj_commune_international"
                       class="grasorange"></textarea>
         </div>
     </div>
@@ -240,7 +304,7 @@
             <textarea name="experience_periode_deroulement"
                       rows="5"
                       cols="50"
-                      tal:content="experience/experience_periode_deroulement"
+                      tal:content="experience/experience_maj_periode_deroulement"
                       class="grasorange"></textarea>
         </div>
     </div>
@@ -261,7 +325,7 @@
         </ul>
         <div class="formInput">
             <label for="experience_titre">Moyens</label>
-            <span tal:replace="structure python: view.getWysiwygField('experience_moyens', experience.experience_moyens)" />
+            <span tal:replace="structure python: view.getWysiwygField('experience_moyens', experience.experience_maj_moyens)" />
         </div>
     </div>
 
@@ -281,7 +345,7 @@
         Que changeriez vous?<br />
         <div class="formInput">
             <label for="experience_titre">Evaluation et enseignements</label>
-            <span tal:replace="structure python: view.getWysiwygField('experience_evaluation_enseignement', experience.experience_evaluation_enseignement)" />
+            <span tal:replace="structure python: view.getWysiwygField('experience_evaluation_enseignement', experience.experience_maj_evaluation_enseignement)" />
         </div>
     </div>
 
@@ -291,7 +355,7 @@
          Une reconduction ? Une réorientation... ?
          <div class="formInput">
              <label for="experience_titre">Perspectives envisagées</label>
-             <span tal:replace="structure python: view.getWysiwygField('experience_perspective_envisagee', experience.experience_perspective_envisagee)" />
+             <span tal:replace="structure python: view.getWysiwygField('experience_perspective_envisagee', experience.experience_maj_perspective_envisagee)" />
          </div>
     </div>
 
@@ -310,7 +374,7 @@
                                                view.getAllInstitutionByClpsProprio(1),
                                                nameKey='institution_nom',
                                                pkKey='institution_pk',
-                                               selectedPks=view.getInstitutionPorteurByExperiencePk(experience.experience_pk))" />
+                                               selectedPks=view.getInstitutionPorteurByExperiencePk(experience.experience_maj_expfk))" />
             </tal:addremove>
         </div>
         <div class="formInput">
@@ -323,7 +387,7 @@
             <textarea name="experience_institution_porteur_autre"
                       cols="70"
                       rows="8"
-                      tal:content="experience/experience_institution_porteur_autre"
+                      tal:content="experience/experience_maj_institution_porteur_autre"
                       class="grasorange"></textarea>
             <div class="btn-links-table">
                 <a href="creer-une-institution"
@@ -349,7 +413,7 @@
                                                view.getAllInstitutionByClpsProprio(1),
                                                nameKey='institution_nom',
                                                pkKey='institution_pk',
-                                               selectedPks=view.getInstitutionPartenaireByExperiencePk(experience.experience_pk))" />
+                                               selectedPks=view.getInstitutionPartenaireByExperiencePk(experience.experience_maj_expfk))" />
             </tal:addremove>
         </div>
         <div class="formInput">
@@ -364,7 +428,7 @@
             <textarea name="experience_institution_partenaire_autre"
                       cols="70"
                       rows="8"
-                      tal:content="experience/experience_institution_partenaire_autre"
+                      tal:content="experience/experience_maj_institution_partenaire_autre"
                       class="grasorange"></textarea>
             <div class="btn-links-table">
                 <a href="creer-une-institution"
@@ -387,7 +451,7 @@
                                                view.getAllInstitutionByClpsProprio(1),
                                                nameKey='institution_nom',
                                                pkKey='institution_pk',
-                                               selectedPks=view.getInstitutionRessourceByExperiencePk(experience.experience_pk))" />
+                                               selectedPks=view.getInstitutionRessourceByExperiencePk(experience.experience_maj_expfk))" />
             </tal:addremove>
         </div>
         <div class="formInput">
@@ -400,7 +464,7 @@
             <textarea name="experience_institution_ressource_autre"
                       cols="70"
                       rows="8"
-                      tal:content="experience/experience_institution_ressource_autre"
+                      tal:content="experience/experience_maj_institution_ressource_autre"
                       class="grasorange"></textarea>
             <div class="btn-links-table">
                 <a href="creer-une-institution"
@@ -417,7 +481,7 @@
                                                view.getAllActiveRessource(),
                                                nameKey='ressource_titre',
                                                pkKey='ressource_pk',
-                                               selectedPks=view.getRessourceTitreByExperiencePk(experience.experience_pk))" />
+                                               selectedPks=view.getRessourceTitreByExperiencePk(experience.experience_maj_expfk))" />
             </tal:addremove>
         </div>
         <div class="formInput">
@@ -426,7 +490,7 @@
             <textarea name="experience_institution_outil_autre"
                       cols="70"
                       rows="8"
-                      tal:content="experience/experience_institution_outil_autre"
+                      tal:content="experience/experience_maj_institution_outil_autre"
                       class="grasorange"></textarea>
             <div class="btn-links-table">
                 <a href="ressource-creer"
@@ -438,7 +502,7 @@
         <div class="formInput">
             <label for="experience_titre">Formations</label>
             Y a-t-il des formations qui vous ont aidé ?
-            <span tal:replace="structure python: view.getWysiwygField('experience_formation_suivie', experience.experience_formation_suivie)" />
+            <span tal:replace="structure python: view.getWysiwygField('experience_formation_suivie', experience.experience_maj_formation_suivie)" />
         </div>
     </div>
 
@@ -448,7 +512,32 @@
         vous lui conseilleriez de contacter qui ? de commencer
         par où ?
         <label for="experience_titre">Pour aller plus loin</label>
-        <span tal:replace="structure python: view.getWysiwygField('experience_aller_plus_loin', experience.experience_aller_plus_loin)" />
+        <span tal:replace="structure python: view.getWysiwygField('experience_aller_plus_loin', experience.experience_maj_aller_plus_loin)" />
+    </div>
+
+    <div class="formulaire">
+        <h2>Niveau visibilité</h2>
+        Veuillez sélectionner l'état de publication de votre expérience.
+        Deux possibilités :
+            <ul>
+                <li>
+                    <strong>Brouillon</strong>
+                    : vous n'avez pas terminé d'encoder votre expérience et vous souhaitez pouvoir encore y travailler.
+                </li>
+                <li>
+                    <strong>En demande de validation par le CLPS</strong>
+                    : vous avez terminé d'encoder votre expérience et vous souhaitez que l'équipe du CLPS la relise et la publie.
+                </li>
+            </ul>
+        <label for="experience_titre">Niveau de visibilité</label>
+        <select name="experience_etat">
+            <option value="private"
+                    selected="selected"
+                    tal:attributes="selected python:experience.experience_maj_etat=='private' and 'selected' or None;">Brouillon : je peux continuer plus tard à modifier mon expérience</option>
+            <option value="pending-by-clps"
+                    selected=""
+                    tal:attributes="selected python:experience.experience_maj_etat=='pending-by-clps' and 'selected' or None;">En demande de validation par le CLPS : j'ai terminé d'encoder mon expérience</option>
+        </select>
     </div>
 
     <div class="formControls">
@@ -459,15 +548,15 @@
         <input type="hidden"
                name="experience_auteur_login"
                value=""
-               tal:attributes="value experience/experience_auteur_login" />
+               tal:attributes="value experience/experience_maj_auteur_login" />
         <input type="hidden"
                name="experience_creation_employe"
                value=""
-               tal:attributes="value experience/experience_creation_employe" />
+               tal:attributes="value experience/experience_maj_creation_employe" />
         <input type="hidden"
                name="experience_auteur_fk"
                value=""
-               tal:attributes="value experience/auteurFromExperience/auteur_pk" />
+               tal:attributes="value experience/experience_maj_auteur_fk" />
         <input type="hidden"
                name="experience_clps_proprio_fk"
                value="1" />
@@ -475,12 +564,9 @@
                name="operation"
                value="updateByAuteur" />
         <input type="hidden"
-               name="experience_etat"
-               value="pending-by-auteur" />
-        <input type="hidden"
                name="experience_pk"
                value=""
-               tal:attributes="value experience/experience_pk" />
+               tal:attributes="value experience/experience_maj_expfk" />
         <input type="submit"
                value="Modifier les données" />
     </div>

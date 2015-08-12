@@ -1273,6 +1273,7 @@ class ManageClpsbw(BrowserView):
         """
         fields = self.request.form
         experienceTitre = fields.get('titreExperience')
+
         if not experiencePk:
             experiencePk = fields.get('experience_pk')
 
@@ -4706,6 +4707,10 @@ class ManageClpsbw(BrowserView):
         if not experience_auteur_login:
             experience_auteur_login = self.getAuteurLogin(experience_auteur_fk)
 
+        #suppresion dans la table experience_maj (versionning) si l'état n'est plus private > brouillon
+        if experience_etat != 'private':
+            self.deleteExperienceMaj(experience_pk)
+
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
         query = session.query(Experience)
@@ -4750,7 +4755,6 @@ class ManageClpsbw(BrowserView):
         experience.experience_modification_employe = experience_modification_employe
         experience.experience_modification_date = experience_modification_date
         session.flush()
-        return ''
 
     def updateEtatExperience(self, experiencePk, experienceEtat):
         """
@@ -4808,7 +4812,8 @@ class ManageClpsbw(BrowserView):
         experience_modification_employe = self.getUserAuthenticated()
         experience_auteur_fk = getattr(fields, 'experience_auteur_fk', None)
         experience_auteur_login = getattr(fields, 'experience_auteur_login', None)
-        experience_clps_proprio_fk = getattr(fields, 'experience_clps_proprio_fk', None)
+        experience_clps_proprio_fk = getattr(fields, 'experience_clps_proprio_fk', None),
+        experience_etat = getattr(fields, 'experience_etat', None)
 
 
         #cas de modification de l'auteur via ligth search
@@ -4817,7 +4822,6 @@ class ManageClpsbw(BrowserView):
             experience_auteur_fk = self.getAuteurPkByName(experience_auteur)
 
         experience_modification_employe = self.getAuteurLogin(experience_auteur)
-        experience_etat = 'pending-by-auteur'
         experienceMaj = True
 
         wrapper = getSAWrapper('clpsbw')
@@ -5387,9 +5391,6 @@ class ManageClpsbw(BrowserView):
             if experienceClpsProprioFk > 0:
                 self.addLinkExperienceClpsProprio(experienceFk)
 
-            #suppresion dans la table experience_maj (versionning)XXXXXXXXXXXXXXXXXXXXXXXXXXX
-            self.deleteExperienceMaj(experienceFk)
-
             self.sendMailForUpdateExperience()
 
             portalUrl = getToolByName(self.context, 'portal_url')()
@@ -5405,6 +5406,7 @@ class ManageClpsbw(BrowserView):
 
         if operation == "updateByAuteur":
             experienceFk = getattr(fields, 'experience_pk')
+            self.deleteExperienceMaj(experienceFk)
             self.updateExperienceByAuteur()
 
             self.deleteLinkExperienceCommune(experienceFk)
