@@ -320,11 +320,31 @@
         <span tal:replace="structure python: view.getWysiwygField('experience_aller_plus_loin', '')" />
     </div>
 
+    <div class="formulaire">
+        <h2>Niveau visibilité</h2>
+        Veuillez sélectionner l'état de publication de votre expérience.
+        Deux possibilités :
+            <ul>
+                <li>
+                    <strong>Brouillon</strong>
+                    : vous n'avez pas terminé d'encoder votre expérience et vous souhaitez pouvoir encore y travailler.
+                </li>
+                <li>
+                    <strong>En demande de validation</strong>
+                    : vous avez terminé d'encoder votre expérience et vous souhaitez que l'équipe du CLPS la relise et la publie.
+                </li>
+            </ul>
+        <label for="experience_titre">Niveau de visibilité</label>
+        <select name="experience_etat">
+            <option value="private-by-auteur"
+                    selected="selected">Brouillon : je peux continuer plus tard à modifier mon expérience</option>
+            <option value="pending-by-auteur"
+                    selected="">En demande de validation : j'ai terminé d'encoder mon expérience</option>
+        </select>
+    </div>
+
 
     <div class="formControls">
-        <input type="hidden"
-               name="experience_etat"
-               value="pending-by-auteur" />
         <input type="hidden"
                name="experience_clps_proprio_fk"
                value="1" />

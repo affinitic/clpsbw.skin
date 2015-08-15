@@ -15,7 +15,11 @@
 
     <div tal:define="experiences python:view.getExperienceByAuteurLogin();">
         <tal:boucle tal:repeat="experience experiences">
-            <tal:block tal:define="experiencePk experience/experience_pk">
+            <tal:block tal:define="experiencePk experience/experience_pk;
+                                   experienceEtat experience/experience_etat;
+                                   experienceEtatFrancais python:view.getExperienceEtat(experiencePk);
+                                   allPublics python: view.getAllActivePublic();
+                                   publicForExperience python: view.getPublicByExperiencePk(experiencePk)">
                 <article class="listing-experience">
                     <header class="listing-titre-experience">
                         <a href=""
@@ -26,7 +30,6 @@
                     <hr class="ligne-listing-experience" />
                     <div class="listing-texte-experience">
                         <div class="experience-etat"
-                             tal:define="experienceEtat python:view.getExperienceEtat(experiencePk)"
                              tal:condition="python:user.has_role(['Manager'], here)">
                              <span tal:content="experienceEtat" />
                              &Xi;
@@ -44,9 +47,7 @@
                                <span class="grasbrun">Public visé:</span>
                                <span tal:replace="structure experience/experience_public_vise"
                                      class="rep-qest" />
-                               <div class="discreet"
-                                     tal:define="allPublics python: view.getAllActivePublic();
-                                                 publicForExperience python: view.getPublicByExperiencePk(experience.experience_pk)">
+                               <div class="discreet">
                                     <span tal:condition="python:len(publicForExperience) > 0">
                                         &nbsp;&nbsp;&nbsp;(
                                         <tal:boucle tal:repeat="public allPublics">
@@ -82,16 +83,15 @@
                                     <span tal:content="python: experience.experience_modification_date.strftime('%d/%m/%Y %H:%M')"
                                           class="gras" />
 
-                                    <div class="experience-etat"
-                                         tal:define="experienceEtat python:view.getExperienceEtat(experiencePk)">
-                                         <span tal:content="experienceEtat" />
+                                    <div class="experience-etat">
+                                         <span tal:content="experienceEtatFrancais" />
                                     </div>
                                 </td>
                                 <td align="right">
                                     <div class="btn-modifier"
-                                         tal:condition="python: experience.experience_etat=='private' or experience.experience_etat=='publish'">
+                                         tal:condition="python: experience.experience_etat=='private-by-auteur' or experience.experience_etat=='publish'">
                                         <a href=""
-                                           tal:attributes="href string: modifier-une-experience?experiencePk=${experiencePk}">&nbsp;</a>
+                                           tal:attributes="href string: modifier-une-experience?experiencePk=${experiencePk}&experienceEtat=${experienceEtat}">&nbsp;</a>
                                     </div>
                                     <!--lien vers modif -->
                                 </td>
