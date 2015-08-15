@@ -13,6 +13,7 @@
 <div metal:fill-slot="main"
      tal:define="experiencePk request/experiencePk | nothing;
                  experiences python:view.getActiveExperience(experiencePk);
+                 experienceEtat python:view.getExperienceEtat(experiencePk);
                  allClps python:view.getAllClps();
                  selectedClpsProprio python:view.getClpsProprioForExperience(experiencePk, 'pk')"
      tal:condition="python:user.has_role(['Manager'], here)">
@@ -30,7 +31,7 @@
                              alt="titre_logo_presentation_db.png" />
                     </div>
                     <div class="btn-modifier-description"
-                             tal:condition="python:user.has_role(['Manager'], here)">
+                             tal:condition="python:user.has_role(['Manager'], here) and experience.experience_etat!='private-by-auteur'">
                             <a href=""
                                tal:attributes="href string: admin-modifier-une-experience?experiencePk=${experiencePk}">&nbsp;</a>
                     </div>

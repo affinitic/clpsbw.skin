@@ -444,6 +444,7 @@
             <h2>Propriétaire</h2>
             <p>Sélectionner le CLPS qui a encodé le récit.
             Important pour les recherches et les classements.</p>
+            <label for="experience_titre">CLPS éditeur de l'expérience</label>
             <div tal:define="allClps python: view.getAllClps()">
                 <tal:block tal:repeat="clps allClps">
                       <span tal:condition="python: clps.clps_pk==1">
@@ -470,11 +471,28 @@
 
         <div class="formulaire">
             <h2> Niveau visibilité</h2>
+            <p>Veuillez sélectionner l'état de publication de votre expérience.<br />
+            Trois possibilités :</p>
+            <ul>
+                <li>
+                    <strong>Brouillon CLPS</strong>
+                    : vous n'avez pas encore terminé d'encoder - relire- modifier cette expérience et vous ne souhaitez que l'auteur puisse la modifier.
+                </li>
+                <li>
+                    <strong>Brouillon auteur</strong>
+                    : vous souhaitez que l'auteur puisse à nouveau modifier ou relire son expérience.
+                </li>
+                <li>
+                    <strong>Publié</strong>
+                    : tout est en ordre, l'expérience peut-être publiée, c'est-à-dire visible par l'infini et l'au-delà.
+                </li>
+            </ul>
+            <br />
+            <label for="experience_titre">Niveau de visibilité</label>
             <select name="experience_etat"
                     id="auteur_actif">
-                <option value="private" selected="selected">Privé</option>
-                <option value="pending-by-clps">En attente de validation par le CLPS</option>
-                <option value="pending-by-auteur">En demande de validation par l'auteur</option>
+                <option value="private-by-clps" selected="selected">Brouillon CLPS</option>
+                <option value="private-by-auteur">Brouillon auteur</option>
                 <option value="Publish">Publié</option>
             </select>
         </div>

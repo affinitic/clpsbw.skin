@@ -8,11 +8,6 @@
         <script src="++resource++validate_forms.js" type="text/javascript"></script>
         <script src="++resource++clpsbw.js" type="text/javascript"></script>
     </metal:js>
-    <metal:css fill-slot="style_slot">
-        <link href="++resource++collective.javascript.jqueryui/css/ui-lightness/jquery-ui.css"
-              type="text/css"
-              rel="stylesheet" />
-    </metal:css>
     <metal:noborder fill-slot="top_slot"
                     tal:define="dummy python:request.set('disable_border',1)" />
 </head>
@@ -21,6 +16,7 @@
 <div metal:fill-slot="main"
      tal:define="experiencePk request/experiencePk;
                  experience python:view.getExperienceByPk(experiencePk);
+                 experienceEtat python:view.getExperienceEtat(experiencePk);
                  allClps python:view.getAllClps();
                  selectedClpsProprio python:view.getClpsProprioForExperience(experiencePk, 'pk')"
      tal:condition="python:user.has_role(['Manager'], here)">
@@ -605,6 +601,7 @@
         <div class="formulaire">
             <h2>Propriétaire</h2>
             <div class="formInput">
+                <label for="experience_titre">CLPS éditeur de l'expérience</label>
                 <tal:boucle tal:repeat="clps allClps">
                         <input type="checkbox"
                                name="experience_clps_proprio_fk:list"
@@ -621,13 +618,31 @@
 
         <div class="formulaire">
             <h2>Niveau visibilité</h2>
+            Veuillez sélectionner l'état de publication de votre expérience.
+            Trois possibilités :
+            <ul>
+                <li>
+                    <strong>Brouillon auteur</strong>
+                    : vous souhaitez que l'auteur puisse à nouveau modifier ou relire son expérience.
+                </li>
+                <li>
+                    <strong>Brouillon CLPS</strong>
+                    : vous n'avez pas encore terminé d'encoder - relire- modifier cette expérience et vous ne souhaitez que l'auteur puisse la modifier.
+                </li>
+                <li>
+                    <strong>Publié</strong>
+                    : tout est en ordre, l'expérience peut-être publiée, c'est-à-dire visible par l'infini et l'au-delà.
+                </li>
+            </ul>
+            <br />
+            <label for="experience_titre">Niveau de visibilité</label>
             <select name="experience_etat">
-                <option value="private"
+                <option value="private-by-auteur"
                         selected=""
-                        tal:attributes="selected python:experience.experience_etat=='private' and 'selected' or None;">Brouillon</option>
-                <option value="pending-by-clps"
+                        tal:attributes="selected python:experience.experience_etat=='private-by-auteur' and 'selected' or None;">Brouillon auteur</option>
+                <option value="private-by-clps"
                         selected=""
-                        tal:attributes="selected python:experience.experience_etat=='pending-by-clps' and 'selected' or None;">En attente de validation par le CLPS</option>
+                        tal:attributes="selected python:experience.experience_etat=='private-by-clps' and 'selected' or None;">Brouillon CLPS</option>
                 <option value="publish"
                         selected=""
                         tal:attributes="selected python:experience.experience_etat=='publish' and 'selected' or None;">Publié</option>

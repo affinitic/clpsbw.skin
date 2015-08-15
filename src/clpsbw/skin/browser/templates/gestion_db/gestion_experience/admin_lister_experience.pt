@@ -11,7 +11,7 @@
 <body>
 <div metal:fill-slot="main"
      tal:condition="python:user.has_role(['Manager'], here)">
-    
+
     <h1>Liste des experiences</h1>
 
     <div tal:define="experiences python:view.getAllExperience();">
@@ -55,14 +55,14 @@
                                     </span>
                                 </div>
                             </div>
-                            
+
                             <hr class="ligne-top-menu-gestion-donnee" />
 
                             <div id="footer-listing">
                                <table width="100%">
                                     <tr>
                                         <td align="left" class="discreet" valign="bottom">
-                                            par 
+                                            par
                                             <span tal:content="experience/auteurFromExperience/auteur_prenom | nothing"
                                                   class="gras" />
                                             <span tal:content="experience/auteurFromExperience/auteur_nom | nothing"
