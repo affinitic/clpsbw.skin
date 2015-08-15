@@ -1318,12 +1318,12 @@ class ManageClpsbw(BrowserView):
         traduction de l'état d'une experience
         """
         experienceEtat = ''
-        if etat == "private":
-            experienceEtat = "Brouillon"
+        if etat == "private-by-auteur":
+            experienceEtat = "Brouillon auteur"
+        if etat == "private-by-clps":
+            experienceEtat = "Brouillon clps"
         if etat == "pending-by-auteur":
             experienceEtat = "En demande de validation par l'auteur"
-        if etat == "pending-by-clps":
-            experienceEtat = "En cours de validation par le CLPS"
         if etat == "publish":
             experienceEtat = "Publié"
         return experienceEtat
@@ -1464,11 +1464,18 @@ class ManageClpsbw(BrowserView):
         experience = [exp.experience_titre for exp in query.all()]
         return experience
 
+    def getExperienceForModification(self, experiencePk, experienceEtat):
+        if experienceEtat == 'private-by-auteur':
+            experienceForModification = self.getExperienceMajByPk(experiencePk)
+        else:
+            experienceForModification = self.getExperienceByPk(experiencePk)
+        return experienceForModification
+
     def getCountExperienceByEtat(self, experienceEtat, clpsPk):
         """
         table pg experience
         recuperation du nombre d'experience selon experience_etat
-        private pending-by-clps pending-by-auteur publish
+        private-by-auteur private-by-clps pending-by-auteur publish
         par clps equipe
         """
         experienceByClps = self.getExperienceByClpsByEtat(clpsPk, experienceEtat)
@@ -3598,10 +3605,13 @@ class ManageClpsbw(BrowserView):
     def insertExperience(self):
         """
         table pg  experience
-        ajout d'une experience par Auteur > experience_etat == pending-by-auteur
+        ajout d'une experience par Auteur
+              > experience_etat == private-by-auteur (si pas fini-)
+              > experience_etat == pending-by-auteur (si fini et veut validation clps)
         ou
-        ajout d'une experience par equipse Clps > experience_etat == au choix de l'equipe
-           privé - pending-by-clps - pending-by-auteur - publish
+        ajout d'une experience par equipse Clps >
+              > experience_etat == au choix de l'equipe
+                private-by-clps - private-by-auteur - publish
         """
         fields = self.context.REQUEST
         experience_titre = getattr(fields, 'experience_titre', None)
@@ -4707,9 +4717,14 @@ class ManageClpsbw(BrowserView):
         if not experience_auteur_login:
             experience_auteur_login = self.getAuteurLogin(experience_auteur_fk)
 
-        #suppresion dans la table experience_maj (versionning) si l'état n'est plus private > brouillon
-        if experience_etat != 'private':
+        #suppresion dans la table experience_maj (versionning) si l'état n'est plus
+        #private-by-auteur ou private-by-clps > brouillon
+        if experience_etat == 'publish':
             self.deleteExperienceMaj(experience_pk)
+
+        if experience_etat == 'private-by-auteur':
+            self.deleteExperienceMaj(experience_pk)
+            self.updateExperienceByAuteur()
 
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
@@ -4770,14 +4785,16 @@ class ManageClpsbw(BrowserView):
         session.flush()
 
 
-    def updateExperienceByAuteur(self):
+    def updateExperienceByAuteur(self, experiencePk=None):
         """
         table pg experience_maj
         insertion des modification d'une experience par son auteur
         dans table experience_maj pour versionning
         """
         fields = self.context.REQUEST
-        experiencePk = getattr(fields, 'experience_pk')
+        if not experiencePk:
+            experiencePk = getattr(fields, 'experience_pk')
+
         experience_titre = getattr(fields, 'experience_titre', None)
         experience_resume = getattr(fields, 'field.experience_resume', None)
         experience_personne_contact = getattr(fields, 'experience_personne_contact', None)
@@ -4812,10 +4829,10 @@ class ManageClpsbw(BrowserView):
         experience_modification_employe = self.getUserAuthenticated()
         experience_auteur_fk = getattr(fields, 'experience_auteur_fk', None)
         experience_auteur_login = getattr(fields, 'experience_auteur_login', None)
-        experience_clps_proprio_fk = getattr(fields, 'experience_clps_proprio_fk', None),
+        #experience_clps_proprio_fk = getattr(fields, 'experience_clps_proprio_fk', None),
         experience_etat = getattr(fields, 'experience_etat', None)
 
-
+        experience_clps_proprio_fk=1
         #cas de modification de l'auteur via ligth search
         experience_auteur = getattr(fields, 'experience_auteur_fk', None)
         if not experience_auteur:
@@ -5334,6 +5351,7 @@ class ManageClpsbw(BrowserView):
             if experienceClpsProprioFk:                             #gestion du clps proprio
                 self.addLinkExperienceClpsProprio(experienceFk)
 
+            self.updateExperienceByAuteur(experienceFk)
             self.sendMailForInsertExperience(experiencePk = experienceFk)
 
             portalUrl = getToolByName(self.context, 'portal_url')()
