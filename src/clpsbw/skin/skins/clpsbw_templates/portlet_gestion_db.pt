@@ -42,22 +42,22 @@
                     <br />
                     <span class="gras">Etat :</span>
                 </dd>
-                <dd tal:define="nbrExp python:experiences.getCountExperienceByEtat('private', 1)"
+                <dd tal:define="nbrExp python:experiences.getCountExperienceByEtat('private-by-auteur', 1)"
                     class="portletItemDB">
-                    <a href="admin-lister-les-experiences-par-etat?etat=private">
-                        &bull; brouillon : <span tal:content="nbrExp">nbr</span>
+                    <a href="admin-lister-les-experiences-par-etat?etat=private-by-auteur">
+                        &bull; brouillon auteur : <span tal:content="nbrExp">nbr</span>
+                    </a>
+                </dd>
+                <dd tal:define="nbrExp python:experiences.getCountExperienceByEtat('private-by-clps', 1)"
+                    class="portletItemDB">
+                    <a href="admin-lister-les-experiences-par-etat?etat=private-by-clps">
+                        &bull; brouillon clps : <span tal:content="nbrExp">nbr</span>
                     </a>
                 </dd>
                 <dd tal:define="nbrExp python:experiences.getCountExperienceByEtat('pending-by-auteur', 1)"
                     class="portletItemDB">
                     <a href="admin-lister-les-experiences-par-etat?etat=pending-by-auteur">
                         &bull; en demande de validation par l'auteur : <span tal:content="nbrExp">nbr</span>
-                    </a>
-                </dd>
-                <dd tal:define="nbrExp python:experiences.getCountExperienceByEtat('pending-by-clps', 1)"
-                    class="portletItemDB">
-                    <a href="admin-lister-les-experiences-par-etat?etat=pending-by-clps">
-                        &bull; en attente par le CLPS : <span tal:content="nbrExp">nbr</span>
                     </a>
                 </dd>
                 <dd tal:define="nbrExp python:experiences.getCountExperienceByEtat('publish', 1)"
