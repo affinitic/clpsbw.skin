@@ -13,15 +13,14 @@
 <div metal:fill-slot="main"
      tal:define="experiencePk request/experiencePk | nothing;
                  experiences python:view.getActiveExperience(experiencePk);
-                 experienceEtat python:view.getExperienceEtat(experiencePk);
                  allClps python:view.getAllClps();
                  selectedClpsProprio python:view.getClpsProprioForExperience(experiencePk, 'pk')"
      tal:condition="python:user.has_role(['Manager'], here)">
     <div id="experience-template">
         <tal:boucle tal:repeat="experience experiences">
             <tal:block tal:define="experiencePk experience/experience_pk;
-                                   etat experience/experience_etat;
-                                   etatFr python: view.getTranslationExperienceEtat(etat)">
+                                   experienceEtat python:view.getExperienceEtat(experiencePk);
+                                   etatFr python: view.getTranslationExperienceEtat(experienceEtat)">
                 <div id="header-description">
                     <div id="logo-projet-paratge">
                         <img src="projet_partage_logo_texte.png"
