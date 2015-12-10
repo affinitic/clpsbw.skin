@@ -8,12 +8,6 @@
         <script src="++resource++validate_forms.js" type="text/javascript"></script>
         <script src="++resource++clpsbw.js" type="text/javascript"></script>
     </metal:js>
-    <metal:css fill-slot="style_slot">
-        <link href="++resource++collective.javascript.jqueryui/css/ui-lightness/jquery-ui.css"
-              type="text/css"
-              rel="stylesheet" />
-    </metal:css>
-
     <metal:noborder fill-slot="top_slot"
                     tal:define="dummy python:request.set('disable_border',1)" />
 </head>
