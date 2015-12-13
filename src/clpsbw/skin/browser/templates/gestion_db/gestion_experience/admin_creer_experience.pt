@@ -19,7 +19,7 @@
      tal:condition="python:user.has_role(['Manager'], here)">
 <form action="manageExperience"
       method="post">
-    <h1>Encoder une expérience</h1>
+    <h1>Encoder une expérience CLPS</h1>
     <div class="formulaire">
         <h2>Informations générales</h2>
         <div class="formInput">
