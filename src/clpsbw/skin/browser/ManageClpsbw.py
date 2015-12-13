@@ -307,8 +307,8 @@ class ManageClpsbw(BrowserView):
         mailer.setRecipients("alain.meurant@affinitic.be, houtain@clps-bw.be, lizin@clps-bw.be")
         #mailer.setRecipients("alain.meurant@affinitic.be")
         mail = message
-        #print mail
-        mailer.sendAllMail(mail)
+        print mail
+        #mailer.sendAllMail(mail)
 
     def sendMailWhenLoginByAuteur(self, sujet, message):
         """
@@ -320,8 +320,8 @@ class ManageClpsbw(BrowserView):
         mailer.setRecipients("alain.meurant@affinitic.be, houtain@clps-bw.be, lizin@clps-bw.be")
         #mailer.setRecipients("alain.meurant@affinitic.be")
         mail = message
-        #print mail
-        mailer.sendAllMail(mail)
+        print mail
+        #mailer.sendAllMail(mail)
 
     def sendMailForNewAuteurExperience(self):
         """
@@ -786,16 +786,16 @@ class ManageClpsbw(BrowserView):
         session = wrapper.session
         query = session.query(Auteur)
         query = query.filter(Auteur.auteur_login == userLogin)
-        query = query.order_by(Auteur.auteur_nom)
         auteur = query.one()
-        return auteur
+        auteurPk = auteur.auteur_pk
+        return auteurPk
 
-    def getAuteurPkByName(self, institutionAuteur):
+    def getAuteurPkByName(self, auteur):
         """
         table pg auteur
-        recuperation d'un auteur selon son login
+        recuperation d'un auteur selon son nom
         """
-        auteur = institutionAuteur.split()
+        auteur = auteur.split()
         auteurNom = auteur[0]
         auteurPrenom = auteur[1]
         wrapper = getSAWrapper('clpsbw')
@@ -3345,8 +3345,7 @@ class ManageClpsbw(BrowserView):
         if institution_auteur:
             institution_auteur_fk = self.getAuteurPkByName(institution_auteur)
         else:
-            auteur = self.getAuteurByLogin()
-            institution_auteur_fk = auteur.auteur_pk
+            institution_auteur_fk = self.getAuteurByLogin()
 
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
@@ -3650,57 +3649,56 @@ class ManageClpsbw(BrowserView):
         experience_etat = getattr(fields, 'experience_etat', None)
         experience_creation_date = self.getTimeStamp()
         experience_creation_employe = self.getUserAuthenticated()
-        #experience_auteur = getattr(fields, 'experienceAuteur', None)
+        experience_auteur = getattr(fields, 'experienceAuteur', None)
         experience_auteur_fk = getattr(fields, 'experience_auteur_fk', None)
         experience_auteur_login = getattr(fields, 'experience_auteur_login', None)
         experience_clps_proprio_fk = getattr(fields, 'experienceClpsProprio', None)
 
         if not experience_auteur_fk:   # cas ou c'est un auteur exterieur qui se loggue
-            auteur = self.getAuteurByLogin()
-            experience_auteur_fk = auteur.auteur_pk
-        #else:
-        #    experience_auteur_fk = self.getAuteurPkByName(experience_auteur)
+            experience_auteur_fk = self.getAuteurByLogin()
+        else:
+            experience_auteur_fk = self.getAuteurPkByName(experience_auteur)
 
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
         newEntry = Experience(experience_titre = experience_titre, \
-                                    experience_resume = experience_resume, \
-                                    experience_personne_contact = experience_personne_contact, \
-                                    experience_personne_contact_email = experience_personne_contact_email, \
-                                    experience_personne_contact_telephone = experience_personne_contact_telephone, \
-                                    experience_personne_contact_institution = experience_personne_contact_institution, \
-                                    experience_element_contexte = experience_element_contexte, \
-                                    experience_objectif = experience_objectif, \
-                                    experience_public_vise = experience_public_vise, \
-                                    experience_demarche_actions = experience_demarche_actions, \
-                                    experience_commune_international = experience_commune_international, \
-                                    experience_territoire_tout_brabant_wallon = experience_territoire_tout_brabant_wallon, \
-                                    experience_periode_deroulement = experience_periode_deroulement, \
-                                    experience_moyens = experience_moyens, \
-                                    experience_evaluation_enseignement = experience_evaluation_enseignement, \
-                                    experience_perspective_envisagee = experience_perspective_envisagee, \
-                                    experience_institution_porteur_autre = experience_institution_porteur_autre, \
-                                    experience_institution_partenaire_autre = experience_institution_partenaire_autre, \
-                                    experience_institution_ressource_autre = experience_institution_ressource_autre, \
-                                    experience_institution_outil_autre = experience_institution_outil_autre, \
-                                    experience_formation_suivie = experience_formation_suivie, \
-                                    experience_aller_plus_loin = experience_aller_plus_loin, \
-                                    experience_plate_forme_sante_ecole = experience_plate_forme_sante_ecole, \
-                                    experience_plate_forme_assuetude = experience_plate_forme_assuetude, \
-                                    experience_plate_forme_sante_famille = experience_plate_forme_sante_famille, \
-                                    experience_plate_forme_sante_environnement = experience_plate_forme_sante_environnement, \
-                                    experience_plate_forme_sante_commune = experience_plate_forme_sante_commune, \
-                                    experience_plate_forme_vie_affective_sexuelle = experience_plate_forme_vie_affective_sexuelle, \
-                                    experience_mission_centre_documentation = experience_mission_centre_documentation, \
-                                    experience_mission_accompagnement_projet = experience_mission_accompagnement_projet, \
-                                    experience_mission_reseau_echange = experience_mission_reseau_echange, \
-                                    experience_mission_formation = experience_mission_formation, \
-                                    experience_auteur_login = experience_auteur_login, \
-                                    experience_clps_proprio_fk = experience_clps_proprio_fk, \
-                                    experience_auteur_fk = experience_auteur_fk, \
-                                    experience_etat = experience_etat, \
-                                    experience_creation_date = experience_creation_date, \
-                                    experience_creation_employe = experience_creation_employe)
+                              experience_resume = experience_resume, \
+                              experience_personne_contact = experience_personne_contact, \
+                              experience_personne_contact_email = experience_personne_contact_email, \
+                              experience_personne_contact_telephone = experience_personne_contact_telephone, \
+                              experience_personne_contact_institution = experience_personne_contact_institution, \
+                              experience_element_contexte = experience_element_contexte, \
+                              experience_objectif = experience_objectif, \
+                              experience_public_vise = experience_public_vise, \
+                              experience_demarche_actions = experience_demarche_actions, \
+                              experience_commune_international = experience_commune_international, \
+                              experience_territoire_tout_brabant_wallon = experience_territoire_tout_brabant_wallon, \
+                              experience_periode_deroulement = experience_periode_deroulement, \
+                              experience_moyens = experience_moyens, \
+                              experience_evaluation_enseignement = experience_evaluation_enseignement, \
+                              experience_perspective_envisagee = experience_perspective_envisagee, \
+                              experience_institution_porteur_autre = experience_institution_porteur_autre, \
+                              experience_institution_partenaire_autre = experience_institution_partenaire_autre, \
+                              experience_institution_ressource_autre = experience_institution_ressource_autre, \
+                              experience_institution_outil_autre = experience_institution_outil_autre, \
+                              experience_formation_suivie = experience_formation_suivie, \
+                              experience_aller_plus_loin = experience_aller_plus_loin, \
+                              experience_plate_forme_sante_ecole = experience_plate_forme_sante_ecole, \
+                              experience_plate_forme_assuetude = experience_plate_forme_assuetude, \
+                              experience_plate_forme_sante_famille = experience_plate_forme_sante_famille, \
+                              experience_plate_forme_sante_environnement = experience_plate_forme_sante_environnement, \
+                              experience_plate_forme_sante_commune = experience_plate_forme_sante_commune, \
+                              experience_plate_forme_vie_affective_sexuelle = experience_plate_forme_vie_affective_sexuelle, \
+                              experience_mission_centre_documentation = experience_mission_centre_documentation, \
+                              experience_mission_accompagnement_projet = experience_mission_accompagnement_projet, \
+                              experience_mission_reseau_echange = experience_mission_reseau_echange, \
+                              experience_mission_formation = experience_mission_formation, \
+                              experience_auteur_login = experience_auteur_login, \
+                              experience_clps_proprio_fk = experience_clps_proprio_fk, \
+                              experience_auteur_fk = experience_auteur_fk, \
+                              experience_etat = experience_etat, \
+                              experience_creation_date = experience_creation_date, \
+                              experience_creation_employe = experience_creation_employe)
         session.add(newEntry)
         session.flush()
         session.refresh(newEntry)
@@ -4712,10 +4710,17 @@ class ManageClpsbw(BrowserView):
         experience_auteur = getattr(fields, 'experienceAuteur', None)
         if experience_auteur:
             experience_auteur_fk = self.getAuteurPkByName(experience_auteur)
+        else:
+            experience_auteur_fk = self.getAuteurByLogin()
+
+        import pdb; pdb.set_trace()
 
         #cas d'un update par personnel CLPS qui peut modifier le login , donc la propriété d'une expérience.
         if not experience_auteur_login:
             experience_auteur_login = self.getAuteurLogin(experience_auteur_fk)
+
+
+
 
         #suppresion dans la table experience_maj (versionning) si l'état n'est plus
         #private-by-auteur ou private-by-clps > brouillon
@@ -4827,6 +4832,7 @@ class ManageClpsbw(BrowserView):
         experience_mission_formation = getattr(fields, 'experience_mission_formation', False)
         experience_modification_date = self.getTimeStamp()
         experience_modification_employe = self.getUserAuthenticated()
+        experience_auteur = getattr(fields, 'experienceAuteur', None)
         experience_auteur_fk = getattr(fields, 'experience_auteur_fk', None)
         experience_auteur_login = getattr(fields, 'experience_auteur_login', None)
         #experience_clps_proprio_fk = getattr(fields, 'experience_clps_proprio_fk', None),
@@ -4834,11 +4840,12 @@ class ManageClpsbw(BrowserView):
 
         experience_clps_proprio_fk=1
         #cas de modification de l'auteur via ligth search
-        experience_auteur = getattr(fields, 'experience_auteur_fk', None)
-        if not experience_auteur:
+        experience_auteur_fk = getattr(fields, 'experience_auteur_fk', None)
+        if not experience_auteur_fk:
             experience_auteur_fk = self.getAuteurPkByName(experience_auteur)
 
-        experience_modification_employe = self.getAuteurLogin(experience_auteur)
+
+        experience_modification_employe = self.getAuteurLogin(experience_auteur_fk)
         experienceMaj = True
 
         wrapper = getSAWrapper('clpsbw')

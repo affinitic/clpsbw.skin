@@ -334,7 +334,7 @@
             <h2> Auteur - Editeur</h2>
             Nom, prénom et identifiant de la personne qui pourra modifier
             le contenu de cette expérience &nbsp;&nbsp; <img src="alerte.png" /><br />
-            <label for="experience_titre">Auteur - Editeur</label>
+            <label for="experience_nom">Auteur - Editeur</label>
             <input type="text"
                    id="auteur_nom"
                    name="experienceAuteur"
