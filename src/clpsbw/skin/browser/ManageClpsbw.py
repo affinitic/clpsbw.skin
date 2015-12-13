@@ -107,15 +107,15 @@ class ManageClpsbw(BrowserView):
         classCss = ''
         chiffre = chiffre % 5
         if chiffre == 0:
-          classCss = 'btn-cadastre btn-cadastre-fond-rouge'
+            classCss = 'btn-cadastre btn-cadastre-fond-rouge'
         if chiffre == 1:
-          classCss = 'btn-cadastre btn-cadastre-fond-lime'
+            classCss = 'btn-cadastre btn-cadastre-fond-lime'
         if chiffre == 2:
-          classCss = 'btn-cadastre btn-cadastre-fond-gris-bleu'
+            classCss = 'btn-cadastre btn-cadastre-fond-gris-bleu'
         if chiffre == 3:
-          classCss = 'btn-cadastre btn-cadastre-fond-jaune'
+            classCss = 'btn-cadastre btn-cadastre-fond-jaune'
         if chiffre == 4:
-          classCss = 'btn-cadastre btn-cadastre-fond-bleu-fonce'
+            classCss = 'btn-cadastre btn-cadastre-fond-bleu-fonce'
         return classCss
 
 # ### gestion des widgets kupu addRemoveList ###
@@ -218,10 +218,10 @@ class ManageClpsbw(BrowserView):
                 int(value)
             except ValueError:
                 newEntry = MotCle(motcle_mot=value, \
-                                       motcle_actif=True, \
-                                       motcle_creation_date=self.getTimeStamp(), \
-                                       motcle_modification_date=self.getTimeStamp(), \
-                                       motcle_modification_employe=self.getUserAuthenticated())
+                                  motcle_actif=True, \
+                                  motcle_creation_date=self.getTimeStamp(), \
+                                  motcle_modification_date=self.getTimeStamp(), \
+                                  motcle_modification_employe=self.getUserAuthenticated())
                 session.add(newEntry)
                 session.flush()
                 pks.append(int(newEntry.motcle_pk))
@@ -302,26 +302,22 @@ class ManageClpsbw(BrowserView):
         envoi de mail à clpsbw admin
         """
         mailer = Mailer("localhost", "houtain@clps-bw.be, alain.meurant@affinitic.be")
-        #mailer = Mailer("relay.skynet.be", "alain.meurant@affinitic.be")
         mailer.setSubject(sujet)
-        mailer.setRecipients("alain.meurant@affinitic.be, houtain@clps-bw.be, lizin@clps-bw.be")
-        #mailer.setRecipients("alain.meurant@affinitic.be")
+        mailer.setRecipients("alain.meurant@affinitic.be, houtain@clps-bw.be, lizin@clps-bw.be, divers@clps-bw.be")
         mail = message
-        print mail
-        #mailer.sendAllMail(mail)
+        #print mail
+        mailer.sendAllMail(mail)
 
     def sendMailWhenLoginByAuteur(self, sujet, message):
         """
         envoi de mail à clpsbw admin
         """
         mailer = Mailer("localhost", "alain.meurant@affinitic.be")
-        #mailer = Mailer("relay.skynet.be", "alain.meurant@affinitic.be")
         mailer.setSubject(sujet)
-        mailer.setRecipients("alain.meurant@affinitic.be, houtain@clps-bw.be, lizin@clps-bw.be")
-        #mailer.setRecipients("alain.meurant@affinitic.be")
+        mailer.setRecipients("alain.meurant@affinitic.be, houtain@clps-bw.be, lizin@clps-bw.be, divers@clps-bw.be")
         mail = message
-        print mail
-        #mailer.sendAllMail(mail)
+        #print mail
+        mailer.sendAllMail(mail)
 
     def sendMailForNewAuteurExperience(self):
         """
@@ -4841,7 +4837,6 @@ class ManageClpsbw(BrowserView):
         experience_auteur_fk = getattr(fields, 'experience_auteur_fk', None)
         if not experience_auteur_fk:
             experience_auteur_fk = self.getAuteurPkByName(experience_auteur)
-            #experience_auteur_fk = 13   #forcer lizin comme auteur
 
         experience_modification_employe = self.getAuteurLogin(experience_auteur_fk)
         experienceMaj = True
