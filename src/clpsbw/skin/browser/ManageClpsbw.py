@@ -4840,8 +4840,8 @@ class ManageClpsbw(BrowserView):
         #cas de modification de l'auteur via ligth search
         experience_auteur_fk = getattr(fields, 'experience_auteur_fk', None)
         if not experience_auteur_fk:
-            experience_auteur_fk = self.getAuteurPkByName(experience_auteur)
-
+            #experience_auteur_fk = self.getAuteurPkByName(experience_auteur)
+            experience_auteur_fk = 13
 
         experience_modification_employe = self.getAuteurLogin(experience_auteur_fk)
         experienceMaj = True
