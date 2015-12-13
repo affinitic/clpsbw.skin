@@ -4713,8 +4713,6 @@ class ManageClpsbw(BrowserView):
         else:
             experience_auteur_fk = self.getAuteurByLogin()
 
-        import pdb; pdb.set_trace()
-
         #cas d'un update par personnel CLPS qui peut modifier le login , donc la propriété d'une expérience.
         if not experience_auteur_login:
             experience_auteur_login = self.getAuteurLogin(experience_auteur_fk)
