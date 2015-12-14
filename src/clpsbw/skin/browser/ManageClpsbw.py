@@ -69,9 +69,6 @@ from clpsbw.db.pgsql.baseTypes import Auteur, \
                                       LinkAssuetudeActiviteProposeeForInstitutionPro, \
                                       AssuetudeThemeForInstitution, \
                                       LinkAssuetudeThemeForInstitution
-                                      #InstitutionAssuetudeIntervention, \
-                                      #InstitutionAssuetudeActiviteProposee, \
-                                      #AssuetudeThemeForInstitution, \
 
 
 
@@ -138,7 +135,7 @@ class ManageClpsbw(BrowserView):
         field = WYSIWYGWidget(MyField(), request)
         return field()
 
-    def getAddRemoveField(self, name, title, values, nameKey='name', \
+    def getAddRemoveField(self, name, title, values, nameKey='name',
                           pkKey='pk', selectedPks=[], canAddValues=False):
         """
         generates an Add / Remove from list field with already selected pks
@@ -193,10 +190,10 @@ class ManageClpsbw(BrowserView):
                 int(value)
             except ValueError:
                 # ici ne plus mettre publicTable mais la classe de initializer
-                newEntry = Public(public_nom=value, \
-                                  public_actif=True, \
-                                  public_creation_date=self.getTimeStamp(), \
-                                  public_modification_date=self.getTimeStamp(), \
+                newEntry = Public(public_nom=value,
+                                  public_actif=True,
+                                  public_creation_date=self.getTimeStamp(),
+                                  public_modification_date=self.getTimeStamp(),
                                   public_creation_employe=self.getUserAuthenticated())
                 session.add(newEntry)
                 session.flush()
@@ -217,10 +214,10 @@ class ManageClpsbw(BrowserView):
             try:
                 int(value)
             except ValueError:
-                newEntry = MotCle(motcle_mot=value, \
-                                  motcle_actif=True, \
-                                  motcle_creation_date=self.getTimeStamp(), \
-                                  motcle_modification_date=self.getTimeStamp(), \
+                newEntry = MotCle(motcle_mot=value,
+                                  motcle_actif=True,
+                                  motcle_creation_date=self.getTimeStamp(),
+                                  motcle_modification_date=self.getTimeStamp(),
                                   motcle_modification_employe=self.getUserAuthenticated())
                 session.add(newEntry)
                 session.flush()
@@ -241,10 +238,10 @@ class ManageClpsbw(BrowserView):
             try:
                 int(value)
             except ValueError:
-                newEntry = MilieuDeVie(milieudevie_nom=value, \
-                                       milieudevie_actif=True, \
-                                       milieudevie_creation_date=self.getTimeStamp(), \
-                                       milieudevie_modification_date=self.getTimeStamp(), \
+                newEntry = MilieuDeVie(milieudevie_nom=value,
+                                       milieudevie_actif=True,
+                                       milieudevie_creation_date=self.getTimeStamp(),
+                                       milieudevie_modification_date=self.getTimeStamp(),
                                        milieudevie_modification_employe=self.getUserAuthenticated())
                 session.add(newEntry)
                 session.flush()
@@ -265,10 +262,10 @@ class ManageClpsbw(BrowserView):
             try:
                 int(value)
             except ValueError:
-                newEntry = Theme(theme_nom=value, \
-                                 theme_actif=True, \
-                                 theme_creation_date=self.getTimeStamp(), \
-                                 theme_modification_date=self.getTimeStamp(), \
+                newEntry = Theme(theme_nom=value,
+                                 theme_actif=True,
+                                 theme_creation_date=self.getTimeStamp(),
+                                 theme_modification_date=self.getTimeStamp(),
                                  theme_modification_employe=self.getUserAuthenticated())
                 session.add(newEntry)
                 session.flush()
@@ -348,11 +345,10 @@ class ManageClpsbw(BrowserView):
                   Voir la liste des auteurs en cliquant sur ce
                   <a href="http://www.clpsbw.be/admin-creer-un-auteur">lien</a>.
                   <hr />
-                  """ \
-                  % (auteurNom, \
-                     auteurPrenom, \
-                     auteurInstitution, \
-                     auteurDescription)
+                  """ % (auteurNom, \
+                         auteurPrenom, \
+                         auteurInstitution, \
+                         auteurDescription)
         self.sendMail(sujet, message)
 
     def sendMailForInsertExperience(self, experiencePk):
@@ -393,17 +389,16 @@ class ManageClpsbw(BrowserView):
                   :: Autre institution ressource : <font color='#ff9c1b'><b>%s</b></font><br />
                   :: Autre institution outil : <font color='#ff9c1b'><b>%s</b></font><br />
                   </font>
-                  """ \
-                  % (experience_titre, \
-                     experience_personne_contact, \
-                     experience_creation_employe, \
-                     experience_etat, \
-                     experience_pk, \
-                     experience_public_vise, \
-                     experience_institution_porteur_autre, \
-                     experience_institution_partenaire_autre, \
-                     experience_institution_ressource_autre, \
-                     experience_institution_outil_autre)
+                  """ % (experience_titre, \
+                         experience_personne_contact, \
+                         experience_creation_employe, \
+                         experience_etat, \
+                         experience_pk, \
+                         experience_public_vise, \
+                         experience_institution_porteur_autre, \
+                         experience_institution_partenaire_autre, \
+                         experience_institution_ressource_autre, \
+                         experience_institution_outil_autre)
         self.sendMail(sujet, message)
 
     def sendMailForSissWhenExperienceIsPublish(self, experiencePk, experienceInstitutionPorteurFk):
@@ -431,10 +426,9 @@ class ManageClpsbw(BrowserView):
                   Voir la description de l'expérience en cliquant sur ce
                   <a href="http://www.clpsbw.be/decrire-une-experience?experiencePk=%s">lien</a>.
                   <hr />
-                  """ \
-                  % (experienceTitre, \
-                     experienceResume, \
-                     experiencePk)
+                  """ % (experienceTitre, \
+                         experienceResume, \
+                         experiencePk)
 
         #contact@siss.be, n.poelaert@siss.be
         mailer = Mailer("localhost", "houtain@clps-bw.be, alain.meurant@affinitic.be, n.poelaert@siss.be")
@@ -485,21 +479,20 @@ class ManageClpsbw(BrowserView):
                   :: Autre institution ressource : <font color='#ff9c1b'><b>%s</b></font><br />
                   :: Autre institution outil : <font color='#ff9c1b'><b>%s</b></font><br />
                   </font>
-                  """ \
-                  % (experience_titre, \
-                     experience_pk, \
-                     experience_titre, \
-                     experience_personne_contact, \
-                     experience_creation_employe, \
-                     experience_modification_employe, \
-                     experience_auteur_login, \
-                     experience_etat, \
-                     experience_pk, \
-                     experience_public_vise, \
-                     experience_institution_porteur_autre, \
-                     experience_institution_partenaire_autre, \
-                     experience_institution_ressource_autre, \
-                     experience_institution_outil_autre)
+                  """ % (experience_titre, \
+                         experience_pk, \
+                         experience_titre, \
+                         experience_personne_contact, \
+                         experience_creation_employe, \
+                         experience_modification_employe, \
+                         experience_auteur_login, \
+                         experience_etat, \
+                         experience_pk, \
+                         experience_public_vise, \
+                         experience_institution_porteur_autre, \
+                         experience_institution_partenaire_autre, \
+                         experience_institution_ressource_autre, \
+                         experience_institution_outil_autre)
         self.sendMail(sujet, message)
 
     def demandeInscription(self):
@@ -783,8 +776,7 @@ class ManageClpsbw(BrowserView):
         query = session.query(Auteur)
         query = query.filter(Auteur.auteur_login == userLogin)
         auteur = query.one()
-        auteurPk = auteur.auteur_pk
-        return auteurPk
+        return auteur
 
     def getAuteurPkByName(self, auteur):
         """
@@ -2800,18 +2792,18 @@ class ManageClpsbw(BrowserView):
 
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        newEntry = Auteur(auteur_nom=auteur_nom, \
-                          auteur_prenom=auteur_prenom, \
-                          auteur_email=auteur_email, \
-                          auteur_login=auteur_login, \
-                          auteur_pass=auteur_pass, \
-                          auteur_institution=auteur_institution, \
-                          auteur_id_filemaker=auteur_id_filemaker, \
-                          auteur_actif=auteur_actif, \
-                          auteur_for_experience=auteur_for_experience, \
-                          auteur_for_institution=auteur_for_institution, \
-                          auteur_creation_date=auteur_creation_date, \
-                          auteur_modification_date=auteur_modification_date, \
+        newEntry = Auteur(auteur_nom=auteur_nom,
+                          auteur_prenom=auteur_prenom,
+                          auteur_email=auteur_email,
+                          auteur_login=auteur_login,
+                          auteur_pass=auteur_pass,
+                          auteur_institution=auteur_institution,
+                          auteur_id_filemaker=auteur_id_filemaker,
+                          auteur_actif=auteur_actif,
+                          auteur_for_experience=auteur_for_experience,
+                          auteur_for_institution=auteur_for_institution,
+                          auteur_creation_date=auteur_creation_date,
+                          auteur_modification_date=auteur_modification_date,
                           auteur_modification_employe=auteur_modification_employe)
         session.add(newEntry)
         session.flush()
@@ -2833,12 +2825,12 @@ class ManageClpsbw(BrowserView):
 
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        newEntry = Theme(theme_nom=theme_nom, \
-                         theme_actif=theme_actif, \
-                         theme_experience=theme_experience, \
-                         theme_ressource=theme_ressource, \
-                         theme_creation_date=theme_creation_date, \
-                         theme_modification_date=theme_modification_date, \
+        newEntry = Theme(theme_nom=theme_nom,
+                         theme_actif=theme_actif,
+                         theme_experience=theme_experience,
+                         theme_ressource=theme_ressource,
+                         theme_creation_date=theme_creation_date,
+                         theme_modification_date=theme_modification_date,
                          theme_creation_employe=theme_creation_employe)
         session.add(newEntry)
         session.flush()
@@ -2857,10 +2849,10 @@ class ManageClpsbw(BrowserView):
 
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        newEntry = MotCle(motcle_mot=motcle_mot, \
-                          motcle_actif=motcle_actif, \
-                          motcle_creation_date=motcle_creation_date, \
-                          motcle_modification_date=motcle_modification_date, \
+        newEntry = MotCle(motcle_mot=motcle_mot,
+                          motcle_actif=motcle_actif,
+                          motcle_creation_date=motcle_creation_date,
+                          motcle_modification_date=motcle_modification_date,
                           motcle_modification_employe=motcle_modification_employe)
         session.add(newEntry)
         session.flush()
@@ -2880,10 +2872,10 @@ class ManageClpsbw(BrowserView):
 
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        newEntry = Public(public_nom=public_nom, \
-                          public_actif=public_actif, \
-                          public_creation_date=public_creation_date, \
-                          public_modification_date=public_modification_date, \
+        newEntry = Public(public_nom=public_nom,
+                          public_actif=public_actif,
+                          public_creation_date=public_creation_date,
+                          public_modification_date=public_modification_date,
                           public_creation_employe=public_creation_employe)
         session.add(newEntry)
         session.flush()
@@ -2902,10 +2894,10 @@ class ManageClpsbw(BrowserView):
 
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        newEntry = PlateForme(plateforme_nom=plateforme_nom, \
-                              plateforme_actif=plateforme_actif, \
-                              plateforme_creation_date=plateforme_creation_date, \
-                              plateforme_modification_date=plateforme_modification_date, \
+        newEntry = PlateForme(plateforme_nom=plateforme_nom,
+                              plateforme_actif=plateforme_actif,
+                              plateforme_creation_date=plateforme_creation_date,
+                              plateforme_modification_date=plateforme_modification_date,
                               plateforme_creation_employe=plateforme_creation_employe)
         session.add(newEntry)
         session.flush()
@@ -2932,11 +2924,11 @@ class ManageClpsbw(BrowserView):
 
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        newEntry = SousPlateForme(sousplateforme_nom=sousplateforme_nom, \
-                                  sousplateforme_actif=sousplateforme_actif, \
-                                  sousplateforme_plateforme_fk=sousplateforme_plateforme_fk, \
-                                  sousplateforme_creation_date=sousplateforme_creation_date, \
-                                  sousplateforme_modification_date=sousplateforme_modification_date, \
+        newEntry = SousPlateForme(sousplateforme_nom=sousplateforme_nom,
+                                  sousplateforme_actif=sousplateforme_actif,
+                                  sousplateforme_plateforme_fk=sousplateforme_plateforme_fk,
+                                  sousplateforme_creation_date=sousplateforme_creation_date,
+                                  sousplateforme_modification_date=sousplateforme_modification_date,
                                   sousplateforme_creation_employe=sousplateforme_creation_employe)
         session.add(newEntry)
         session.flush()
@@ -2955,10 +2947,10 @@ class ManageClpsbw(BrowserView):
 
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        newEntry = MilieuDeVie(milieudevie_nom=milieudevie_nom, \
-                               milieudevie_actif=milieudevie_actif, \
-                               milieudevie_creation_date=milieudevie_creation_date, \
-                               milieudevie_modification_date=milieudevie_modification_date, \
+        newEntry = MilieuDeVie(milieudevie_nom=milieudevie_nom,
+                               milieudevie_actif=milieudevie_actif,
+                               milieudevie_creation_date=milieudevie_creation_date,
+                               milieudevie_modification_date=milieudevie_modification_date,
                                milieudevie_creation_employe=milieudevie_creation_employe)
         session.add(newEntry)
         session.flush()
@@ -2978,12 +2970,12 @@ class ManageClpsbw(BrowserView):
 
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        newEntry = Support(support_titre = support_titre, \
-                           support_description = support_description, \
-                           support_actif = support_actif, \
-                           support_creation_date = support_creation_date, \
-                           support_modification_date = support_modification_date, \
-                           support_modification_employe = support_modification_employe)
+        newEntry = Support(support_titre=support_titre,
+                           support_description=support_description,
+                           support_actif=support_actif,
+                           support_creation_date=support_creation_date,
+                           support_modification_date=support_modification_date,
+                           support_modification_employe=support_modification_employe)
         session.add(newEntry)
         session.flush()
         return {'status': 1}
@@ -3008,17 +3000,17 @@ class ManageClpsbw(BrowserView):
 
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        newEntry = Outil(outil_nom = outil_nom, \
-                         outil_description = outil_description, \
-                         outil_fabricant = outil_fabricant, \
-                         outil_tranche_age = outil_tranche_age, \
-                         outil_lien = outil_lien, \
-                         outil_lien_siss = outil_lien_siss, \
-                         outil_autre_info = outil_autre_info, \
-                         outil_disponible_clps = outil_disponible_clps,\
-                         outil_etat = outil_etat, \
-                         outil_creation_date = outil_creation_date, \
-                         outil_creation_employe = outil_creation_employe)
+        newEntry = Outil(outil_nom=outil_nom,
+                         outil_description=outil_description,
+                         outil_fabricant=outil_fabricant,
+                         outil_tranche_age=outil_tranche_age,
+                         outil_lien=outil_lien,
+                         outil_lien_siss=outil_lien_siss,
+                         outil_autre_info=outil_autre_info,
+                         outil_disponible_clps=outil_disponible_clps,
+                         outil_etat=outil_etat,
+                         outil_creation_date=outil_creation_date,
+                         outil_creation_employe=outil_creation_employe)
         session.add(newEntry)
         session.flush()
         return {'status': 1}
@@ -3066,33 +3058,33 @@ class ManageClpsbw(BrowserView):
 
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        newEntry = Ressource(ressource_titre = ressource_titre, \
-                             ressource_description = ressource_description, \
-                             ressource_auteur = ressource_auteur, \
-                             ressource_collection = ressource_collection, \
-                             ressource_edition = ressource_edition, \
-                             ressource_lieu_edition = ressource_lieu_edition, \
-                             ressource_date_edition = ressource_date_edition, \
-                             ressource_autre_info = ressource_autre_info, \
-                             ressource_lien_pipsa = ressource_lien_pipsa, \
-                             ressource_autre_lien = ressource_autre_lien, \
-                             ressource_objectif = ressource_objectif, \
-                             ressource_disponible_clps = ressource_disponible_clps, \
-                             ressource_disponible_autre = ressource_disponible_autre, \
-                             ressource_utilisation = ressource_utilisation, \
-                             ressource_avis_clps = ressource_avis_clps, \
-                             ressource_etat = ressource_etat, \
-                             ressource_plate_forme_sante_ecole = ressource_plate_forme_sante_ecole, \
-                             ressource_plate_forme_assuetude = ressource_plate_forme_assuetude, \
-                             ressource_plate_forme_sante_famille = ressource_plate_forme_sante_famille, \
-                             ressource_plate_forme_sante_environnement = ressource_plate_forme_sante_environnement, \
-                             ressource_mission_centre_documentation = ressource_mission_centre_documentation, \
-                             ressource_mission_accompagnement_projet = ressource_mission_accompagnement_projet, \
-                             ressource_mission_reseau_echange = ressource_mission_reseau_echange, \
-                             ressource_mission_formation = ressource_mission_formation, \
-                             ressource_creation_date = ressource_creation_date, \
-                             ressource_modification_date = ressource_modification_date, \
-                             ressource_modification_employe = ressource_modification_employe)
+        newEntry = Ressource(ressource_titre=ressource_titre,
+                             ressource_description=ressource_description,
+                             ressource_auteur=ressource_auteur,
+                             ressource_collection=ressource_collection,
+                             ressource_edition=ressource_edition,
+                             ressource_lieu_edition=ressource_lieu_edition,
+                             ressource_date_edition=ressource_date_edition,
+                             ressource_autre_info=ressource_autre_info,
+                             ressource_lien_pipsa=ressource_lien_pipsa,
+                             ressource_autre_lien=ressource_autre_lien,
+                             ressource_objectif=ressource_objectif,
+                             ressource_disponible_clps=ressource_disponible_clps,
+                             ressource_disponible_autre=ressource_disponible_autre,
+                             ressource_utilisation=ressource_utilisation,
+                             ressource_avis_clps=ressource_avis_clps,
+                             ressource_etat=ressource_etat,
+                             ressource_plate_forme_sante_ecole=ressource_plate_forme_sante_ecole,
+                             ressource_plate_forme_assuetude=ressource_plate_forme_assuetude,
+                             ressource_plate_forme_sante_famille=ressource_plate_forme_sante_famille,
+                             ressource_plate_forme_sante_environnement=ressource_plate_forme_sante_environnement,
+                             ressource_mission_centre_documentation=ressource_mission_centre_documentation,
+                             ressource_mission_accompagnement_projet=ressource_mission_accompagnement_projet,
+                             ressource_mission_reseau_echange=ressource_mission_reseau_echange,
+                             ressource_mission_formation=ressource_mission_formation,
+                             ressource_creation_date=ressource_creation_date,
+                             ressource_modification_date=ressource_modification_date,
+                             ressource_modification_employe=ressource_modification_employe)
         session.add(newEntry)
         session.flush()
         session.refresh(newEntry)
@@ -3109,8 +3101,8 @@ class ManageClpsbw(BrowserView):
         session = wrapper.session
         ressourceSupport = getattr(fields, 'ressource_support_fk', None)
         for supportFk in ressourceSupport:
-            newEntry = LinkRessourceSupport(ressource_fk = ressourceFk,
-                                            support_fk = supportFk)
+            newEntry = LinkRessourceSupport(ressource_fk=ressourceFk,
+                                            support_fk=supportFk)
             session.add(newEntry)
         session.flush()
 
@@ -3137,8 +3129,8 @@ class ManageClpsbw(BrowserView):
         session = wrapper.session
         ressourceTheme = getattr(fields, 'ressource_theme_fk', None)
         for themeFk in ressourceTheme:
-            newEntry = LinkRessourceTheme(ressource_fk = ressourceFk,
-                                          theme_fk = themeFk)
+            newEntry = LinkRessourceTheme(ressource_fk=ressourceFk,
+                                          theme_fk=themeFk)
             session.add(newEntry)
         session.flush()
 
@@ -3191,8 +3183,8 @@ class ManageClpsbw(BrowserView):
         session = wrapper.session
         ressourcePublic = getattr(fields, 'ressource_public_fk', None)
         for publicFk in ressourcePublic:
-            newEntry = LinkRessourcePublic(ressource_fk = ressourceFk,
-                                           public_fk = publicFk)
+            newEntry = LinkRessourcePublic(ressource_fk=ressourceFk,
+                                           public_fk=publicFk)
             session.add(newEntry)
         session.flush()
 
@@ -3219,8 +3211,8 @@ class ManageClpsbw(BrowserView):
         session = wrapper.session
         ressourceClps = getattr(fields, 'ressource_clps_proprio_fk', None)
         for clpsFk in ressourceClps:
-            newEntry = LinkRessourceClpsProprio(ressource_fk = ressourceFk,
-                                                clps_fk = clpsFk)
+            newEntry = LinkRessourceClpsProprio(ressource_fk=ressourceFk,
+                                                clps_fk=clpsFk)
             session.add(newEntry)
         session.flush()
 
@@ -3234,8 +3226,8 @@ class ManageClpsbw(BrowserView):
         session = wrapper.session
         ressourceClps = getattr(fields, 'ressource_clps_dispo_fk', None)
         for clpsFk in ressourceClps:
-            newEntry = LinkRessourceClpsDispo(ressource_fk = ressourceFk,
-                                              clps_fk = clpsFk)
+            newEntry = LinkRessourceClpsDispo(ressource_fk=ressourceFk,
+                                              clps_fk=clpsFk)
             session.add(newEntry)
         session.flush()
 
@@ -3249,8 +3241,8 @@ class ManageClpsbw(BrowserView):
         session = wrapper.session
         ressourceClps = getattr(fields, 'ressource_clps_dispo_fk', None)
         for clpsFk in ressourceClps:
-            newEntry = LinkRessourceClpsDispo(ressource_fk = ressourceFk,
-                                              clps_fk = clpsFk)
+            newEntry = LinkRessourceClpsDispo(ressource_fk=ressourceFk,
+                                              clps_fk=clpsFk)
             session.add(newEntry)
         session.flush()
 
@@ -3268,11 +3260,11 @@ class ManageClpsbw(BrowserView):
 
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        newEntry = InstitutionType(institution_type_nom = institution_type_nom, \
-                                   institution_type_actif = institution_type_actif, \
-                                   institution_type_creation_date = institution_type_creation_date, \
-                                   institution_type_modification_date = institution_type_modification_date, \
-                                   institution_typecreation_employe = institution_type_creation_employe)
+        newEntry = InstitutionType(institution_type_nom=institution_type_nom,
+                                   institution_type_actif=institution_type_actif,
+                                   institution_type_creation_date=institution_type_creation_date,
+                                   institution_type_modification_date=institution_type_modification_date,
+                                   institution_typecreation_employe=institution_type_creation_employe)
         session.add(newEntry)
         session.flush()
 
@@ -3341,57 +3333,60 @@ class ManageClpsbw(BrowserView):
         if institution_auteur:
             institution_auteur_fk = self.getAuteurPkByName(institution_auteur)
         else:
-            institution_auteur_fk = self.getAuteurByLogin()
+            auteur = self.getAuteurByLogin()
+            institution_auteur_fk = auteur.auteur_pk
+            institution_auteur_login = auteur.auteur_login
+
 
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        newEntry = Institution(institution_nom = institution_nom, \
-                               institution_sigle = institution_sigle, \
-                               institution_adresse = institution_adresse, \
-                               institution_nom_contact = institution_nom_contact, \
-                               institution_email_contact = institution_email_contact, \
-                               institution_tel_contact = institution_tel_contact, \
-                               institution_fonction_contact = institution_fonction_contact, \
-                               institution_url_site = institution_url_site, \
-                               institution_lien_siss = institution_lien_siss,\
-                               institution_lien_autre = institution_lien_autre, \
-                               institution_autre_info = institution_autre_info, \
-                               institution_mission = institution_mission, \
-                               institution_activite = institution_activite, \
-                               institution_public = institution_public, \
-                               institution_territoire_tout_brabant_wallon = institution_territoire_tout_brabant_wallon, \
-                               institution_zone_internationale = institution_zone_internationale, \
-                               institution_zone_internationale_info = institution_zone_internationale_info, \
-                               institution_zone_belgique = institution_zone_belgique, \
-                               institution_zone_cfwb = institution_zone_cfwb, \
-                               institution_zone_rw = institution_zone_rw, \
-                               institution_zone_brxl = institution_zone_brxl, \
-                               institution_commentaire = institution_commentaire, \
-                               institution_assuet_intervention = institution_assuet_intervention, \
-                               institution_assuet_intervention_precision = institution_assuet_intervention_precision, \
-                               institution_assuet_activite_proposee = institution_assuet_activite_proposee, \
-                               institution_assuet_activite_proposee_precision = institution_assuet_activite_proposee_precision, \
-                               institution_assuet_thematique_precision = institution_assuet_thematique_precision, \
-                               institution_assuet_aide_soutien_ecole = institution_assuet_aide_soutien_ecole, \
-                               institution_assuet_activite_entourage = institution_assuet_activite_entourage, \
-                               institution_auteur_login = institution_auteur_login, \
-                               institution_plate_forme_sante_ecole = institution_plate_forme_sante_ecole, \
-                               institution_plate_forme_assuetude = institution_plate_forme_assuetude, \
-                               institution_plate_forme_sante_famille = institution_plate_forme_sante_famille, \
-                               institution_plate_forme_sante_environnement = institution_plate_forme_sante_environnement, \
-                               institution_plate_forme_sante_commune = institution_plate_forme_sante_commune, \
-                               institution_plate_forme_vie_affective_sexuelle = institution_plate_forme_vie_affective_sexuelle, \
-                               institution_listing_ressource_plate_forme_sante_ecole = institution_listing_ressource_plate_forme_sante_ecole, \
-                               institution_listing_ressource_plate_forme_assuetude = institution_listing_ressource_plate_forme_assuetude, \
-                               institution_listing_ressource_plate_forme_sante_famille = institution_listing_ressource_plate_forme_sante_famille, \
-                               institution_listing_ressource_plate_forme_sante_environnement = institution_listing_ressource_plate_forme_sante_environnement, \
-                               institution_etat = institution_etat, \
-                               institution_creation_date = institution_creation_date, \
-                               institution_modification_employe = institution_modification_employe, \
-                               institution_commune_fk = institution_commune_fk, \
-                               institution_auteur_fk = institution_auteur_fk, \
-                               institution_clps_proprio_fk =institution_clps_proprio_fk, \
-                               institution_institution_type_fk = institution_institution_type_fk)
+        newEntry = Institution(institution_nom=institution_nom,
+                               institution_sigle=institution_sigle,
+                               institution_adresse=institution_adresse,
+                               institution_nom_contact=institution_nom_contact,
+                               institution_email_contact=institution_email_contact,
+                               institution_tel_contact=institution_tel_contact,
+                               institution_fonction_contact=institution_fonction_contact,
+                               institution_url_site=institution_url_site,
+                               institution_lien_siss=institution_lien_siss,
+                               institution_lien_autre=institution_lien_autre,
+                               institution_autre_info=institution_autre_info,
+                               institution_mission=institution_mission,
+                               institution_activite=institution_activite,
+                               institution_public=institution_public,
+                               institution_territoire_tout_brabant_wallon=institution_territoire_tout_brabant_wallon,
+                               institution_zone_internationale=institution_zone_internationale,
+                               institution_zone_internationale_info=institution_zone_internationale_info,
+                               institution_zone_belgique=institution_zone_belgique,
+                               institution_zone_cfwb=institution_zone_cfwb,
+                               institution_zone_rw=institution_zone_rw,
+                               institution_zone_brxl=institution_zone_brxl,
+                               institution_commentaire=institution_commentaire,
+                               institution_assuet_intervention=institution_assuet_intervention,
+                               institution_assuet_intervention_precision=institution_assuet_intervention_precision,
+                               institution_assuet_activite_proposee=institution_assuet_activite_proposee,
+                               institution_assuet_activite_proposee_precision=institution_assuet_activite_proposee_precision,
+                               institution_assuet_thematique_precision=institution_assuet_thematique_precision,
+                               institution_assuet_aide_soutien_ecole=institution_assuet_aide_soutien_ecole,
+                               institution_assuet_activite_entourage=institution_assuet_activite_entourage,
+                               institution_auteur_login=institution_auteur_login,
+                               institution_plate_forme_sante_ecole=institution_plate_forme_sante_ecole,
+                               institution_plate_forme_assuetude=institution_plate_forme_assuetude,
+                               institution_plate_forme_sante_famille=institution_plate_forme_sante_famille,
+                               institution_plate_forme_sante_environnement=institution_plate_forme_sante_environnement,
+                               institution_plate_forme_sante_commune=institution_plate_forme_sante_commune,
+                               institution_plate_forme_vie_affective_sexuelle=institution_plate_forme_vie_affective_sexuelle,
+                               institution_listing_ressource_plate_forme_sante_ecole=institution_listing_ressource_plate_forme_sante_ecole,
+                               institution_listing_ressource_plate_forme_assuetude=institution_listing_ressource_plate_forme_assuetude,
+                               institution_listing_ressource_plate_forme_sante_famille=institution_listing_ressource_plate_forme_sante_famille,
+                               institution_listing_ressource_plate_forme_sante_environnement=institution_listing_ressource_plate_forme_sante_environnement,
+                               institution_etat=institution_etat,
+                               institution_creation_date=institution_creation_date,
+                               institution_modification_employe=institution_modification_employe,
+                               institution_commune_fk=institution_commune_fk,
+                               institution_auteur_fk=institution_auteur_fk,
+                               institution_clps_proprio_fk=institution_clps_proprio_fk,
+                               institution_institution_type_fk=institution_institution_type_fk)
         session.add(newEntry)
         session.flush()
         session.refresh(newEntry)
@@ -3413,12 +3408,12 @@ class ManageClpsbw(BrowserView):
 
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        newEntry = AssuetudeInterventionForInstitution(assuetude_intervention_nom = assuetude_intervention_nom, \
-                                                       assuetude_intervention_actif = assuetude_intervention_actif, \
-                                                       assuetude_intervention_num_ordre = assuetude_intervention_num_ordre, \
-                                                       assuetude_intervention_creation_date = assuetude_intervention_creation_date, \
-                                                       assuetude_intervention_modification_date = assuetude_intervention_modification_date, \
-                                                       assuetude_intervention_modification_employe = assuetude_intervention_modification_employe)
+        newEntry = AssuetudeInterventionForInstitution(assuetude_intervention_nom=assuetude_intervention_nom,
+                                                       assuetude_intervention_actif=assuetude_intervention_actif,
+                                                       assuetude_intervention_num_ordre=assuetude_intervention_num_ordre,
+                                                       assuetude_intervention_creation_date=assuetude_intervention_creation_date,
+                                                       assuetude_intervention_modification_date=assuetude_intervention_modification_date,
+                                                       assuetude_intervention_modification_employe=assuetude_intervention_modification_employe)
         session.add(newEntry)
         session.flush()
 
@@ -3447,14 +3442,14 @@ class ManageClpsbw(BrowserView):
 
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        newEntry = AssuetudeActiviteProposeeForInstitution(assuetude_activite_proposee_nom = assuetude_activite_proposee_nom, \
-                                                           assuetude_activite_proposee_actif = assuetude_activite_proposee_actif, \
-                                                           assuetude_activite_proposee_num_ordre = assuetude_activite_proposee_num_ordre,\
-                                                           assuetude_activite_proposee_public = assuetude_activite_proposee_public, \
-                                                           assuetude_activite_proposee_pro = assuetude_activite_proposee_pro, \
-                                                           assuetude_activite_proposee_creation_date = assuetude_activite_proposee_creation_date, \
-                                                           assuetude_activite_proposee_modification_date = assuetude_activite_proposee_modification_date, \
-                                                           assuetude_activite_proposee_modification_employe = assuetude_activite_proposee_modification_employe)
+        newEntry = AssuetudeActiviteProposeeForInstitution(assuetude_activite_proposee_nom=assuetude_activite_proposee_nom,
+                                                           assuetude_activite_proposee_actif=assuetude_activite_proposee_actif,
+                                                           assuetude_activite_proposee_num_ordre=assuetude_activite_proposee_num_ordre,
+                                                           assuetude_activite_proposee_public=assuetude_activite_proposee_public,
+                                                           assuetude_activite_proposee_pro=assuetude_activite_proposee_pro,
+                                                           assuetude_activite_proposee_creation_date=assuetude_activite_proposee_creation_date,
+                                                           assuetude_activite_proposee_modification_date=assuetude_activite_proposee_modification_date,
+                                                           assuetude_activite_proposee_modification_employe=assuetude_activite_proposee_modification_employe)
         session.add(newEntry)
         session.flush()
 
@@ -3481,12 +3476,12 @@ class ManageClpsbw(BrowserView):
 
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        newEntry = AssuetudeThemeForInstitution(assuetude_thematique_nom = assuetude_thematique_nom, \
-                                                assuetude_thematique_actif = assuetude_thematique_actif, \
-                                                assuetude_thematique_num_ordre = assuetude_thematique_num_ordre,\
-                                                assuetude_thematique_creation_date = assuetude_thematique_creation_date, \
-                                                assuetude_thematique_modification_date = assuetude_thematique_modification_date, \
-                                                assuetude_thematique_modification_employe = assuetude_thematique_modification_employe)
+        newEntry = AssuetudeThemeForInstitution(assuetude_thematique_nom=assuetude_thematique_nom,
+                                                assuetude_thematique_actif=assuetude_thematique_actif,
+                                                assuetude_thematique_num_ordre=assuetude_thematique_num_ordre,
+                                                assuetude_thematique_creation_date=assuetude_thematique_creation_date,
+                                                assuetude_thematique_modification_date=assuetude_thematique_modification_date,
+                                                assuetude_thematique_modification_employe=assuetude_thematique_modification_employe)
         session.add(newEntry)
         session.flush()
 
@@ -3509,8 +3504,8 @@ class ManageClpsbw(BrowserView):
         session = wrapper.session
         assuetudeInterventionFk = getattr(fields, 'assuetude_intervention_fk', None)
         for interventionFk in assuetudeInterventionFk:
-            newEntry = LinkAssuetudeInterventionForInstitution(institution_fk = institutionFk,
-                                                               assuetude_intervention_fk = interventionFk)
+            newEntry = LinkAssuetudeInterventionForInstitution(institution_fk=institutionFk,
+                                                               assuetude_intervention_fk=interventionFk)
             session.add(newEntry)
         session.flush()
 
@@ -3522,8 +3517,8 @@ class ManageClpsbw(BrowserView):
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
         for activiteFk in assuetudeActiviteProposeePublicFk:
-            newEntry = LinkAssuetudeActiviteProposeeForInstitutionPublic(institution_fk = institutionFk,
-                                                                         assuetude_activite_proposee_public_fk = activiteFk)
+            newEntry = LinkAssuetudeActiviteProposeeForInstitutionPublic(institution_fk=institutionFk,
+                                                                         assuetude_activite_proposee_public_fk=activiteFk)
             session.add(newEntry)
         session.flush()
 
@@ -3535,8 +3530,8 @@ class ManageClpsbw(BrowserView):
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
         for activiteFk in assuetudeActiviteProposeeProFk:
-            newEntry = LinkAssuetudeActiviteProposeeForInstitutionPro(institution_fk = institutionFk,
-                                                                      assuetude_activite_proposee_pro_fk = activiteFk)
+            newEntry = LinkAssuetudeActiviteProposeeForInstitutionPro(institution_fk=institutionFk,
+                                                                      assuetude_activite_proposee_pro_fk=activiteFk)
             session.add(newEntry)
         session.flush()
 
@@ -3550,8 +3545,8 @@ class ManageClpsbw(BrowserView):
         session = wrapper.session
         institutionSousPlateFormeFk = getattr(fields, 'institution_sousplateforme_fk', None)
         for sousPlateFormeFk in institutionSousPlateFormeFk:
-            newEntry = LinkInstitutionSousPlateForme(institution_fk = institutionFk,
-                                                     sousplateforme_fk = sousPlateFormeFk)
+            newEntry = LinkInstitutionSousPlateForme(institution_fk=institutionFk,
+                                                     sousplateforme_fk=sousPlateFormeFk)
             session.add(newEntry)
         session.flush()
 
@@ -3564,7 +3559,8 @@ class ManageClpsbw(BrowserView):
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
         for communeCouverteFk in institutionCommuneCouverteFk:
-            newEntry = LinkInstitutionCommuneCouverte(institution_fk = institutionFk, commune_fk = communeCouverteFk)
+            newEntry = LinkInstitutionCommuneCouverte(institution_fk=institutionFk,
+                                                      commune_fk=communeCouverteFk)
             session.add(newEntry)
         session.flush()
 
@@ -3578,8 +3574,8 @@ class ManageClpsbw(BrowserView):
         session = wrapper.session
         assuetudeThematiqueFk = getattr(fields, 'assuetude_thematique_fk', None)
         for thematiqueFk in assuetudeThematiqueFk:
-            newEntry = LinkAssuetudeThemeForInstitution(institution_fk = institutionFk,
-                                                                assuetude_thematique_fk = thematiqueFk)
+            newEntry = LinkAssuetudeThemeForInstitution(institution_fk=institutionFk,
+                                                        assuetude_thematique_fk=thematiqueFk)
             session.add(newEntry)
         session.flush()
 
@@ -3593,7 +3589,8 @@ class ManageClpsbw(BrowserView):
         session = wrapper.session
         institutionClps = getattr(fields, 'institution_clps_proprio_fk', None)
         for clpsFk in institutionClps:
-            newEntry = LinkInstitutionClpsProprio(institution_fk = institutionFk, clps_fk = clpsFk)
+            newEntry = LinkInstitutionClpsProprio(institution_fk=institutionFk,
+                                                  clps_fk=clpsFk)
             session.add(newEntry)
         session.flush()
 
@@ -3651,50 +3648,51 @@ class ManageClpsbw(BrowserView):
         experience_clps_proprio_fk = getattr(fields, 'experienceClpsProprio', None)
 
         if not experience_auteur_fk:   # cas ou c'est un auteur exterieur qui se loggue
-            experience_auteur_fk = self.getAuteurByLogin()
+            auteur = self.getAuteurByLogin()
+            experience_auteur_fk = auteur.auteur_pk
         else:
             experience_auteur_fk = self.getAuteurPkByName(experience_auteur)
 
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        newEntry = Experience(experience_titre = experience_titre, \
-                              experience_resume = experience_resume, \
-                              experience_personne_contact = experience_personne_contact, \
-                              experience_personne_contact_email = experience_personne_contact_email, \
-                              experience_personne_contact_telephone = experience_personne_contact_telephone, \
-                              experience_personne_contact_institution = experience_personne_contact_institution, \
-                              experience_element_contexte = experience_element_contexte, \
-                              experience_objectif = experience_objectif, \
-                              experience_public_vise = experience_public_vise, \
-                              experience_demarche_actions = experience_demarche_actions, \
-                              experience_commune_international = experience_commune_international, \
-                              experience_territoire_tout_brabant_wallon = experience_territoire_tout_brabant_wallon, \
-                              experience_periode_deroulement = experience_periode_deroulement, \
-                              experience_moyens = experience_moyens, \
-                              experience_evaluation_enseignement = experience_evaluation_enseignement, \
-                              experience_perspective_envisagee = experience_perspective_envisagee, \
-                              experience_institution_porteur_autre = experience_institution_porteur_autre, \
-                              experience_institution_partenaire_autre = experience_institution_partenaire_autre, \
-                              experience_institution_ressource_autre = experience_institution_ressource_autre, \
-                              experience_institution_outil_autre = experience_institution_outil_autre, \
-                              experience_formation_suivie = experience_formation_suivie, \
-                              experience_aller_plus_loin = experience_aller_plus_loin, \
-                              experience_plate_forme_sante_ecole = experience_plate_forme_sante_ecole, \
-                              experience_plate_forme_assuetude = experience_plate_forme_assuetude, \
-                              experience_plate_forme_sante_famille = experience_plate_forme_sante_famille, \
-                              experience_plate_forme_sante_environnement = experience_plate_forme_sante_environnement, \
-                              experience_plate_forme_sante_commune = experience_plate_forme_sante_commune, \
-                              experience_plate_forme_vie_affective_sexuelle = experience_plate_forme_vie_affective_sexuelle, \
-                              experience_mission_centre_documentation = experience_mission_centre_documentation, \
-                              experience_mission_accompagnement_projet = experience_mission_accompagnement_projet, \
-                              experience_mission_reseau_echange = experience_mission_reseau_echange, \
-                              experience_mission_formation = experience_mission_formation, \
-                              experience_auteur_login = experience_auteur_login, \
-                              experience_clps_proprio_fk = experience_clps_proprio_fk, \
-                              experience_auteur_fk = experience_auteur_fk, \
-                              experience_etat = experience_etat, \
-                              experience_creation_date = experience_creation_date, \
-                              experience_creation_employe = experience_creation_employe)
+        newEntry = Experience(experience_titre=experience_titre,
+                              experience_resume=experience_resume,
+                              experience_personne_contact=experience_personne_contact,
+                              experience_personne_contact_email=experience_personne_contact_email,
+                              experience_personne_contact_telephone=experience_personne_contact_telephone,
+                              experience_personne_contact_institution=experience_personne_contact_institution,
+                              experience_element_contexte=experience_element_contexte,
+                              experience_objectif=experience_objectif,
+                              experience_public_vise=experience_public_vise,
+                              experience_demarche_actions=experience_demarche_actions,
+                              experience_commune_international=experience_commune_international,
+                              experience_territoire_tout_brabant_wallon=experience_territoire_tout_brabant_wallon,
+                              experience_periode_deroulement=experience_periode_deroulement,
+                              experience_moyens=experience_moyens,
+                              experience_evaluation_enseignement=experience_evaluation_enseignement,
+                              experience_perspective_envisagee=experience_perspective_envisagee,
+                              experience_institution_porteur_autre=experience_institution_porteur_autre,
+                              experience_institution_partenaire_autre=experience_institution_partenaire_autre,
+                              experience_institution_ressource_autre=experience_institution_ressource_autre,
+                              experience_institution_outil_autre=experience_institution_outil_autre,
+                              experience_formation_suivie=experience_formation_suivie,
+                              experience_aller_plus_loin=experience_aller_plus_loin,
+                              experience_plate_forme_sante_ecole=experience_plate_forme_sante_ecole,
+                              experience_plate_forme_assuetude=experience_plate_forme_assuetude,
+                              experience_plate_forme_sante_famille=experience_plate_forme_sante_famille,
+                              experience_plate_forme_sante_environnement=experience_plate_forme_sante_environnement,
+                              experience_plate_forme_sante_commune=experience_plate_forme_sante_commune,
+                              experience_plate_forme_vie_affective_sexuelle=experience_plate_forme_vie_affective_sexuelle,
+                              experience_mission_centre_documentation=experience_mission_centre_documentation,
+                              experience_mission_accompagnement_projet=experience_mission_accompagnement_projet,
+                              experience_mission_reseau_echange=experience_mission_reseau_echange,
+                              experience_mission_formation=experience_mission_formation,
+                              experience_auteur_login=experience_auteur_login,
+                              experience_clps_proprio_fk=experience_clps_proprio_fk,
+                              experience_auteur_fk=experience_auteur_fk,
+                              experience_etat=experience_etat,
+                              experience_creation_date=experience_creation_date,
+                              experience_creation_employe=experience_creation_employe)
         session.add(newEntry)
         session.flush()
         session.refresh(newEntry)
@@ -3711,7 +3709,7 @@ class ManageClpsbw(BrowserView):
         session = wrapper.session
         for communeFk in experienceCommuneFk:
             newEntry = LinkExperienceCommune(experience_fk = experienceFk,
-                                                   commune_fk = communeFk)
+                                             commune_fk = communeFk)
             session.add(newEntry)
         session.flush()
 
@@ -3758,8 +3756,8 @@ class ManageClpsbw(BrowserView):
         if experience_institution_ressource_fk:
             institutionRessource = getattr(fields, 'experience_institution_ressource_fk', None)
             for pk in institutionRessource:
-                newEntry = LinkExperienceInstitutionRessource(experience_fk = experienceFk,
-                                                              institution_fk= pk)
+                newEntry = LinkExperienceInstitutionRessource(experience_fk=experienceFk,
+                                                              institution_fk=pk)
                 session.add(newEntry)
         session.flush()
 
@@ -3773,8 +3771,8 @@ class ManageClpsbw(BrowserView):
         session = wrapper.session
         experienceRessourceFk = getattr(fields, 'experience_ressource_fk', None)
         for ressourceFk in experienceRessourceFk:
-            newEntry = LinkExperienceRessource(experience_fk = experienceFk,
-                                               ressource_fk = ressourceFk)
+            newEntry = LinkExperienceRessource(experience_fk=experienceFk,
+                                               ressource_fk=ressourceFk)
             session.add(newEntry)
         session.flush()
 
@@ -3787,8 +3785,8 @@ class ManageClpsbw(BrowserView):
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
         for milieuDeVieFk in milieuDeVieFks:
-            newEntry = LinkExperienceMilieuDeVie(experience_fk = experienceFk,
-                                                 milieudevie_fk = milieuDeVieFk)
+            newEntry = LinkExperienceMilieuDeVie(experience_fk=experienceFk,
+                                                 milieudevie_fk=milieuDeVieFk)
             session.add(newEntry)
         session.flush()
 
@@ -3801,8 +3799,8 @@ class ManageClpsbw(BrowserView):
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
         for themeFk in themeFks:
-            newEntry = LinkExperienceTheme(experience_fk = experienceFk,
-                                                 theme_fk = themeFk)
+            newEntry = LinkExperienceTheme(experience_fk=experienceFk,
+                                           theme_fk=themeFk)
             session.add(newEntry)
         session.flush()
 
@@ -3814,8 +3812,8 @@ class ManageClpsbw(BrowserView):
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
         for publicFk in publicFks:
-            newEntry = LinkExperiencePublic(experience_fk = experienceFk,
-                                            public_fk = publicFk)
+            newEntry = LinkExperiencePublic(experience_fk=experienceFk,
+                                            public_fk=publicFk)
             session.add(newEntry)
         session.flush()
 
@@ -3828,8 +3826,8 @@ class ManageClpsbw(BrowserView):
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
         for motCleFk in motCleFks:
-            newEntry = LinkExperienceMotCle(experience_fk = experienceFk,
-                                            motcle_fk = motCleFk)
+            newEntry = LinkExperienceMotCle(experience_fk=experienceFk,
+                                            motcle_fk=motCleFk)
             session.add(newEntry)
         session.flush()
 
@@ -3843,8 +3841,8 @@ class ManageClpsbw(BrowserView):
         session = wrapper.session
         experienceSousPlateFormeFk = getattr(fields, 'experience_sousplateforme_fk', None)
         for sousPlateFormeFk in experienceSousPlateFormeFk:
-            newEntry = LinkExperienceSousPlateForme(experience_fk = experienceFk,
-                                                    sousplateforme_fk = sousPlateFormeFk)
+            newEntry = LinkExperienceSousPlateForme(experience_fk=experienceFk,
+                                                    sousplateforme_fk=sousPlateFormeFk)
             session.add(newEntry)
         session.flush()
 
@@ -3863,12 +3861,12 @@ class ManageClpsbw(BrowserView):
             session.add(newEntry)
         session.flush()
 
-    def addRechercheLog(self, \
-                        experiencePk = None, \
-                        milieudeviePk = None, \
-                        themePk = None, \
-                        publicPk = None, \
-                        motclePk = None):
+    def addRechercheLog(self,
+                        experiencePk=None,
+                        milieudeviePk=None,
+                        themePk=None,
+                        publicPk=None,
+                        motclePk=None):
         """
         table pg recherche_log
         ajout les pk des parametres d'une recherche
@@ -3879,14 +3877,14 @@ class ManageClpsbw(BrowserView):
         recherchelog_date = self.getTimeStamp()
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        newEntry = RechercheLog(recherchelog_requete = recherchelog_requete, \
-                                      recherchelog_user = recherchelog_user, \
-                                      recherchelog_experience_fk = experiencePk, \
-                                      recherchelog_milieudevie_fk = milieudeviePk, \
-                                      recherchelog_theme_fk = themePk, \
-                                      recherchelog_public_fk = publicPk, \
-                                      recherchelog_motcle_fk = motclePk, \
-                                      recherchelog_date = recherchelog_date)
+        newEntry = RechercheLog(recherchelog_requete=recherchelog_requete,
+                                recherchelog_user=recherchelog_user,
+                                recherchelog_experience_fk=experiencePk,
+                                recherchelog_milieudevie_fk=milieudeviePk,
+                                recherchelog_theme_fk=themePk,
+                                recherchelog_public_fk=publicPk,
+                                recherchelog_motcle_fk=motclePk,
+                                recherchelog_date=recherchelog_date)
         session.add(newEntry)
         session.flush()
         return {'status': 1}
@@ -4707,7 +4705,8 @@ class ManageClpsbw(BrowserView):
         if experience_auteur:
             experience_auteur_fk = self.getAuteurPkByName(experience_auteur)
         else:
-            experience_auteur_fk = self.getAuteurByLogin()
+            auteur = self.getAuteurByLogin()
+            experience_auteur_fk = auteur.auteur_pk
 
         #cas d'un update par personnel CLPS qui peut modifier le login , donc la propriété d'une expérience.
         if not experience_auteur_login:
@@ -4832,7 +4831,7 @@ class ManageClpsbw(BrowserView):
         #experience_clps_proprio_fk = getattr(fields, 'experience_clps_proprio_fk', None),
         experience_etat = getattr(fields, 'experience_etat', None)
 
-        experience_clps_proprio_fk=1
+        experience_clps_proprio_fk = 1
         #cas de modification de l'auteur via ligth search
         experience_auteur_fk = getattr(fields, 'experience_auteur_fk', None)
         if not experience_auteur_fk:
@@ -4843,43 +4842,43 @@ class ManageClpsbw(BrowserView):
 
         wrapper = getSAWrapper('clpsbw')
         session = wrapper.session
-        newEntry = ExperienceMaj(experience_maj_expfk = experiencePk, \
-                                 experience_maj_titre = experience_titre, \
-                                 experience_maj_resume = experience_resume, \
-                                 experience_maj_personne_contact = experience_personne_contact, \
-                                 experience_maj_personne_contact_email = experience_personne_contact_email, \
-                                 experience_maj_personne_contact_telephone = experience_personne_contact_telephone, \
-                                 experience_maj_personne_contact_institution = experience_personne_contact_institution, \
-                                 experience_maj_element_contexte = experience_element_contexte, \
-                                 experience_maj_objectif = experience_objectif, \
-                                 experience_maj_public_vise = experience_public_vise, \
-                                 experience_maj_demarche_actions = experience_demarche_actions, \
-                                 experience_maj_commune_international = experience_commune_international, \
-                                 experience_maj_territoire_tout_brabant_wallon = experience_territoire_tout_brabant_wallon, \
-                                 experience_maj_periode_deroulement = experience_periode_deroulement, \
-                                 experience_maj_moyens = experience_moyens, \
-                                 experience_maj_evaluation_enseignement = experience_evaluation_enseignement, \
-                                 experience_maj_perspective_envisagee = experience_perspective_envisagee, \
-                                 experience_maj_institution_porteur_autre = experience_institution_porteur_autre, \
-                                 experience_maj_institution_partenaire_autre = experience_institution_partenaire_autre, \
-                                 experience_maj_institution_ressource_autre = experience_institution_ressource_autre, \
-                                 experience_maj_institution_outil_autre = experience_institution_outil_autre, \
-                                 experience_maj_formation_suivie = experience_formation_suivie, \
-                                 experience_maj_aller_plus_loin = experience_aller_plus_loin, \
-                                 experience_maj_plate_forme_sante_ecole = experience_plate_forme_sante_ecole, \
-                                 experience_maj_plate_forme_assuetude = experience_plate_forme_assuetude, \
-                                 experience_maj_plate_forme_sante_famille = experience_plate_forme_sante_famille, \
-                                 experience_maj_plate_forme_sante_environnement = experience_plate_forme_sante_environnement, \
-                                 experience_maj_mission_centre_documentation = experience_mission_centre_documentation, \
-                                 experience_maj_mission_accompagnement_projet = experience_mission_accompagnement_projet, \
-                                 experience_maj_mission_reseau_echange = experience_mission_reseau_echange, \
-                                 experience_maj_mission_formation = experience_mission_formation, \
-                                 experience_maj_auteur_login = experience_auteur_login, \
-                                 experience_maj_clps_proprio_fk = experience_clps_proprio_fk, \
-                                 experience_maj_auteur_fk = experience_auteur_fk, \
-                                 experience_maj_etat = experience_etat, \
-                                 experience_maj_modification_date = experience_modification_date, \
-                                 experience_maj_modification_employe = experience_modification_employe)
+        newEntry = ExperienceMaj(experience_maj_expfk=experiencePk,
+                                 experience_maj_titre=experience_titre,
+                                 experience_maj_resume=experience_resume,
+                                 experience_maj_personne_contact=experience_personne_contact,
+                                 experience_maj_personne_contact_email=experience_personne_contact_email,
+                                 experience_maj_personne_contact_telephone=experience_personne_contact_telephone,
+                                 experience_maj_personne_contact_institution=experience_personne_contact_institution,
+                                 experience_maj_element_contexte=experience_element_contexte,
+                                 experience_maj_objectif=experience_objectif,
+                                 experience_maj_public_vise=experience_public_vise,
+                                 experience_maj_demarche_actions=experience_demarche_actions,
+                                 experience_maj_commune_international=experience_commune_international,
+                                 experience_maj_territoire_tout_brabant_wallon=experience_territoire_tout_brabant_wallon,
+                                 experience_maj_periode_deroulement=experience_periode_deroulement,
+                                 experience_maj_moyens=experience_moyens,
+                                 experience_maj_evaluation_enseignement=experience_evaluation_enseignement,
+                                 experience_maj_perspective_envisagee=experience_perspective_envisagee,
+                                 experience_maj_institution_porteur_autre=experience_institution_porteur_autre,
+                                 experience_maj_institution_partenaire_autre=experience_institution_partenaire_autre,
+                                 experience_maj_institution_ressource_autre=experience_institution_ressource_autre,
+                                 experience_maj_institution_outil_autre=experience_institution_outil_autre,
+                                 experience_maj_formation_suivie=experience_formation_suivie,
+                                 experience_maj_aller_plus_loin=experience_aller_plus_loin,
+                                 experience_maj_plate_forme_sante_ecole=experience_plate_forme_sante_ecole,
+                                 experience_maj_plate_forme_assuetude=experience_plate_forme_assuetude,
+                                 experience_maj_plate_forme_sante_famille=experience_plate_forme_sante_famille,
+                                 experience_maj_plate_forme_sante_environnement=experience_plate_forme_sante_environnement,
+                                 experience_maj_mission_centre_documentation=experience_mission_centre_documentation,
+                                 experience_maj_mission_accompagnement_projet=experience_mission_accompagnement_projet,
+                                 experience_maj_mission_reseau_echange=experience_mission_reseau_echange,
+                                 experience_maj_mission_formation=experience_mission_formation,
+                                 experience_maj_auteur_login=experience_auteur_login,
+                                 experience_maj_clps_proprio_fk=experience_clps_proprio_fk,
+                                 experience_maj_auteur_fk=experience_auteur_fk,
+                                 experience_maj_etat=experience_etat,
+                                 experience_maj_modification_date=experience_modification_date,
+                                 experience_maj_modification_employe=experience_modification_employe)
 
         session.add(newEntry)
         session.flush()

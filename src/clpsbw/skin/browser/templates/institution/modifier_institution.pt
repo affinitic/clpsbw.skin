@@ -307,7 +307,7 @@
                     <p>Vous voulez préciser vos activités (par exemple à quel public elles s’adressent) :</p>
                     <span tal:replace="structure python: view.getWysiwygField('institution_assuet_intervention_precision', institution.institution_assuet_intervention_precision)" />
                 </div>
-                
+
                 <div class="formulaire">
                     <h2>Activités proposées</h2>
                     <p>Quels types d’activités proposez-vous en matière d’assuétudes ?
@@ -339,14 +339,14 @@
                         <br />
                     </tal:boucle>
                 </div>
-                
+
                 <div class="formulaire">
                     <h2>Précision par rapport aux activités proposées</h2>
                     <p>Vous voulez préciser vos activités (par exemple à quel public elles s’adressent)</p>
                     <span tal:replace="structure python: view.getWysiwygField('institution_assuet_activite_proposee_precision', institution.institution_assuet_activite_proposee_precision)" />
                     <br />
                 </div>
-                
+
                 <div class="formulaire">
                     <h2>Thématiques</h2>
                     <p>Y a-t-il une thématique que vous aborder plus particulièrement ?
@@ -367,7 +367,7 @@
                         </tal:boucle>
                     </tal:block>
                 </div>
-                
+
                 <div class="formulaire">
                     <h2>Précision par rapport aux thématiques</h2>
                     <p>Vous voulez préciser vos activités par rapport aux thématiques
@@ -382,7 +382,7 @@
                     serait en demande de soutien par rapport à la
                     thématique des assuétudes ?</p>
                     <span tal:replace="structure python: view.getWysiwygField('institution_assuet_aide_soutien_ecole', institution.institution_assuet_aide_soutien_ecole)" />
-                </div>          
+                </div>
             </div>
 
             <div class="formControls">
