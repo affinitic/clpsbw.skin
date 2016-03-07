@@ -2,7 +2,7 @@
 CLPS-BW 2.0
 AFFINITIC - AOUT 2013
 
-mauve #9a0546 
+mauve #9a0546
 bleu-titre #00728a
 bleu-border #20a3af
 vert background #afa61d
@@ -11,6 +11,39 @@ vert background #afa61d
 HOMEPAGE et NEWSLISTING
 
 **/
+
+
+#capsule-video{
+border:1px solid rgba(50,50,50,0.5);
+border-radius:8px;
+box-shadow:5px 5px 10px rgba(50,50,50,0.5);
+}
+
+#projet-partage-banner{
+width:342px;
+height:169px;
+text-align:center;
+box-shadow:5px 5px 10px rgba(50,50,50,0.5);
+background-color:#da8f18;
+border:2px solid #981a4d;
+border-radius:8px;
+}
+
+#projet-partage-banner a{
+display:inline-block;
+width:334px;
+height:159px;
+padding:10px 4px 0px 4px;
+}
+
+#projet-partage-banner a,
+#projet-partage-banner a:link{
+color:#000 !important;
+font-size:1.3em;
+border-bottom:none !important;
+font-weight:bold;
+}
+
 
 /*** CONTENT PLONE ***/
 article.clpsnews{

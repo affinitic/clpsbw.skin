@@ -16,6 +16,17 @@
       de la sant&eacute; du Brabant wallon.</h1>
     <table width="95%" align="center">
         <tr>
+            <td valign="middle" colspan="3" align="center">
+                <iframe id="capsule-video"
+                        width="560"
+                        height="315"
+                        src="https://www.youtube.com/embed/EfnXoJHGCQ8"
+                        frameborder="1"
+                        allowfullscreen></iframe>
+                <p><br /></p>
+            </td>
+        </tr>
+        <tr>
             <td valign="middle">
               <a href="http://www.clps-bw.be/sante-et-bien-etre-a-l-ecole/plate-forme-amelioration-du-climat-scolaire-et-prevention-du-harcelement ">
                   <img src="clpsbw_logo_harcelement_a_l_ecole.png"
@@ -38,13 +49,16 @@
               -->
             </td>
             <td valign="middle">
-                <a href="presentation-db">
-                    <img src="projet_partage_banner.png"
-                       border="0"
-                       width="342"
-                       height="169"
-                       tilte="CLPS-Bw : projets partagés"
-                       alt="projet_partage_banner.png" /></a>
+                <div id="projet-partage-banner">
+                    <a href="presentation-db">
+                        <p>
+                        Venez vister notre nouvelle base de données
+                        d'expériences en promotion de la santé.
+                        </p>
+                        <img src="projet_partage_logo.png"
+                             tilte="CLPS-Bw : projets partagés"
+                             alt="projet_partage_banner.png" /></a>
+                </div>
             </td>
             <td valign="middle">
             </td>
@@ -85,7 +99,7 @@
                                   class="clpsnews-title" /></a>
                         <p tal:content="item/Description"
                            class="clpsnews-description"></p>
-                         
+
                         <span tal:content="python: convert(item.Date)"
                               class="clpsnews-date" />
                     </div>
