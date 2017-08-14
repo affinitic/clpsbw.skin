@@ -118,7 +118,7 @@ font-size:1em;
 }
 
 div.portlet-left-column dt.portletItem{
-min-height:30px;
+min-height:36px;
 line-height:1.2em;
 background-color:#fff;
 border:1px solid #00728a;
@@ -265,8 +265,8 @@ div.portlet-left-column dl#portlet-offre-service dt.portletItem,
 div.portlet-left-column dl#portlet-plate-forme dt.portletItem,
 div.portlet-left-column dl#portlet-projet-partage dt.portletItem{
 padding-left:20px;
+padding-top:8px;
 text-align:left;
-line-height:30px;
 }
 
 
