@@ -760,6 +760,15 @@ i18n_domain="clpsbw.skin">
     class=".ManageClpsbw.ManageClpsbw"
     allowed_interface=".interfaces.IManageClpsbw"
     />
+<browser:page
+    name="assuetude-organisme-ressource"
+    for="*"
+    template="templates/assuetude/assuetude_organisme_ressource.pt"
+    permission="zope.Public"
+    class=".ManageClpsbw.ManageClpsbw"
+    allowed_interface=".interfaces.IManageClpsbw"
+    />
+
 
 
 <!-- THEME - THEME - THEME - THEME - THEME - THEME - THEME- THEME -->
