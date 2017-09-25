@@ -44,7 +44,7 @@
                                      chiffre repeat/type/number"
                          tal:condition="python: len(institutions) > 0">
                         <a href=""
-                           tal:attributes="href string:${context/portal_url}/point-d-appui-assuetudes/ressources/assuetude-organisme-ressource?institutionTypePk=${institutionTypePk};
+                           tal:attributes="href string:${context/portal_url}/point-d-appui-assuetudes/assuetude-organisme-ressource?institutionTypePk=${institutionTypePk};
                            class python:view.getClassCss(chiffre)">
                         <span tal:content="type/institution_type_nom" />
                         <br />
