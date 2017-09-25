@@ -12,6 +12,8 @@
 <div metal:fill-slot="main"
      tal:define="institutionTypePk request/institutionTypePk;
                  institutionTypes python:view.getInstitutionTypeByPk(institutionTypePk);">
+    <a href=""
+       tal:attributes="href string:${context/portal_url}/point-d-appui-assuetudes/partenaires"> Retour </a>
     <tal:boucle tal:repeat="type institutionTypes">
         <h1>Liste des organismes de type <span class="italic" tal:content="type/institution_type_nom">type institution</span></h1>
         <p>Liste de toutes les institutions pour la plate-forme assuétude quelque soit l'état</p>
@@ -40,7 +42,7 @@
                                         </tal:boucle>
                                     </dd>
                                 </tal:block>
-                            
+
                                 <tal:block tal:define="selectedActivitesProposees python:view.getAssuetudeActiviteProposeePublicForInstitution(institutionPk, 'nom')"
                                            tal:condition="python: len(selectedActivitesProposees) > 0">
                                     <dt>Activités proposées pour le public</dt>
@@ -48,21 +50,21 @@
                                         <tal:boucle tal:repeat="activite selectedActivitesProposees">
                                             <span tal:content="activite" />
                                             <span tal:condition="not:repeat/activite/end"> - </span>
-                                        </tal:boucle>                                   
+                                        </tal:boucle>
                                     </dd>
                                 </tal:block>
-                            
+
                                 <tal:block tal:define="selectedActivitesProposees python:view.getAssuetudeActiviteProposeeProForInstitution(institutionPk, 'nom')"
                                             tal:condition="python: len(selectedActivitesProposees) > 0">
                                     <dt>Activités proposées pour les professionnel</dt>
                                     <dd>
                                         <tal:boucle tal:repeat="activite selectedActivitesProposees">
                                             <span tal:content="activite" />
-                                            <span tal:condition="not: repeat/activite/end"> - </span> 
+                                            <span tal:condition="not: repeat/activite/end"> - </span>
                                         </tal:boucle>
-                                    </dd>  
+                                    </dd>
                                 </tal:block>
-                            
+
                                 <tal:block tal:define="selectedThematiques python: view.getAssuetudeThematiqueForInstitution(institutionPk, 'nom')"
                                            tal:condition="python: len(selectedThematiques) > 0">
                                     <dt>Thématiques</dt>
@@ -70,10 +72,10 @@
                                         <tal:boucle tal:repeat="thematique selectedThematiques">
                                             <span tal:content="thematique" />
                                             <span tal:condition="not:repeat/thematique/end"> - </span>
-                                        </tal:boucle>                                                                                
+                                        </tal:boucle>
                                     </dd>
                                 </tal:block>
-                            
+
                                 <tal:block tal:condition="python:institution.institution_assuet_aide_soutien_ecole !=''">
                                     <dt>Aide et soutien aux écoles</dt>
                                     <dd>
@@ -87,7 +89,8 @@
             </tal:test>
         </tal:block>
     </tal:boucle>
-    <a href="" tal:attributes="href string:${context/portal_url}/point-d-appui-assuetudes/ressources/assuetude-ressource-liste-des-types-institutions"> Retour </a>
+    <a href=""
+       tal:attributes="href string:${context/portal_url}/point-d-appui-assuetudes/partenaires"> Retour </a>
 </div><!--metal-->
 </body>
 </html>
